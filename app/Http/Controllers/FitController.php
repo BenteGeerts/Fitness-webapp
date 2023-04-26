@@ -7,9 +7,11 @@ use Google\Client;
 use Google\Service\Fitness;
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Psr7\Request as GuzzleRequest;
+
 class FitController extends Controller
 {
-    public function Fit() {
+    public function Fit()
+    {
 
         $client = new Client();
         $client->setApplicationName(env('GOOGLE_APP_NAME'));
@@ -18,7 +20,7 @@ class FitController extends Controller
         $client->setRedirectUri(env('GOOGLE_REDIRECT_URI'));
         $client->setAccessType('offline');
         $client->setIncludeGrantedScopes(true);
-        $client->addScope('https://www.googleapis.com/auth/fitness.activity.read');
+        //$client->addScope('https://www.googleapis.com/auth/fitness.activity.read');
 
 //        if (!isset($_GET['code'])) {
 //            $auth_url = $client->createAuthUrl();
@@ -35,8 +37,8 @@ class FitController extends Controller
         // Set up the request parameters
         $url = 'https://www.googleapis.com/fitness/v1/users/me/dataset:aggregate';
         $data_source_id = 'derived:com.google.step_count.delta:com.google.android.gms:estimated_steps';
-        $start_time = strtotime('yesterday');
-        $end_time = strtotime('today') - 1;
+        $end_time = strtotime('today');
+        $start_time = strtotime('-1 week', $end_time);
 
         $data_request = array(
             'aggregateBy' => array(
@@ -50,13 +52,11 @@ class FitController extends Controller
             'dataSourceId' => $data_source_id,
         );
 
-        // Set up the request headers
         $headers = [
             'Content-Type' => 'application/json',
             'Authorization' => 'Bearer ' . $accessToken,
         ];
 
-        // Send the request to the Google Fit API
         $request = new GuzzleRequest('POST', $url, [
             'Authorization' => 'Bearer ' . $accessToken,
             'Content-Type' => 'application/json',
@@ -64,12 +64,16 @@ class FitController extends Controller
         $client = new GuzzleClient();
         $response = $client->send($request);
 
-        // Parse the response to get the step count data
         $data = json_decode($response->getBody()->getContents(), true);
-        $stepCount = $data['bucket'][0]['dataset'][0]['point'][0]['value'][0]['intVal'];
 
 
-       return view("dashboard")->with("stepCount", $stepCount);
+        foreach ($data['bucket'] as $bucket) {
+            $startTimeMillis = $bucket['startTimeMillis'];
+            $endTimeMillis = $bucket['endTimeMillis'];
+            $stepCount = $bucket['dataset'][0]['point'][0]['value'][0]['intVal'];
+            $stepCountData[] = $stepCount;
+        }
+        return view("dashboard")->with("stepCountData", $stepCountData);
     }
 
 }

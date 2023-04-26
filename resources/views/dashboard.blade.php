@@ -1,4 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <h1>{{$stepCount}}</h1>
+    @foreach($stepCountData as $stepCount)
+        <h1>{{$stepCount}}</h1>
+    @endforeach
 @endsection
