@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\testController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +16,6 @@ use App\Http\Controllers\LoginController;
 |
 */
 
-
-Route::get("/", function () {
-    return view("welcome");
-});
-
+Route::get("/", [PageController::class, "landingpage"]);
 Route::get("/login", [LoginController::class, "login"]);
 Route::get("/redirect", [LoginController::class, "redirect"]);
