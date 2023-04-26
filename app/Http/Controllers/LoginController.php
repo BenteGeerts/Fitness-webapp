@@ -5,20 +5,27 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
-use Socialite;
+use Laravel\Socialite\Facades\Socialite;
+
 
 class LoginController extends Controller
 {
     public function login()
     {
         if (empty(Auth::user())) {
-            return Socialite::driver("google")->redirect();
+            return Socialite::driver("google")
+                ->scopes(['https://www.googleapis.com/auth/fitness.activity.read', 'https://www.googleapis.com/auth/fitness.body.read'])
+                ->redirect();
+        }
+        if(!empty(Auth::user())) {
+            return redirect("/dashboard");
         }
     }
 
     public function redirect()
     {
         $user = Socialite::driver("google")->user();
+        session()->put('access_token', $user->token);
         $email = User::where('email', '=', $user->email)->first();
 
         if (!empty($email)) {
@@ -35,6 +42,6 @@ class LoginController extends Controller
             );
         }
 
-        return redirect("/");
+        return redirect("/dashboard");
     }
 }

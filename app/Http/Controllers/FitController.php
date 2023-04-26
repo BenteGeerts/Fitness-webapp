@@ -7,9 +7,9 @@ use Google\Client;
 use Google\Service\Fitness;
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Psr7\Request as GuzzleRequest;
-class testController extends Controller
+class FitController extends Controller
 {
-    public function googleFit() {
+    public function Fit() {
 
         $client = new Client();
         $client->setApplicationName(env('GOOGLE_APP_NAME'));
@@ -20,14 +20,14 @@ class testController extends Controller
         $client->setIncludeGrantedScopes(true);
         $client->addScope('https://www.googleapis.com/auth/fitness.activity.read');
 
-        if (!isset($_GET['code'])) {
-            $auth_url = $client->createAuthUrl();
-            return redirect()->to($auth_url);
-        } else {
-            $client->authenticate($_GET['code']);
-            $access_token = $client->getAccessToken();
-            session()->put('access_token', $access_token);
-        }
+//        if (!isset($_GET['code'])) {
+//            $auth_url = $client->createAuthUrl();
+//            return redirect()->to($auth_url);
+//        } else {
+//            $client->authenticate($_GET['code']);
+//            $access_token = $client->getAccessToken();
+//            session()->put('access_token', $access_token);
+//        }
 
         $accessToken = session()->get('access_token');
         $client->setAccessToken($accessToken);
@@ -53,12 +53,12 @@ class testController extends Controller
         // Set up the request headers
         $headers = [
             'Content-Type' => 'application/json',
-            'Authorization' => 'Bearer ' . $access_token['access_token'],
+            'Authorization' => 'Bearer ' . $accessToken,
         ];
 
         // Send the request to the Google Fit API
         $request = new GuzzleRequest('POST', $url, [
-            'Authorization' => 'Bearer ' . $access_token['access_token'],
+            'Authorization' => 'Bearer ' . $accessToken,
             'Content-Type' => 'application/json',
         ], json_encode($data_request));
         $client = new GuzzleClient();
@@ -67,10 +67,9 @@ class testController extends Controller
         // Parse the response to get the step count data
         $data = json_decode($response->getBody()->getContents(), true);
         $stepCount = $data['bucket'][0]['dataset'][0]['point'][0]['value'][0]['intVal'];
-        dd($stepCount);
 
 
-       return view("welcome")->with("stepCount", $stepCount);
+       return view("dashboard")->with("stepCount", $stepCount);
     }
 
 }

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\testController;
+use App\Http\Controllers\FitController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PageController;
 
@@ -17,5 +17,6 @@ use App\Http\Controllers\PageController;
 */
 
 Route::get("/", [PageController::class, "landingpage"]);
-Route::get("/login", [LoginController::class, "login"]);
+Route::get("/login", [LoginController::class, "login"])->name("login");
 Route::get("/redirect", [LoginController::class, "redirect"]);
+Route::get("/dashboard", [FitController::class, "Fit"]);
