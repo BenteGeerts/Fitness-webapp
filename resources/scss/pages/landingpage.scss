@@ -1,0 +1,37 @@
+.landingpage {
+
+}
+
+.landingpage__hero {
+    position: relative;
+    padding-bottom: 20px;
+
+    &:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 60px;
+        bottom: 0px;
+        left: 0;
+        background: linear-gradient(180deg, $background-color 0%, $background-color 68.97%);
+        filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+}
+
+.landingpage__heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-title {
+        font-size: 2.125rem;
+        font-weight: 700;
+    }
+}
+
+.landingpage__text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
