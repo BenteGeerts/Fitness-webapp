@@ -1,0 +1,18 @@
+.nav {
+    background-color: $color-3;
+    border-radius: 20px 20px 0 0;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
+
+    &__item {
+        font-size: 1.875rem;
+    }
+}
