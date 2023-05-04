@@ -17,6 +17,8 @@ use App\Http\Controllers\PageController;
 */
 
 Route::get("/", [PageController::class, "landingpage"]);
-Route::get("/login", [LoginController::class, "login"])->name("login");
-Route::get("/redirect", [LoginController::class, "redirect"]);
+Route::get("/google-login", [LoginController::class, "googleLogin"])->name("googleLogin");
+Route::get("/google-redirect", [LoginController::class, "googleRedirect"]);
+Route::get("/facebook-login", [LoginController::class, "facebookLogin"])->name("facebookLogin");
+Route::get("facebook-redirect", [LoginController::class, "facebookRedirect"]);
 Route::get("/dashboard", [FitController::class, "Fit"]);

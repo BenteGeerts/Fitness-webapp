@@ -10,19 +10,19 @@ use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
 {
-    public function login()
+    public function googleLogin()
     {
         if (empty(Auth::user())) {
             return Socialite::driver("google")
                 ->scopes(['https://www.googleapis.com/auth/fitness.activity.read', 'https://www.googleapis.com/auth/fitness.body.read'])
-                ->redirect();
+                ->googleRedirect();
         }
         if(!empty(Auth::user())) {
             return redirect("/dashboard");
         }
     }
 
-    public function redirect()
+    public function googleRedirect()
     {
         $user = Socialite::driver("google")->user();
         session()->put('access_token', $user->token);
@@ -43,5 +43,15 @@ class LoginController extends Controller
         }
 
         return redirect("/dashboard");
+    }
+
+    public function facebookLogin()
+    {
+
+    }
+
+    public function facebookRedirect()
+    {
+
     }
 }
