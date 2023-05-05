@@ -2,9 +2,13 @@
 
 }
 
-.landingpage__hero {
+.hero {
     position: relative;
     padding-bottom: 20px;
+
+    @include media-breakpoint-up(lg) {
+        padding-bottom: unset;
+    }
 
     &:after {
         content: '';
@@ -16,6 +20,28 @@
         background: linear-gradient(180deg, $background-color 0%, $background-color 68.97%);
         filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
+
+        @include media-breakpoint-up(lg) {
+            content: unset;
+        }
+    }
+
+    &--hidden {
+        display: none;
+
+        @include media-breakpoint-up(lg) {
+            display: block;
+        }
+    }
+}
+
+.hero__img {
+    padding-top: 50px;
+
+    @include media-breakpoint-up(lg) {
+        padding-top: unset;
+        height: 100vh;
+        max-width: unset;
     }
 }
 
@@ -27,6 +53,11 @@
     &-title {
         font-size: 2.125rem;
         font-weight: 700;
+        padding-bottom: $small-spacing;
+    }
+
+    &-slogan {
+        padding-bottom: $small-spacing;
     }
 }
 
@@ -34,4 +65,46 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.divider__line-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    padding-top: 50px;
+    padding-bottom: $small-spacing;
+
+    &--signup {
+        padding-top: $small-spacing;
+        padding-bottom: 20px;
+    }
+}
+
+.divider__line {
+    color: $color-7;
+    opacity: unset;
+    width: 100%;
+}
+
+.divider__line-text {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 0;
+}
+
+.landingpage__buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+
+    padding-bottom: $small-spacing;
+}
+
+.landingpage__link {
+    font-weight: 700;
+    text-decoration: none;
+    color: $color-7;
 }

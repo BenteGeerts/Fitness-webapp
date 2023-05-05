@@ -1,14 +1,14 @@
 @extends('layouts.app')
 @section('content')
     <section class="landingpage">
-        <div class="row">
-            <div class="col-md-12 col-xl-6">
-                <div class="landingpage__hero">
-                    <img class="landingpage__hero-img" src="/images/hero.png" alt="women wearing gym clothes">
+        <div class="row align-items-center">
+            <div class="col-md-12 col-lg-6">
+                <div class="hero">
+                    <img class="hero__img" src="/images/hero.png" alt="women wearing gym clothes">
                 </div>
             </div>
 
-            <div class="col-md-12 col-xl-6">
+            <div class="col-md-12 col-lg-4 mx-auto">
                 <div class="landingpage__text-content">
                     <div class="landingpage__heading">
                         <h1 class="landingpage__heading-title">MOVE</h1>
@@ -17,12 +17,24 @@
 
                     <a class="button button--big" href="">Sign Up with Email</a>
 
-                    <div class="landingpage__buttons">
-                        <a class="button button--secondary button--icon" href="{{Route("googleLogin")}}">Google</a>
-                        <a class="button button--secondary button--icon" href="{{Route("facebookLogin")}}">Facebook</a>
+                    <div class="divider__line-wrapper">
+                        <hr class="divider__line">
+                        <p class="divider__line-text">Or</p>
+                        <hr class="divider__line">
                     </div>
 
-                    <p>Already have an account? Sign in</p>
+                    <div class="landingpage__buttons">
+                        <a class="button button--secondary button--icon" href="{{Route("googleLogin")}}">
+                            <img class="button__img" src="/images/googleIcon.png" alt="">
+                            Google
+                        </a>
+                        <a class="button button--secondary button--icon" href="{{Route("facebookLogin")}}">
+                            <img class="button__img" src="/images/facebookIcon.png" alt="">
+                            Facebook
+                        </a>
+                    </div>
+
+                    <p>Already have an account? <a class="landingpage__link" href="">Sign in</a></p>
                 </div>
             </div>
         </div>

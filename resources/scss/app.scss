@@ -2,3 +2,31 @@
 @import "../../node_modules/bootstrap/scss/bootstrap";
 @import "variables";
 @import "fonts";
+@import "text";
+@import "nav";
+
+//PAGES
+@import "pages/landingpage";
+@import "pages/signuppage";
+
+html {
+    border: none !important;
+}
+
+body, html {
+    background-color: $background-color;
+    overflow-x: hidden;
+
+    max-width: 95%;
+    margin: auto;
+
+    font-family: "Inter";
+
+    @include media-breakpoint-up(lg) {
+        max-width: unset;
+    }
+}
+img {
+    max-width: 100%;
+}
+
