@@ -8,6 +8,10 @@
 //PAGES
 @import "pages/landingpage";
 @import "pages/signuppage";
+@import "pages/login";
+
+//COMPONENTS
+@import "components/form";
 
 html {
     border: none !important;

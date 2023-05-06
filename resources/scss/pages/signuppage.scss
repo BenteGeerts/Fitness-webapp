@@ -22,56 +22,19 @@
     }
 }
 
-.signup__form {
-    padding-bottom: $medium-spacing;
-
-    @include media-breakpoint-up(lg) {
-        padding-bottom: 40px;
-    }
-}
-
-.signup__form-names {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.signup__form-label {
-    padding-bottom: 10px;
-
-    @include media-breakpoint-up(lg) {
-        font-size: 1.125rem;
-    }
-}
-
-.signup__form-field {
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 10px;
-
-    &--small {
-        width: 45%;
-    }
-}
-
-.signup__form-password {
-    position: relative;
-}
-
-.signup__form-icon {
-    position: absolute;
-    font-size: 1.5rem;
-
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
 .signup__buttons {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
     flex-direction: row;
+}
+
+.signup__cta {
+    margin-top: $medium-spacing;
+
+    @include media-breakpoint-up(lg) {
+        margin-top: 40px;
+    }
 }
 
 .signup__button {
@@ -88,19 +51,5 @@
         @include media-breakpoint-up(lg) {
             display: block;
         }
-    }
-}
-
-.input-field {
-    width: 100%;
-    border-radius: 5px;
-    background-color: $color-4;
-    border: 2px solid rgba(0, 0, 0, 0.2);
-    padding-left: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-
-    &--no-background {
-        background-color: unset;
     }
 }
