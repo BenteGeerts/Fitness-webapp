@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('content')
     <section class="signup">
-
         <div class="row align-items-center">
             <div class="col-md-12 col-lg-6">
                 <div class="hero hero--hidden">
@@ -15,41 +14,41 @@
                    <p class="signup__heading-subtitle">Create your account</p>
                </div>
 
-               <form class="signup__form" action="post">
-                   <div class="signup__form-names">
-                       <div class="signup__form-field signup__form-field--small">
-                           <label class="signup__form-label" for="firstname">First name</label>
-                           <input class="input-field" name="firstname" type="text">
+               <form class="form" action="post">
+                   <div class="form__names">
+                       <div class="form__field form__field--small">
+                           <label class="form__label" for="firstname">First name</label>
+                           <input class="form__input-field" name="firstname" type="text">
                        </div>
 
-                       <div class="signup__form-field signup__form-field--small">
-                           <label class="signup__form-label" for="lastname">Last name</label>
-                           <input class="input-field" name="lastname" type="text">
-                       </div>
-                   </div>
-
-                   <div class="signup__form-field">
-                       <label class="signup__form-label" for="email">Email</label>
-                       <input class="input-field" name="email" type="email">
-                   </div>
-
-                   <div class="signup__form-field">
-                       <label class="signup__form-label" for="password">Password</label>
-                       <div class="signup__form-password">
-                           <input class="input-field" name="password" type="password">
-                           <i class="icon-visibility signup__form-icon"></i>
+                       <div class="form__field form__field--small">
+                           <label class="form__label" for="lastname">Last name</label>
+                           <input class="form__input-field" name="lastname" type="text">
                        </div>
                    </div>
 
-                   <div class="signup__form-field">
-                       <label class="signup__form-label" for="confirm">Confirm password</label>
-                       <div class="signup__form-password">
-                           <input class="input-field" name="confirm" type="password">
-                           <i class="icon-visibility signup__form-icon"></i>
+                   <div class="form__field">
+                       <label class="form__label" for="email">Email</label>
+                       <input class="form__input-field" name="email" type="email">
+                   </div>
+
+                   <div class="form__field">
+                       <label class="form__label" for="password">Password</label>
+                       <div class="form__password">
+                           <input class="form__input-field" name="password" type="password">
+                           <i class="icon-visibility form__icon"></i>
+                       </div>
+                   </div>
+
+                   <div class="form__field">
+                       <label class="form__label" for="confirm">Confirm password</label>
+                       <div class="form__password">
+                           <input class="form__input-field" name="confirm" type="password">
+                           <i class="icon-visibility form__icon"></i>
                        </div>
                    </div>
                </form>
-               <a class="button button--big" href="">Create your account</a>
+               <a class="button button--big signup__cta" href="">Create your account</a>
 
                <div class="divider__line-wrapper divider__line-wrapper--signup">
                    <hr class="divider__line">
