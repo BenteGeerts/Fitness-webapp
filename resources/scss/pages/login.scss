@@ -12,6 +12,12 @@
     font-weight: 600;
 }
 
+.login__heading-subtitle {
+    @include media-breakpoint-up(lg) {
+        font-size: 1.25rem;
+    }
+}
+
 .login__link-wrapper {
     display: flex;
     flex-direction: row;
