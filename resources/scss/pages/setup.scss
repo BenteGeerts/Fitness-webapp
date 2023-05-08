@@ -39,6 +39,7 @@
 .setup__heading-title {
     font-weight: 600;
     font-size: 1.125rem;
+    text-align: center;
 }
 
 .setup__heading-subtitle {
@@ -59,8 +60,8 @@
     padding-top: $small-spacing;
     padding-bottom: $small-spacing;
     position: relative;
-    margin-top: 200px;
-    margin-bottom: 200px;
+    margin-top: 220px;
+    margin-bottom: 220px;
     overflow: hidden;
 
     @include media-breakpoint-up(lg) {
@@ -71,6 +72,23 @@
     &--vertical {
         padding-bottom: 0;
         padding-top: 0;
+        margin-top: 87px;
+        margin-bottom: 87px;
+
+        @include media-breakpoint-up(lg) {
+            margin-top: 117px;
+            margin-bottom: 117px;
+        }
+    }
+
+    &--small {
+        margin-top: 76px;
+        margin-bottom: 76px;
+
+        @include media-breakpoint-up(lg) {
+            margin-top: 117px;
+            margin-bottom: 117px;
+        }
     }
 }
 
@@ -103,15 +121,93 @@
     transform: translate(-50%, -50%);
 }
 
-
-
 .swiper-container {
    &--vertical {
-       height: 350px; /* Use 100% height of parent element */
+       height: 350px;
    }
 }
 
 .swiper-slide {
   text-align: center;
     height: fit-content;
+}
+
+.setup__select-wrapper {
+    padding-top: 137px;
+    padding-bottom: 137px;
+
+    @include media-breakpoint-up(lg) {
+        padding-top: 167px;
+        padding-bottom: 167px;
+    }
+}
+
+.setup__select {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-bottom: $small-spacing;
+}
+
+.setup__select-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 95px;
+    height: 95px;
+    border-radius: $border-radius;
+
+    &--active {
+        border: 1px solid $color-7;
+    }
+}
+
+.setup__select-icon {
+    font-size: 2.5rem;
+}
+
+.setup__select-name {
+    font-weight: 600;
+}
+
+.setup__goal-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding-top: 83px;
+    padding-bottom: 83px;
+
+    @include media-breakpoint-up(lg) {
+        padding-top: 113px;
+        padding-bottom: 113px;
+    }
+}
+
+.setup__goal-tile {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $medium-spacing;
+    padding: 5px;
+
+    &--active {
+        border: 1px solid $color-7;
+        border-radius: $border-radius;
+    }
+}
+
+.setup__goal-heading {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 5px;
+}
+
+.setup__goal-icon {
+    font-size: 1.875rem;
+    padding-right: 10px;
+}
+
+.setup__goal-title {
+    font-weight: 600;
 }
