@@ -1,0 +1,95 @@
+.dashboard__heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboard__tile-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    padding-top: 25px;
+}
+
+.dashboard__tile {
+    border-radius: $border-radius;
+    width: 100px;
+    height: 100px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    &--orange {
+        background: linear-gradient(137.17deg, #E9632C 20.4%, rgba(217, 217, 217, 0.63) 91.32%);
+    }
+
+    &--red {
+        background: linear-gradient(134.69deg, #FE5666 4.25%, rgba(217, 217, 217, 0.98) 97.75%);
+    }
+
+    &--green {
+        background: linear-gradient(134.27deg, #B3CB6C 1.23%, rgba(217, 217, 217, 0) 100%);
+    }
+
+    &--light-blue {
+        background: linear-gradient(135deg, #A4D2EB 28.04%, rgba(217, 217, 217, 0) 100%);
+    }
+
+    &--dark-blue {
+        background: linear-gradient(136.04deg, #58A6CB 13.32%, rgba(217, 217, 217, 0) 98.77%);
+    }
+
+    &--pink {
+        background: linear-gradient(136.47deg, #F3E6FF 22.36%, rgba(217, 217, 217, 0) 97.56%);
+    }
+}
+
+.dashboard__tile-content {
+    position: relative;
+    z-index: 9;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+}
+
+.dashboard__tile-background {
+    font-size: 6rem;
+    position: absolute;
+    filter: blur(4px);
+
+    &--orange {
+        color: $color-6;
+    }
+
+    &--red {
+        color: $color-5;
+    }
+
+    &--green {
+        color: $color-10;
+    }
+
+    &--light-blue {
+        color: $color-3
+    }
+
+    &--dark-blue {
+        color: $color-2;
+    }
+
+    &--pink {
+        color: $color-9;
+    }
+}
+
+.dashboard__tile-icon {
+    font-size: 1.875rem;
+}
+
+.dashboard__tile-text {
+    font-weight: 500;
+}
