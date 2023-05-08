@@ -9,6 +9,7 @@ const cssnano = require('gulp-cssnano');
 const minifyJs = require('gulp-uglify');
 const rename = require("gulp-rename");
 var concat = require('gulp-concat');
+const babel = require('gulp-babel');
 
 
 function buildStyle(){
@@ -29,6 +30,9 @@ function imageMin(){
 }
 function js(){
     return gulp.src('./resources/**/*.js')
+        .pipe(babel({
+            presets: ['@babel/env']
+        }))
     .pipe(minifyJs())
     .pipe(concat('main.js'))
     .pipe(gulp.dest('./public/js'));
@@ -51,5 +55,5 @@ function browsersyncReload(cb){
     browserSync.reload();
     cb();
 }
-exports.dev = series(browsersyncServe, watchAll);
+exports.dev = series(watchAll);
 exports.build = parallel(buildStyle, js, imageMin);
