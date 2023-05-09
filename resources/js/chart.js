@@ -5,14 +5,14 @@ steps.forEach(step => {
     dataValues.push(step.innerText);
 });
 
-new Chart(
+const chart = new Chart(
     document.getElementById('step-chart'),
     {
         type: 'line',
         data: {
-            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+            labels: ["02", "03", "04", "05", "06", "07", "08"],
             datasets: [{
-                data: [0, 10, 5, 2, 20, 30, 45, 25, 35, 55, 65, 50],
+                data: [1400, 6000, 5000, 10236, 200, 8900, 4125],
                 borderColor: 'rgba(54, 162, 235, 1)',
                 backgroundColor: 'rgba(54, 162, 235, 0)',
                 tension: 0.5
@@ -20,7 +20,7 @@ new Chart(
         },
         options: {
             scales: {
-                y:{
+                y: {
                     grid: {
                         display: false
                     },
@@ -31,6 +31,12 @@ new Chart(
                 x: {
                     grid: {
                         display: false
+                    },
+                    ticks: {
+                        font: {
+                            size: 16,
+                            family: "Inter",
+                        }
                     }
                 }
             },
@@ -50,12 +56,22 @@ new Chart(
                     display: false
                 },
                 tooltips: {
-                    enabled: false
+                    mode: 'nearest',
+                    intersect: true,
+                    callbacks: {
+                        label: function(tooltipItem, data) {
+                            return data.datasets[0].data[tooltipItem.index];
+                        }
+                    },
                 },
                 title: {
                     display: false,
-                }
-            }
+                },
+            },
+            hover: {
+                mode: 'nearest',
+                intersect: false
+            },
         }
     }
 );
