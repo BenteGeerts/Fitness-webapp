@@ -13,7 +13,24 @@
     bottom: 0;
     left: 0;
 
+    @include media-breakpoint-up(lg) {
+        flex-direction: column;
+        width: unset;
+        height: 380px;
+        border-radius: 50px;
+
+        top: 50%;
+        left: 10px;
+        bottom: unset;
+        transform: translateY(-50%);
+    }
+
     &__item {
         font-size: 1.875rem;
+
+        @include media-breakpoint-up(lg) {
+            padding-left: 24px;
+            padding-right: 24px;
+        }
     }
 }
