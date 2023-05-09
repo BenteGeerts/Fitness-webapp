@@ -11,9 +11,11 @@
 @import "pages/login";
 @import "pages/setup";
 @import "pages/dashboard";
+@import "pages/friends";
 
 //COMPONENTS
 @import "components/form";
+@import "components/page";
 
 html {
     border: none !important;
