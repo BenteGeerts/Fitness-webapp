@@ -2,21 +2,6 @@
     padding-top: $small-spacing;
 }
 
-.dashboard__heading {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.dashboard__profile-img {
-    @include media-breakpoint-up(lg) {
-        position: fixed;
-        left: 25px;
-        bottom: 60px;
-    }
-}
-
 .dashboard__greeting {
     padding-top: 20px;
 }
