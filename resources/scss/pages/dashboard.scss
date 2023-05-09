@@ -1,8 +1,28 @@
+.dashboard {
+    padding-top: $small-spacing;
+}
+
 .dashboard__heading {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+}
+
+.dashboard__profile-img {
+    @include media-breakpoint-up(lg) {
+        position: fixed;
+        left: 25px;
+        bottom: 60px;
+    }
+}
+
+.dashboard__greeting {
+    padding-top: 20px;
+}
+
+.dashboard__greeting-subtitle {
+    font-size: 1.125rem;
 }
 
 .dashboard__tile-row {
@@ -13,11 +33,119 @@
     padding-top: 25px;
 }
 
+.dashboard__tile-wrapper {
+    @include media-breakpoint-up(lg) {
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: $border-radius;
+        position: relative;
+        padding: 10px;
+    }
+
+    &--orange {
+        @include media-breakpoint-up(lg) {
+            background: linear-gradient(137.17deg, #E9632C 20.4%, rgba(217, 217, 217, 0.63) 91.32%);
+        }
+    }
+
+    &--red {
+        @include media-breakpoint-up(lg) {
+            background: linear-gradient(134.69deg, #FE5666 4.25%, rgba(217, 217, 217, 0.98) 97.75%);
+        }
+    }
+
+    &--green {
+        @include media-breakpoint-up(lg) {
+            background: linear-gradient(134.27deg, #B3CB6C 1.23%, rgba(217, 217, 217, 0) 100%);
+        }
+    }
+
+    &--light-blue {
+        @include media-breakpoint-up(lg) {
+            background: linear-gradient(135deg, #A4D2EB 28.04%, rgba(217, 217, 217, 0) 100%);
+        }
+    }
+
+    &--dark-blue {
+        @include media-breakpoint-up(lg) {
+            background: linear-gradient(136.04deg, #58A6CB 13.32%, rgba(217, 217, 217, 0) 98.77%);
+        }
+    }
+
+    &--pink {
+        @include media-breakpoint-up(lg) {
+            background: linear-gradient(136.47deg, #F3E6FF 22.36%, rgba(217, 217, 217, 0) 97.56%);
+        }
+    }
+}
+
+.dashboard__tile-arrow {
+    display: none;
+
+    @include media-breakpoint-up(lg) {
+        background-color: #FAC0A9;
+        border-radius: $border-radius;
+        font-size: 1.5rem;
+        width: fit-content;
+        padding: 5px 10px;
+        margin-top: 25px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &--orange {
+        @include media-breakpoint-up(lg) {
+            background-color: #FAC0A9;
+        }
+    }
+
+    &--red {
+        @include media-breakpoint-up(lg) {
+           background-color: #F4E6FF;
+        }
+    }
+
+    &--green {
+        @include media-breakpoint-up(lg) {
+            background-color: #EDFCBE;
+        }
+    }
+
+    &--light-blue {
+        @include media-breakpoint-up(lg) {
+            background-color: #D8F2FF;
+        }
+    }
+
+    &--dark-blue {
+        @include media-breakpoint-up(lg) {
+           background-color: #C4E8FC;
+        }
+    }
+
+    &--pink {
+        @include media-breakpoint-up(lg) {
+           background-color: #F4E6FF;
+        }
+    }
+}
+
 .dashboard__tile {
     border-radius: $border-radius;
     width: 100px;
     height: 100px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    @include media-breakpoint-up(sm) {
+        width: 150px;
+        height: 150px;
+    }
+
+    @include media-breakpoint-up(lg) {
+        width: 80px;
+        height: 80px;
+    }
 
     &--orange {
         background: linear-gradient(137.17deg, #E9632C 20.4%, rgba(217, 217, 217, 0.63) 91.32%);
@@ -54,12 +182,25 @@
     justify-content: center;
     height: 100%;
     text-align: center;
+
+    @include media-breakpoint-up(lg) {
+        position: unset;
+    }
 }
 
 .dashboard__tile-background {
     font-size: 6rem;
     position: absolute;
     filter: blur(4px);
+
+    @include media-breakpoint-up(sm) {
+        font-size: 9rem;
+    }
+
+    @include media-breakpoint-up(lg) {
+        right: 0;
+        top: 0;
+    }
 
     &--orange {
         color: $color-6;
@@ -86,10 +227,131 @@
     }
 }
 
+.dashboard__chart {
+    padding-bottom: $small-spacing;
+}
+
 .dashboard__tile-icon {
     font-size: 1.875rem;
 }
 
 .dashboard__tile-text {
     font-weight: 500;
+
+    @include media-breakpoint-up(lg) {
+        position: absolute;
+        left: 110px;
+
+        font-size: 1.25rem;
+        font-weight: 600;
+    }
+}
+
+.dashboard__friends {
+    border-radius: $border-radius;
+    background: linear-gradient(136.47deg,#f3e6ff 22.36%,hsl(0deg 0% 100%) 97.56%);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    padding: 20px 10px;
+
+    margin-bottom: 20px;
+
+    @include media-breakpoint-up(lg) {
+        margin-bottom: unset;
+    }
+}
+
+.dashboard__friends-title {
+    font-weight: 600;
+
+    @include media-breakpoint-up(lg) {
+        font-size: 1.125rem
+    }
+}
+
+.dashboard__friends-images {
+    padding-top: 10px;
+}
+
+.dashboard__friends-img {
+    margin-right: -20px;
+}
+
+.dashboard__steps-wrapper {
+    font-weight: 700;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: $small-spacing;
+}
+
+.dashboard__steps-icon {
+    font-size: 1.875rem;
+    padding-right: 5px;
+}
+
+.dashboard__program {
+    border-radius: $border-radius;
+    background: linear-gradient(136.04deg, #58A6CB 13.32%, rgba(217, 217, 217, 0) 98.77%), url("/images/running_background.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    margin-bottom: $small-spacing;
+}
+
+.program__drawing-container {
+    border-radius: $border-radius;
+    background-color: $color-4;
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 8px;
+}
+
+.program__drawing {
+    width: 75px;
+}
+
+.program__text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding-left: 25px;
+}
+
+.program__title {
+    font-weight: 600;
+
+    @include media-breakpoint-up(lg) {
+        font-size: 1.25rem;
+    }
+}
+
+.program__icons {
+    display: flex;
+    flex-direction: row;
+}
+
+.program__icon-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    padding-right: 45px;
+}
+
+.program__icon {
+    padding-right: 10px;
+    font-size: 1.25rem;
+}
+
+.program__icon-text {
+    @include media-breakpoint-up(lg) {
+        font-size: 1.125rem;
+    }
 }
