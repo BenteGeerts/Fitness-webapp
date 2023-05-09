@@ -19,6 +19,8 @@ const chart = new Chart(
             }]
         },
         options: {
+            width: 'auto',
+            height: 'auto',
             scales: {
                 y: {
                     grid: {
