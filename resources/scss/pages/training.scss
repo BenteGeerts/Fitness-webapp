@@ -1,0 +1,55 @@
+.training {
+    padding-top: $small-spacing;
+}
+
+.training__programs {
+    display: none;
+
+    &--active {
+        display: block;
+    }
+}
+
+.training__switch {
+    font-weight: 600;
+    font-size: 1.125rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    padding-top: $small-spacing;
+    padding-bottom: $small-spacing;
+}
+
+.training__switch-item {
+    color: $color-7;
+    text-decoration: none;
+
+    &--active {
+        text-decoration: underline;
+        color: $color-7;
+    }
+}
+
+.training__recommended-programs {
+    display: flex;
+    flex-direction: row;
+
+    overflow-x: auto;
+    white-space: nowrap;
+
+    padding-top: 10px;
+}
+
+.training__all-programs {
+    padding-top: 10px;
+}
+
+.training__buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    padding-bottom: 10px;
+}

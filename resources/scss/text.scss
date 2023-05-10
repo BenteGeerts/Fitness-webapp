@@ -54,6 +54,11 @@ h2 {
 
 .h3 {
     font-weight: 600;
+    font-size: 1.125rem;
+
+    @include media-breakpoint-up(lg) {
+        font-size: 1.25rem;
+    }
 
     &--spacing {
         padding-bottom: 10px;

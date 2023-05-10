@@ -1,0 +1,228 @@
+@extends('layouts.app')
+@section('content')
+    <section class="training">
+        <div class="row justify-content-center">
+            <div class="col-md-12 col-lg-10">
+                <div class="page__heading">
+                    <h1>Training</h1>
+                    <img class="page__profile-img" src="/images/profileimg.png" alt="">
+                </div>
+
+                <div class="training__switch">
+                    <a class="training__switch-item training__switch-item--active" href="" data-toggle-training="programs">Programs</a>
+                    <a class="training__switch-item" href="" data-toggle-training="history">History</a>
+                </div>
+
+               <div class="training__programs training__programs--active" data-training="programs">
+                   <h2 class="h3">Recommended programs</h2>
+
+                   <div class="training__recommended-programs">
+                       <div class="program program--big">
+                           <div class="program__drawing-container program__drawing-container--big">
+                               <img class="program__drawing program__drawing--big" src="/images/drawing__running.svg"
+                                    alt="">
+                           </div>
+
+                           <div class="program__text-container program__text-container--big">
+                               <p class="program__title">Running</p>
+                               <div class="program__icons">
+                                   <div class="program__icon-wrapper">
+                                       <i class="icon-alarm program__icon"></i>
+                                       <p class="program__icon-text">60 min</p>
+                                   </div>
+                                   <div class="program__icon-wrapper program__icon-wrapper--big">
+                                       <i class="icon-diamond program__icon"></i>
+                                       <p class="program__icon-text">552</p>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="program program--big">
+                           <div class="program__drawing-container program__drawing-container--big">
+                               <img class="program__drawing program__drawing--big" src="/images/drawing__running.svg"
+                                    alt="">
+                           </div>
+
+                           <div class="program__text-container program__text-container--big">
+                               <p class="program__title">Running</p>
+                               <div class="program__icons">
+                                   <div class="program__icon-wrapper">
+                                       <i class="icon-alarm program__icon"></i>
+                                       <p class="program__icon-text">60 min</p>
+                                   </div>
+                                   <div class="program__icon-wrapper program__icon-wrapper--big">
+                                       <i class="icon-diamond program__icon"></i>
+                                       <p class="program__icon-text">552</p>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="program program--big">
+                           <div class="program__drawing-container program__drawing-container--big">
+                               <img class="program__drawing program__drawing--big" src="/images/drawing__running.svg"
+                                    alt="">
+                           </div>
+
+                           <div class="program__text-container program__text-container--big">
+                               <p class="program__title">Running</p>
+                               <div class="program__icons">
+                                   <div class="program__icon-wrapper program__icon-wrapper--big">
+                                       <i class="icon-alarm program__icon"></i>
+                                       <p class="program__icon-text">60 min</p>
+                                   </div>
+                                   <div class="program__icon-wrapper">
+                                       <i class="icon-diamond program__icon"></i>
+                                       <p class="program__icon-text">552</p>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+
+                   <h3 class="h3">All programs</h3>
+                   <div class="training__all-programs">
+                       <div class="row">
+                           <div class="col-md-12 col-lg-4">
+                               <div class="program">
+                                   <div class="program__drawing-container">
+                                       <img class="program__drawing" src="/images/drawing__running.svg" alt="">
+                                   </div>
+
+                                   <div class="program__text-container">
+                                       <p class="program__title">Running</p>
+                                       <div class="program__icons">
+                                           <div class="program__icon-wrapper">
+                                               <i class="icon-alarm program__icon"></i>
+                                               <p class="program__icon-text">60 min</p>
+                                           </div>
+                                           <div class="program__icon-wrapper">
+                                               <i class="icon-diamond program__icon"></i>
+                                               <p class="program__icon-text">552</p>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                           <div class="col-md-12 col-lg-4">
+                               <div class="program">
+                                   <div class="program__drawing-container">
+                                       <img class="program__drawing" src="/images/drawing__running.svg" alt="">
+                                   </div>
+
+                                   <div class="program__text-container">
+                                       <p class="program__title">Running</p>
+                                       <div class="program__icons">
+                                           <div class="program__icon-wrapper">
+                                               <i class="icon-alarm program__icon"></i>
+                                               <p class="program__icon-text">60 min</p>
+                                           </div>
+                                           <div class="program__icon-wrapper">
+                                               <i class="icon-diamond program__icon"></i>
+                                               <p class="program__icon-text">552</p>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                           <div class="col-md-12 col-lg-4">
+                               <div class="program">
+                                   <div class="program__drawing-container">
+                                       <img class="program__drawing" src="/images/drawing__running.svg" alt="">
+                                   </div>
+
+                                   <div class="program__text-container">
+                                       <p class="program__title">Running</p>
+                                       <div class="program__icons">
+                                           <div class="program__icon-wrapper">
+                                               <i class="icon-alarm program__icon"></i>
+                                               <p class="program__icon-text">60 min</p>
+                                           </div>
+                                           <div class="program__icon-wrapper">
+                                               <i class="icon-diamond program__icon"></i>
+                                               <p class="program__icon-text">552</p>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="row">
+                           <div class="col-md-12 col-lg-4">
+                               <div class="program">
+                                   <div class="program__drawing-container">
+                                       <img class="program__drawing" src="/images/drawing__running.svg" alt="">
+                                   </div>
+
+                                   <div class="program__text-container">
+                                       <p class="program__title">Running</p>
+                                       <div class="program__icons">
+                                           <div class="program__icon-wrapper">
+                                               <i class="icon-alarm program__icon"></i>
+                                               <p class="program__icon-text">60 min</p>
+                                           </div>
+                                           <div class="program__icon-wrapper">
+                                               <i class="icon-diamond program__icon"></i>
+                                               <p class="program__icon-text">552</p>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                           <div class="col-md-12 col-lg-4">
+                               <div class="program">
+                                   <div class="program__drawing-container">
+                                       <img class="program__drawing" src="/images/drawing__running.svg" alt="">
+                                   </div>
+
+                                   <div class="program__text-container">
+                                       <p class="program__title">Running</p>
+                                       <div class="program__icons">
+                                           <div class="program__icon-wrapper">
+                                               <i class="icon-alarm program__icon"></i>
+                                               <p class="program__icon-text">60 min</p>
+                                           </div>
+                                           <div class="program__icon-wrapper">
+                                               <i class="icon-diamond program__icon"></i>
+                                               <p class="program__icon-text">552</p>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                           <div class="col-md-12 col-lg-4">
+                               <div class="program">
+                                   <div class="program__drawing-container">
+                                       <img class="program__drawing" src="/images/drawing__running.svg" alt="">
+                                   </div>
+
+                                   <div class="program__text-container">
+                                       <p class="program__title">Running</p>
+                                       <div class="program__icons">
+                                           <div class="program__icon-wrapper">
+                                               <i class="icon-alarm program__icon"></i>
+                                               <p class="program__icon-text">60 min</p>
+                                           </div>
+                                           <div class="program__icon-wrapper">
+                                               <i class="icon-diamond program__icon"></i>
+                                               <p class="program__icon-text">552</p>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+
+                   <div class="training__buttons">
+                       <a class="button" href="">Create new</a>
+                       <a class="button button--secondary" href="">Load more</a>
+                   </div>
+               </div>
+
+                <div class="training__programs" data-training="history">
+                    <h2>hellowa</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+@endsection

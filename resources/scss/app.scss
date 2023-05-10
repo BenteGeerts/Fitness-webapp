@@ -12,10 +12,12 @@
 @import "pages/setup";
 @import "pages/dashboard";
 @import "pages/friends";
+@import "pages/training";
 
 //COMPONENTS
 @import "components/form";
 @import "components/page";
+@import "components/cards";
 
 html {
     border: none !important;
