@@ -35,6 +35,11 @@
     font-weight: 600;
     font-size: 1.25rem;
     padding-top: 10px;
+
+    @include media-breakpoint-up(lg) {
+        padding-bottom: 10px;
+        font-size: 1.5rem;
+    }
 }
 
 .friends__switch-item {
@@ -42,6 +47,11 @@
     text-decoration: none;
     &--active {
         text-decoration: underline;
+    }
+
+    @include media-breakpoint-up(lg) {
+        text-decoration: underline;
+        margin-right: auto;
     }
 }
 
@@ -51,6 +61,10 @@
     padding-bottom: $small-spacing;
 
     &--show {
+        display: block;
+    }
+
+    @include media-breakpoint-up(lg) {
         display: block;
     }
 }
@@ -86,6 +100,10 @@
     font-weight: 600;
     font-size: 1.25rem;
     padding-left: 60px;
+
+    @include media-breakpoint-up(lg) {
+        font-size: 1.5rem;
+    }
 }
 
 .friends__friend {
@@ -104,6 +122,10 @@
     font-weight: 600;
     font-size: 1.25rem;
     padding-left: 60px;
+
+    @include media-breakpoint-up(lg) {
+        font-size: 1.5rem;
+    }
 }
 
 .friends__button {
