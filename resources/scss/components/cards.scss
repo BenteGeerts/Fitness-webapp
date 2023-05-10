@@ -1,0 +1,108 @@
+.program {
+    border-radius: $border-radius;
+    background: linear-gradient(136.04deg, #58A6CB 13.32%, rgba(217, 217, 217, 0) 98.77%), url("/images/running_background.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    margin-bottom: $small-spacing;
+
+
+    &--big {
+        flex-direction: column;
+        width: fit-content;
+        margin-right: $small-spacing;
+    }
+}
+
+.program__drawing-container {
+    border-radius: $border-radius;
+    background-color: $color-4;
+
+    margin: 5px 8px;
+
+    &--big {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+.program__drawing {
+    width: 75px;
+    padding: 10px;
+    max-width: unset;
+}
+
+
+.program__text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding-left: 25px;
+
+    @include media-breakpoint-up(lg) {
+        padding-left: unset;
+    }
+    @include media-breakpoint-up(xl) {
+        padding-left: 25px;
+    }
+
+
+    &--big {
+        padding-left: 8px;
+        padding-bottom: 10px;
+    }
+}
+
+.program__title {
+    font-weight: 600;
+
+    @include media-breakpoint-up(lg) {
+        font-size: 1.25rem;
+    }
+}
+
+.program__icons {
+    display: flex;
+    flex-direction: row;
+}
+
+.program__icon-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    padding-right: 45px;
+
+    @include media-breakpoint-up(lg) {
+        padding-right: 8px;
+    }
+
+    @include media-breakpoint-up(xl) {
+        padding-right: 15px;
+    }
+
+    @include media-breakpoint-up(xxl) {
+        padding-right: 45px;
+    }
+
+    &--big {
+        padding-right: 45px;
+    }
+}
+
+.program__icon {
+    padding-right: 10px;
+    font-size: 1.25rem;
+}
+
+.program__icon-text {
+    @include media-breakpoint-up(lg) {
+        font-size: 1.125rem;
+    }
+}
