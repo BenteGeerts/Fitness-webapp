@@ -20,7 +20,8 @@
                 <h2 class="h3">Ranking</h2>
 
                 <div class="friends__switch">
-                    <a class="friends__switch-item friends__switch-item--active" data-toggle-ranking="friends">Friends</a>
+                    <a class="friends__switch-item friends__switch-item--active"
+                       data-toggle-ranking="friends">Friends</a>
                     <a class="friends__switch-item" data-toggle-ranking="world">World</a>
                 </div>
 
