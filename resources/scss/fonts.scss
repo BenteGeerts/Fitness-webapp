@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'icomoon';
-    src:  url('/fonts/icomoon.eot?eoicsb');
-    src:  url('/fonts/icomoon.eot?eoicsb#iefix') format('embedded-opentype'),
-    url('/fonts/icomoon.ttf?eoicsb') format('truetype'),
-    url('/fonts/icomoon.woff?eoicsb') format('woff'),
-    url('/fonts/icomoon.svg?eoicsb#icomoon') format('svg');
+    src:  url('/fonts/icomoon.eot?ajn3sy');
+    src:  url('/fonts/icomoon.eot?ajn3sy#iefix') format('embedded-opentype'),
+    url('/fonts/icomoon.ttf?ajn3sy') format('truetype'),
+    url('/fonts/icomoon.woff?ajn3sy') format('woff'),
+    url('/fonts/icomoon.svg?ajn3sy#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
     font-display: block;
@@ -25,6 +25,33 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-auto:before {
+    content: "\e918";
+}
+.icon-sun:before {
+    content: "\e919";
+}
+.icon-notifications:before {
+    content: "\e91a";
+}
+.icon-moon:before {
+    content: "\e91b";
+}
+.icon-globe:before {
+    content: "\e91c";
+}
+.icon-settings:before {
+    content: "\e91d";
+}
+.icon-camera:before {
+    content: "\e91e";
+}
+.icon-medal:before {
+    content: "\e91f";
+}
+.icon-arrow-under:before {
+    content: "\e920";
+}
 .icon-360:before {
     content: "\e916";
 }
