@@ -144,7 +144,7 @@
 
                        <div class="row">
                            <div class="col-md-6 col-lg-4">
-                               <div class="dashboard__program">
+                               <div class="program">
                                    <div class="program__drawing-container">
                                        <img class="program__drawing" src="/images/drawing__running.svg" alt="">
                                    </div>
@@ -166,7 +166,7 @@
                            </div>
 
                            <div class="col-md-6 col-lg-4">
-                               <div class="dashboard__program">
+                               <div class="program">
                                    <div class="program__drawing-container">
                                        <img class="program__drawing" src="/images/drawing__running.svg" alt="">
                                    </div>
@@ -188,7 +188,7 @@
                            </div>
 
                            <div class="col-md-6 col-lg-4">
-                               <div class="dashboard__program">
+                               <div class="program">
                                    <div class="program__drawing-container">
                                        <img class="program__drawing" src="/images/drawing__running.svg" alt="">
                                    </div>
@@ -210,7 +210,7 @@
                            </div>
 
                            <div class="col-md-6 col-lg-4">
-                               <div class="dashboard__program">
+                               <div class="program">
                                    <div class="program__drawing-container">
                                        <img class="program__drawing" src="/images/drawing__running.svg" alt="">
                                    </div>
