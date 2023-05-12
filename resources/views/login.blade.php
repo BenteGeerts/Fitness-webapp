@@ -20,7 +20,7 @@
                         <input class="form__input-field" type="email">
                     </div>
 
-                    <div class="form__field"
+                    <div class="form__field">
                         <label class="form__label" for="">Password</label>
                         <div class="form__password">
                             <input class="form__input-field" type="password">
