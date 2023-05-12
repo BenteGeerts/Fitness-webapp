@@ -53,22 +53,68 @@
             </div>
 
             <h2 class="h3">Achievements</h2>
-            <h3 class="h3">Badges</h3>
+            <h3 class="h3 profile__subtitle">Badges</h3>
 
             <div class="profile__badges">
+                <img class="profile__badge" src="/images/badgeOne.png" alt="">
+                <img class="profile__badge" src="/images/badgeTwo.png" alt="">
+                <img class="profile__badge" src="/images/badgeThree.png" alt="">
+                <img class="profile__badge" src="/images/badgeThree.png" alt="">
 
+                <div class="profile__badge profile__badge--locked">
+                    <img src="/images/badgeFour.png" alt="">
+                    <i class="icon-lock profile__badge-lock"></i>
+                </div>
+
+                <div class="profile__badge profile__badge--locked">
+                    <img src="/images/badgeFour.png" alt="">
+                    <i class="icon-lock profile__badge-lock"></i>
+                </div>
+
+                <div class="profile__badge profile__badge--locked">
+                    <img src="/images/badgeFour.png" alt="">
+                    <i class="icon-lock profile__badge-lock"></i>
+                </div>
             </div>
 
-            <h3 class="h3">Challenges</h3>
+            <h3 class="h3 profile__subtitle">Challenges</h3>
 
             <div class="profile__challenges">
+                <div class="profile__challenge">
+                    <img class="profile__challenge-badge" src="/images/badgeOne.png" alt="">
+                    <p class="profile__challenge-title">Lorem ipsum</p>
+                </div>
 
+                <div class="profile__challenge">
+                    <img class="profile__challenge-badge" src="/images/badgeOne.png" alt="">
+                    <p class="profile__challenge-title">Lorem ipsum</p>
+                </div>
             </div>
 
-            <h3 class="h3">History</h3>
+            <h3 class="h3 profile__subtitle">History</h3>
 
             <div class="profile__history">
-                
+                <div class="profile__history-tile">
+                    <div class="tile__icon">
+                        <i class="icon-weight"></i>
+                    </div>
+                    <div class="tile__text-wrapper">
+                        <p class="tile__title">40 diamonds</p>
+                        <span class="tile__subtitle">Workout</span>
+                        <span class="tile__footer">Mar 25 2023</span>
+                    </div>
+                </div>
+
+                <div class="profile__history-tile">
+                    <div class="tile__icon">
+                        <i class="icon-weight"></i>
+                    </div>
+                    <div class="tile__text-wrapper">
+                        <p class="tile__title">40 diamonds</p>
+                        <span class="tile__subtitle">Workout</span>
+                        <span class="tile__footer">Mar 25 2023</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
