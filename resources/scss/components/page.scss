@@ -5,6 +5,10 @@
     align-items: center;
 }
 
+.page__settings {
+    font-size: 1.875rem;
+}
+
 .page__profile-img {
     @include media-breakpoint-up(lg) {
         position: fixed;
