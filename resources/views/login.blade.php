@@ -14,35 +14,38 @@
                     <p class="login__heading-subtitle">Login to your account</p>
                 </div>
 
-                <form class="form" action="post">
+                <form class="form" method="post" action="{{Route("signIn")}}">
+                    @csrf
                     <div class="form__field">
-                        <label class="form__label" for="">Email</label>
-                        <input class="form__input-field" type="email">
+                        <label class="form__label" for="email">Email</label>
+                        <input class="form__input-field" name="email" id="email" type="email" value="{{old('email')}}">
                     </div>
 
                     <div class="form__field">
-                        <label class="form__label" for="">Password</label>
+                        <label class="form__label" for="password">Password</label>
                         <div class="form__password">
-                            <input class="form__input-field" type="password">
-                            <i class="icon-visibility form__icon"></i>
+                            <input class="form__input-field" name="password" id="password" type="password" data-password>
+                            <i class="icon-visibility form__icon" data-toggle-visibility></i>
                         </div>
 
                         <div class="form__extra">
                             <div class="form__checkbox">
-                                <input class="form__checkbox-button" type="checkbox">
-                                <label class="form__checkbox-label" for="">Remember me</label>
+                                <input class="form__checkbox-button" id="remember" name="remember" type="checkbox"  {{ old('remember') ? 'checked' : '' }}>
+                                <label class="form__checkbox-label" for="remember">Remember me</label>
                             </div>
                             <a class="form__password-button" href="">Forgot password?</a>
                         </div>
                     </div>
+
+                    <div class="login__link-wrapper">
+                        <p>Don't have an account? <a class="login__link" href="">Sign Up</a></p>
+                    </div>
+
+
+                    <button class="button button--big" type="submit">Login</button>
                 </form>
 
-                <div class="login__link-wrapper">
-                    <p>Don't have an account? <a class="login__link" href="">Sign Up</a></p>
-                </div>
 
-
-                <a class="button button--big" href="">Login</a>
 
                 <div class="divider__line-wrapper divider__line-wrapper--signup">
                     <hr class="divider__line">
