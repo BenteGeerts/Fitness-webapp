@@ -27,10 +27,15 @@
 
     &__item {
         font-size: 1.875rem;
+        cursor: pointer;
 
         @include media-breakpoint-up(lg) {
             padding-left: 24px;
             padding-right: 24px;
+        }
+
+        &--active {
+
         }
     }
 }
