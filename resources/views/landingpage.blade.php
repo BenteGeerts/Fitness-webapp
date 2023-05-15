@@ -15,7 +15,7 @@
                         <p class="landingpage__heading-slogan">Motivate Overcome Visualize Empower</p>
                     </div>
 
-                    <a class="button button--big" href="">Sign Up with Email</a>
+                    <a class="button button--big" href="{{Route("signup")}}">Sign Up with Email</a>
 
                     <div class="divider__line-wrapper">
                         <hr class="divider__line">
@@ -28,13 +28,13 @@
                             <img class="button__img" src="/images/googleIcon.png" alt="">
                             Google
                         </a>
-                        <a class="button button--secondary button--icon" href="{{Route("facebookLogin")}}">
-                            <img class="button__img" src="/images/facebookIcon.png" alt="">
-                            Facebook
+                        <a class="button button--secondary button--icon" href="{{Route("microsoftLogin")}}">
+                            <img class="button__img" src="/images/microsoftIcon.png" alt="">
+                            Microsoft
                         </a>
                     </div>
 
-                    <p>Already have an account? <a class="landingpage__link" href="">Sign in</a></p>
+                    <p>Already have an account? <a class="landingpage__link" href="{{Route("login")}}">Sign in</a></p>
                 </div>
             </div>
         </div>
