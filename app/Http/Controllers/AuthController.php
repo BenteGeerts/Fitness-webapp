@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
+use function Symfony\Component\String\u;
 
 
 class AuthController extends Controller
@@ -67,7 +68,7 @@ class AuthController extends Controller
         if (empty(Auth::user())) {
             return Socialite::driver("google")
                 ->scopes(['https://www.googleapis.com/auth/fitness.activity.read', 'https://www.googleapis.com/auth/fitness.body.read'])
-                ->googleRedirect();
+                ->redirect();
         }
         if (!empty(Auth::user())) {
             return redirect("/dashboard");
@@ -82,7 +83,7 @@ class AuthController extends Controller
 
         if (!empty($email)) {
             Auth::login($email);
-            return redirect("/");
+            return redirect("/dashboard");
         }
         if (empty($email)) {
             $user = User::create(
@@ -99,12 +100,34 @@ class AuthController extends Controller
 
     public function microsoftLogin()
     {
-
+        if (empty(Auth::user())) {
+            return Socialite::driver('microsoft')->redirect();
+        }
+        if (!empty(Auth::user())) {
+            return redirect("/dashboard");
+        }
     }
 
     public function microsoftRedirect()
     {
+        $user = Socialite::driver("microsoft")->user();
+        $email = User::where('email', '=', $user->email)->first();
 
+        if (!empty($email)) {
+            Auth::login($email);
+            return redirect("/dashboard");
+        }
+        if (empty($email)) {
+            $user = User::create(
+                [
+                    "name" => $user->name,
+                    "email" => $user->email,
+                    "avatar" => $user->avatar
+                ]
+            );
+        }
+
+        return redirect("/dashboard");
     }
 
     public function logOut() {
