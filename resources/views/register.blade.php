@@ -14,41 +14,44 @@
                    <p class="signup__heading-subtitle">Create your account</p>
                </div>
 
-               <form class="form" action="post">
+               <form class="form" method="post" action="{{Route("register")}}">
+                   @csrf
                    <div class="form__names">
                        <div class="form__field form__field--small">
                            <label class="form__label" for="firstname">First name</label>
-                           <input class="form__input-field" name="firstname" type="text">
+                           <input class="form__input-field" name="firstname" id="firstname" type="text">
                        </div>
 
                        <div class="form__field form__field--small">
                            <label class="form__label" for="lastname">Last name</label>
-                           <input class="form__input-field" name="lastname" type="text">
+                           <input class="form__input-field" name="lastname" id="lastname" type="text">
                        </div>
                    </div>
 
                    <div class="form__field">
                        <label class="form__label" for="email">Email</label>
-                       <input class="form__input-field" name="email" type="email">
+                       <input class="form__input-field" name="email" id="email" type="email">
                    </div>
 
                    <div class="form__field">
                        <label class="form__label" for="password">Password</label>
                        <div class="form__password">
-                           <input class="form__input-field" name="password" type="password">
-                           <i class="icon-visibility form__icon"></i>
+                           <input class="form__input-field" name="password" id="password" type="password" data-password>
+                           <i class="icon-visibility form__icon" data-toggle-visibility></i>
                        </div>
                    </div>
 
                    <div class="form__field">
                        <label class="form__label" for="confirm">Confirm password</label>
                        <div class="form__password">
-                           <input class="form__input-field" name="confirm" type="password">
-                           <i class="icon-visibility form__icon"></i>
+                           <input class="form__input-field" name="confirm" id="confirm" type="password" data-password>
+                           <i class="icon-visibility form__icon" data-toggle-visibility></i>
                        </div>
                    </div>
+
+
+                   <button class="button button--big signup__cta" type="submit">Create your account</button>
                </form>
-               <a class="button button--big signup__cta" href="">Create your account</a>
 
                <div class="divider__line-wrapper divider__line-wrapper--signup">
                    <hr class="divider__line">
@@ -69,9 +72,9 @@
                        <img class="button__img" src="/images/googleIcon.png" alt="">
                        Google
                    </a>
-                   <a class="button button--secondary button--icon signup__button--hidden" href="{{Route("facebookLogin")}}">
-                       <img class="button__img" src="/images/facebookIcon.png" alt="">
-                       Facebook
+                   <a class="button button--secondary button--icon signup__button--hidden" href="{{Route("microsoftLogin")}}">
+                       <img class="button__img" src="/images/microsoftIcon.png" alt="">
+                       Microsoft
                    </a>
                </div>
            </div>
