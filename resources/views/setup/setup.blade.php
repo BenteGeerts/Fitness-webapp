@@ -1,41 +1,41 @@
 @extends('layouts.app')
 @section('content')
     <section class="setup">
-        <div data-show-page="1" class="setup-page setup-page--show">
+        <div class="setup-page setup-page--show" data-show-page="1">
             <div class="setup__nav">
                 <i class="icon-back setup__back"></i>
-                <p class="setup__nav-page">1 of 6</p>
+                <p class="setup__nav-page" data-page-back>1 of 6</p>
             </div>
 
             <div class="row justify-content-center">
                 <div class="col-md-12 col-lg-4">
-                   <div class="setup__heading">
-                       <h1 class="setup__heading-title">What's your weight?</h1>
-                       <p class="setup__heading-subtitle">This is used to setup recommendations just for you.</p>
-                   </div>
+                    <div class="setup__heading">
+                        <h1 class="setup__heading-title">What's your weight?</h1>
+                        <p class="setup__heading-subtitle">This is used to setup recommendations just for you.</p>
+                    </div>
 
-                   <div class="setup__swiper">
-                       <div class="swiper-container" data-swiper-horizontal>
-                           <div class="swiper-wrapper">
-                               @for($i = 30; $i<= 200; $i++)
-                                   <div class="swiper-slide">
-                                       <span>{{$i}} kg</span>
-                                   </div>
-                               @endfor
-                           </div>
-                       </div>
-                   </div>
+                    <div class="setup__swiper">
+                        <div class="swiper-container" data-swiper-horizontal="1">
+                            <div class="swiper-wrapper">
+                                @for($i = 30; $i<= 200; $i++)
+                                    <div class="swiper-slide">
+                                        <span>{{$i}} kg</span>
+                                    </div>
+                                @endfor
+                            </div>
+                        </div>
+                    </div>
 
-                   <p class="setup__footer">You can change this any time later</p>
-                   <a data-page="1" class="button button--big" href="">Continue</a>
-                   </div>
+                    <p class="setup__footer">You can change this any time later</p>
+                    <a class="button button--big" data-page="1">Continue</a>
+                </div>
             </div>
         </div>
 
-        <div data-show-page="2" class="setup-page">
+        <div class="setup-page" data-show-page="2">
             <div class="setup__nav">
-                <i data-page-back class="icon-back setup__back"></i>
-                <p class="setup__nav-page">2 of 6</p>
+                <i class="icon-back setup__back"></i>
+                <p class="setup__nav-page" data-page-back>2 of 6</p>
             </div>
 
             <div class="row justify-content-center">
@@ -46,7 +46,7 @@
                     </div>
 
                     <div class="setup__swiper setup__swiper--vertical">
-                        <div class="swiper-container swiper-container--vertical" data-swiper-vertical>
+                        <div class="swiper-container swiper-container--vertical" data-swiper-vertical="1">
                             <div class="swiper-wrapper">
                                 @for($i = 100; $i<= 250; $i++)
                                     <div class="swiper-slide">
@@ -58,14 +58,14 @@
                     </div>
 
                     <p class="setup__footer">You can change this any time later</p>
-                    <a data-page="2" class="button button--big" href="">Continue</a>
+                    <a class="button button--big" data-page="2">Continue</a>
                 </div>
             </div>
         </div>
 
-        <div data-show-page="3" class="setup-page">
+        <div class="setup-page" data-show-page="3">
             <div class="setup__nav">
-                <i data-page-back class="icon-back setup__back"></i>
+                <i class="icon-back setup__back"></i>
                 <p class="setup__nav-page">3 of 6</p>
             </div>
 
@@ -77,7 +77,7 @@
                     </div>
 
                     <div class="setup__swiper setup__swiper--vertical">
-                        <div class="swiper-container swiper-container--vertical" data-swiper-vertical>
+                        <div class="swiper-container swiper-container--vertical" data-swiper-vertical="2">
                             <div class="swiper-wrapper">
                                 @for($i = 10; $i<= 101; $i++)
                                     <div class="swiper-slide">
@@ -89,14 +89,14 @@
                     </div>
 
                     <p class="setup__footer">You can change this any time later</p>
-                    <a data-page="3" class="button button--big" href="">Continue</a>
+                    <a class="button button--big" data-page="3">Continue</a>
                 </div>
             </div>
         </div>
 
-        <div data-show-page="4" class="setup-page">
+        <div class="setup-page" data-show-page="4">
             <div class="setup__nav">
-                <i data-page-back class="icon-back setup__back"></i>
+                <i class="icon-back setup__back" data-page-back></i>
                 <p class="setup__nav-page">4 of 6</p>
             </div>
 
@@ -107,40 +107,73 @@
                         <p class="setup__heading-subtitle">This is used to setup recommendations just for you.</p>
                     </div>
 
-                   <div class="setup__select-wrapper">
-                       <div class="setup__select">
-                           <div class="setup__select-item" data-gender-option>
-                               <i class="icon-female setup__select-icon"></i>
-                               <p class="setup__select-name">Female</p>
-                           </div>
-                           <div class="setup__select-item" data-gender-option>
-                               <i class="icon-male setup__select-icon"></i>
-                               <p class="setup__select-name">Male</p>
-                           </div>
-                       </div>
+                    <div class="setup__select-wrapper">
+                        <div class="setup__select">
+                            <div class="select__item">
+                                <input class="select__item-input" type="checkbox" name="gender" value="female" id="female">
+                                <label class="select__item-label" for="female">
+                                    <div class="select__item-icon">
+                                        <i class="icon-female"></i>
+                                    </div>
+                                    <div class="select__item-title">
+                                        Female
+                                    </div>
+                                </label>
+                            </div>
 
-                       <div class="setup__select">
-                           <div class="setup__select-item" data-gender-option>
-                               <i class="icon-transgender setup__select-icon"></i>
-                               <p class="setup__select-name">X</p>
-                           </div>
-                           <div class="setup__select-item" data-gender-option>
-                               <i class="icon-other setup__select-icon"></i>
-                               <p class="setup__select-name">Other</p>
-                           </div>
-                       </div>
-                   </div>
+
+                            <div class="select__item">
+                                <input class="select__item-input" type="checkbox" name="gender" value="male" id="male">
+                                <label class="select__item-label" for="male">
+                                    <div class="select__item-icon">
+                                        <i class="icon-male"></i>
+                                    </div>
+                                    <div class="select__item-title">
+                                        Male
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="setup__select">
+                            <div class="select__item">
+                                <input class="select__item-input" type="checkbox" name="gender" value="x" id="x">
+                                <label class="select__item-label" for="x">
+                                    <div class="select__item-icon">
+                                        <i class="icon-transgender"></i>
+                                    </div>
+                                    <div class="select__item-title">
+                                        X
+                                    </div>
+                                </label>
+                            </div>
+
+
+                            <div class="select__item">
+                                <input class="select__item-input" type="checkbox" name="gender" value="other" id="other">
+                                <label class="select__item-label" for="other">
+                                    <div class="select__item-icon">
+                                        <i class="icon-other"></i>
+                                    </div>
+                                    <div class="select__item-title">
+                                        Other
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
 
                     <p class="setup__footer">You can change this any time later</p>
-                    <a data-page="4" class="button button--big" href="">Continue</a>
+                    <a class="button button--big" data-page="4">Continue</a>
                 </div>
             </div>
 
         </div>
 
-        <div data-show-page="5" class="setup-page">
+
+        <div class="setup-page" data-show-page="5">
             <div class="setup__nav">
-                <i data-page-back class="icon-back setup__back"></i>
+                <i class="icon-back setup__back" data-page-back></i>
                 <p class="setup__nav-page">5 of 6</p>
             </div>
 
@@ -179,16 +212,14 @@
                     </div>
 
                     <p class="setup__footer">You can change this any time later</p>
-                    <a data-page="5" class="button button--big" href="">Continue</a>
+                    <a class="button button--big" data-page="5">Continue</a>
                 </div>
             </div>
-
-
         </div>
 
-        <div data-show-page="6" class="setup-page">
+        <div class="setup-page" data-show-page="6">
             <div class="setup__nav">
-                <i data-page-back class="icon-back setup__back"></i>
+                <i class="icon-back setup__back" data-page-back></i>
                 <p class="setup__nav-page">6 of 6</p>
             </div>
 
@@ -201,7 +232,7 @@
                     </div>
 
                     <div class="setup__swiper setup__swiper--vertical setup__swiper--small">
-                        <div class="swiper-container swiper-container--vertical" data-swiper-vertical>
+                        <div class="swiper-container swiper-container--vertical" data-swiper-vertical="3">
                             <div class="swiper-wrapper">
                                 @for($i = 1; $i<= 7; $i++)
                                     <div class="swiper-slide">
@@ -213,10 +244,12 @@
                     </div>
 
                     <p class="setup__footer">You can change this any time later</p>
-                    <a class="button button--big" href="">Finish</a>
+                    <a class="button button--big" data-setup-submit>Finish</a>
                 </div>
             </div>
 
         </div>
     </section>
+
+
 @endsection

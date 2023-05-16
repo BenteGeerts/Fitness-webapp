@@ -38,13 +38,6 @@ function previousPage(e) {
     div.classList.add("setup-page--show");
 }
 
-const options = document.querySelectorAll('[data-gender-option]');
-options.forEach(option => {
-    option.addEventListener("click", function () {
-        toggleClass(options, option, "setup__select-item--active");
-    });
-});
-
 const goals = document.querySelectorAll('[data-goal-option]');
 goals.forEach(goal => {
     goal.addEventListener("click", function () {
@@ -58,3 +51,51 @@ function toggleClass(objects, object, className) {
     });
     object.classList.toggle(className);
 }
+
+
+const resultHorizontals = document.querySelectorAll('[data-swiper-horizontal]');
+const resultVerticals = document.querySelectorAll('[data-swiper-vertical]');
+const setupResults = [];
+
+
+
+const swiperSubmit = document.querySelector('[data-setup-submit]');
+swiperSubmit.addEventListener("click", () => {
+    resultVerticals.forEach(result => {
+        setupResults.push(result.querySelector(".swiper-slide-active").innerText);
+    })
+
+    resultHorizontals.forEach(result => {
+        setupResults.push(result.querySelector(".swiper-slide-active").innerText);
+    })
+    const gender = document.querySelector("[data-gender-option].setup__select-item--active").innerText
+    setupResults.push(gender);
+
+    var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+    var xhr = new XMLHttpRequest();
+    var url = '/setup';
+    var data = {
+        weight: 90,
+        height: 125,
+        age: 25,
+        gender: "male" ,
+        goal: "loose weight",
+        visits: 5
+    };
+
+    var jsonData = JSON.stringify(data);
+
+    xhr.open('POST', url, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var response = JSON.parse(xhr.responseText);
+            console.log(response);
+        }
+    };
+
+    xhr.send(jsonData)
+})
