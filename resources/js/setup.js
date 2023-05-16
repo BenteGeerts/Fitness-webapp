@@ -38,12 +38,6 @@ function previousPage(e) {
     div.classList.add("setup-page--show");
 }
 
-const goals = document.querySelectorAll('[data-goal-option]');
-goals.forEach(goal => {
-    goal.addEventListener("click", function () {
-        toggleClass(goals, goal, "setup__goal-tile--active");
-    });
-});
 
 function toggleClass(objects, object, className) {
     objects.forEach(object => {
@@ -68,8 +62,6 @@ swiperSubmit.addEventListener("click", () => {
     resultHorizontals.forEach(result => {
         setupResults.push(result.querySelector(".swiper-slide-active").innerText);
     })
-    const gender = document.querySelector("[data-gender-option].setup__select-item--active").innerText
-    setupResults.push(gender);
 
     var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 

@@ -128,17 +128,17 @@
 }
 
 .swiper-slide {
-  text-align: center;
+    text-align: center;
     height: fit-content;
 }
 
 .setup__select-wrapper {
-    padding-top: 137px;
-    padding-bottom: 137px;
+    padding-top: 131px;
+    padding-bottom: 131px;
 
     @include media-breakpoint-up(lg) {
-        padding-top: 167px;
-        padding-bottom: 167px;
+        padding-top: 137px;
+        padding-bottom: 137px;
     }
 }
 
@@ -158,6 +158,12 @@
         width:125px;
         height:125px;
     }
+
+    &--big {
+        width: 100%;
+        height: fit-content;
+        padding-bottom: $small-spacing;
+    }
 }
 .select__item-input {
     display:none;
@@ -175,18 +181,33 @@
     text-align:center;
     transition:all 200ms ease-in-out;
     border-radius:5px;
+
+    &--big {
+        padding: 10px;
+    }
 }
 .select__item-icon {
     margin-top:10px;
     font-size:2rem;
     color:#555;
     transition:all 200ms ease-in-out;
+
+    &--big {
+        margin-top: unset;
+        font-size: unset;
+    }
 }
 .select__item-title {
     font-size:1.125rem;
     color:#555;
     padding:5px 0px;
     transition:all 200ms ease-in-out;
+
+    &--big {
+        font-size: 1rem;
+        padding: unset;
+        text-align: left;
+    }
 }
 .select__item-label:before {
     content:"✓";
@@ -206,6 +227,12 @@
     transform:scale(0.5);
     transition:all 200ms ease-in-out;
 }
+
+.select__item-label--big:before {
+    right: 8px;
+    left: unset;
+}
+
 .select__item-input:checked + .select__item-label:before {
     opacity:1;
     transform:scale(1);
@@ -223,12 +250,13 @@
 .setup__goal-wrapper {
     display: flex;
     flex-direction: column;
-    padding-top: 83px;
-    padding-bottom: 83px;
+    align-items: center;
+    padding-top: 57px;
+    padding-bottom: 57px;
 
     @include media-breakpoint-up(lg) {
-        padding-top: 113px;
-        padding-bottom: 113px;
+        padding-top: 124px;
+        padding-bottom: 124px;
     }
 }
 
@@ -248,7 +276,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding-bottom: 5px;
+    padding-bottom: unset;
 }
 
 .setup__goal-icon {

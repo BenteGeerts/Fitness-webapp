@@ -34,8 +34,8 @@
 
         <div class="setup-page" data-show-page="2">
             <div class="setup__nav">
-                <i class="icon-back setup__back"></i>
-                <p class="setup__nav-page" data-page-back>2 of 6</p>
+                <i class="icon-back setup__back" data-page-back></i>
+                <p class="setup__nav-page">2 of 6</p>
             </div>
 
             <div class="row justify-content-center">
@@ -65,7 +65,7 @@
 
         <div class="setup-page" data-show-page="3">
             <div class="setup__nav">
-                <i class="icon-back setup__back"></i>
+                <i class="icon-back setup__back" data-page-back></i>
                 <p class="setup__nav-page">3 of 6</p>
             </div>
 
@@ -185,30 +185,52 @@
                     </div>
 
                     <div class="setup__goal-wrapper">
-                        <div class="setup__goal-tile" data-goal-option>
-                            <div class="setup__goal-heading">
-                                <i class="icon-weight-loss setup__goal-icon"></i>
-                                <p class="setup__goal-title">Lose weight</p>
-                            </div>
-                            <p>Check this box if your goal is to lose weight</p>
+                        <div class="select__item select__item--big">
+                            <input class="select__item-input" type="checkbox" name="goal" value="lose weight" id="lose weight">
+                            <label class="select__item-label select__item-label--big" for="lose weight">
+                                <div class="setup__goal-heading">
+                                    <div class="select__item-icon select__item-icon--big">
+                                        <i class="icon-weight-loss setup__goal-icon"></i>
+                                    </div>
+                                    <p class="setup__goal-title">Lose weight</p>
+                                </div>
+                                <div class="select__item-title select__item-title--big">
+                                    <p>Check this box if your goal is to lose weight</p>
+                                </div>
+                            </label>
                         </div>
 
-                        <div class="setup__goal-tile" data-goal-option>
-                            <div class="setup__goal-heading">
-                                <i class="icon-weight-gain setup__goal-icon"></i>
-                                <p class="setup__goal-title">Gain weight</p>
-                            </div>
-                            <p>Check this box if your goal is to gain weight</p>
+
+                        <div class="select__item select__item--big">
+                            <input class="select__item-input" type="checkbox" name="goal" value="gain weight" id="gain weight">
+                            <label class="select__item-label select__item-label--big" for="gain weight">
+                                <div class="setup__goal-heading">
+                                    <div class="select__item-icon select__item-icon--big">
+                                        <i class="icon-weight-gain setup__goal-icon"></i>
+                                    </div>
+                                    <p class="setup__goal-title">Gain weight</p>
+                                </div>
+                                <div class="select__item-title select__item-title--big">
+                                    <p>Check this box if your goal is to gain weight</p>
+                                </div>
+                            </label>
                         </div>
 
-                        <div class="setup__goal-tile" data-goal-option>
-                            <div class="setup__goal-heading">
-                                <i class="icon-weight setup__goal-icon"></i>
-                                <p class="setup__goal-title">Gain muscle</p>
-                            </div>
-                            <p>Check this box if your goal is to gain muscle</p>
-                        </div>
 
+                        <div class="select__item select__item--big">
+                            <input class="select__item-input" type="checkbox" name="goal" value="gain muscle" id="gain muscle">
+                            <label class="select__item-label select__item-label--big" for="gain muscle">
+                                <div class="setup__goal-heading">
+                                    <div class="select__item-icon select__item-icon--big">
+                                        <i class="icon-weight setup__goal-icon"></i>
+                                    </div>
+                                    <p class="setup__goal-title">Gain muscle</p>
+                                </div>
+                                <div class="select__item-title select__item-title--big">
+                                    <p>Check this box if your goal is to gain muscle</p>
+                                </div>
+                            </label>
+                        </div>
                     </div>
 
                     <p class="setup__footer">You can change this any time later</p>
