@@ -21,10 +21,12 @@
     <!-- Styles -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    @livewireStyles
 
 </head>
 <body>
 @yield('content')
 @include("navbar")
+@livewireScripts
 </body>
 </html>
