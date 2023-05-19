@@ -14,16 +14,14 @@
                         <p class="setup__heading-subtitle">This is used to setup recommendations just for you.</p>
                     </div>
 
-                    <div class="setup__swiper">
-                        <div class="swiper-container" data-swiper-horizontal="1">
-                            <div class="swiper-wrapper">
-                                @for($i = 30; $i<= 200; $i++)
-                                    <div class="swiper-slide">
-                                        <span>{{$i}} kg</span>
-                                    </div>
-                                @endfor
-                            </div>
+                    <div class="setup__input-wrapper">
+                        <div class="setup__number-picker" data-number-picker="1">
+                            <button class="setup__number-button" data-number-decrement>-</button>
+                            <input class="setup__number-input" name="weight" id="weight" type="number" value="30"
+                                   min="30" max="250" data-number-input="1">
+                            <button class="setup__number-button" data-number-increment>+</button>
                         </div>
+                        <label for="weight">KG</label>
                     </div>
 
                     <p class="setup__footer">You can change this any time later</p>
@@ -45,16 +43,14 @@
                         <p class="setup__heading-subtitle">This is used to setup recommendations just for you.</p>
                     </div>
 
-                    <div class="setup__swiper setup__swiper--vertical">
-                        <div class="swiper-container swiper-container--vertical" data-swiper-vertical="1">
-                            <div class="swiper-wrapper">
-                                @for($i = 100; $i<= 250; $i++)
-                                    <div class="swiper-slide">
-                                        <span class="setup__number">{{$i}} cm</span>
-                                    </div>
-                                @endfor
-                            </div>
+                    <div class="setup__input-wrapper">
+                        <div class="setup__number-picker" data-number-picker="2">
+                            <button class="setup__number-button" data-number-decrement>-</button>
+                            <input class="setup__number-input" name="height" id="height" type="number" value="50"
+                                   min="50" max="250" data-number-input="2">
+                            <button class="setup__number-button" data-number-increment>+</button>
                         </div>
+                        <label for="height">CM</label>
                     </div>
 
                     <p class="setup__footer">You can change this any time later</p>
@@ -76,16 +72,14 @@
                         <p class="setup__heading-subtitle">This is used to setup recommendations just for you.</p>
                     </div>
 
-                    <div class="setup__swiper setup__swiper--vertical">
-                        <div class="swiper-container swiper-container--vertical" data-swiper-vertical="2">
-                            <div class="swiper-wrapper">
-                                @for($i = 10; $i<= 101; $i++)
-                                    <div class="swiper-slide">
-                                        <span class="setup__number">{{$i}}</span>
-                                    </div>
-                                @endfor
-                            </div>
+                    <div class="setup__input-wrapper">
+                        <div class="setup__number-picker" data-number-picker="3">
+                            <button class="setup__number-button" data-number-decrement>-</button>
+                            <input class="setup__number-input" name="age" id="age" type="number" value="20" min="10"
+                                   max="110" data-number-input="3">
+                            <button class="setup__number-button" data-number-increment>+</button>
                         </div>
+                        <label for="age">y/o</label>
                     </div>
 
                     <p class="setup__footer">You can change this any time later</p>
@@ -110,7 +104,8 @@
                     <div class="setup__select-wrapper">
                         <div class="setup__select">
                             <div class="select__item">
-                                <input class="select__item-input" type="checkbox" name="gender" value="female" id="female">
+                                <input class="select__item-input" type="checkbox" name="gender" value="female"
+                                       id="female" data-gender-checkboxes>
                                 <label class="select__item-label" for="female">
                                     <div class="select__item-icon">
                                         <i class="icon-female"></i>
@@ -123,7 +118,8 @@
 
 
                             <div class="select__item">
-                                <input class="select__item-input" type="checkbox" name="gender" value="male" id="male">
+                                <input class="select__item-input" type="checkbox" name="gender" value="male" id="male"
+                                       data-gender-checkboxes>
                                 <label class="select__item-label" for="male">
                                     <div class="select__item-icon">
                                         <i class="icon-male"></i>
@@ -137,7 +133,8 @@
 
                         <div class="setup__select">
                             <div class="select__item">
-                                <input class="select__item-input" type="checkbox" name="gender" value="x" id="x">
+                                <input class="select__item-input" type="checkbox" name="gender" value="x" id="x"
+                                       data-gender-checkboxes>
                                 <label class="select__item-label" for="x">
                                     <div class="select__item-icon">
                                         <i class="icon-transgender"></i>
@@ -150,7 +147,8 @@
 
 
                             <div class="select__item">
-                                <input class="select__item-input" type="checkbox" name="gender" value="other" id="other">
+                                <input class="select__item-input" type="checkbox" name="gender" value="other" id="other"
+                                       data-gender-checkboxes>
                                 <label class="select__item-label" for="other">
                                     <div class="select__item-icon">
                                         <i class="icon-other"></i>
@@ -186,7 +184,8 @@
 
                     <div class="setup__goal-wrapper">
                         <div class="select__item select__item--big">
-                            <input class="select__item-input" type="checkbox" name="goal" value="lose weight" id="lose weight">
+                            <input class="select__item-input" type="checkbox" name="goal" value="lose weight"
+                                   id="lose weight" data-goal-checkboxes>
                             <label class="select__item-label select__item-label--big" for="lose weight">
                                 <div class="setup__goal-heading">
                                     <div class="select__item-icon select__item-icon--big">
@@ -202,7 +201,8 @@
 
 
                         <div class="select__item select__item--big">
-                            <input class="select__item-input" type="checkbox" name="goal" value="gain weight" id="gain weight">
+                            <input class="select__item-input" type="checkbox" name="goal" value="gain weight"
+                                   id="gain weight" data-goal-checkboxes>
                             <label class="select__item-label select__item-label--big" for="gain weight">
                                 <div class="setup__goal-heading">
                                     <div class="select__item-icon select__item-icon--big">
@@ -218,7 +218,8 @@
 
 
                         <div class="select__item select__item--big">
-                            <input class="select__item-input" type="checkbox" name="goal" value="gain muscle" id="gain muscle">
+                            <input class="select__item-input" type="checkbox" name="goal" value="gain muscle"
+                                   id="gain muscle" data-goal-checkboxes>
                             <label class="select__item-label select__item-label--big" for="gain muscle">
                                 <div class="setup__goal-heading">
                                     <div class="select__item-icon select__item-icon--big">
@@ -253,16 +254,14 @@
                         <p class="setup__heading-subtitle">This is used to setup recommendations just for you.</p>
                     </div>
 
-                    <div class="setup__swiper setup__swiper--vertical setup__swiper--small">
-                        <div class="swiper-container swiper-container--vertical" data-swiper-vertical="3">
-                            <div class="swiper-wrapper">
-                                @for($i = 1; $i<= 7; $i++)
-                                    <div class="swiper-slide">
-                                        <span class="setup__number">{{$i}}</span>
-                                    </div>
-                                @endfor
-                            </div>
+                    <div class="setup__input-wrapper">
+                        <div class="setup__number-picker" data-number-picker="4">
+                            <button class="setup__number-button" data-number-decrement>-</button>
+                            <input class="setup__number-input" name="visits" id="visits" type="number" value="3" min="1"
+                                   max="7" data-number-input="4">
+                            <button class="setup__number-button" data-number-increment>+</button>
                         </div>
+                        <label for="visits">visits per week</label>
                     </div>
 
                     <p class="setup__footer">You can change this any time later</p>

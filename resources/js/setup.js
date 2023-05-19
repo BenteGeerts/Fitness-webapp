@@ -1,7 +1,12 @@
-const buttons = document.querySelectorAll("[data-page]");
+const buttonss = document.querySelectorAll("[data-page]");
 const pages = document.querySelectorAll("[data-show-page]");
 const backButtons = document.querySelectorAll("[data-page-back]");
-buttons.forEach(button => {
+const swiperSubmit = document.querySelector('[data-setup-submit]');
+const numberPickers = document.querySelectorAll('[data-number-picker]');
+var genderCheckboxes = document.querySelectorAll('[data-gender-checkboxes]');
+var goalCheckboxes = document.querySelectorAll('[data-goal-checkboxes]');
+
+buttonss.forEach(button => {
     button.addEventListener("click", (e) => {
         e.preventDefault();
         nextPage(e);
@@ -14,9 +19,63 @@ backButtons.forEach(back => {
     });
 })
 
+numberPickers.forEach(numberPicker => {
+
+    const decrementBtn = numberPicker.querySelector('[data-number-decrement]');
+    const incrementBtn = numberPicker.querySelector('[data-number-increment]');
+    const quantityInput = numberPicker.querySelector('[data-number-input]');
+    const min = quantityInput.min;
+    const max = quantityInput.max;
+
+    decrementBtn.addEventListener('click', () => {
+        let currentValue = parseInt(quantityInput.value);
+        if (currentValue > min) {
+            quantityInput.value = --currentValue;
+        }
+    });
+
+    incrementBtn.addEventListener('click', () => {
+        let currentValue = parseInt(quantityInput.value);
+        if (currentValue < max) {
+            quantityInput.value = ++currentValue;
+        }
+    });
+})
+
+genderCheckboxes.forEach(function (checkbox) {
+    checkbox.addEventListener('change', function () {
+        // If the current checkbox is checked
+        if (this.checked) {
+            // Uncheck all other checkboxes
+            genderCheckboxes.forEach(function (otherCheckbox) {
+                if (otherCheckbox !== checkbox) {
+                    otherCheckbox.checked = false;
+                }
+            });
+        }
+    });
+});
+
+
+swiperSubmit.addEventListener("click", (e) => {
+    e.preventDefault();
+    submitData();
+})
+
 function nextPage(e) {
     let page = e.target.closest('[data-page]').dataset.page;
-    page++;
+
+    if (page != 4) {
+        page++;
+    }
+    if (page == 4) {
+        genderCheckboxes.forEach(function (checkbox) {
+            if (checkbox.checked) {
+                page++;
+            }
+        });
+    }
+
     const div = document.querySelector('[data-show-page="' + page + '"]');
 
     pages.forEach(page => {
@@ -46,48 +105,63 @@ function toggleClass(objects, object, className) {
     object.classList.toggle(className);
 }
 
+function submitData() {
+    var gender = null;
+    var goal = null;
 
-const resultHorizontals = document.querySelectorAll('[data-swiper-horizontal]');
-const resultVerticals = document.querySelectorAll('[data-swiper-vertical]');
-const setupResults = [];
+    genderCheckboxes.forEach(function (checkbox) {
+        if (checkbox.checked) {
+            gender = checkbox.value;
+        }
+    });
 
+    goalCheckboxes.forEach(function (checkbox) {
+        if (checkbox.checked) {
+            goal = checkbox.value;
+        }
+    });
 
+    var weight = document.querySelector('[data-number-input="1"]');
+    var height = document.querySelector('[data-number-input="2"]');
+    var age = document.querySelector('[data-number-input="3"]');
+    var visits = document.querySelector('[data-number-input="4"]');
 
-const swiperSubmit = document.querySelector('[data-setup-submit]');
-swiperSubmit.addEventListener("click", () => {
-    resultVerticals.forEach(result => {
-        setupResults.push(result.querySelector(".swiper-slide-active").innerText);
-    })
-
-    resultHorizontals.forEach(result => {
-        setupResults.push(result.querySelector(".swiper-slide-active").innerText);
-    })
 
     var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
-    var xhr = new XMLHttpRequest();
     var url = '/setup';
     var data = {
-        weight: 90,
-        height: 125,
-        age: 25,
-        gender: "male" ,
-        goal: "loose weight",
-        visits: 5
+        weight: weight.value,
+        height: height.value,
+        age: age.value,
+        gender: gender,
+        goal: goal,
+        visits: visits.value
     };
 
     var jsonData = JSON.stringify(data);
 
-    xhr.open('POST', url, true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.setRequestHeader('X-CSRF-TOKEN', csrfToken);
-
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            var response = JSON.parse(xhr.responseText);
-            console.log(response);
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': csrfToken
+        },
+        body: jsonData
+    })
+        .then(response => {
+        if (!response.ok) {
+            throw new Error('Request failed with status ' + response.status);
         }
-    };
-
-    xhr.send(jsonData)
-})
+        return response.json();
+    })
+        .then(responseData => {
+            if (!responseData) {
+                throw new Error('Empty response received');
+            }
+            console.log(responseData);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
