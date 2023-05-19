@@ -10,6 +10,7 @@ const minifyJs = require('gulp-uglify');
 const rename = require("gulp-rename");
 var concat = require('gulp-concat');
 const babel = require('gulp-babel');
+const terser = require('gulp-terser');
 
 
 function buildStyle(){
@@ -30,10 +31,7 @@ function imageMin(){
 }
 function js(){
     return gulp.src('./resources/**/*.js')
-        .pipe(babel({
-            presets: ['@babel/env']
-        }))
-    .pipe(minifyJs())
+    .pipe(terser())
     .pipe(concat('main.js'))
     .pipe(gulp.dest('./public/js'));
 }
