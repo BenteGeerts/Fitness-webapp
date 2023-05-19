@@ -1,9 +1,16 @@
 .setup-page {
-    display: none;
+    display: block;
 
     &--show {
         display: block;
     }
+}
+
+.setup__wrapper {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .setup__nav {
@@ -56,6 +63,46 @@
     padding-bottom: $medium-spacing;
 }
 
+
+.setup__number-picker {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 10px;
+    background-color: $color-4;
+
+
+}
+
+.setup__number-button {
+    padding: 5px 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border: none;
+    background-color: inherit;
+}
+
+.setup__number-input {
+    width: 50px;
+    text-align: center;
+    font-size: 1.25rem;
+    border: none;
+    background-color: inherit;
+
+    -moz-appearance: textfield;
+
+    &::-webkit-inner-spin-button, &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    &:focus-visible {
+        outline: none;
+    }
+}
+
+
 .setup__swiper {
     padding-top: $small-spacing;
     padding-bottom: $small-spacing;
@@ -92,26 +139,10 @@
     }
 }
 
-
-.setup__swiper:before {
-    content: "";
-    position: absolute;
-    height: 84px;
-    width: 50%;
-    border-top: 2px solid $color-7;
-    border-bottom: 2px solid $color-7;
-    top: 0;
-    left: 25%;
-}
-
-.setup__swiper--vertical:before {
-    top: 50%;
-    height: 70px;
-    transform: translateY(-50%);
-}
-
-.swiper-slide-active {
-    font-weight: 700;
+.setup__input-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .setup__number {
@@ -119,27 +150,6 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-
-.swiper-container {
-   &--vertical {
-       height: 350px;
-   }
-}
-
-.swiper-slide {
-    text-align: center;
-    height: fit-content;
-}
-
-.setup__select-wrapper {
-    padding-top: 131px;
-    padding-bottom: 131px;
-
-    @include media-breakpoint-up(lg) {
-        padding-top: 137px;
-        padding-bottom: 137px;
-    }
 }
 
 .setup__select {
@@ -251,13 +261,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 57px;
-    padding-bottom: 57px;
-
-    @include media-breakpoint-up(lg) {
-        padding-top: 124px;
-        padding-bottom: 124px;
-    }
 }
 
 .setup__goal-tile {
