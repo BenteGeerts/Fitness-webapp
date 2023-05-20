@@ -3,10 +3,15 @@
     flex-direction: column;
     align-items: center;
 
-    color: #ff0000;
-    background-color: #ffe6e6;
+    color: #DC2626;
+    background-color: #FEE2E2;
     padding: 8px;
     border: 1px solid #ff0000;
     border-radius: 4px;
     margin-top: 4px;
+
+    .&--green {
+        background-color: #D1FAE5;
+        color: #047857;
+    }
 }
