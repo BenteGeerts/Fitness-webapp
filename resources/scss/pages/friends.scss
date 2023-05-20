@@ -111,6 +111,10 @@
     flex-direction: row;
     align-items: center;
     padding-bottom: 20px;
+
+    color: unset;
+    text-decoration: unset;
+    cursor: pointer;
 }
 
 .friends__friend-img {
@@ -135,4 +139,20 @@
 
     padding-top: 20px;
     padding-bottom: 100px;
+}
+
+.friends__cup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 60vh;
+    justify-content: center;
+
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.friends__cup-text {
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
