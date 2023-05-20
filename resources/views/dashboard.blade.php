@@ -9,7 +9,6 @@
                    <div class="col-md-12 col-lg-10">
                        <div class="page__heading">
                            <h1>Dashboard</h1>
-                           <img class="page__profile-img" src="/images/profileimg.png" alt="">
                        </div>
 
                        <div class="dashboard__greeting">

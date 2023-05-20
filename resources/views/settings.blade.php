@@ -5,7 +5,6 @@
             <div class="col-md-12 col-lg-10">
                 <div class="page__heading">
                     <h1>Settings</h1>
-                    <img class="page__profile-img" src="/images/profileimg.png" alt="">
                 </div>
 
                 <h2 class="h3 settings__title">Profile</h2>

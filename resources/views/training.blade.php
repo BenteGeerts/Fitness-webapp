@@ -5,7 +5,6 @@
             <div class="col-md-12 col-lg-9 col-xl-10">
                 <div class="page__heading">
                     <h1>Training</h1>
-                    <img class="page__profile-img" src="/images/profileimg.png" alt="">
                 </div>
 
                 <div class="training__switch">
