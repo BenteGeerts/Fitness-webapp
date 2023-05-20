@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
 use function Symfony\Component\String\u;
+use Laravolt\Avatar\Facade as Avatar;
 
 
 class AuthController extends Controller
@@ -86,6 +87,14 @@ class AuthController extends Controller
             return redirect("/dashboard");
         }
         if (empty($email)) {
+            if(is_null($user->avatar))
+            {
+                $fileName = time(). '.png';
+                $filePath = "public/storage/" . $fileName;
+                Avatar::create($user->name)->setDimension(200, 200)->save($filePath);
+                $user->avatar = asset($filePath);
+            }
+
             $user = User::create(
                 [
                     "name" => $user->name,
@@ -93,6 +102,8 @@ class AuthController extends Controller
                     "avatar" => $user->avatar
                 ]
             );
+
+            Auth::login($email);
         }
 
         return redirect("/dashboard");
@@ -118,6 +129,15 @@ class AuthController extends Controller
             return redirect("/dashboard");
         }
         if (empty($email)) {
+
+            if(is_null($user->avatar))
+            {
+                $fileName = time(). '.png';
+                $filePath = "storage/images/" . $fileName;
+                Avatar::create($user->name)->setDimension(200, 200)->save($filePath);
+                $user->avatar = asset($filePath);
+            }
+
             $user = User::create(
                 [
                     "name" => $user->name,
@@ -125,6 +145,8 @@ class AuthController extends Controller
                     "avatar" => $user->avatar
                 ]
             );
+
+            Auth::login($user);
         }
 
         return redirect("/dashboard");
