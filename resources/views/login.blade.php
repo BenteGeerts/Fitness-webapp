@@ -68,7 +68,7 @@
                         Google
                     </a>
                     <a class="button button--secondary button--icon signup__button--hidden"
-                       href="{{Route("stravaLogin")}}">
+                       href="{{Route("microsoftLogin")}}">
                         <img class="button__img" src="/images/microsoftIcon.png" alt="">
                         Microsoft
                     </a>
