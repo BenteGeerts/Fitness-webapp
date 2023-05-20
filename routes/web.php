@@ -7,6 +7,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\SetupController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\FriendsController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get("/setup", [SetupController::class, "setup"]);
     Route::get("/shop", [ShopController::class, "shop"])->name("shop");
     Route::get("/friends", [FriendsController::class, "friends"])->name("friends");
+    Route::get("/profile", [ProfileController::class, "profile"])->name("profile");
 });
 
 
