@@ -29,6 +29,11 @@
                    </div>
 
                    <div class="form__field">
+                       <label class="form__label" for="username">Username</label>
+                       <input class="form__input-field" name="username" id="username" type="text">
+                   </div>
+
+                   <div class="form__field">
                        <label class="form__label" for="email">Email</label>
                        <input class="form__input-field" name="email" id="email" type="email">
                    </div>
@@ -40,15 +45,6 @@
                            <i class="icon-visibility form__icon" data-toggle-visibility></i>
                        </div>
                    </div>
-
-                   <div class="form__field">
-                       <label class="form__label" for="confirm">Confirm password</label>
-                       <div class="form__password">
-                           <input class="form__input-field" name="confirm" id="confirm" type="password" data-password>
-                           <i class="icon-visibility form__icon" data-toggle-visibility></i>
-                       </div>
-                   </div>
-
 
                    <button class="button button--big signup__cta" type="submit">Create your account</button>
                </form>
