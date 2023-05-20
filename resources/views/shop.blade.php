@@ -24,10 +24,10 @@
                                     remain in place for one full day of inactivity.
                                 </p>
 
-                                <div class="shop__price-wrapper">
+                                <a class="shop__price-wrapper">
                                     <i class="icon-diamond shop__price-icon"></i>
                                     <span class="shop__price">9999</span>
-                                </div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -43,10 +43,10 @@
                                     double points for the next 24 hours.
                                 </p>
 
-                                <div class="shop__price-wrapper">
+                                <a class="shop__price-wrapper">
                                     <i class="icon-diamond shop__price-icon"></i>
                                     <span class="shop__price">9999</span>
-                                </div>
+                                </a>
                             </div>
                         </div>
                     </div>
