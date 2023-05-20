@@ -17,7 +17,8 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
     <!-- Styles -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
@@ -26,7 +27,9 @@
 </head>
 <body>
 @yield('content')
-@include("navbar")
+@if(!request()->routeIs("login") && !request()->routeIs("signup") && !request()->route("landingpage"))
+    @include("navbar")
+@endif
 @livewireScripts
 </body>
 </html>
