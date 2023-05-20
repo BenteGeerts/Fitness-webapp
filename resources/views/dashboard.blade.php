@@ -233,4 +233,6 @@
                    </div>
                </div>
            </section>
+
+    <livewire:dashboard-modal/>
 @endsection
