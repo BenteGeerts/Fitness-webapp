@@ -25,7 +25,6 @@
                     <a class="friends__switch-item" data-toggle-ranking="world">World</a>
                 </div>
 
-
                 <div class="row">
                     <div class="col-md-12 col-lg-6">
                         <div class="friends__ranking friends__ranking--show" data-ranking="friends">
@@ -99,41 +98,20 @@
                 <h3 class="h3 h3--spacing">My friends</h3>
 
                 <div class="row">
-                    <div class="col-md-12 col-lg-3">
-                        <div class="friends__friend">
-                            <img class="friends__friend-img" src="/images/profileimg.png" alt="">
-                            <p class="friends__friend-name">Eleanor Pena</p>
-                        </div>
+                    @foreach ($friends as $key => $friend)
+                        @if ($key % 2 === 0)
+                            <div class="col-md-12 col-lg-3">
+                                @endif
 
-                        <div class="friends__friend">
-                            <img class="friends__friend-img" src="/images/profileimg.png" alt="">
-                            <p class="friends__friend-name">Eleanor Pena</p>
-                        </div>
-                    </div>
+                                <div class="friends__friend">
+                                    <img class="friends__friend-img" src="/images/profileimg.png" alt="">
+                                    <p class="friends__friend-name">{{$friend->name}}</p>
+                                </div>
 
-                    <div class="col-md-12 col-lg-3">
-                        <div class="friends__friend">
-                            <img class="friends__friend-img" src="/images/profileimg.png" alt="">
-                            <p class="friends__friend-name">Eleanor Pena</p>
-                        </div>
-
-                        <div class="friends__friend">
-                            <img class="friends__friend-img" src="/images/profileimg.png" alt="">
-                            <p class="friends__friend-name">Eleanor Pena</p>
-                        </div>
-                    </div>
-
-                    <div class="col-md-12 col-lg-3">
-                        <div class="friends__friend">
-                            <img class="friends__friend-img" src="/images/profileimg.png" alt="">
-                            <p class="friends__friend-name">Eleanor Pena</p>
-                        </div>
-
-                        <div class="friends__friend">
-                            <img class="friends__friend-img" src="/images/profileimg.png" alt="">
-                            <p class="friends__friend-name">Eleanor Pena</p>
-                        </div>
-                    </div>
+                                @if ($key % 2 !== 0 || $loop->last)
+                            </div>
+                        @endif
+                    @endforeach
                 </div>
 
                 <div class="friends__button">
