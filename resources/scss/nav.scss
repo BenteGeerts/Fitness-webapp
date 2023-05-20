@@ -33,14 +33,24 @@
             padding-left: 24px;
             padding-right: 24px;
         }
-
-        &--active {
-
-        }
     }
 
     &__link {
         color: unset;
         text-decoration: none;
+        position: relative;
+
+        &--active:before {
+            content: "";
+            position: absolute;
+            height: 50px;
+            width: 50px;
+            background-color: $color-2;
+            border-radius: 50%;
+            z-index: -1;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
     }
 }
