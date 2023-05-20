@@ -28,21 +28,22 @@ class AuthController extends Controller
         $this->validate($request, [
             "firstname" => "required",
             "lastname" => "required",
+            "username" => "required",
             "email" => "email|required",
             "password" => "required",
-            "confirm" => "required",
             "avatar" => "nullable"
         ]);
 
         $user = User::where("email", "=", $request->input("email"))->first();
 
-        if (!isset($user) && $request->input("password") == $request->input("confirm")) {
+        if (!isset($user)) {
             $newUser = new User();
             $newUser->name = $request->input("firstname") . " " . $request->input("lastname");
+            $newUser->username = $request->input("username");
             $newUser->email = $request->input("email");
             $newUser->password = Hash::make($request->input("password"));
 
-            $fileName = time(). '.png';
+            $fileName = time() . '.png';
             $filePath = "storage/images/" . $fileName;
 
             Avatar::create($newUser->name)->setDimension(200, 200)->save($filePath);
@@ -56,7 +57,8 @@ class AuthController extends Controller
         return view("register");
     }
 
-    public function signIn(Request $request) {
+    public function signIn(Request $request)
+    {
         $credentials = $request->only('email', 'password');
         $remember = $request->has('remember');
 
@@ -65,7 +67,6 @@ class AuthController extends Controller
             return redirect()->intended('/dashboard');
         }
 
-        // Authentication failed, redirect back with errors
         return redirect()->back()->withInput();
     }
 
@@ -88,22 +89,31 @@ class AuthController extends Controller
         session()->put('access_token', $user->token);
         $email = User::where('email', '=', $user->email)->first();
 
+
         if (!empty($email)) {
             Auth::login($email);
             return redirect("/dashboard");
         }
         if (empty($email)) {
-            if(is_null($user->avatar))
-            {
-                $fileName = time(). '.png';
+            if (is_null($user->avatar)) {
+                $fileName = time() . '.png';
                 $filePath = "storage/images/" . $fileName;
                 Avatar::create($user->name)->setDimension(200, 200)->save($filePath);
                 $user->avatar = asset($filePath);
             }
 
+            $i = 0;
+            $username = strtolower(str_replace(' ', '', $user->name));
+            while(User::where('username', $username)->exists())
+            {
+                $i++;
+                $username = $username .  $i;
+            }
+
             $user = User::create(
                 [
                     "name" => $user->name,
+                    "username" => $username,
                     "email" => $user->email,
                     "avatar" => $user->avatar
                 ]
@@ -136,17 +146,25 @@ class AuthController extends Controller
         }
         if (empty($email)) {
 
-            if(is_null($user->avatar))
-            {
-                $fileName = time(). '.png';
+            if (is_null($user->avatar)) {
+                $fileName = time() . '.png';
                 $filePath = "storage/images/" . $fileName;
                 Avatar::create($user->name)->setDimension(200, 200)->save($filePath);
                 $user->avatar = asset($filePath);
             }
 
+            $i = 0;
+            $username = strtolower(str_replace(' ', '', $user->name));
+            while(User::where('username', $username)->exists())
+            {
+                $i++;
+                $username = $username .  $i;
+            }
+
             $user = User::create(
                 [
                     "name" => $user->name,
+                    "username" => $username,
                     "email" => $user->email,
                     "avatar" => $user->avatar
                 ]
@@ -158,7 +176,8 @@ class AuthController extends Controller
         return redirect("/dashboard");
     }
 
-    public function logOut() {
+    public function logOut()
+    {
         Auth::logout();
         return redirect("/");
     }
