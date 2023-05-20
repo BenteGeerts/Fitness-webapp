@@ -38,7 +38,7 @@
                     </div>
 
                     <div class="login__link-wrapper">
-                        <p>Don't have an account? <a class="login__link" href="">Sign Up</a></p>
+                        <p>Don't have an account? <a class="login__link" href="{{Route("signup")}}">Sign Up</a></p>
                     </div>
 
 
