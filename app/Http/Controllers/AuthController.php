@@ -41,6 +41,12 @@ class AuthController extends Controller
             $newUser->name = $request->input("firstname") . " " . $request->input("lastname");
             $newUser->email = $request->input("email");
             $newUser->password = Hash::make($request->input("password"));
+
+            $fileName = time(). '.png';
+            $filePath = "storage/images/" . $fileName;
+
+            Avatar::create($newUser->name)->setDimension(200, 200)->save($filePath);
+            $newUser->avatar = asset($filePath);
             $newUser->save();
 
             Auth::login($newUser);
@@ -90,7 +96,7 @@ class AuthController extends Controller
             if(is_null($user->avatar))
             {
                 $fileName = time(). '.png';
-                $filePath = "public/storage/" . $fileName;
+                $filePath = "storage/images/" . $fileName;
                 Avatar::create($user->name)->setDimension(200, 200)->save($filePath);
                 $user->avatar = asset($filePath);
             }
