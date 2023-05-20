@@ -2,8 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FitController;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\SetupController;
+use App\Http\Controllers\ShopController;
+use App\Http\Controllers\FriendsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +20,24 @@ use App\Http\Controllers\PageController;
 */
 
 Route::get("/", [PageController::class, "landingpage"]);
-Route::get("/google-login", [LoginController::class, "googleLogin"])->name("googleLogin");
-Route::get("/google-redirect", [LoginController::class, "googleRedirect"]);
-Route::get("/facebook-login", [LoginController::class, "facebookLogin"])->name("facebookLogin");
-Route::get("facebook-redirect", [LoginController::class, "facebookRedirect"]);
-Route::get("/dashboard", [FitController::class, "Fit"]);
+Route::middleware('guest')->group(function () {
+    Route::get("/login", [AuthController::class, "login"])->name("login");
+    Route::post("/login", [AuthController::class, "signIn"])->name("signIn");
+    Route::get("/signup", [AuthController::class, "signUp"])->name("signup");
+    Route::post("/signup", [AuthController::class, "register"])->name("register");
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::get("/dashboard", [FitController::class, "Fit"])->name("home");
+    Route::get("/setup", [SetupController::class, "setup"]);
+    Route::get("/shop", [ShopController::class, "shop"])->name("shop");
+    Route::get("/friends", [FriendsController::class, "friends"])->name("friends");
+});
+
+
+Route::get("/logout", [AuthController::class, "logOut"])->name("logout");
+
+Route::get("/google-login", [AuthController::class, "googleLogin"])->name("googleLogin");
+Route::get("/google-redirect", [AuthController::class, "googleRedirect"]);
+Route::get("/microsoft-login", [AuthController::class, "microsoftLogin"])->name("microsoftLogin");
+Route::get("/microsoft-redirect", [AuthController::class, "microsoftRedirect"]);
