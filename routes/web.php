@@ -30,10 +30,11 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get("/dashboard", [FitController::class, "Fit"])->name("home");
-    Route::get("/setup", [SetupController::class, "setup"]);
+    Route::get("/setup", [SetupController::class, "setup"])->name("setup");
     Route::get("/shop", [ShopController::class, "shop"])->name("shop");
     Route::get("/friends", [FriendsController::class, "friends"])->name("friends");
     Route::get("/profile", [ProfileController::class, "profile"])->name("profile");
+    Route::get("/profile/{id}", [ProfileController::class, "show"])->name("profile.show");
 });
 
 
