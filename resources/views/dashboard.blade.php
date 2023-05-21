@@ -3,7 +3,6 @@
     {{--    @foreach($stepCountData as $stepCount)--}}
     {{--        <h1 data-step-count>{{$stepCount}}</h1>--}}
     {{--    @endforeach--}}
-
            <section class="dashboard">
                <div class="row justify-content-center">
                    <div class="col-md-12 col-lg-10">
@@ -233,6 +232,5 @@
                    </div>
                </div>
            </section>
-
-    <livewire:dashboard-modal/>
+    <livewire:dashboard-modal showModal="{{session('showModal')}}"/>
 @endsection

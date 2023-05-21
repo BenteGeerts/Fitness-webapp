@@ -13,6 +13,8 @@ use Laravolt\Avatar\Facade as Avatar;
 
 class AuthController extends Controller
 {
+    public bool $showModal = false;
+
     public function signUp()
     {
         return view("register");
@@ -131,7 +133,7 @@ class AuthController extends Controller
             return Socialite::driver('microsoft')->redirect();
         }
         if (!empty(Auth::user())) {
-            return redirect("/dashboard");
+            return redirect()->route("home")->with("showModal", $this->showModal);
         }
     }
 
@@ -142,7 +144,7 @@ class AuthController extends Controller
 
         if (!empty($email)) {
             Auth::login($email);
-            return redirect("/dashboard");
+            return redirect()->route("home")->with("showModal", $this->showModal);
         }
         if (empty($email)) {
 
@@ -169,11 +171,11 @@ class AuthController extends Controller
                     "avatar" => $user->avatar
                 ]
             );
-
+            $this->showModal = true;
             Auth::login($user);
         }
 
-        return redirect("/dashboard");
+        return redirect()->route("home")->with("showModal", $this->showModal);
     }
 
     public function logOut()
