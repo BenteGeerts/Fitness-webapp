@@ -81,7 +81,7 @@ class AuthController extends Controller
                 ->redirect();
         }
         if (!empty(Auth::user())) {
-            return redirect("/dashboard");
+            return redirect()->route("home")->with("showModal", $this->showModal);
         }
     }
 
@@ -94,7 +94,7 @@ class AuthController extends Controller
 
         if (!empty($email)) {
             Auth::login($email);
-            return redirect("/dashboard");
+            return redirect()->route("home")->with("showModal", $this->showModal);
         }
         if (empty($email)) {
             if (is_null($user->avatar)) {
@@ -120,11 +120,11 @@ class AuthController extends Controller
                     "avatar" => $user->avatar
                 ]
             );
-
-            Auth::login($email);
+            $this->showModal = true;
+            Auth::login($user);
         }
 
-        return redirect("/dashboard");
+        return redirect()->route("home")->with("showModal", $this->showModal);
     }
 
     public function microsoftLogin()
