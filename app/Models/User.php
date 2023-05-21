@@ -47,7 +47,7 @@ class User extends Authenticatable
 
     public function userData()
     {
-        return $this->hasOne(userData::class, "user_id", "id");
+        return $this->hasOne(UserData::class, "user_id", "id");
     }
 
     public function friends()
