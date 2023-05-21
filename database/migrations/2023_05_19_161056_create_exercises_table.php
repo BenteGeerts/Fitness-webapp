@@ -15,10 +15,11 @@ return new class extends Migration
     {
         Schema::create('exercises', function (Blueprint $table) {
             $table->id();
-            $table->string("exercise");
+            $table->string("name");
             $table->string("image_url");
             $table->string("video_url");
             $table->string("common_mistakes");
+            $table->integer("diamonds");
             $table->timestamps();
         });
     }
