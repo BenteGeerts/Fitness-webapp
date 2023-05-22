@@ -3,14 +3,11 @@
 }
 
 .training__programs {
-    display: none;
-
-    &--active {
-        display: block;
-    }
+    display: block;
 }
 
 .training__switch {
+    cursor: pointer;
     font-weight: 600;
     font-size: 1.125rem;
 
