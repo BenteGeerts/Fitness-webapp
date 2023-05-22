@@ -15,66 +15,29 @@
                     <h2 class="h3">Recommended programs</h2>
 
                     <div class="training__recommended-programs">
-                        <div class="program program--big">
-                            <div class="program__drawing-container program__drawing-container--big">
-                                <img class="program__drawing program__drawing--big" src="/images/drawing__running.svg"
-                                     alt="">
-                            </div>
 
-                            <div class="program__text-container program__text-container--big">
-                                <p class="program__title">Running</p>
-                                <div class="program__icons">
-                                    <div class="program__icon-wrapper">
-                                        <i class="icon-alarm program__icon"></i>
-                                        <p class="program__icon-text">60 min</p>
-                                    </div>
-                                    <div class="program__icon-wrapper program__icon-wrapper--big">
-                                        <i class="icon-diamond program__icon"></i>
-                                        <p class="program__icon-text">552</p>
+                        @foreach($programs as $program)
+                            <div class="program program--big">
+                                <div class="program__drawing-container program__drawing-container--big">
+                                    <img class="program__drawing program__drawing--big" src="/images/drawing__running.svg"
+                                         alt="">
+                                </div>
+
+                                <div class="program__text-container program__text-container--big">
+                                    <p class="program__title">{{$program->name}}</p>
+                                    <div class="program__icons">
+                                        <div class="program__icon-wrapper">
+                                            <i class="icon-alarm program__icon"></i>
+                                            <p class="program__icon-text">60 min</p>
+                                        </div>
+                                        <div class="program__icon-wrapper program__icon-wrapper--big">
+                                            <i class="icon-diamond program__icon"></i>
+                                            <p class="program__icon-text">{{$this->getTotalDiamonds($program)}}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="program program--big">
-                            <div class="program__drawing-container program__drawing-container--big">
-                                <img class="program__drawing program__drawing--big" src="/images/drawing__running.svg"
-                                     alt="">
-                            </div>
-
-                            <div class="program__text-container program__text-container--big">
-                                <p class="program__title">Running</p>
-                                <div class="program__icons">
-                                    <div class="program__icon-wrapper">
-                                        <i class="icon-alarm program__icon"></i>
-                                        <p class="program__icon-text">60 min</p>
-                                    </div>
-                                    <div class="program__icon-wrapper program__icon-wrapper--big">
-                                        <i class="icon-diamond program__icon"></i>
-                                        <p class="program__icon-text">552</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="program program--big">
-                            <div class="program__drawing-container program__drawing-container--big">
-                                <img class="program__drawing program__drawing--big" src="/images/drawing__running.svg"
-                                     alt="">
-                            </div>
-
-                            <div class="program__text-container program__text-container--big">
-                                <p class="program__title">Running</p>
-                                <div class="program__icons">
-                                    <div class="program__icon-wrapper program__icon-wrapper--big">
-                                        <i class="icon-alarm program__icon"></i>
-                                        <p class="program__icon-text">60 min</p>
-                                    </div>
-                                    <div class="program__icon-wrapper">
-                                        <i class="icon-diamond program__icon"></i>
-                                        <p class="program__icon-text">552</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            @endforeach
                     </div>
 
                     <h3 class="h3">All programs</h3>
