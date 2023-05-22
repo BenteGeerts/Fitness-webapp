@@ -13,4 +13,9 @@ class Exercise extends Model
     {
         return $this->hasOne(Category::class);
     }
+
+    public function programs()
+    {
+        return $this->belongsToMany(TrainingProgram::class);
+    }
 }
