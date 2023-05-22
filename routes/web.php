@@ -8,6 +8,7 @@ use App\Http\Controllers\SetupController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\FriendsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TrainingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,7 @@ Route::middleware('guest')->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get("/dashboard", [FitController::class, "Fit"])->name("home");
     Route::get("/setup", [SetupController::class, "setup"])->name("setup");
+    Route::get("/training", [TrainingController::class, "training"])->name("training");
     Route::get("/shop", [ShopController::class, "shop"])->name("shop");
     Route::get("/friends", [FriendsController::class, "friends"])->name("friends");
     Route::get("/profile", [ProfileController::class, "profile"])->name("profile");
