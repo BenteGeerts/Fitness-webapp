@@ -8,9 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class TrainingProgram extends Model
 {
     use HasFactory;
+    protected $table = 'training_programs';
 
-    public function exercise()
+    public function exercises()
     {
-        return $this->belongsToMany(Exercise::class);
+        return $this->belongsToMany(Exercise::class, 'training_program_has_exercise');
     }
 }

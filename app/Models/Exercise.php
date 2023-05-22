@@ -16,6 +16,6 @@ class Exercise extends Model
 
     public function programs()
     {
-        return $this->belongsToMany(TrainingProgram::class);
+        return $this->belongsToMany(TrainingProgram::class, 'training_program_has_exercise');
     }
 }
