@@ -6,9 +6,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use Laravel\Socialite\Facades\Socialite;
 use function Symfony\Component\String\u;
 use Laravolt\Avatar\Facade as Avatar;
+use Illuminate\Validation\Rules;
 
 
 class AuthController extends Controller
@@ -27,14 +29,18 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
-        $this->validate($request, [
+        $validator = Validator::make($request->all(), [
             "firstname" => "required",
             "lastname" => "required",
             "username" => "required",
             "email" => "email|required",
-            "password" => "required",
+            "password" => ["required", Rules\Password::defaults()],
             "avatar" => "nullable"
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
 
         $user = User::where("email", "=", $request->input("email"))->first();
 
