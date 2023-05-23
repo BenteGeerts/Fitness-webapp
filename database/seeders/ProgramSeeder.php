@@ -16,27 +16,39 @@ class ProgramSeeder extends Seeder
     public function run()
     {
         DB::table("training_programs")->insert([
-            "name" => "Push"
+            "name" => "Push",
+            "total_diamonds" => 100,
+            "level_id" => 2
         ]);
 
         DB::table("training_programs")->insert([
-            "name" => "Pull"
+            "name" => "Pull",
+            "total_diamonds" => 100,
+            "level_id" => 2
         ]);
 
         DB::table("training_programs")->insert([
-            "name" => "Legs"
+            "name" => "Legs",
+            "total_diamonds" => 100,
+            "level_id" => 2
         ]);
 
         DB::table("training_programs")->insert([
-            "name" => "Full body"
+            "name" => "Full body",
+            "total_diamonds" => 100,
+            "level_id" => 1
         ]);
 
         DB::table("training_programs")->insert([
-            "name" => "Upper body"
+            "name" => "Upper body",
+            "total_diamonds" => 100,
+            "level_id" => 1
         ]);
 
         DB::table("training_programs")->insert([
-            "name" => "Lower body"
+            "name" => "Lower body",
+            "total_diamonds" => 100,
+            "level_id" => 1
         ]);
     }
 }

@@ -21,7 +21,9 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
+        $this->call(GoalSeeder::class);
         $this->call(CategorySeeder::class);
+        $this->call(TrainingLevel::class);
         $this->call(ExerciseSeeder::class);
         $this->call(ProgramSeeder::class);
         $this->call(TrainingProgramSeeder::class);
