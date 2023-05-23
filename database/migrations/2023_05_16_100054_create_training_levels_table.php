@@ -13,10 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('training_program_has_exercise', function (Blueprint $table) {
+        Schema::create('training_levels', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("training_program_id")->references("id")->on("training_programs");
-            $table->foreignId("exercise_id")->references("id")->on("exercises");
+            $table->string("level");
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('table_training_level');
     }
 };
