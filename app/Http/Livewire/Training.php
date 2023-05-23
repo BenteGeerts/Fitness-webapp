@@ -10,11 +10,12 @@ class Training extends Component
     public $showTraining = true;
     public $showHistory = false;
 
-    public $programs = null;
+    public $recommendedPrograms = null;
+    public $allPrograms = null;
 
     public function render()
     {
-        $this->programs = TrainingProgram::all();
+        $this->allPrograms = TrainingProgram::all();
         return view('livewire.training');
     }
 
@@ -28,16 +29,5 @@ class Training extends Component
     {
         $this->showTraining = false;
         $this->showHistory = true;
-    }
-
-    public function getTotalDiamonds($program)
-    {
-        $diamonds = 0;
-        foreach($program->exercises as $exercise)
-        {
-           $diamonds += $exercise->diamonds;
-        }
-
-        return $diamonds;
     }
 }
