@@ -27,7 +27,8 @@
 </head>
 <body>
 @yield('content')
-@if(!request()->routeIs("login") && !request()->routeIs("signup") && !request()->routeIs("landingpage"))
+@if(!request()->routeIs("login") && !request()->routeIs("signup") && !request()->routeIs("landingpage") &&
+!request()->routeIs("password.request") && !request()->routeIs("password.reset"))
     @include("navbar")
 @endif
 @livewireScripts
