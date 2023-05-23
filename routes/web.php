@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FitController;
 use App\Http\Controllers\AuthController;
@@ -27,6 +29,11 @@ Route::middleware('guest')->group(function () {
     Route::post("/login", [AuthController::class, "signIn"])->name("signIn");
     Route::get("/signup", [AuthController::class, "signUp"])->name("signup");
     Route::post("/signup", [AuthController::class, "register"])->name("register");
+
+    Route::get("/password/reset/{token}", [ResetPasswordController::class, "showResetForm"])->name("password.reset");
+    Route::get("/password/reset", [ForgotPasswordController::class, "showLinkRequestForm"])->name("password.request");
+    Route::post("/password/email", [ForgotPasswordController::class, "sendResetLinkEmail"])->name("password.email");
+    Route::post("/password/reset", [ResetPasswordController::class, "reset"])->name("password.update");
 });
 
 Route::middleware(['auth'])->group(function () {
