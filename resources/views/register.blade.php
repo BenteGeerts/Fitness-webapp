@@ -50,9 +50,11 @@
                             <i class="icon-visibility form__icon" data-toggle-visibility></i>
                         </div>
                     </div>
+
                     @error('*')
                     <div class="error">{{ $message }}</div>
                     @enderror
+
                     <button class="button button--big signup__cta" type="submit">Create your account</button>
                 </form>
 
