@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class UserData extends Model
 {
     use HasFactory;
+    protected $table = "users_data";
 
     public function user()
     {
