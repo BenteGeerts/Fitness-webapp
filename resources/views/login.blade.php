@@ -33,7 +33,7 @@
                                 <input class="form__checkbox-button" id="remember" name="remember" type="checkbox"  {{ old('remember') ? 'checked' : '' }}>
                                 <label class="form__checkbox-label" for="remember">Remember me</label>
                             </div>
-                            <a class="form__password-button" href="">Forgot password?</a>
+                            <a class="form__password-button" href="{{route('password.request')}}">Forgot password?</a>
                         </div>
                     </div>
 
