@@ -13,14 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user_data', function (Blueprint $table) {
+        Schema::create('users_data', function (Blueprint $table) {
             $table->id();
             $table->foreignId("user_id")->references("id")->on("users")->onDelete("cascade");
             $table->integer("weight");
             $table->integer("height");
             $table->integer("age");
             $table->string("gender");
-            $table->integer("goal");
+            $table->foreignId("goal")->references("id")->on("users_goal");
+            $table->foreignId("level_id")->references("id")->on("training_levels");
             $table->integer("min_visits");
             $table->timestamps();
         });
