@@ -11,6 +11,7 @@
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
+        "laravel/ui": "^4.2",
         "laravolt/avatar": "^5.0",
         "livewire/livewire": "^2.12",
         "socialiteproviders/google": "^4.1",
