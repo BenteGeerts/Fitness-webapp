@@ -73,9 +73,34 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    @if ($loop->last && ($key + 1) % 3 != 0)
+                                        <div class="col-md-12 col-lg-4">
+                                            <a class="program__button" href="">
+                                                <div class="program__button-text">
+                                                    <span>+</span>
+                                                    <span>Add</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    @endif
+
                                     @if (($key + 1) % 3 === 0 || $loop->last)
                                 </div>
                             @endif
+
+                                @if ($loop->last && ($key + 1) % 3 == 0)
+                                   <div class="row">
+                                       <div class="col-md-12 col-lg-4">
+                                           <a class="program__button" href="">
+                                               <div class="program__button-text">
+                                                   <span>+</span>
+                                                   <span>Add</span>
+                                               </div>
+                                           </a>
+                                       </div>
+                                   </div>
+                                @endif
                         @endforeach
 
 
@@ -83,7 +108,6 @@
                 </div>
 
                 <div class="training__buttons">
-                    <a class="button" href="">Create new</a>
                     <a class="button button--secondary" href="">Load more</a>
                 </div>
         </div>
