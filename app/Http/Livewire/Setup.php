@@ -14,7 +14,7 @@ class Setup extends Component
     public $height = 100;
     public $age = 20;
     public $gender = [];
-    public $goal  = [];
+    public $goal = [];
     public $visits = 3;
 
     public function render()
@@ -62,22 +62,38 @@ class Setup extends Component
         $userData->gender = $this->gender;
         $userData->min_visits = $this->visits;
 
-        if($this->goal == "lose weight")
-        {
+        if ($this->goal == "lose weight") {
             $userData->goal = 1;
         }
 
-        if($this->goal == "gain weight")
-        {
+        if ($this->goal == "gain weight") {
             $userData->goal = 2;
         }
 
-        if($this->goal == "gain muscle")
-        {
+        if ($this->goal == "gain muscle") {
             $userData->goal = 3;
         }
+
+        $userData->level_id = $this->getLevel();
         $userData->save();
 
         return redirect("/dashboard");
+    }
+
+    public function getLevel()
+    {
+        switch (true) {
+            case ($this->weight > 90 && $this->height > 180 && $this->goal == 3 && $this->visits >= 4):
+                $level = 3;
+                break;
+            case ($this->weight > 70 && $this->height > 160 && $this->goal == 1 && $this->visits >= 3):
+                $level = 2;
+                break;
+            default:
+                $level = 1;
+                break;
+        }
+
+        return $level;
     }
 }
