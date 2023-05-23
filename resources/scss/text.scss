@@ -9,13 +9,30 @@
     padding: 10px 20px 10px 20px;
     border: none;
 
+    &:hover {
+        color: $color-6;
+        background-color: $color-4;
+        transition: all 0.3s;
+    }
+
     &--secondary {
         background-color: $color-4;
         color: $color-6;
+
+        &:hover {
+            color: $color-4;
+            background-color: $color-6;
+            transition: all 0.3s;
+        }
     }
 
     &--tertiary {
         background-color: $color-5;
+
+        &:hover {
+            color: $color-5;
+            background-color: $color-4;
+        }
     }
 
     &--medium {
