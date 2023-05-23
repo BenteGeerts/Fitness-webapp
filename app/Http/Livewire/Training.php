@@ -3,6 +3,8 @@
 namespace App\Http\Livewire;
 
 use App\Models\TrainingProgram;
+use App\Models\UserData;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Training extends Component
@@ -16,6 +18,8 @@ class Training extends Component
     public function render()
     {
         $this->allPrograms = TrainingProgram::all();
+        $userData = UserData::where('user_id', Auth::id())->first();
+        $this->recommendedPrograms = TrainingProgram::where("level_id", "=", $userData->level_id)->get();
         return view('livewire.training');
     }
 
