@@ -9,13 +9,6 @@ exerciseToggles.forEach(exerciseToggle => {
     })
 });
 
-exercises.forEach(exercise => {
-    exercise.addEventListener("click", (e) => {
-        toggleCheckmark(e, exercise);
-    })
-})
-
-
 function toggleExercise(e, exerciseToggle) {
     const exercise = e.target.closest('[data-exercise-toggle]').dataset.exerciseToggle;
 
@@ -23,8 +16,4 @@ function toggleExercise(e, exerciseToggle) {
 
     const exercises = document.querySelector('[data-exercises="' + exercise + '" ]')
     exercises.classList.toggle("add-exercise__exercises--show");
-}
-
-function toggleCheckmark(e, exercise) {
-    exercise.querySelector('[data-checkmark]').classList.toggle('program__checkmark-wrapper--active')
 }
