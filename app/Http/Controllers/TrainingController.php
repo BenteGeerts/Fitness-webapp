@@ -10,4 +10,14 @@ class TrainingController extends Controller
     {
         return view("training");
     }
+
+    public function newTraining()
+    {
+        return view("new-training");
+    }
+
+    public function addExercise()
+    {
+        return view("add-exercise");
+    }
 }

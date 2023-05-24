@@ -40,6 +40,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get("/dashboard", [FitController::class, "Fit"])->name("home");
     Route::get("/setup", [SetupController::class, "setup"])->name("setup");
     Route::get("/training", [TrainingController::class, "training"])->name("training");
+    Route::get("/new-training", [TrainingController::class, "newTraining"])->name("training.new");
+    Route::get("/add-exercise", [TrainingController::class, "addExercise"])->name("training.add");
+
     Route::get("/shop", [ShopController::class, "shop"])->name("shop");
     Route::get("/friends", [FriendsController::class, "friends"])->name("friends");
     Route::get("/profile", [ProfileController::class, "profile"])->name("profile");
