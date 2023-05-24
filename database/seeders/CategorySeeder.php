@@ -42,5 +42,9 @@ class CategorySeeder extends Seeder
         DB::table("categories")->insert([
             "category" => "Full body",
         ]);
+
+        DB::table("categories")->insert([
+            "category" => "Cardio",
+        ]);
     }
 }
