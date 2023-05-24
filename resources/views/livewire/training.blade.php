@@ -76,7 +76,7 @@
 
                                     @if ($loop->last && ($key + 1) % 3 != 0)
                                         <div class="col-md-12 col-lg-4">
-                                            <a class="program__button" href="">
+                                            <a class="program__button" href="{{route('training.new')}}">
                                                 <div class="program__button-text">
                                                     <span>+</span>
                                                     <span>Add</span>
@@ -92,7 +92,7 @@
                                 @if ($loop->last && ($key + 1) % 3 == 0)
                                    <div class="row">
                                        <div class="col-md-12 col-lg-4">
-                                           <a class="program__button" href="">
+                                           <a class="program__button" href="{{route('training.new')}}">
                                                <div class="program__button-text">
                                                    <span>+</span>
                                                    <span>Add</span>
