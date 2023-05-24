@@ -15,16 +15,17 @@ class TrainingController extends Controller
 
     public function newTraining()
     {
+        $diamonds = 0;
         $exercises = session('selectedExercises');
 
         if(!empty($exercises))
         {
             $exercises = Exercise::whereIn("name", $exercises)->get();
-        }
-        $diamonds = 0;
-        foreach($exercises as $exercise)
-        {
-            $diamonds += $exercise->diamonds;
+
+            foreach($exercises as $exercise)
+            {
+                $diamonds += $exercise->diamonds;
+            }
         }
         return view("new-training", ["exercises" => $exercises, "diamonds" => $diamonds]);
     }
