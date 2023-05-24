@@ -125,7 +125,7 @@
                         <div class="setup__select-wrapper">
                             <div class="setup__select">
                                 <div class="select__item">
-                                    <input wire:model="gender" class="select__item-input" type="radio" name="gender"
+                                    <input class="select__item-input" type="radio" name="gender"
                                            value="female"
                                            id="female" data-gender-checkboxes>
                                     <label class="select__item-label" for="female">

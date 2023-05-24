@@ -61,27 +61,29 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="col-12 col-md-6 col-lg-12">
-                                    <div class="program" data-exercise>
-                                        <div class="program__drawing-container">
-                                            <img class="program__drawing" src="/images/drawing__running.svg" alt="">
-                                        </div>
-
-                                        <div class="program__text-container">
-                                            <p class="program__title">Running</p>
-                                            <div class="program__icons">
-                                                <div class="program__icon-wrapper">
-                                                    <i class="icon-diamond program__icon"></i>
-                                                    <p class="program__icon-text">552</p>
+                                    <div class="program__item">
+                                        <input wire:model="gender" class="program__item-input" type="checkbox" name="gender"
+                                               value="female"
+                                               id="female" data-gender-checkboxes>
+                                        <label class="program__item-label" for="female">
+                                                <div class="program__drawing-container">
+                                                    <img class="program__drawing" src="/images/drawing__running.svg" alt="">
                                                 </div>
-                                            </div>
 
-                                        </div>
-
-                                        <div class="program__checkmark-wrapper" data-checkmark>
-                                            <i class="icon-checkmark program__checkmark"></i>
-                                        </div>
+                                                <div class="program__text-container">
+                                                    <p class="program__title program__item-title">Running</p>
+                                                    <div class="program__icons">
+                                                        <div class="program__icon-wrapper">
+                                                            <i class="icon-diamond program__icon"></i>
+                                                            <p class="program__icon-text">552</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        </label>
                                     </div>
+
                                 </div>
                                 <div class="col-12 col-md-6 col-lg-12">
                                     <div class="program" data-exercise>
