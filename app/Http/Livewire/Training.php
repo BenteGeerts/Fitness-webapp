@@ -19,7 +19,9 @@ class Training extends Component
     {
         $this->allPrograms = TrainingProgram::all();
         $userData = UserData::where('user_id', Auth::id())->first();
-        $this->recommendedPrograms = TrainingProgram::where("level_id", "=", $userData->level_id)->get();
+        $this->recommendedPrograms = TrainingProgram::where("level_id", "=", $userData->level_id)->orWhere([
+            ['level_id', 4],
+            ['user_id', auth()->id()]])->get();
         return view('livewire.training');
     }
 
