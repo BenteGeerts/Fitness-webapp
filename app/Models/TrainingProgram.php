@@ -15,6 +15,11 @@ class TrainingProgram extends Model
         return $this->belongsToMany(Exercise::class, 'training_program_has_exercise');
     }
 
+    public function exercisesWithWeight()
+    {
+        return $this->belongsToMany(Exercise::class, 'training_program_has_weights');
+    }
+
     public function level()
     {
         return $this->hasOne(Level::class);

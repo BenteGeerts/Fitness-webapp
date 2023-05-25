@@ -18,4 +18,9 @@ class Exercise extends Model
     {
         return $this->belongsToMany(TrainingProgram::class, 'training_program_has_exercise');
     }
+
+    public function weights()
+    {
+        return $this->hasMany(TrainingProgramHasWeight::class, 'exercise_id');
+    }
 }
