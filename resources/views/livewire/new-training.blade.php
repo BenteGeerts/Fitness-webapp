@@ -10,8 +10,12 @@
 
             <div class="col-md-12 col-lg-4">
                 <div class="form__field">
-                    <label class="form__label" for="">Program name</label>
-                    <input class="form__input-field form__input-field--no-background" type="text">
+                    <label class="form__label" for="trainingName">Training name</label>
+                    <input wire:model="trainingName" name="trainingName" id="trainingName" class="form__input-field form__input-field--no-background"
+                           type="text" placeholder="Enter a name for this training">
+                    @if($errors->has('trainingName'))
+                        <span class="error">{{ $errors->first('trainingName') }}</span>
+                    @endif
                 </div>
             </div>
 
@@ -64,7 +68,7 @@
             </div>
 
             <div class="new-training__buttons new-training__buttons--under">
-                <a href="" class="button button--medium">Save</a>
+                <a wire:click="save" class="button button--medium">Save</a>
                 <a wire:click="cancel" class="button button--secondary button--medium">Cancel</a>
             </div>
         </div>
