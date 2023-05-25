@@ -34,4 +34,9 @@ class TrainingController extends Controller
     {
         return view("add-exercise");
     }
+
+    public function detail($slug)
+    {
+        return view("training-detail")->with("slug", $slug);
+    }
 }
