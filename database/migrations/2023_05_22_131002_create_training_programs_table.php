@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('training_programs', function (Blueprint $table) {
             $table->id();
             $table->string("name");
+            $table->string("slug");
             $table->foreignId("user_id")->nullable()->references("id")->on("users");
             $table->integer("total_diamonds");
             $table->foreignId("level_id")->references("id")->on("training_levels");

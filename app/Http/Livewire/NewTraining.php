@@ -38,6 +38,7 @@ class NewTraining extends Component
 
         $training = new TrainingProgram();
         $training->name = $this->trainingName;
+        $training->slug = strtolower(str_replace(' ', '', $this->trainingName));
         $training->level_id = 4;
         $training->total_diamonds = $this->diamonds;
         $training->user_id = auth()->id();
