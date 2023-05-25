@@ -26,5 +26,9 @@ class TrainingLevel extends Seeder
         DB::table("training_levels")->insert([
             "level" => "Expert"
         ]);
+
+        DB::table("training_levels")->insert([
+            "level" => "Custom"
+        ]);
     }
 }
