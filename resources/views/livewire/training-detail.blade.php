@@ -22,30 +22,40 @@
                         </div>
                     </div>
                     <!-- Existing sets -->
-                    <div>
+                    <div class="training__input-wrapper">
                         @foreach($existingSets[$exercise->id] ?? [] as $index => $set)
-                            <div>
-                                <input type="number" placeholder="Reps" wire:model="existingSets.{{ $exercise->id }}.{{ $index }}.reps">
+                            <div class="training__input">
+                                <input class="training__input-field" type="number" placeholder="Reps"
+                                       wire:model="existingSets.{{ $exercise->id }}.{{ $index }}.reps">
                                 <span>X</span>
-                                <input type="number" placeholder="Weight" wire:model="existingSets.{{ $exercise->id }}.{{ $index }}.weight">
+                                <input class="training__input-field" type="number" placeholder="Weight"
+                                       wire:model="existingSets.{{ $exercise->id }}.{{ $index }}.weight">
                                 <span>KG</span>
-                                <button wire:click="removeSet('{{ $exercise->id }}', {{ $index }})">Remove</button>
+                                <button class="button button--tertiary training__input-button"
+                                        wire:click="removeSet('{{ $exercise->id }}', {{ $index }})">Remove
+                                </button>
                             </div>
                         @endforeach
                     </div>
                     <!-- New sets -->
-                    <div>
+                    <div class="training__input-wrapper">
                         @foreach ($sets[$exercise->id] ?? [] as $index => $set)
-                            <div>
-                                <input type="number" wire:model="sets.{{ $exercise->id }}.{{ $index }}.reps" placeholder="Reps">
+                            <div class="training__input">
+                                <input class="training__input-field" type="number"
+                                       wire:model="sets.{{ $exercise->id }}.{{ $index }}.reps" placeholder="Reps">
                                 <span>X</span>
-                                <input type="number" wire:model="sets.{{ $exercise->id }}.{{ $index }}.weight" placeholder="Weight">
+                                <input class="training__input-field" type="number"
+                                       wire:model="sets.{{ $exercise->id }}.{{ $index }}.weight" placeholder="Weight">
                                 <span>KG</span>
-                                <button wire:click="removeSet('{{ $exercise->id }}', {{ $index }})">Remove</button>
+                                <button class="button button--tertiary training__input-button"
+                                        wire:click="removeSet('{{ $exercise->id }}', {{ $index }})">Remove
+                                </button>
                             </div>
                         @endforeach
                         <div>
-                            <button wire:click="addSet('{{ $exercise->id }}')">Add Set</button>
+                            <button class="button training__input-button training__input-button--under"
+                                    wire:click="addSet('{{ $exercise->id }}')">Add Set
+                            </button>
                         </div>
                     </div>
                 </div>

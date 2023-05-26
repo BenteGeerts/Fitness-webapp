@@ -149,3 +149,28 @@
     align-items: center;
     justify-content: space-between;
 }
+
+.training__input-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.training__input {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.training__input-field {
+    width: 50px;
+}
+
+.training__input-button {
+    margin-left: 15px;
+
+    &--under {
+        margin-bottom: $small-spacing;
+        margin-top: $small-spacing;
+        margin-left: unset;
+    }
+}
