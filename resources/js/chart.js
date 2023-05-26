@@ -1,18 +1,31 @@
 let steps = document.querySelectorAll('[data-step-count]');
-let dataValues = [];
+let dates = document.querySelectorAll('[data-step-date]');
+
+let currentDay = document.querySelector('[data-current-steps]');
+
+const dataSteps = [];
+const dataDates = [];
 
 steps.forEach(step => {
-    dataValues.push(step.innerText);
+    dataSteps.push(step.innerText);
 });
+
+dates.forEach(step => {
+    dataDates.push(step.innerText);
+});
+
+
+var lastItem = steps[steps.length - 1];
+currentDay.innerHTML = lastItem.innerText + "<br>Steps</br>";
 
 const chart = new Chart(
     document.getElementById('step-chart'),
     {
         type: 'line',
         data: {
-            labels: ["02", "03", "04", "05", "06", "07", "08"],
+            labels: dataDates,
             datasets: [{
-                data: [1400, 6000, 5000, 10236, 200, 8900, 4125],
+                data: dataSteps,
                 borderColor: 'rgba(54, 162, 235, 1)',
                 backgroundColor: 'rgba(54, 162, 235, 0)',
                 tension: 0.5
