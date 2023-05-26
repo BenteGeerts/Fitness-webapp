@@ -9,6 +9,8 @@ class History extends Model
 {
     use HasFactory;
 
+    protected $table = "History";
+
     public function exercise()
     {
         return $this->belongsTo(Exercise::class);
