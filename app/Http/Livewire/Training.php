@@ -17,7 +17,7 @@ class Training extends Component
 
     public function render()
     {
-        $this->allPrograms = TrainingProgram::all();
+        $this->allPrograms = TrainingProgram::whereIn('level_id', [1, 2, 3])->orWhere('user_id', auth()->id())->get();
         $userData = UserData::where('user_id', Auth::id())->first();
         $this->recommendedPrograms = TrainingProgram::where("level_id", "=", $userData->level_id)->orWhere([
             ['level_id', 4],
