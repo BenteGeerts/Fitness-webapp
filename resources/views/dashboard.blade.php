@@ -1,8 +1,9 @@
 @extends('layouts.app')
 @section('content')
-    {{--    @foreach($stepCountData as $stepCount)--}}
-    {{--        <h1 data-step-count>{{$stepCount}}</h1>--}}
-    {{--    @endforeach--}}
+        @foreach(session('stepCountData') as $index=>$stepCount)
+            <span class="fit-data" data-step-date="{{$index}}">{{$stepCount['date']}}</span>
+            <span class="fit-data" data-step-count="{{$index}}">{{$stepCount['stepCount']}}</span>
+        @endforeach
            <section class="dashboard">
                <div class="row justify-content-center">
                    <div class="col-md-12 col-lg-10">
@@ -118,7 +119,7 @@
 
                        <div class="dashboard__steps-wrapper">
                            <i class="icon-steps dashboard__steps-icon"></i>
-                           <p class="dashboard__steps-text">1000 <br>steps</p>
+                           <p class="dashboard__steps-text" data-current-steps>1000 <br>steps</p>
                        </div>
 
                        <div class="row justify-content-between align-items-center">
