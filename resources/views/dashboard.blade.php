@@ -11,7 +11,7 @@
                        </div>
 
                        <div class="dashboard__greeting">
-                           <h2 class="dashboard__greeting-title">Hello Bente</h2>
+                           <h2 class="dashboard__greeting-title">Hello {{auth()->user()->name}}</h2>
                            <p class="dashboard__greeting-subtitle">Ready to rock?</p>
                        </div>
 
