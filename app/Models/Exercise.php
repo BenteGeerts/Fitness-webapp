@@ -23,4 +23,9 @@ class Exercise extends Model
     {
         return $this->hasMany(TrainingProgramHasWeight::class, 'exercise_id');
     }
+
+    public function history()
+    {
+        return $this->hasMany(History::class);
+    }
 }
