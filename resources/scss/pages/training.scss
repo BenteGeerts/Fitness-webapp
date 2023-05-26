@@ -54,6 +54,11 @@
 
     padding-bottom: 10px;
     padding-top: 100px;
+
+    &--small-spacing {
+        padding-top: $small-spacing;
+        padding-bottom: $small-spacing;
+    }
 }
 
 //HISTORY
