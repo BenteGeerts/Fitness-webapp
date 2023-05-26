@@ -39,4 +39,9 @@ class TrainingController extends Controller
     {
         return view("training-detail")->with("slug", $slug);
     }
+
+    public function play($slug)
+    {
+        return view("training-play")->with("slug", $slug);
+    }
 }
