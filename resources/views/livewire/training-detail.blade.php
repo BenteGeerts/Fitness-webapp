@@ -66,7 +66,16 @@
         <p>No exercises yet</p>
     @endforelse
 
-    <div class="training__buttons">
+    <a class="play-button__wrapper" href="{{route('training.play', ['slug' => $training->slug])}}">
+        <div class="play-button__circle pulse"></div>
+        <div class="play-button__circle">
+            <svg class="play-button__symbol" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                <polygon points="40,30 65,50 40,70"></polygon>
+            </svg>
+        </div>
+    </a>
+
+    <div class="training__buttons training__buttons--small-spacing">
         <button wire:click="save" class="button">Save</button>
     </div>
 </div>
