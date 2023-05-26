@@ -1,4 +1,4 @@
-<div>
+<div class="training__exercises-wrapper">
     @forelse ($exercises as $key => $exercise)
         @if ($key % 3 === 0)
             <div class="row">

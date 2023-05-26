@@ -59,6 +59,12 @@
         padding-top: $small-spacing;
         padding-bottom: $small-spacing;
     }
+
+    &--no-spacing {
+        padding: unset unset 10px;
+        justify-content: space-evenly;
+        width: 100%;
+    }
 }
 
 //HISTORY
@@ -178,4 +184,18 @@
         margin-top: $small-spacing;
         margin-left: unset;
     }
+}
+
+.training__exercises-wrapper {
+    padding-top: $small-spacing;
+}
+
+.training__exercise {
+    padding-top: $small-spacing;
+    height: 85vh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
