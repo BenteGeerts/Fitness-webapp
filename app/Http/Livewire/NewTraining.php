@@ -16,17 +16,13 @@ class NewTraining extends Component
     public $trainingName;
 
 
-    public function mount($exercises)
+    public function mount(Collection $exercises)
     {
-        $this->decodedString = html_entity_decode($exercises);
-        $this->exercises = $this->toObject();
+        $this->exercises = $exercises;
     }
 
     public function render()
     {
-        $this->exercises = collect(json_decode($this->decodedString))->map(function ($item) {
-            return (object) $item;
-        });
         return view('livewire.new-training');
     }
 
@@ -44,7 +40,6 @@ class NewTraining extends Component
         $training->user_id = auth()->id();
         $training->save();
 
-        $this->exercises = $this->toObject();
         $idArray = $this->exercises->pluck('id')->toArray();
 
         $training->exercises()->attach($idArray);
@@ -60,10 +55,4 @@ class NewTraining extends Component
         return redirect()->route('training');
     }
 
-    public function toObject()
-    {
-        return collect(json_decode($this->decodedString))->map(function ($item) {
-            return (object) $item;
-        });
-    }
 }
