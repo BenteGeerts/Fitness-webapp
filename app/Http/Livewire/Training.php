@@ -25,6 +25,11 @@ class Training extends Component
         return view('livewire.training');
     }
 
+    public function hydrate()
+    {
+        $this->emit('datepicker');
+    }
+
     public function showTraining()
     {
         $this->showTraining = true;
