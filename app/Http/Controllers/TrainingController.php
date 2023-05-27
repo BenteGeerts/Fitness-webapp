@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Exercise;
+use App\Models\TrainingProgram;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -37,7 +38,14 @@ class TrainingController extends Controller
 
     public function detail($slug)
     {
-        return view("training-detail")->with("slug", $slug);
+        $training = TrainingProgram::where("slug", $slug)->first();
+
+        if($training->user_id != null && auth()->id() != $training->user_id)
+        {
+            return redirect()->route('training');
+        }
+
+        return view("training-detail", ["training" => $training]);
     }
 
     public function play($slug)

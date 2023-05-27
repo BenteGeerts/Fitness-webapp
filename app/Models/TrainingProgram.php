@@ -7,6 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class TrainingProgram extends Model
 {
+    protected $fillable = [
+        'name',
+        'slug',
+        'user_id',
+        'total_diamonds',
+        'level_id',
+    ];
+
     use HasFactory;
     protected $table = 'training_programs';
 
