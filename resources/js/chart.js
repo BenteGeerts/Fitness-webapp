@@ -16,7 +16,13 @@ dates.forEach(step => {
 
 
 var lastItem = steps[steps.length - 1];
-currentDay.innerHTML = lastItem.innerText + "<br>Steps</br>";
+
+if(lastItem != undefined)
+{
+    currentDay.innerHTML = lastItem.innerText + "<br>Steps</br>";
+}
+
+import Chart from 'chart.js/auto';
 
 const chart = new Chart(
     document.getElementById('step-chart'),
