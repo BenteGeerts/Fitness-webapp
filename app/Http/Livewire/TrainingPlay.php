@@ -31,7 +31,7 @@ class TrainingPlay extends Component
 
     public function loadExistingSets()
     {
-        $existingSets = TrainingProgramHasWeight::whereIn('exercise_id', $this->exercises->pluck('id'))->get();
+        $existingSets = TrainingProgramHasWeight::whereIn('exercise_id', $this->exercises->pluck('id'))->where('user_id', auth()->id())->get();
         $groupedSets = $existingSets->groupBy('exercise_id');
 
         foreach ($groupedSets as $exerciseId => $sets) {
@@ -80,6 +80,7 @@ class TrainingPlay extends Component
             foreach ($exerciseSets as $index => $set) {
                 if (isset($set['reps']) && isset($set['weight'])) {
                     $weight = new History();
+                    $weight->user_id = auth()->id();
                     $weight->reps = $set['reps'];
                     $weight->weight = $set['weight'];
                     $weight->exercise_id = $exerciseId;

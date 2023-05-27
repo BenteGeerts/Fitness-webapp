@@ -9,22 +9,22 @@ use Livewire\Component;
 
 class TrainingDetail extends Component
 {
-    public $slug;
     public $training;
     public $exercises;
     public $sets = [];
     public $existingSets = [];
+    public $decoded;
 
-    public function mount()
+    public function mount(TrainingProgram $training)
     {
-        $this->training = TrainingProgram::where("slug", $this->slug)->first();
+        $this->training = $training;
         $this->exercises = $this->training->exercises;
         $this->loadExistingSets();
     }
 
     public function loadExistingSets()
     {
-        $existingSets = TrainingProgramHasWeight::whereIn('exercise_id', $this->exercises->pluck('id'))->get();
+        $existingSets = TrainingProgramHasWeight::whereIn('exercise_id', $this->exercises->pluck('id'))->where('user_id', auth()->id())->get();
         $groupedSets = $existingSets->groupBy('exercise_id');
 
         foreach ($groupedSets as $exerciseId => $sets) {
@@ -37,6 +37,7 @@ class TrainingDetail extends Component
             }
         }
     }
+
 
     public function render()
     {
@@ -90,6 +91,7 @@ class TrainingDetail extends Component
             foreach ($exerciseSets as $index => $set) {
                 if (isset($set['reps']) && isset($set['weight'])) {
                     $weight = new TrainingProgramHasWeight();
+                    $weight->user_id = auth()->id();
                     $weight->reps = $set['reps'];
                     $weight->weight = $set['weight'];
                     $weight->exercise_id = $exerciseId;
