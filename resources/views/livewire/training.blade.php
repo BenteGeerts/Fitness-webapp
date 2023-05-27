@@ -114,6 +114,9 @@
         @endif
 
         @if($showHistory)
+
+            <input type="text" data-input>
+
             <div class="training__programs">
                 <div class="training__diamonds">
                     <i class="icon-diamond training__diamond-icon"></i>
