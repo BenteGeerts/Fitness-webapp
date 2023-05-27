@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('training_program_has_weights', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->references('id')->on('users');
             $table->foreignId("training_program_id")->references("id")->on("training_programs");
             $table->foreignId("exercise_id")->references("id")->on("exercises");
             $table->integer("reps");

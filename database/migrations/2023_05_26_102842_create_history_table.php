@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('history', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->references('id')->on('users');
             $table->foreignId('exercise_id')->references('id')->on('exercises');
             $table->integer('reps');
             $table->integer('weight');
