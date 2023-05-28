@@ -27,7 +27,8 @@
                                 </div>
 
                                 <div class="program__text-container program__text-container--big">
-                                    <a href="{{route('training.detail', ['slug' => $program->slug])}}"><p class="program__title">{{$program->name}}</p></a>
+                                    <a href="{{route('training.detail', ['slug' => $program->slug])}}"><p
+                                            class="program__title">{{$program->name}}</p></a>
                                     <div class="program__icons">
                                         <div class="program__icon-wrapper">
                                             <i class="icon-alarm program__icon"></i>
@@ -59,7 +60,8 @@
                                             </div>
 
                                             <div class="program__text-container">
-                                                <a href="{{route('training.detail', ['slug' => $program->slug])}}"><p class="program__title">{{$program->name}}</p></a>
+                                                <a href="{{route('training.detail', ['slug' => $program->slug])}}"><p
+                                                        class="program__title">{{$program->name}}</p></a>
                                                 <div class="program__icons">
                                                     <div class="program__icon-wrapper">
                                                         <i class="icon-alarm program__icon"></i>
@@ -89,18 +91,18 @@
                                 </div>
                             @endif
 
-                                @if ($loop->last && ($key + 1) % 3 == 0)
-                                   <div class="row">
-                                       <div class="col-md-12 col-lg-4">
-                                           <a class="program__button" href="{{route('training.new')}}">
-                                               <div class="program__button-text">
-                                                   <span>+</span>
-                                                   <span>Add</span>
-                                               </div>
-                                           </a>
-                                       </div>
-                                   </div>
-                                @endif
+                            @if ($loop->last && ($key + 1) % 3 == 0)
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-4">
+                                        <a class="program__button" href="{{route('training.new')}}">
+                                            <div class="program__button-text">
+                                                <span>+</span>
+                                                <span>Add</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            @endif
                         @endforeach
 
 
@@ -115,7 +117,7 @@
 
         @if($showHistory)
 
-            <input type="text" data-input>
+            <input wire:model="dateInput" wire:change.debounce="showExercises" type="text" data-input>
 
             <div class="training__programs">
                 <div class="training__diamonds">
@@ -143,195 +145,35 @@
                     </div>
                 </div>
 
-                <div class="row justify-content-between">
-                    <div class="col-sm-12 col-md-6 col-lg-5 col-xl-3">
-                        <div class="training__history">
-                            <div class="training__history-heading">
-                                <div class="training__history-diamonds">
-                                    <i class="icon-diamond training__history-icon"></i>
-                                    <span>10</span>
+                <div class="row justify-content-md-between justify-content-xl-start">
+                   @forelse($exercises ??[] as $index => $exercise)
+                        <div class="col-sm-12 col-md-6 col-lg-5 col-xl-3">
+                            <div class="training__history">
+                                <div class="training__history-heading">
+                                    <div class="training__history-diamonds">
+                                        <i class="icon-diamond training__history-icon"></i>
+                                        <span>10</span>
+                                    </div>
+                                    <span class="training__history-name">{{$exercise->exercise->name}}</span>
+                                    <span class="training__history-sets">{{count($exercise->reps)}} Sets</span>
                                 </div>
-                                <span class="training__history-name">Pull up</span>
-                                <span class="training__history-sets">3 sets</span>
-                            </div>
-                            <div class="training__history-row">
-                                <p>Set</p>
-                                <p>Reps</p>
-                                <p>Weight</p>
-                            </div>
-                            <div class="training__history-row">
-                                <p>1</p>
-                                <p>6</p>
-                                <p>85</p>
-                            </div>
-                            <div class="training__history-row">
-                                <p>1</p>
-                                <p>6</p>
-                                <p>85</p>
-                            </div>
-                            <div class="training__history-row">
-                                <p>1</p>
-                                <p>6</p>
-                                <p>85</p>
+                                <div class="training__history-row">
+                                    <p>Set</p>
+                                    <p>Reps</p>
+                                    <p>Weight</p>
+                                </div>
+                                @for ($i = 0; $i < count($exercise->reps); $i++)
+                                    <div class="training__history-row">
+                                        <p>{{ $i + 1 }}</p>
+                                        <p>{{ $exercise->reps[$i] }}</p>
+                                        <p>{{ $exercise->weights[$i] }} KG</p>
+                                    </div>
+                                @endfor
                             </div>
                         </div>
-                        <div class="training__history">
-                            <div class="training__history-heading">
-                                <div class="training__history-diamonds">
-                                    <i class="icon-diamond training__history-icon"></i>
-                                    <span>10</span>
-                                </div>
-                                <span class="training__history-name">Pull up</span>
-                                <span class="training__history-sets">3 sets</span>
-                            </div>
-                            <div class="training__history-row">
-                                <p>Set</p>
-                                <p>Reps</p>
-                                <p>Weight</p>
-                            </div>
-                            <div class="training__history-row">
-                                <p>1</p>
-                                <p>6</p>
-                                <p>85</p>
-                            </div>
-                            <div class="training__history-row">
-                                <p>1</p>
-                                <p>6</p>
-                                <p>85</p>
-                            </div>
-                            <div class="training__history-row">
-                                <p>1</p>
-                                <p>6</p>
-                                <p>85</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-12 col-md-6 col-lg-5 col-xl-3">
-                        <div class="training__history">
-                            <div class="training__history-heading">
-                                <div class="training__history-diamonds">
-                                    <i class="icon-diamond training__history-icon"></i>
-                                    <span>10</span>
-                                </div>
-                                <span class="training__history-name">Pull up</span>
-                                <span class="training__history-sets">3 sets</span>
-                            </div>
-                            <div class="training__history-row">
-                                <p>Set</p>
-                                <p>Reps</p>
-                                <p>Weight</p>
-                            </div>
-                            <div class="training__history-row">
-                                <p>1</p>
-                                <p>6</p>
-                                <p>85</p>
-                            </div>
-                            <div class="training__history-row">
-                                <p>1</p>
-                                <p>6</p>
-                                <p>85</p>
-                            </div>
-                            <div class="training__history-row">
-                                <p>1</p>
-                                <p>6</p>
-                                <p>85</p>
-                            </div>
-                        </div>
-                        <div class="training__history">
-                            <div class="training__history-heading">
-                                <div class="training__history-diamonds">
-                                    <i class="icon-diamond training__history-icon"></i>
-                                    <span>10</span>
-                                </div>
-                                <span class="training__history-name">Pull up</span>
-                                <span class="training__history-sets">3 sets</span>
-                            </div>
-                            <div class="training__history-row">
-                                <p>Set</p>
-                                <p>Reps</p>
-                                <p>Weight</p>
-                            </div>
-                            <div class="training__history-row">
-                                <p>1</p>
-                                <p>6</p>
-                                <p>85</p>
-                            </div>
-                            <div class="training__history-row">
-                                <p>1</p>
-                                <p>6</p>
-                                <p>85</p>
-                            </div>
-                            <div class="training__history-row">
-                                <p>1</p>
-                                <p>6</p>
-                                <p>85</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-12 col-md-6 col-lg-5 col-xl-3">
-                        <div class="training__history">
-                            <div class="training__history-heading">
-                                <div class="training__history-diamonds">
-                                    <i class="icon-diamond training__history-icon"></i>
-                                    <span>10</span>
-                                </div>
-                                <span class="training__history-name">Pull up</span>
-                                <span class="training__history-sets">3 sets</span>
-                            </div>
-                            <div class="training__history-row">
-                                <p>Set</p>
-                                <p>Reps</p>
-                                <p>Weight</p>
-                            </div>
-                            <div class="training__history-row">
-                                <p>1</p>
-                                <p>6</p>
-                                <p>85</p>
-                            </div>
-                            <div class="training__history-row">
-                                <p>1</p>
-                                <p>6</p>
-                                <p>85</p>
-                            </div>
-                            <div class="training__history-row">
-                                <p>1</p>
-                                <p>6</p>
-                                <p>85</p>
-                            </div>
-                        </div>
-                        <div class="training__history">
-                            <div class="training__history-heading">
-                                <div class="training__history-diamonds">
-                                    <i class="icon-diamond training__history-icon"></i>
-                                    <span>10</span>
-                                </div>
-                                <span class="training__history-name">Pull up</span>
-                                <span class="training__history-sets">3 sets</span>
-                            </div>
-                            <div class="training__history-row">
-                                <p>Set</p>
-                                <p>Reps</p>
-                                <p>Weight</p>
-                            </div>
-                            <div class="training__history-row">
-                                <p>1</p>
-                                <p>6</p>
-                                <p>85</p>
-                            </div>
-                            <div class="training__history-row">
-                                <p>1</p>
-                                <p>6</p>
-                                <p>85</p>
-                            </div>
-                            <div class="training__history-row">
-                                <p>1</p>
-                                <p>6</p>
-                                <p>85</p>
-                            </div>
-                        </div>
-                    </div>
+                    @empty
+                       <p>No exercises</p>
+                    @endforelse
                 </div>
             </div>
         @endif
