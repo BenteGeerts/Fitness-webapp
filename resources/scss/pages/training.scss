@@ -122,6 +122,12 @@
 
 .training__history {
     padding-top: 20px;
+
+    @include media-breakpoint-up(xxl) {
+        padding-top: $small-spacing;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }
 
 .training__history-heading {
@@ -198,4 +204,17 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+}
+
+.training__calendar {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.training__message {
+    text-align: center;
+    padding-top: $small-spacing;
+    font-size: 1.125rem;
+    font-weight: 500;
 }
