@@ -77,7 +77,13 @@ class Setup extends Component
         $userData->level_id = $this->getLevel();
         $userData->save();
 
-        return redirect("/dashboard");
+        if(!is_null(session('showModal')) && !session('showModal'))
+        {
+            session()->forget('showModal');
+            return redirect()->route("home")->with("showModal", false);
+        }
+
+        return redirect()->route("home")->with("showModal", true);
     }
 
     public function getLevel()

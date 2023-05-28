@@ -15,8 +15,6 @@ use Illuminate\Validation\Rules;
 
 class AuthController extends Controller
 {
-    public bool $showModal = false;
-
     public function signUp()
     {
         return view("register");
@@ -59,7 +57,9 @@ class AuthController extends Controller
             $newUser->save();
 
             Auth::login($newUser);
-            return redirect("dashboard");
+
+            session(['showModal' => false]);
+            return redirect()->route("setup");
         }
 
         return view("register");
@@ -89,7 +89,7 @@ class AuthController extends Controller
                 ->redirect();
         }
         if (!empty(Auth::user())) {
-            return redirect()->route("home")->with("showModal", $this->showModal);
+            return redirect()->route("home");
         }
     }
 
@@ -102,7 +102,7 @@ class AuthController extends Controller
 
         if (!empty($email)) {
             Auth::login($email);
-            return redirect()->route("home")->with("showModal", $this->showModal);
+            return redirect()->route("home");
         }
         if (empty($email)) {
             if (is_null($user->avatar)) {
@@ -128,11 +128,10 @@ class AuthController extends Controller
                     "avatar" => $user->avatar
                 ]
             );
-            $this->showModal = true;
             Auth::login($user);
         }
 
-        return redirect()->route("home")->with("showModal", $this->showModal);
+        return redirect()->route("setup");
     }
 
     public function microsoftLogin()
@@ -141,7 +140,7 @@ class AuthController extends Controller
             return Socialite::driver('microsoft')->redirect();
         }
         if (!empty(Auth::user())) {
-            return redirect()->route("home")->with("showModal", $this->showModal);
+            return redirect()->route("home");
         }
     }
 
@@ -152,7 +151,7 @@ class AuthController extends Controller
 
         if (!empty($email)) {
             Auth::login($email);
-            return redirect()->route("home")->with("showModal", $this->showModal);
+            return redirect()->route("home");
         }
         if (empty($email)) {
 
@@ -179,11 +178,10 @@ class AuthController extends Controller
                     "avatar" => $user->avatar
                 ]
             );
-            $this->showModal = true;
             Auth::login($user);
         }
 
-        return redirect()->route("home")->with("showModal", $this->showModal);
+        return redirect()->route("setup");
     }
 
     public function logOut()

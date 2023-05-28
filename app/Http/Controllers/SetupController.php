@@ -11,5 +11,4 @@ class SetupController extends Controller
     public function setup() {
         return view("setup.setup");
     }
-
 }
