@@ -117,12 +117,14 @@
 
         @if($showHistory)
 
-            <input wire:model="dateInput" wire:change.debounce="showExercises" type="text" data-input>
+            <div class="training__calendar">
+                <input wire:model="dateInput" wire:change.debounce="showExercises" type="text" placeholder="Pick a date" data-input>
+            </div>
 
             <div class="training__programs">
                 <div class="training__diamonds">
                     <i class="icon-diamond training__diamond-icon"></i>
-                    <p>+58</p>
+                    <p>+{{$this->getDiamonds()}}</p>
                 </div>
 
                 <div class="training__stats-wrapper">
@@ -131,7 +133,7 @@
                             <i class="icon-weight training__stats-icon"></i>
                         </div>
                         <div>
-                            <p>Lifted<br>6000kg</p>
+                            <p>Lifted<br>{{$this->getWeight()}}kg</p>
                         </div>
                     </div>
 
@@ -140,14 +142,14 @@
                             <i class="icon-360 training__stats-icon"></i>
                         </div>
                         <div>
-                            <p>Reps <br>80</p>
+                            <p>Reps <br>{{$this->getReps()}}</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="row justify-content-md-between justify-content-xl-start">
                    @forelse($exercises ??[] as $index => $exercise)
-                        <div class="col-sm-12 col-md-6 col-lg-5 col-xl-3">
+                        <div class="col-sm-12 col-md-6 col-lg-5 col-xl-4">
                             <div class="training__history">
                                 <div class="training__history-heading">
                                     <div class="training__history-diamonds">
@@ -172,7 +174,7 @@
                             </div>
                         </div>
                     @empty
-                       <p>No exercises</p>
+                       <p class="training__message">You did not training that day</p>
                     @endforelse
                 </div>
             </div>
