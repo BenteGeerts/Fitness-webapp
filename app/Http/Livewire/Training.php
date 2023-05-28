@@ -2,9 +2,11 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\History;
 use App\Models\TrainingProgram;
 use App\Models\UserData;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class Training extends Component
@@ -14,6 +16,9 @@ class Training extends Component
 
     public $recommendedPrograms = null;
     public $allPrograms = null;
+
+    public $dateInput;
+    public $exercises;
 
     public function render()
     {
@@ -28,6 +33,25 @@ class Training extends Component
     public function hydrate()
     {
         $this->emit('datepicker');
+    }
+
+    public function showExercises()
+    {
+       if(isset($this->dateInput))
+       {
+           $this->exercises = History::select('exercise_id', DB::raw('GROUP_CONCAT(reps) as reps'), DB::raw('GROUP_CONCAT(weight) as weights'))
+               ->whereDate('created_at', 'like', '%' . date($this->dateInput) . '%')
+               ->where('user_id', '=', auth()->id())
+               ->groupBy('exercise_id')
+               ->get();
+       }
+
+
+        foreach ($this->exercises as $exercise) {
+            $exercise->sets = explode(',', $exercise->sets);
+            $exercise->reps = explode(',', $exercise->reps);
+            $exercise->weights = explode(',', $exercise->weights);
+        }
     }
 
     public function showTraining()
