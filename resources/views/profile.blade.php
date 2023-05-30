@@ -5,12 +5,12 @@
             <div class="col-md-12 col-lg-10">
                 <div class="page__heading">
                     <h1>Profile</h1>
-                    <i class="icon-settings page__settings"></i>
+                    <a class="page__heading-settings" href="{{route('settings')}}"><i class="icon-settings page__settings"></i></a>
                 </div>
 
                 <div class="profile__wrapper">
                     <div class="profile__img-wrapper">
-                        <img class="profile__img" src="/images/profileimg.png" alt="">
+                        <img class="profile__img" src="{{auth()->user()->avatar}}" alt="">
 
                         <label class="profile__img-label" for="profileimg">
                             <i class="icon-camera profile__img-edit"></i>
