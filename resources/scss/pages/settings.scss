@@ -185,3 +185,28 @@ input:checked + .settings__toggle-slider:before {
         background-color: unset;
     }
 }
+
+.settings__modal {
+    background-color: $color-4;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 20px;
+    border-radius: $border-radius;
+    z-index: 9999;
+}
+
+.settings__modal-text {
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+
+.settings__modal-buttons {
+    padding-top: 15px;
+}

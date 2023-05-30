@@ -36,6 +36,15 @@
         }
     }
 
+    &--green {
+        background-color: $color-8;
+
+        &:hover {
+            color: $color-8;
+            background-color: $color-4;
+        }
+    }
+
     &--medium {
         padding: 10px 40px 10px 40px;
     }

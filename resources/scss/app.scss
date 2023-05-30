@@ -49,6 +49,27 @@ body, html {
         max-width: unset;
     }
 }
+
+.no-scroll {
+    overflow: hidden;
+}
+
+.overlay {
+    animation-name: fade-in;
+    animation-duration: .3s;
+
+    &:before {
+        content: "";
+        background-color: rgba(0,0,0,.4);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+    }
+}
+
 img {
     max-width: 100%;
 }
