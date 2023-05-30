@@ -12,9 +12,9 @@ class ProfileController extends Controller
         return view("profile");
     }
 
-    public function show($id)
+    public function show($username)
     {
-        $user = User::find($id);
+        $user = User::where('username', '=', $username)->first();
         return view("profile-variant")->with("user", $user);
     }
 }
