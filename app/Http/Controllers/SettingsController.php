@@ -10,9 +10,4 @@ class SettingsController extends Controller
     {
         return view("settings");
     }
-
-    public function update($request)
-    {
-        dd($request);
-    }
 }
