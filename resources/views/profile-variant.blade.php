@@ -5,20 +5,16 @@
             <div class="col-md-12 col-lg-10">
 
                 <div class="profile__wrapper">
-                    <div class="profile__img-wrapper">
-                        <img class="profile__img" src="{{$user->avatar}}" alt="">
+                       <div class="profile__img-wrapper">
+                           <img class="profile__img" src="{{$user->avatar}}" alt="">
+                       </div>
 
-                        <label class="profile__img-label" for="profileimg">
-                            <i class="icon-camera profile__img-edit"></i>
-                        </label>
+                       <div class="profile__name-wrapper">
+                           <p class="profile__name">{{$user->name}}</p>
+                           <span class="profile__friends">0 friends</span>
+                       </div>
 
-                        <input class="profile__img-input" type="file" id="profileimg">
-                    </div>
-
-                    <div class="profile__name-wrapper">
-                        <p class="profile__name">{{$user->name}}</p>
-                        <span class="profile__friends">0 friends</span>
-                    </div>
+                   <button class="profile__wrapper-button button">+ Add friend</button>
                 </div>
 
                 <h2 class="h3">Statistics</h2>
