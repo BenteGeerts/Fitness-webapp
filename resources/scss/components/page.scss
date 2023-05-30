@@ -1,0 +1,24 @@
+.page__heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.page__heading-settings {
+    font-size: 1.875rem;
+    text-decoration: none;
+}
+
+.page__profile-img {
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+
+    @include media-breakpoint-up(lg) {
+        position: fixed;
+        left: 25px;
+        bottom: 60px;
+    }
+}

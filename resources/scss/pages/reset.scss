@@ -1,0 +1,27 @@
+.reset {
+    height: 100vh;
+    width: 90vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    @include media-breakpoint-up(lg) {
+        width: 100vw;
+    }
+}
+
+.reset__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.reset__form-field {
+    width: 100%;
+}
+
+.reset__error {
+    width: 100%;
+    margin-bottom: 20px;
+}

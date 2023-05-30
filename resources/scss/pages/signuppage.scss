@@ -1,0 +1,55 @@
+.signup {
+    height: 100vh;
+}
+
+.signup__heading {
+    padding-top: 70px;
+    padding-bottom: 60px;
+
+    @include media-breakpoint-up(lg) {
+        padding-bottom: $small-spacing;
+    }
+}
+
+.signup__heading-title {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.signup__heading-subtitle {
+    @include media-breakpoint-up(lg) {
+        font-size: 1.25rem;
+    }
+}
+
+.signup__buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+.signup__cta {
+    margin-top: $medium-spacing;
+
+    @include media-breakpoint-up(lg) {
+        margin-top: 40px;
+    }
+}
+
+.signup__button {
+    margin-bottom: 20px;
+    display: flex;
+
+    @include media-breakpoint-up(lg) {
+        display: none;
+    }
+
+    &--hidden {
+        display: none;
+
+        @include media-breakpoint-up(lg) {
+            display: block;
+        }
+    }
+}

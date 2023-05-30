@@ -1,0 +1,59 @@
+.play-button__wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+}
+
+.play-button__circle {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    background-color: $play-button;
+    margin: auto;
+    transform: scale(1, 1);
+
+    &.pulse {
+        animation-timing-function: ease;
+        animation: pulse 2s infinite;
+        background-color: lighten($play-button, 25%);
+    }
+}
+
+.play-button__symbol {
+    fill: darken($play-button, 12%);
+    stroke: darken($play-button, 12%);
+    stroke-linejoin: round;
+    stroke-width: 5;
+    transition: all 0.3s;
+
+    &:hover {
+        cursor: pointer;
+        fill: darken($play-button, 17%);
+        stroke: darken($play-button, 17%);
+        transform: scale(1.2, 1.2);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1, 1);
+    }
+    25% {
+        transform: scale(1, 1);
+    }
+    50% {
+        transform: scale(1.2, 1.2);
+    }
+    100% {
+        transform: scale(1, 1);
+    }
+}

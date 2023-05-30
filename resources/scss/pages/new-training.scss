@@ -1,0 +1,80 @@
+.new-training {
+    padding-top: $small-spacing;
+}
+
+.new-training__title {
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    @include media-breakpoint-up(lg) {
+        padding-top: 20px;
+    }
+}
+
+.new-training__diamonds {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 600;
+
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.new-training__diamonds-icon {
+    font-size: 2.5rem;
+}
+
+.new-training__diamonds-text {
+    font-size: 1.25rem;
+}
+
+.new-training__exercises {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    padding-bottom: 10px;
+}
+
+.new-training__exercises-title {
+    margin: unset;
+}
+
+.new-training__exercises-number {
+    font-size: 1.25rem;
+    color: #00000094;
+
+    padding-left: 5px;
+}
+
+.new-training__buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    padding-bottom: 250px;
+    padding-top: 10px;
+
+    @include media-breakpoint-up(lg) {
+        padding-bottom: 200px;
+    }
+
+    &--under {
+        position: fixed;
+        width: 100%;
+        left: 0;
+        bottom: 40px;
+
+        background-color: $color-3;
+        border-radius: $border-radius $border-radius 0 0;
+        padding: 50px;
+
+        @include media-breakpoint-up(lg) {
+            position: unset;
+            background-color: unset;
+            border-radius: unset;
+        }
+    }
+}

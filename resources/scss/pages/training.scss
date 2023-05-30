@@ -1,0 +1,220 @@
+.training {
+    padding-top: $small-spacing;
+}
+
+.training__programs {
+    display: block;
+}
+
+.training__switch {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.125rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    padding-top: $small-spacing;
+    padding-bottom: $small-spacing;
+
+    @include media-breakpoint-up(lg) {
+        font-size: 1.25rem;
+    }
+}
+
+.training__switch-item {
+    color: $color-7;
+    text-decoration: none;
+
+    &--active {
+        text-decoration: underline;
+        color: $color-7;
+    }
+}
+
+.training__recommended-programs {
+    display: flex;
+    flex-direction: row;
+
+    overflow-x: auto;
+    white-space: nowrap;
+
+    padding-top: 10px;
+}
+
+.training__all-programs {
+    padding-top: 10px;
+}
+
+.training__buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    padding-bottom: 10px;
+    padding-top: 100px;
+
+    &--small-spacing {
+        padding-top: $small-spacing;
+        padding-bottom: $small-spacing;
+    }
+
+    &--no-spacing {
+        padding: unset unset 10px;
+        justify-content: space-evenly;
+        width: 100%;
+    }
+}
+
+//HISTORY
+
+.training__diamonds {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.training__diamond-icon {
+    font-size: 2.5rem;
+}
+
+.training__stats-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    @include media-breakpoint-up(lg) {
+        justify-content: center;
+    }
+}
+
+.training__stats {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+
+    padding: 10px;
+    width: 160px;
+
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: $border-radius;
+    background-color: $color-4;
+
+    @include media-breakpoint-up(lg) {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+.training__stats-icon {
+    font-size: 1.5rem;
+    padding-right: 15px;
+}
+
+.training__history {
+    padding-top: 20px;
+
+    @include media-breakpoint-up(xxl) {
+        padding-top: $small-spacing;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+.training__history-heading {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.training__history-diamonds {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.training__history-icon {
+    font-size: 1.5rem;
+    padding-right: 5px;
+}
+
+.training__history-name {
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.training__history-sets {
+    color: rgba(0, 0, 0, 0.58);
+}
+
+.training__history-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.training__input-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.training__input {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.training__input-field {
+    width: 50px;
+}
+
+.training__input-button {
+    margin-left: 15px;
+
+    &--under {
+        margin-bottom: $small-spacing;
+        margin-top: $small-spacing;
+        margin-left: unset;
+    }
+}
+
+.training__exercises-wrapper {
+    padding-top: $small-spacing;
+}
+
+.training__exercise {
+    padding-top: $small-spacing;
+    height: 85vh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.training__calendar {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.training__message {
+    text-align: center;
+    padding-top: $small-spacing;
+    font-size: 1.125rem;
+    font-weight: 500;
+}

@@ -1,0 +1,158 @@
+.friends {
+    padding-top: $small-spacing;
+}
+
+.friends__searchbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    padding: 5px 10px;
+    margin-bottom: $small-spacing;
+    margin-top: $small-spacing;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: $border-radius;
+}
+
+.friends__searchbar-icon {
+    font-size: 1.5rem;
+}
+
+.friends__searchbar-inputfield {
+    border: none;
+    background-color: transparent;
+    padding-left: 5px;
+
+    &:focus-visible {
+        outline: none;
+    }
+}
+
+.friends__switch {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-weight: 600;
+    font-size: 1.25rem;
+    padding-top: 10px;
+
+    @include media-breakpoint-up(lg) {
+        padding-bottom: 10px;
+        font-size: 1.5rem;
+    }
+}
+
+.friends__switch-item {
+    color: $color-7;
+    text-decoration: none;
+    &--active {
+        text-decoration: underline;
+    }
+
+    @include media-breakpoint-up(lg) {
+        text-decoration: underline;
+        margin-right: auto;
+    }
+}
+
+.friends__ranking {
+    display: none;
+    padding-top: 15px;
+    padding-bottom: $small-spacing;
+
+    &--show {
+        display: block;
+    }
+
+    @include media-breakpoint-up(lg) {
+        display: block;
+    }
+}
+
+.friends__ranking-leaderboard {
+    border-bottom: 1px solid $color-7;
+    margin-bottom: 20px;
+}
+
+.friends__ranking-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.friends__ranking-number {
+    background-color: $color-2;
+    border-radius: $border-radius;
+    color: $color-4;
+    padding: 10px 15px;
+    width: fit-content;
+}
+
+.friends__ranking-medal {
+    position: absolute;
+    top: -5px;
+    left: 30px;
+}
+
+.friends__ranking-name {
+    font-weight: 600;
+    font-size: 1.25rem;
+    padding-left: 60px;
+
+    @include media-breakpoint-up(lg) {
+        font-size: 1.5rem;
+    }
+}
+
+.friends__friend {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 20px;
+
+    color: unset;
+    text-decoration: unset;
+    cursor: pointer;
+}
+
+.friends__friend-img {
+    height: 50px;
+    width: 50px;
+}
+
+.friends__friend-name {
+    font-weight: 600;
+    font-size: 1.25rem;
+    padding-left: 60px;
+
+    @include media-breakpoint-up(lg) {
+        font-size: 1.5rem;
+    }
+}
+
+.friends__button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    padding-top: 20px;
+    padding-bottom: 100px;
+}
+
+.friends__cup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 60vh;
+    justify-content: center;
+
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.friends__cup-text {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}

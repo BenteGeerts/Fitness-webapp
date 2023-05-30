@@ -1,0 +1,18 @@
+.error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    color: #DC2626;
+    background-color: #FEE2E2;
+    padding: 8px;
+    border: 1px solid #ff0000;
+    border-radius: 4px;
+    margin-top: 4px;
+
+    &--green {
+        background-color: #D1FAE5;
+        border-color: #67ffb6;
+        color: #047857;
+    }
+}
