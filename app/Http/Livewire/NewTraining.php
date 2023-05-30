@@ -16,7 +16,7 @@ class NewTraining extends Component
     public $trainingName;
 
 
-    public function mount(Collection $exercises)
+    public function mount($exercises)
     {
         $this->exercises = $exercises;
     }
