@@ -31,10 +31,6 @@ class TrainingController extends Controller
         return view("new-training", ["exercises" => $exercises, "diamonds" => $diamonds]);
     }
 
-    public function addExercise()
-    {
-        return view("add-exercise");
-    }
 
     public function detail($slug)
     {
