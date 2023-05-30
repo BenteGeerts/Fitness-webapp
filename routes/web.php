@@ -11,6 +11,7 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\FriendsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TrainingController;
+use App\Http\Controllers\SettingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,11 @@ Route::middleware('guest')->group(function () {
     Route::post("/login", [AuthController::class, "signIn"])->name("signIn");
     Route::get("/signup", [AuthController::class, "signUp"])->name("signup");
     Route::post("/signup", [AuthController::class, "register"])->name("register");
+
+    Route::get("/google-login", [AuthController::class, "googleLogin"])->name("googleLogin");
+    Route::get("/google-redirect", [AuthController::class, "googleRedirect"]);
+    Route::get("/microsoft-login", [AuthController::class, "microsoftLogin"])->name("microsoftLogin");
+    Route::get("/microsoft-redirect", [AuthController::class, "microsoftRedirect"]);
 
     Route::get("/password/reset/{token}", [ResetPasswordController::class, "showResetForm"])->name("password.reset");
     Route::get("/password/reset", [ForgotPasswordController::class, "showLinkRequestForm"])->name("password.request");
@@ -49,12 +55,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get("/friends", [FriendsController::class, "friends"])->name("friends");
     Route::get("/profile", [ProfileController::class, "profile"])->name("profile");
     Route::get("/profile/{id}", [ProfileController::class, "show"])->name("profile.show");
+    Route::get("/settings", [SettingsController::class, "settings"])->name("settings");
 });
-
-
 Route::get("/logout", [AuthController::class, "logOut"])->name("logout");
-
-Route::get("/google-login", [AuthController::class, "googleLogin"])->name("googleLogin");
-Route::get("/google-redirect", [AuthController::class, "googleRedirect"]);
-Route::get("/microsoft-login", [AuthController::class, "microsoftLogin"])->name("microsoftLogin");
-Route::get("/microsoft-redirect", [AuthController::class, "microsoftRedirect"]);
