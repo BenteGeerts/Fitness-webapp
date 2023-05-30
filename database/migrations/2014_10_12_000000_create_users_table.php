@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('avatar')->nullable();
             $table->rememberToken() ->nullable();
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 
