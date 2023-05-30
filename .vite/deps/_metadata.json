@@ -1,0 +1,23 @@
+{
+  "hash": "e3670dfe",
+  "browserHash": "65ac790d",
+  "optimized": {
+    "chart.js/auto": {
+      "src": "../../node_modules/chart.js/auto/auto.js",
+      "file": "chart__js_auto.js",
+      "fileHash": "8df80c5c",
+      "needsInterop": false
+    },
+    "flatpickr": {
+      "src": "../../node_modules/flatpickr/dist/esm/index.js",
+      "file": "flatpickr.js",
+      "fileHash": "0bdd8910",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-T2T6Q22Z": {
+      "file": "chunk-T2T6Q22Z.js"
+    }
+  }
+}
