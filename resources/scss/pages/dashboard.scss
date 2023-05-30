@@ -259,15 +259,18 @@
 
 .dashboard__friends-img {
     margin-right: -20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
 }
 
 .dashboard__steps-wrapper {
-    font-weight: 700;
-
     display: flex;
     flex-direction: row;
     align-items: center;
     padding-top: $small-spacing;
+
+    font-weight: 700;
 }
 
 .dashboard__steps-icon {
