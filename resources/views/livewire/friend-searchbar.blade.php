@@ -9,7 +9,7 @@
 
     @if($showResults)
         @forelse($searchResults as $result)
-            <a class="friends__friend" href="{{route('profile.show', ['id' => $result->id])}}">
+            <a class="friends__friend" href="{{route('profile.show', ['username' => $result->username])}}">
                 <img class="friends__friend-img" src="{{$result->avatar}}" alt="">
                 <p class="friends__friend-name">{{$result->name}}</p>
             </a>
