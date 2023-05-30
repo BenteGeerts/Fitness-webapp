@@ -11,6 +11,7 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\FriendsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TrainingController;
+use App\Http\Controllers\ExerciseController;
 use App\Http\Controllers\SettingsController;
 
 /*
@@ -48,13 +49,14 @@ Route::middleware(['auth'])->group(function () {
     Route::get("/training", [TrainingController::class, "training"])->name("training");
     Route::get("/training/{slug}", [TrainingController::class, "detail"])->name("training.detail");
     Route::get("/new-training", [TrainingController::class, "newTraining"])->name("training.new");
-    Route::get("/add-exercise", [TrainingController::class, "addExercise"])->name("training.add");
+    Route::get("/add-exercise", [ExerciseController::class, "addExercise"])->name("training.add");
+    Route::get("/exercise/{slug}", [ExerciseController::class, "detail"])->name("exercise.detail");
     Route::get("/training/{slug}/play", [TrainingController::class, "play"])->name("training.play");
 
     Route::get("/shop", [ShopController::class, "shop"])->name("shop");
     Route::get("/friends", [FriendsController::class, "friends"])->name("friends");
     Route::get("/profile", [ProfileController::class, "profile"])->name("profile");
-    Route::get("/profile/{id}", [ProfileController::class, "show"])->name("profile.show");
+    Route::get("/profile/{username}", [ProfileController::class, "show"])->name("profile.show");
     Route::get("/settings", [SettingsController::class, "settings"])->name("settings");
 });
 Route::get("/logout", [AuthController::class, "logOut"])->name("logout");
