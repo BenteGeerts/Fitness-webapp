@@ -1,4 +1,4 @@
-<div>
+<div wire:init="addOverlay">
     @if($showModal)
         <div class="dashboard__modal">
             <div class="dashboard__modal-text">

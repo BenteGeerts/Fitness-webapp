@@ -14,6 +14,7 @@ class DashboardModal extends Component
     public $showAvailable = false;
     public $user;
 
+
     public function mount($showModal)
     {
         $this->showModal = $showModal;
@@ -24,6 +25,13 @@ class DashboardModal extends Component
         return view('livewire.dashboard-modal');
     }
 
+    public function addOverlay()
+    {
+        if ($this->showModal) {
+            $this->emit('addBodyClass', ['no-scroll', 'overlay']);
+        }
+    }
+
     public function changeUsername()
     {
         $this->validate([
@@ -32,13 +40,11 @@ class DashboardModal extends Component
 
         $this->user = User::where('username', '=', $this->searchTerm)->first();
 
-        if(!is_null($this->user))
-        {
+        if (!is_null($this->user)) {
             $this->showAvailable = false;
             $this->showError = true;
         }
-        if(is_null($this->user))
-        {
+        if (is_null($this->user)) {
             $this->showError = false;
             $this->showAvailable = true;
         }
@@ -50,12 +56,12 @@ class DashboardModal extends Component
             'searchTerm' => 'required',
         ]);
 
-        if(is_null($this->user))
-        {
+        if (is_null($this->user)) {
             $user = Auth::user();
             $user->username = $this->searchTerm;
             $user->update();
             $this->showModal = false;
+            $this->emit('addBodyClass', ['no-scroll', 'overlay']);
         }
     }
 }
