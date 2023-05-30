@@ -4,6 +4,7 @@
 @import "fonts";
 @import "text";
 @import "nav";
+@import "animations";
 
 //PAGES
 @import "pages/landingpage";
@@ -52,6 +53,8 @@ body, html {
 
 .no-scroll {
     overflow: hidden;
+    width: 100vw;
+    height: 100vh;
 }
 
 .overlay {
