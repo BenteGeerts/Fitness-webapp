@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\TrainingProgram;
+use App\Models\User;
+use App\Models\UserData;
 use Illuminate\Http\Request;
 use Google\Client;
 use Google\Service\Fitness;
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Psr7\Request as GuzzleRequest;
+use Illuminate\Support\Facades\Auth;
 
 class FitController extends Controller
 {
@@ -72,7 +76,16 @@ class FitController extends Controller
 
            session(['stepCountData' => $stepCountData]);
        }
-        return view("dashboard");
+
+        $user = User::find(auth()->id());
+        $friends = $user->friends;
+
+        $userData = UserData::where('user_id', Auth::id())->first();
+        $recommendedPrograms = TrainingProgram::where("level_id", "=", $userData->level_id)->orWhere([
+            ['level_id', 4],
+            ['user_id', auth()->id()]])->get();
+
+        return view("dashboard", ['friends' => $friends, 'programs' => $recommendedPrograms]);
     }
 
 }
