@@ -32,4 +32,9 @@ class TrainingProgram extends Model
     {
         return $this->hasOne(Level::class);
     }
+
+    public function trainingHistories()
+    {
+        return $this->hasMany(TrainingHistory::class);
+    }
 }
