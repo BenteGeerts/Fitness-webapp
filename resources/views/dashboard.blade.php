@@ -24,7 +24,7 @@
                                     <i class="icon-fire dashboard__tile-background dashboard__tile-background--orange"></i>
                                     <div class="dashboard__tile-content">
                                         <i class="icon-fire dashboard__tile-icon"></i>
-                                        <p class="dashboard__tile-text">100 days</p>
+                                        <p class="dashboard__tile-text">{{$streakLength}} days</p>
                                     </div>
                                 </div>
 
@@ -117,14 +117,15 @@
                     </div>
                 </div>
 
-                <div class="dashboard__steps-wrapper">
-                    <i class="icon-steps dashboard__steps-icon"></i>
-                    <p class="dashboard__steps-text" data-current-steps>1000 <br>steps</p>
-                </div>
-
                 <div class="row justify-content-between align-items-center">
                     <div class="col-md-12 col-lg-6">
-                        <canvas class="dashboard__chart" id="step-chart"></canvas>
+                        <div class="dashboard__chart-wrapper">
+                            <div class="dashboard__steps-wrapper">
+                                <i class="icon-steps dashboard__steps-icon"></i>
+                                <p class="dashboard__steps-text" data-current-steps>1000 <br>steps</p>
+                            </div>
+                            <canvas class="dashboard__chart" id="step-chart"></canvas>
+                        </div>
                     </div>
 
                     <div class="col-md-12 col-lg-3 p-lg-0">
