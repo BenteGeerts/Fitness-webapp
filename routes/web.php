@@ -4,7 +4,7 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\FitController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\SetupController;
@@ -45,7 +45,7 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get("/dashboard", [FitController::class, "Fit"])->name("home");
+    Route::get("/dashboard", [DashboardController::class, "Fit"])->name("home");
     Route::get("/setup", [SetupController::class, "setup"])->name("setup");
     Route::get("/training", [TrainingController::class, "training"])->name("training");
     Route::get("/training/{slug}", [TrainingController::class, "detail"])->name("training.detail");
