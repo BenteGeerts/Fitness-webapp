@@ -2,13 +2,17 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\History;
+use App\Models\ExerciseHistory;
 use App\Models\TrainingProgram;
 use App\Models\TrainingProgramHasWeight;
+use App\Models\TrainingProgramsHistory;
 use Livewire\Component;
+use App\Traits\StreakTrait;
+
 
 class TrainingPlay extends Component
 {
+    use StreakTrait;
     public $slug;
     public $training;
     public $exercises;
@@ -79,14 +83,29 @@ class TrainingPlay extends Component
         foreach ($this->existingSets as $exerciseId => $exerciseSets) {
             foreach ($exerciseSets as $index => $set) {
                 if (isset($set['reps']) && isset($set['weight'])) {
-                    $weight = new History();
-                    $weight->user_id = auth()->id();
-                    $weight->reps = $set['reps'];
-                    $weight->weight = $set['weight'];
-                    $weight->exercise_id = $exerciseId;
-                    $weight->save();
+                    $histories[] = [
+                        'user_id' => auth()->id(),
+                        'reps' => $set['reps'],
+                        'weight' => $set['weight'],
+                        'exercise_id' => $exerciseId,
+                        'created_at' => now(),
+                        'updated_at' => now(),
+                    ];
                 }
             }
+        }
+
+        if (!empty($histories)) {
+            ExerciseHistory::insert($histories);
+
+
+            $history = new TrainingProgramsHistory();
+            $history->user_id = auth()->id();
+            $history->training_program_id = $this->training->id;
+            $history->save();
+
+            StreakTrait::checkStreak(auth()->id());
+
         }
 
         return redirect()->route("training")->with("success", "Training saved");
