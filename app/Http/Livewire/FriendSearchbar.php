@@ -18,10 +18,9 @@ class FriendSearchbar extends Component
 
     public function search()
     {
-        if(strlen($this->searchTerm) >= 3)
-        {
+        if (strlen($this->searchTerm) >= 3) {
             $this->showResults = true;
-            $this->searchResults = User::where('name', 'like', '%' . $this->searchTerm . '%')->get();
+            $this->searchResults = User::where('name', 'like', '%' . $this->searchTerm . '%')->where('id', '!=', auth()->id())->get();
             return true;
         }
 
