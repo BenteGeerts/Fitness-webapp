@@ -13,7 +13,11 @@
 }
 
 .profile__wrapper-button {
-    margin: auto 0 auto auto;
+    margin: 30px auto 30px auto;
+
+    @include media-breakpoint-up(lg) {
+        margin: auto 0 auto auto;
+    }
 }
 
 .profile__subtitle {
