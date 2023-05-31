@@ -14,7 +14,7 @@
                            <span class="profile__friends">0 friends</span>
                        </div>
 
-                   <button class="profile__wrapper-button button">+ Add friend</button>
+                        <livewire:add-friend :user="$user"/>
                 </div>
 
                 <h2 class="h3">Statistics</h2>
