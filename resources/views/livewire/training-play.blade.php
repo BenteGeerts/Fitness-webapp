@@ -17,22 +17,26 @@
     </div>
 
 
-   <div class="training__input-wrapper">
-       @foreach($existingSets[$exercise->id] ?? [] as $index => $set)
-           <div class="training__input">
-               <input class="training__input-field" type="number" placeholder="Reps"  wire:model="existingSets.{{ $exercise->id }}.{{ $index }}.reps">
-               <span>X</span>
-               <input class="training__input-field" type="number" placeholder="Weight"  wire:model="existingSets.{{ $exercise->id }}.{{ $index }}.weight">
-               <span>KG</span>
-               <button  wire:click="removeSet('{{ $exercise->id }}', {{ $index }})" class="button button--tertiary training__input-button">Remove</button>
-           </div>
-       @endforeach
+    <div class="training__input-wrapper">
+        @foreach($existingSets[$exercise->id] ?? [] as $index => $set)
+            <div class="training__input">
+                <input class="training__input-field" type="number" placeholder="Reps"
+                       wire:model="existingSets.{{ $exercise->id }}.{{ $index }}.reps">
+                <span>X</span>
+                <input class="training__input-field" type="number" placeholder="Weight"
+                       wire:model="existingSets.{{ $exercise->id }}.{{ $index }}.weight">
+                <span>KG</span>
+                <button wire:click="removeSet('{{ $exercise->id }}', {{ $index }})"
+                        class="button button--tertiary training__input-button">Remove
+                </button>
+            </div>
+        @endforeach
 
-           <button class="button training__input-button training__input-button--under"
-                   wire:click="addSet('{{ $exercise->id }}')">Add Set
-           </button>
+        <button class="button training__input-button training__input-button--under"
+                wire:click="addSet('{{ $exercise->id }}')">Add Set
+        </button>
 
-   </div>
+    </div>
 
     <div class="training__buttons training__buttons--no-spacing">
         <button wire:click="previousExercise" class="button button--secondary">Back</button>
