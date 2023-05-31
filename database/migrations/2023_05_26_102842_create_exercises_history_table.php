@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('history', function (Blueprint $table) {
+        Schema::create('exercises_history', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users');
             $table->foreignId('exercise_id')->references('id')->on('exercises');
