@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FitController;
 use App\Http\Controllers\AuthController;
@@ -60,3 +61,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get("/settings", [SettingsController::class, "settings"])->name("settings");
 });
 Route::get("/logout", [AuthController::class, "logOut"])->name("logout");
+Route::get('/cron/schedule', function () {
+    Artisan::call('check:visits-goal');
+});
