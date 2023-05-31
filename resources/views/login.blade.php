@@ -61,8 +61,8 @@
                     Sign Up with Google
                 </a>
                 <a class="button button--icon button--big button--secondary signup__button" href="{{Route("microsoftLogin")}}">
-                    <img class="button__img" src="/images/facebookIcon.png" alt="facebook icon">
-                    Sign Up with Facebook
+                    <img class="button__img" src="/images/microsoftIcon.png" alt="microsoft icon">
+                    Sign Up with Microsoft
                 </a>
                 <div class="signup__buttons">
                     <a class="button button--secondary button--icon signup__button--hidden"
