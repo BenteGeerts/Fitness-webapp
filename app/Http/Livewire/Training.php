@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\History;
+use App\Models\ExerciseHistory;
 use App\Models\TrainingProgram;
 use App\Models\UserData;
 use Illuminate\Support\Facades\Auth;
@@ -46,7 +46,7 @@ class Training extends Component
     public function showExercises()
     {
         if (isset($this->dateInput)) {
-            $this->exercises = History::select('exercise_id', DB::raw('GROUP_CONCAT(reps) as reps'), DB::raw('GROUP_CONCAT(weight) as weights'))
+            $this->exercises = ExerciseHistory::select('exercise_id', DB::raw('GROUP_CONCAT(reps) as reps'), DB::raw('GROUP_CONCAT(weight) as weights'))
                 ->whereDate('created_at', 'like', '%' . date($this->dateInput) . '%')
                 ->where('user_id', '=', auth()->id())
                 ->groupBy('exercise_id')
