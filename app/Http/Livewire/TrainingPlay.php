@@ -13,6 +13,7 @@ use App\Traits\StreakTrait;
 class TrainingPlay extends Component
 {
     use StreakTrait;
+
     public $slug;
     public $training;
     public $exercises;
