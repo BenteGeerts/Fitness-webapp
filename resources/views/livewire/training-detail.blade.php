@@ -12,7 +12,7 @@
                         </div>
                         <!-- Program text -->
                         <div class="program__text-container">
-                            <p class="program__title">{{$exercise->name}}</p>
+                            <a href="{{route('exercise.detail', ['slug' => $exercise->slug])}}"><p class="program__title">{{$exercise->name}}</p></a>
                             <div class="program__icons">
                                 <div class="program__icon-wrapper">
                                     <i class="icon-diamond program__icon"></i>

@@ -23,7 +23,8 @@
                                     @foreach($exercises as $exercise)
                                         <div class="col-12 col-md-6 col-lg-12">
                                             <div class="program__item">
-                                                <input wire:model="selectedExercises" class="program__item-input" type="checkbox" name="exercises"
+                                                <input wire:model="selectedExercises" class="program__item-input"
+                                                       type="checkbox" name="exercises"
                                                        value="{{$exercise->name}}"
                                                        id="{{$exercise->name}}">
                                                 <label class="program__item-label" for="{{$exercise->name}}">
@@ -33,7 +34,9 @@
                                                     </div>
 
                                                     <div class="program__text-container">
-                                                        <p class="program__title program__item-title">{{$exercise->name}}</p>
+                                                        <a href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
+                                                            <p class="program__title program__item-title">{{$exercise->name}}</p>
+                                                        </a>
                                                         <div class="program__icons">
                                                             <div class="program__icon-wrapper">
                                                                 <i class="icon-diamond program__icon"></i>
@@ -61,7 +64,8 @@
                                     @foreach($exercises as $exercise)
                                         <div class="col-12 col-md-6 col-lg-12">
                                             <div class="program__item">
-                                                <input wire:model="selectedExercises" class="program__item-input" type="checkbox" name="exercises"
+                                                <input wire:model="selectedExercises" class="program__item-input"
+                                                       type="checkbox" name="exercises"
                                                        value="{{$exercise->name}}"
                                                        id="{{$exercise->name}}">
                                                 <label class="program__item-label" for="{{$exercise->name}}">
@@ -71,7 +75,9 @@
                                                     </div>
 
                                                     <div class="program__text-container">
-                                                        <p class="program__title program__item-title">{{$exercise->name}}</p>
+                                                        <a href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
+                                                            <p class="program__title program__item-title">{{$exercise->name}}</p>
+                                                        </a>
                                                         <div class="program__icons">
                                                             <div class="program__icon-wrapper">
                                                                 <i class="icon-diamond program__icon"></i>
@@ -99,7 +105,8 @@
                                     @foreach($exercises as $exercise)
                                         <div class="col-12 col-md-6 col-lg-12">
                                             <div class="program__item">
-                                                <input wire:model="selectedExercises" class="program__item-input" type="checkbox" name="exercises"
+                                                <input wire:model="selectedExercises" class="program__item-input"
+                                                       type="checkbox" name="exercises"
                                                        value="{{$exercise->name}}"
                                                        id="{{$exercise->name}}">
                                                 <label class="program__item-label" for="{{$exercise->name}}">
@@ -109,7 +116,9 @@
                                                     </div>
 
                                                     <div class="program__text-container">
-                                                        <p class="program__title program__item-title">{{$exercise->name}}</p>
+                                                        <a href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
+                                                            <p class="program__title program__item-title">{{$exercise->name}}</p>
+                                                        </a>
                                                         <div class="program__icons">
                                                             <div class="program__icon-wrapper">
                                                                 <i class="icon-diamond program__icon"></i>
@@ -137,7 +146,8 @@
                                     @foreach($exercises as $exercise)
                                         <div class="col-12 col-md-6 col-lg-12">
                                             <div class="program__item">
-                                                <input wire:model="selectedExercises" class="program__item-input" type="checkbox" name="exercises"
+                                                <input wire:model="selectedExercises" class="program__item-input"
+                                                       type="checkbox" name="exercises"
                                                        value="{{$exercise->name}}"
                                                        id="{{$exercise->name}}">
                                                 <label class="program__item-label" for="{{$exercise->name}}">
@@ -147,7 +157,9 @@
                                                     </div>
 
                                                     <div class="program__text-container">
-                                                        <p class="program__title program__item-title">{{$exercise->name}}</p>
+                                                        <a href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
+                                                            <p class="program__title program__item-title">{{$exercise->name}}</p>
+                                                        </a>
                                                         <div class="program__icons">
                                                             <div class="program__icon-wrapper">
                                                                 <i class="icon-diamond program__icon"></i>
@@ -175,7 +187,8 @@
                                     @foreach($exercises as $exercise)
                                         <div class="col-12 col-md-6 col-lg-12">
                                             <div class="program__item">
-                                                <input wire:model="selectedExercises" class="program__item-input" type="checkbox" name="exercises"
+                                                <input wire:model="selectedExercises" class="program__item-input"
+                                                       type="checkbox" name="exercises"
                                                        value="{{$exercise->name}}"
                                                        id="{{$exercise->name}}">
                                                 <label class="program__item-label" for="{{$exercise->name}}">
@@ -185,7 +198,9 @@
                                                     </div>
 
                                                     <div class="program__text-container">
-                                                        <p class="program__title program__item-title">{{$exercise->name}}</p>
+                                                        <a href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
+                                                            <p class="program__title program__item-title">{{$exercise->name}}</p>
+                                                        </a>
                                                         <div class="program__icons">
                                                             <div class="program__icon-wrapper">
                                                                 <i class="icon-diamond program__icon"></i>
@@ -213,7 +228,8 @@
                                     @foreach($exercises as $exercise)
                                         <div class="col-12 col-md-6 col-lg-12">
                                             <div class="program__item">
-                                                <input wire:model="selectedExercises" class="program__item-input" type="checkbox" name="exercises"
+                                                <input wire:model="selectedExercises" class="program__item-input"
+                                                       type="checkbox" name="exercises"
                                                        value="{{$exercise->name}}"
                                                        id="{{$exercise->name}}">
                                                 <label class="program__item-label" for="{{$exercise->name}}">
@@ -223,7 +239,9 @@
                                                     </div>
 
                                                     <div class="program__text-container">
-                                                        <p class="program__title program__item-title">{{$exercise->name}}</p>
+                                                        <a href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
+                                                            <p class="program__title program__item-title">{{$exercise->name}}</p>
+                                                        </a>
                                                         <div class="program__icons">
                                                             <div class="program__icon-wrapper">
                                                                 <i class="icon-diamond program__icon"></i>
@@ -252,7 +270,8 @@
                                     @foreach($exercises as $exercise)
                                         <div class="col-12 col-md-6 col-lg-12">
                                             <div class="program__item">
-                                                <input wire:model="selectedExercises" class="program__item-input" type="checkbox" name="exercises"
+                                                <input wire:model="selectedExercises" class="program__item-input"
+                                                       type="checkbox" name="exercises"
                                                        value="{{$exercise->name}}"
                                                        id="{{$exercise->name}}">
                                                 <label class="program__item-label" for="{{$exercise->name}}">
@@ -262,7 +281,9 @@
                                                     </div>
 
                                                     <div class="program__text-container">
-                                                        <p class="program__title program__item-title">{{$exercise->name}}</p>
+                                                        <a href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
+                                                            <p class="program__title program__item-title">{{$exercise->name}}</p>
+                                                        </a>
                                                         <div class="program__icons">
                                                             <div class="program__icon-wrapper">
                                                                 <i class="icon-diamond program__icon"></i>
@@ -291,7 +312,8 @@
                                     @foreach($exercises as $exercise)
                                         <div class="col-12 col-md-6 col-lg-12">
                                             <div class="program__item">
-                                                <input wire:model="selectedExercises" class="program__item-input" type="checkbox" name="exercises"
+                                                <input wire:model="selectedExercises" class="program__item-input"
+                                                       type="checkbox" name="exercises"
                                                        value="{{$exercise->name}}"
                                                        id="{{$exercise->name}}">
                                                 <label class="program__item-label" for="{{$exercise->name}}">
@@ -301,7 +323,9 @@
                                                     </div>
 
                                                     <div class="program__text-container">
-                                                        <p class="program__title program__item-title">{{$exercise->name}}</p>
+                                                        <a href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
+                                                            <p class="program__title program__item-title">{{$exercise->name}}</p>
+                                                        </a>
                                                         <div class="program__icons">
                                                             <div class="program__icon-wrapper">
                                                                 <i class="icon-diamond program__icon"></i>
