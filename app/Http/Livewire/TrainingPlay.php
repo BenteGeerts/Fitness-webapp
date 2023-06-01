@@ -2,10 +2,12 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Achievement;
 use App\Models\ExerciseHistory;
 use App\Models\TrainingProgram;
 use App\Models\TrainingProgramHasWeight;
 use App\Models\TrainingProgramsHistory;
+use App\Traits\DiamondTrait;
 use Livewire\Component;
 use App\Traits\StreakTrait;
 use App\Traits\TrainingTrait;
@@ -15,6 +17,7 @@ class TrainingPlay extends Component
 {
     use StreakTrait;
     use TrainingTrait;
+    use DiamondTrait;
 
     public $slug;
     public $training;
@@ -33,11 +36,9 @@ class TrainingPlay extends Component
 
     public function render()
     {
-        if(count($this->exercises) > 0)
-        {
+        if (count($this->exercises) > 0) {
             return view('livewire.training-play')->with('exercise', $this->exercises[$this->currentIndex]);
-        }
-        else {
+        } else {
             return view('livewire.training-play');
         }
     }
@@ -88,16 +89,21 @@ class TrainingPlay extends Component
 
     public function save()
     {
+        $totalDiamonds = 0;
         foreach ($this->existingSets as $exerciseId => $exerciseSets) {
             foreach ($exerciseSets as $index => $set) {
                 if (isset($set['reps']) && isset($set['weight'])) {
+                    $diamonds = TrainingTrait::calculateDiamonds($exerciseId, $set['reps'], $set['weight']);
                     $histories[] = [
                         'user_id' => auth()->id(),
                         'reps' => $set['reps'],
                         'weight' => $set['weight'],
                         'exercise_id' => $exerciseId,
-                        'gained_diamonds' => TrainingTrait::calculateDiamonds($exerciseId, $set['reps'], $set['weight']),
+                        'gained_diamonds' => $diamonds,
+                        'created_at' => now(),
+                        'updated_at' => now(),
                     ];
+                    $totalDiamonds += $diamonds;
                 }
             }
         }
@@ -105,11 +111,15 @@ class TrainingPlay extends Component
         if (!empty($histories)) {
             ExerciseHistory::insert($histories);
 
-
             $history = new TrainingProgramsHistory();
             $history->user_id = auth()->id();
             $history->training_program_id = $this->training->id;
+            $history->gained_diamonds = $totalDiamonds;
             $history->save();
+
+
+            $achievement = Achievement::where('user_id', auth()->id())->first();
+            DiamondTrait::setDiamonds($achievement, $totalDiamonds);
 
             StreakTrait::checkStreak(auth()->id());
 
