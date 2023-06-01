@@ -92,7 +92,7 @@
                                     <i class="icon-weight dashboard__tile-background dashboard__tile-background--dark-blue"></i>
                                     <div class="dashboard__tile-content">
                                         <i class="icon-weight dashboard__tile-icon"></i>
-                                        <p class="dashboard__tile-text">2000 kg</p>
+                                        <p class="dashboard__tile-text">{{$lastLiftedWeight}} kg</p>
                                     </div>
                                 </div>
                                 <div class="dashboard__tile-arrow dashboard__tile-arrow--dark-blue">

@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\UserData;
 use App\Traits\DiamondTrait;
 use App\Traits\StreakTrait;
+use App\Traits\TrainingTrait;
 use Illuminate\Http\Request;
 use Google\Client;
 use Google\Service\Fitness;
@@ -18,6 +19,7 @@ class DashboardController extends Controller
 {
     use StreakTrait;
     use DiamondTrait;
+    use TrainingTrait;
 
     public function Fit()
     {
@@ -90,13 +92,16 @@ class DashboardController extends Controller
 
         $streakLength = StreakTrait::retreiveLength(auth()->id());
         $diamonds = DiamondTrait::getDiamonds();
+        $lastLiftedWeight = TrainingTrait::getLastTrainingWeight();
+
 
         return view("dashboard",
             [
                 'friends' => $friends,
                 'programs' => $recommendedPrograms,
                 'streakLength' => $streakLength,
-                'diamonds' => $diamonds
+                'diamonds' => $diamonds,
+                'lastLiftedWeight' => $lastLiftedWeight,
             ]);
     }
 
