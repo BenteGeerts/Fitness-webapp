@@ -38,6 +38,10 @@ trait StreakTrait
     {
         $achievement = Achievement::where('user_id', $userId)->first();
 
-        return $achievement->streak_length;
+        if (isset($achievement)) {
+            return $achievement->streak_length;
+        } else {
+            return 0;
+        }
     }
 }
