@@ -31,13 +31,20 @@ class TrainingPlay extends Component
 
     public function render()
     {
-        return view('livewire.training-play')->with('exercise', $this->exercises[$this->currentIndex]);
+        if(count($this->exercises) > 0)
+        {
+            return view('livewire.training-play')->with('exercise', $this->exercises[$this->currentIndex]);
+        }
+        else {
+            return view('livewire.training-play');
+        }
     }
 
     public function loadExistingSets()
     {
         $existingSets = TrainingProgramHasWeight::whereIn('exercise_id', $this->exercises->pluck('id'))->where('user_id', auth()->id())->get();
         $groupedSets = $existingSets->groupBy('exercise_id');
+
 
         foreach ($groupedSets as $exerciseId => $sets) {
             foreach ($sets as $index => $set) {
@@ -52,16 +59,14 @@ class TrainingPlay extends Component
 
     public function previousExercise()
     {
-        if($this->currentIndex > 0)
-        {
+        if ($this->currentIndex > 0) {
             $this->currentIndex--;
         }
     }
 
     public function nextExercise()
     {
-        if($this->currentIndex != (count($this->exercises) - 1 ))
-        {
+        if ($this->currentIndex != (count($this->exercises) - 1)) {
             $this->currentIndex++;
         }
     }
