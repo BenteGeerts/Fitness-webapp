@@ -8,11 +8,13 @@ use App\Models\TrainingProgramHasWeight;
 use App\Models\TrainingProgramsHistory;
 use Livewire\Component;
 use App\Traits\StreakTrait;
+use App\Traits\TrainingTrait;
 
 
 class TrainingPlay extends Component
 {
     use StreakTrait;
+    use TrainingTrait;
 
     public $slug;
     public $training;
@@ -94,8 +96,7 @@ class TrainingPlay extends Component
                         'reps' => $set['reps'],
                         'weight' => $set['weight'],
                         'exercise_id' => $exerciseId,
-                        'created_at' => now(),
-                        'updated_at' => now(),
+                        'gained_diamonds' => TrainingTrait::calculateDiamonds($exerciseId, $set['reps'], $set['weight']),
                     ];
                 }
             }
