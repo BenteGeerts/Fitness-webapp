@@ -23,10 +23,18 @@
 </head>
 <body>
 @yield('content')
-@if(!request()->routeIs("login") && !request()->routeIs("signup") && !request()->routeIs("landingpage") &&
-!request()->routeIs("password.request") && !request()->routeIs("password.reset"))
+
+@unless(request()->routeIs([
+    'login',
+    'signup',
+    'landingpage',
+    'password.request',
+    'password.reset',
+    'setup'
+]))
     @include("navbar")
-@endif
+@endunless
+
 @livewireScripts
 </body>
 </html>
