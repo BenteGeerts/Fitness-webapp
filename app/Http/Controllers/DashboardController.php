@@ -64,12 +64,11 @@ class DashboardController extends Controller
 
             $data = json_decode($response->getBody()->getContents(), true);
 
-
             foreach ($data['bucket'] as $bucket) {
                 $startTimeMillis = $bucket['startTimeMillis'];
                 $endTimeMillis = $bucket['endTimeMillis'];
                 $stepCount = $bucket['dataset'][0]['point'][0]['value'][0]['intVal'];
-                $dateTime = date('d-m', $startTimeMillis / 1000); // Convert milliseconds to seconds and format as date
+                $dateTime = date('d-m', $startTimeMillis / 1000);
                 $stepCountData[] = [
                     'date' => $dateTime,
                     'stepCount' => $stepCount,
