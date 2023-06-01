@@ -40,7 +40,7 @@
                                     <i class="icon-diamond dashboard__tile-background dashboard__tile-background--red"></i>
                                     <div class="dashboard__tile-content">
                                         <i class="icon-diamond dashboard__tile-icon"></i>
-                                        <p class="dashboard__tile-text">2680</p>
+                                        <p class="dashboard__tile-text">{{$diamonds}}</p>
                                     </div>
                                 </div>
 
