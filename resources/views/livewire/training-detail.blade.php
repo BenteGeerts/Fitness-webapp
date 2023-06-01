@@ -12,7 +12,8 @@
                         </div>
                         <!-- Program text -->
                         <div class="program__text-container">
-                            <a href="{{route('exercise.detail', ['slug' => $exercise->slug])}}"><p class="program__title">{{$exercise->name}}</p></a>
+                            <a href="{{route('exercise.detail', ['slug' => $exercise->slug])}}"><p
+                                    class="program__title">{{$exercise->name}}</p></a>
                             <div class="program__icons">
                                 <div class="program__icon-wrapper">
                                     <i class="icon-diamond program__icon"></i>
@@ -66,14 +67,17 @@
         <p>No exercises yet</p>
     @endforelse
 
-    <a class="play-button__wrapper" href="{{route('training.play', ['slug' => $training->slug])}}">
-        <div class="play-button__circle pulse"></div>
-        <div class="play-button__circle">
-            <svg class="play-button__symbol" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-                <polygon points="40,30 65,50 40,70"></polygon>
-            </svg>
-        </div>
-    </a>
+
+    @if(count($exercises) > 0)
+        <a class="play-button__wrapper" href="{{route('training.play', ['slug' => $training->slug])}}">
+            <div class="play-button__circle pulse"></div>
+            <div class="play-button__circle">
+                <svg class="play-button__symbol" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                    <polygon points="40,30 65,50 40,70"></polygon>
+                </svg>
+            </div>
+        </a>
+    @endif
 
     <div class="training__buttons training__buttons--small-spacing">
         <button wire:click="save" class="button">Save</button>
