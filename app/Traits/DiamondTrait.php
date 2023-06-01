@@ -8,7 +8,7 @@ trait DiamondTrait
 {
     public static function setDiamonds($achievement, $totalDiamonds)
     {
-        if(isset($achievement)) {
+        if (isset($achievement)) {
             $achievement->total_diamonds += $totalDiamonds;
             $achievement->update();
         }
@@ -23,6 +23,11 @@ trait DiamondTrait
     public static function getDiamonds()
     {
         $achievement = auth()->user()->achievement;
-        return $achievement->total_diamonds;
+        if (isset($achievement)) {
+            return $achievement->total_diamonds;
+        }
+        if (!isset($achievement)) {
+            return 0;
+        }
     }
 }
