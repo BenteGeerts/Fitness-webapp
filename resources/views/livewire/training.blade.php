@@ -105,12 +105,7 @@
                             @endif
                         @endforeach
 
-
                     </div>
-                </div>
-
-                <div class="training__buttons">
-                    <a class="button button--secondary" href="">Load more</a>
                 </div>
         </div>
         @endif
@@ -118,7 +113,8 @@
         @if($showHistory)
 
             <div class="training__calendar">
-                <input wire:model="dateInput" wire:change.debounce="showExercises" type="text" placeholder="Pick a date" data-input>
+                <input wire:model="dateInput" wire:change.debounce="showExercises" type="text" placeholder="Pick a date"
+                       data-input>
             </div>
 
             <div class="training__programs">
@@ -148,7 +144,7 @@
                 </div>
 
                 <div class="row justify-content-md-between justify-content-xl-start">
-                   @forelse($exercises ??[] as $index => $exercise)
+                    @forelse($exercises ??[] as $index => $exercise)
                         <div class="col-sm-12 col-md-6 col-lg-5 col-xl-4">
                             <div class="training__history">
                                 <div class="training__history-heading">
@@ -174,7 +170,7 @@
                             </div>
                         </div>
                     @empty
-                       <p class="training__message">You did not training that day</p>
+                        <p class="training__message">You did not training that day</p>
                     @endforelse
                 </div>
             </div>
