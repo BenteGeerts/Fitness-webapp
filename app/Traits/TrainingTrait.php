@@ -15,6 +15,6 @@ Trait TrainingTrait
         $userData = UserData::where('user_id', auth()->id())->first();
 
 
-        return ($baseDiamonds * $userData->age * $reps * $weight * ($userData->height)/ 100) / 1000;
+        return round(($baseDiamonds * $userData->age * $reps * $weight * ($userData->height)/ 100) / 1000);
     }
 }
