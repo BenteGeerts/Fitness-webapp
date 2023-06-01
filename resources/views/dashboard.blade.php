@@ -152,7 +152,8 @@
                                     </div>
 
                                     <div class="program__text-container">
-                                        <p class="program__title">{{$program->name}}</p>
+                                        <a href="{{route('training.detail', ['slug' => $program->slug])}}"><p
+                                                class="program__title">{{$program->name}}</p></a>
                                         <div class="program__icons">
                                             <div class="program__icon-wrapper">
                                                 <i class="icon-alarm program__icon"></i>
