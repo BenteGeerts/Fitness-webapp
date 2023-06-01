@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\TrainingProgram;
 use App\Models\User;
 use App\Models\UserData;
+use App\Traits\DiamondTrait;
 use App\Traits\StreakTrait;
 use Illuminate\Http\Request;
 use Google\Client;
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Auth;
 class DashboardController extends Controller
 {
     use StreakTrait;
+    use DiamondTrait;
 
     public function Fit()
     {
@@ -87,8 +89,15 @@ class DashboardController extends Controller
             ['user_id', auth()->id()]])->get();
 
         $streakLength = StreakTrait::retreiveLength(auth()->id());
+        $diamonds = DiamondTrait::getDiamonds();
 
-        return view("dashboard", ['friends' => $friends, 'programs' => $recommendedPrograms, 'streakLength' => $streakLength]);
+        return view("dashboard",
+            [
+                'friends' => $friends,
+                'programs' => $recommendedPrograms,
+                'streakLength' => $streakLength,
+                'diamonds' => $diamonds
+            ]);
     }
 
 }
