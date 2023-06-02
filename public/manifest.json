@@ -18,6 +18,14 @@
     "background_color": "#ffffff",
     "display": "standalone",
 
+    "prefer_related_applications": true,
+    "related_applications": [
+        {
+            "platform": "play",
+            "id": "com.google.samples.apps.iosched"
+        }
+    ],
+
     "resources/js/app.js": {
         "file": "app-9c47871d.js",
         "isEntry": true,
