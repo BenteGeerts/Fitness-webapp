@@ -1,10 +1,12 @@
 @extends('layouts.app')
 @section('content')
     @if(session('stepCountData') !== null)
-        @forelse(session('stepCountData') as $index=>$stepCount)
-            <span class="fit-data" data-step-date="{{$index}}">{{$stepCount['date']}}</span>
-            <span class="fit-data" data-step-count="{{$index}}">{{$stepCount['stepCount']}}</span>
-            @endforeach
+       <div>
+           @forelse(session('stepCountData') as $index=>$stepCount)
+               <span class="fit-data" data-step-date="{{$index}}">{{$stepCount['date']}}</span>
+               <span class="fit-data" data-step-count="{{$index}}">{{$stepCount['stepCount']}}</span>
+               @endforeach
+       </div>
     @endif
             <section class="dashboard">
                 <div class="row justify-content-center">
