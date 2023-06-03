@@ -23,8 +23,7 @@ class DashboardController extends Controller
 
     public function Fit()
     {
-
-        if (session('stepCountData') == null) {
+        if (session('showChart')) {
             $client = new Client();
             $client->setApplicationName(env('GOOGLE_APP_NAME'));
             $client->setClientId(env('GOOGLE_CLIENT_ID'));

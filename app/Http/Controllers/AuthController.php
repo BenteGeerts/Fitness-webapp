@@ -84,11 +84,13 @@ class AuthController extends Controller
     public function googleLogin()
     {
         if (empty(Auth::user())) {
+            session(['showChart' => true]);
             return Socialite::driver("google")
                 ->scopes(['https://www.googleapis.com/auth/fitness.activity.read', 'https://www.googleapis.com/auth/fitness.body.read'])
                 ->redirect();
         }
         if (!empty(Auth::user())) {
+            session(['showChart' => true]);
             return redirect()->route("home");
         }
     }
@@ -130,7 +132,7 @@ class AuthController extends Controller
             );
             Auth::login($user);
         }
-
+        session(['showChart' => true]);
         return redirect()->route("setup");
     }
 
@@ -187,6 +189,7 @@ class AuthController extends Controller
     public function logOut()
     {
         Auth::logout();
+        session()->flush();
         return redirect("/");
     }
 }
