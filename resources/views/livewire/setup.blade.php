@@ -2,8 +2,7 @@
     @if($currentPage == 1)
         <div class="setup-page">
             <div class="setup__nav">
-                <i wire:click="previous" class="icon-back setup__back"></i>
-                <p class="setup__nav-page" data-page-back>1 of 6</p>
+                <p class="setup__nav-page">1 of 6</p>
             </div>
 
             <div class="row justify-content-center">
