@@ -54,3 +54,37 @@
         }
     }
 }
+
+.nav__extra-wrapper {
+    position: fixed;
+    width: 100%;
+    background-color: $color-4;
+    left: 0;
+    bottom: 100px;
+    padding: 20px;
+
+    &:before {
+        content: "";
+        position: absolute;
+        bottom: -25px;
+        right: 7%;
+        width: 50px;
+        height: 50px;
+        background-image: url('../images/polygon.svg');
+        background-size: cover;
+    }
+}
+
+.nav__extra {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.nav__extra-text {
+    font-size: 1.25rem;
+    padding-left: 10px;
+}
