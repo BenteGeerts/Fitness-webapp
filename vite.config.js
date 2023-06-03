@@ -1,16 +1,17 @@
-import { defineConfig } from 'vite';
-import laravel, { refreshPaths } from 'laravel-vite-plugin';
+import {defineConfig} from 'vite';
+import laravel, {refreshPaths} from 'laravel-vite-plugin';
 
 export default defineConfig({
-        plugins: [
-            laravel({
-                input: [
-                    'resources/js/app.js',
-                ],
-                refresh: [
-                    ...refreshPaths,
-                    'app/Http/Livewire/**',
-                ],
-            }),
-        ],
-    });
+    plugins: [
+        laravel({
+            input: [
+                'resources/js/app.js',
+                'resources/scss/app.scss',
+            ],
+            refresh: [
+                ...refreshPaths,
+                'app/Http/Livewire/**',
+            ],
+        }),
+    ],
+});
