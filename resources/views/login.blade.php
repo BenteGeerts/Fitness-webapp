@@ -41,8 +41,8 @@
                     <div class="error">{{ $message }}</div>
                     @enderror
 
-                    <div class="login__link-wrapper">
-                        <p>Don't have an account? <a class="login__link" href="{{Route("signup")}}">Sign Up</a></p>
+                    <div class="link-wrapper">
+                        <p>Don't have an account? <a class="link" href="{{Route("signup")}}">Sign Up</a></p>
                     </div>
 
                     <button class="button button--big" type="submit">Login</button>

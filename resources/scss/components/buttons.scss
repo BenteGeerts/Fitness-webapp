@@ -43,6 +43,25 @@
     }
 }
 
+.link-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 70px;
+    padding-bottom: 70px;
+
+    @include media-breakpoint-up(lg) {
+        padding-top: $medium-spacing;
+        padding-bottom: $medium-spacing;
+    }
+}
+
+.link {
+    font-weight: 700;
+    text-decoration: none;
+    color: $color-7;
+}
+
 @keyframes pulse {
     0% {
         transform: scale(1, 1);

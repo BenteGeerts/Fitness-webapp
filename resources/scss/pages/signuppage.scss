@@ -29,14 +29,6 @@
     flex-direction: row;
 }
 
-.signup__cta {
-    margin-top: $medium-spacing;
-
-    @include media-breakpoint-up(lg) {
-        margin-top: 40px;
-    }
-}
-
 .signup__button {
     margin-bottom: 20px;
     display: flex;

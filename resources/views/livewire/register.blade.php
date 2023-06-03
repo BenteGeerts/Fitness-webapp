@@ -51,5 +51,9 @@
     <div class="error">{{ $message }}</div>
     @enderror
 
-    <button class="button button--big signup__cta" type="submit" @if (!$showAvailable) disabled @endif>Create your account</button>
+    <div class="link-wrapper">
+        <p>Already have an account? <a class="link" href="{{Route("login")}}">Login in</a></p>
+    </div>
+
+    <button class="button button--big" type="submit" @if (!$showAvailable) disabled @endif>Create your account</button>
 </form>
