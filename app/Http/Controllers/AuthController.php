@@ -99,7 +99,7 @@ class AuthController extends Controller
     public function googleRedirect()
     {
         $user = Socialite::driver("google")->user();
-        session()->put('refresh_token', $user->refreshToken);
+        $refreshToken = $user->refreshToken;
         session()->put('access_token', $user->token);
         $email = User::where('email', '=', $user->email)->first();
 
@@ -129,7 +129,8 @@ class AuthController extends Controller
                     "name" => $user->name,
                     "username" => $username,
                     "email" => $user->email,
-                    "avatar" => $user->avatar
+                    "avatar" => $user->avatar,
+                    "refresh_token" => $refreshToken,
                 ]
             );
             Auth::login($user);

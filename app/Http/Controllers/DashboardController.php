@@ -29,10 +29,11 @@ class DashboardController extends Controller
             $client->setClientId(env('GOOGLE_CLIENT_ID'));
             $client->setClientSecret(env('GOOGLE_CLIENT_SECRET'));
             $client->setRedirectUri(env('GOOGLE_REDIRECT_URI'));
+            $client->setAccessType('offline');
             $client->setIncludeGrantedScopes(true);
 
             $accessToken = session()->get('access_token');
-            $refreshToken = session()->get('refresh_token');
+            $refreshToken = auth()->user()->refresh_token;
 
 
             if ($client->isAccessTokenExpired()) {
@@ -46,7 +47,7 @@ class DashboardController extends Controller
 
                 $accessToken = session()->get('access_token');
             }
-            
+
             // Set up the request parameters
             $url = 'https://www.googleapis.com/fitness/v1/users/me/dataset:aggregate';
             $data_source_id = 'derived:com.google.step_count.delta:com.google.android.gms:estimated_steps';

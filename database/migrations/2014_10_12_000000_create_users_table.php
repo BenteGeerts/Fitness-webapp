@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('password')->nullable();
             $table->string('avatar')->nullable();
             $table->rememberToken() ->nullable();
+            $table->string('refresh_token')->nullable();
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
         });
