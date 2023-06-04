@@ -34,15 +34,19 @@
 
     <div class="form__field">
         <label class="form__label" for="email">Email</label>
-        <input class="form__input-field" name="email" id="email" type="email"
+        <input wire:change="checkEmail" wire:model="email" class="form__input-field" name="email" id="email" type="email"
                value="{{ old('email') }}">
+        @if($showEmailError)
+            <div class="error error--red">
+                <span>Oops! Email already used!</span>
+            </div>
+        @endif
     </div>
 
     <div class="form__field">
         <label class="form__label" for="password">Password</label>
         <div class="form__password">
-            <input class="form__input-field" name="password" id="password" type="password" data-password
-                   value="{{ old('password') }}">
+            <input class="form__input-field" name="password" id="password" type="password" data-password>
             <i class="icon-visibility form__icon" data-toggle-visibility></i>
         </div>
     </div>
@@ -55,5 +59,5 @@
         <p>Already have an account? <a class="link" href="{{Route("login")}}">Login in</a></p>
     </div>
 
-    <button class="button button--big" type="submit" @if (!$showAvailable) disabled @endif>Create your account</button>
+    <button class="button button--big" type="submit" @if (!$showAvailable && !$showEmailError) disabled @endif>Create your account</button>
 </form>
