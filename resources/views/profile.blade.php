@@ -3,8 +3,11 @@
     <section class="profile">
         <div class="row justify-content-center">
             <div class="col-md-12 col-lg-10">
-                <div class="page__heading">
-                    <h1>Profile</h1>
+                <div class="page__heading page__heading--space">
+                   <div class="page__heading">
+                       <a class="no-underline" href="{{route('home')}}"><i class="icon-back page__heading-icon"></i></a>
+                       <h1>Profile</h1>
+                   </div>
                     <a class="page__heading-settings" href="{{route('settings')}}"><i class="icon-settings page__settings"></i></a>
                 </div>
 

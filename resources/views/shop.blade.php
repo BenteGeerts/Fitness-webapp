@@ -4,6 +4,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12 col-lg-10">
                 <div class="page__heading">
+                    <a class="no-underline" href="{{route('home')}}"><i class="icon-back page__heading-icon"></i></a>
                     <h1>Shop</h1>
                 </div>
 

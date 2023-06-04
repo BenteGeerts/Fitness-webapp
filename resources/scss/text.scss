@@ -101,3 +101,13 @@ p {
 a {
     color: inherit;
 }
+
+.no-underline {
+    text-decoration: none;
+    color: inherit;
+    line-height: initial;
+
+    &:hover {
+        color: inherit;
+    }
+}
