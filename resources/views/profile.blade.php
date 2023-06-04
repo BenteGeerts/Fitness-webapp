@@ -13,18 +13,18 @@
 
                 <div class="profile__wrapper">
                     <div class="profile__img-wrapper">
-                        <img class="profile__img" src="{{auth()->user()->avatar}}" alt="">
+                        <img class="profile__img" src="{{$user->avatar}}" alt="">
 
                         <label class="profile__img-label" for="profileimg">
                             <i class="icon-camera profile__img-edit"></i>
                         </label>
 
-                        <input class="profile__img-input" type="file" id="profileimg">
+                        <input class="profile__img-input" type="file" id="profileimg" accept="image/png, image/jpeg">
                     </div>
 
                     <div class="profile__name-wrapper">
-                        <p class="profile__name">Bente Geerts</p>
-                        <span class="profile__friends">0 friends</span>
+                        <p class="profile__name">{{$user->name}}</p>
+                        <span class="profile__friends">{{count($user->friends)}} friends</span>
                     </div>
                 </div>
 

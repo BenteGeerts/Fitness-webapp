@@ -9,7 +9,8 @@ class ProfileController extends Controller
 {
     public function profile()
     {
-        return view("profile");
+        $user = auth()->user();
+        return view("profile")->with('user', $user);
     }
 
     public function show($username)
