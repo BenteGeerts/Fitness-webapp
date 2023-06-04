@@ -87,6 +87,7 @@ class AuthController extends Controller
             session(['showChart' => true]);
             return Socialite::driver("google")
                 ->scopes(['https://www.googleapis.com/auth/fitness.activity.read', 'https://www.googleapis.com/auth/fitness.body.read'])
+                ->with(['access_type' => 'offline'])
                 ->redirect();
         }
         if (!empty(Auth::user())) {
@@ -98,6 +99,7 @@ class AuthController extends Controller
     public function googleRedirect()
     {
         $user = Socialite::driver("google")->user();
+        session()->put('refresh_token', $user->refreshToken);
         session()->put('access_token', $user->token);
         $email = User::where('email', '=', $user->email)->first();
 
