@@ -97,10 +97,10 @@
                                 <div class="col-md-12 col-lg-3">
                                     @endif
 
-                                    <div class="friends__friend">
-                                        <img class="friends__friend-img" src="/images/profileimg.png" alt="">
+                                    <a class="friends__friend" href="{{route('profile.show', ['username' => $friend->username])}}">
+                                        <img class="friends__friend-img" src="{{$friend->avatar}}" alt="">
                                         <p class="friends__friend-name">{{$friend->name}}</p>
-                                    </div>
+                                    </a>
 
                                     @if ($key % 2 !== 0 || $loop->last)
                                 </div>
