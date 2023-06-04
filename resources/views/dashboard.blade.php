@@ -138,9 +138,11 @@
                                 <div class="dashboard__friends">
                                     <p class="dashboard__friends-title">My friends</p>
                                     <div class="dashboard__friends-images">
-                                        @foreach($friends as $friend)
+                                        @forelse($friends as $friend)
                                             <img class="dashboard__friends-img" src="{{$friend->avatar}}" alt="">
-                                        @endforeach
+                                        @empty
+                                            <span>You don't have frieds yet!</span>
+                                        @endforelse
                                     </div>
                                 </div>
                             </div>
