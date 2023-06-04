@@ -11,7 +11,7 @@
 
                        <div class="profile__name-wrapper">
                            <p class="profile__name">{{$user->name}}</p>
-                           <span class="profile__friends">0 friends</span>
+                           <span class="profile__friends">{{count($user->friends)}} friends</span>
                        </div>
 
                         <livewire:add-friend :user="$user"/>
