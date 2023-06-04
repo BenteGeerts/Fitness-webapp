@@ -1,5 +1,5 @@
 .nav {
-    background-color: $color-3;
+    background-color: $nav;
     border-radius: 20px 20px 0 0;
     padding-top: 15px;
     padding-bottom: 15px;
@@ -40,12 +40,16 @@
         text-decoration: none;
         position: relative;
 
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
         &--active:before {
             content: "";
             position: absolute;
             height: 50px;
             width: 50px;
-            background-color: $color-2;
+            background-color: $nav-active;
             border-radius: 50%;
             z-index: -1;
             left: 50%;

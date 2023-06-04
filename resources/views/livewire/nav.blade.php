@@ -1,5 +1,5 @@
 <div>
-    <a wire:click="showExtra" class="nav__link{{ request()->routeIs('shop') ? ' nav__link--active' : '' }}"><i
+    <a wire:click="showExtra" class="nav__link{{ request()->routeIs('shop', 'settings') ? ' nav__link--active' : '' }}"><i
             class="icon-more nav__item"></i></a>
 
     @if($showExtra)
