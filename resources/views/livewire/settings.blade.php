@@ -10,9 +10,13 @@
 
             <form class="settings__file" enctype="multipart/form-data">
                 <span class="settings__file-label">Profile image</span>
-                <label class="button" for="profileImage">Choose image</label>
-                <input wire:model="profileImage" wire:change.debounce="updateProfileImage" class="settings__file-input"
-                       id="profileImage" type="file" accept="image/png, image/jpeg">
+                <label class="button" for="profileImage"><span>Choose image</span>
+                </label>
+                <input wire:model="profileImage" wire:change.debounce.1500ms="updateProfileImage"
+                       class="settings__file-input"
+                       name="profileImage" id="profileImage" type="file" accept="image/png, image/jpeg"
+                       wire:loading.attr="disabled">
+                <div wire:loading class="lds-dual-ring"></div>
             </form>
             @error('profileImage')
             <span class="error">{{ $message }}</span>

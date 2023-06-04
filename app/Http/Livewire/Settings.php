@@ -42,7 +42,7 @@ class Settings extends Component
     public function updateProfileImage()
     {
         $this->validate([
-            'profileImage' => 'image|max:1024',
+            'profileImage' => 'image|max:2048',
         ]);
 
         $fileName = time() . '.png';
