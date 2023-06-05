@@ -34,7 +34,7 @@
                         <i class="icon-fire profile__statistics-icon"></i>
 
                         <div class="profile__statistics-text">
-                            <b>100</b>
+                            <b>{{$streakLength}}</b>
                             <span>day streak</span>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                         <i class="icon-diamond profile__statistics-icon"></i>
 
                         <div class="profile__statistics-text">
-                            <b>2680</b>
+                            <b>{{$totalDiamonds}}</b>
                             <span>diamonds</span>
                         </div>
                     </div>

@@ -10,7 +10,10 @@ class ProfileController extends Controller
     public function profile()
     {
         $user = auth()->user();
-        return view("profile")->with('user', $user);
+        $userAchievement = $user->achievement;
+        $streakLength = $userAchievement->streak_length;
+        $totalDiamonds = $userAchievement->total_diamonds;
+        return view("profile", ['user' => $user, 'streakLength' => $streakLength, 'totalDiamonds' => $totalDiamonds]);
     }
 
     public function show($username)
