@@ -14,6 +14,7 @@ use Google\Service\Fitness;
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Psr7\Request as GuzzleRequest;
 use Illuminate\Support\Facades\Auth;
+use mysql_xdevapi\Exception;
 
 class DashboardController extends Controller
 {
@@ -84,6 +85,9 @@ class DashboardController extends Controller
                 foreach ($data['bucket'] as $bucket) {
                     $startTimeMillis = $bucket['startTimeMillis'];
                     $endTimeMillis = $bucket['endTimeMillis'];
+                    if (!isset($bucket['dataset'][0]['point'][0]['value'][0]['intVal'])) {
+                        continue;
+                    }
                     $stepCount = $bucket['dataset'][0]['point'][0]['value'][0]['intVal'];
                     $dateTime = date('d-m', $startTimeMillis / 1000);
                     $stepCountData[] = [
@@ -92,7 +96,9 @@ class DashboardController extends Controller
                     ];
                 }
 
-                session(['stepCountData' => $stepCountData]);
+                if (isset($stepCountData)) {
+                    session(['stepCountData' => $stepCountData]);
+                }
             }
         }
 
