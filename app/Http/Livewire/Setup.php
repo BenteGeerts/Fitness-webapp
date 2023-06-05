@@ -59,26 +59,43 @@ class Setup extends Component
         $userData->weight = $this->weight;
         $userData->height = $this->height;
         $userData->age = $this->age;
-        $userData->gender = $this->gender;
         $userData->min_visits = $this->visits;
 
-        if ($this->goal == "lose weight") {
-            $userData->goal = 1;
+        switch ($this->gender) {
+            case "male":
+                $userData->gender = 1;
+                break;
+            case "female":
+                $userData->gender = 2;
+                break;
+            case "x":
+                $userData->gender = 3;
+                break;
+            case "other":
+                $userData->gender = 4;
+                break;
+            default:
+                break;
         }
 
-        if ($this->goal == "gain weight") {
-            $userData->goal = 2;
-        }
-
-        if ($this->goal == "gain muscle") {
-            $userData->goal = 3;
+        switch ($this->goal) {
+            case "lose weight":
+                $userData->goal = 1;
+                break;
+            case "gain weight":
+                $userData->goal = 2;
+                break;
+            case "gain muscle":
+                $userData->goal = 3;
+                break;
+            default:
+                break;
         }
 
         $userData->level_id = $this->getLevel();
         $userData->save();
 
-        if(!is_null(session('showModal')) && !session('showModal'))
-        {
+        if (!is_null(session('showModal')) && !session('showModal')) {
             session()->forget('showModal');
             return redirect()->route("home")->with("showModal", false);
         }
