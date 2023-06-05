@@ -14,6 +14,7 @@
         "laravel/ui": "^4.2",
         "laravolt/avatar": "^5.0",
         "livewire/livewire": "^2.12",
+        "nesbot/carbon": "^2.67",
         "socialiteproviders/google": "^4.1",
         "socialiteproviders/microsoft": "^4.2"
     },
