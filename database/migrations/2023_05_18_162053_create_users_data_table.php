@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer("weight");
             $table->integer("height");
             $table->integer("age");
-            $table->string("gender");
+            $table->foreignId('gender')->references('id')->on('gender');
             $table->foreignId("goal")->references("id")->on("users_goal");
             $table->foreignId("level_id")->references("id")->on("training_levels");
             $table->integer("min_visits");
