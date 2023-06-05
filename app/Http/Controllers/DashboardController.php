@@ -36,63 +36,66 @@ class DashboardController extends Controller
             $refreshToken = auth()->user()->refresh_token;
 
 
-            if ($client->isAccessTokenExpired()) {
+            if (isset($refreshToken)) {
+                if ($client->isAccessTokenExpired()) {
 
-                $client->fetchAccessTokenWithRefreshToken($refreshToken);
-                $newAccessToken = $client->getAccessToken();
+                    $client->fetchAccessTokenWithRefreshToken($refreshToken);
+                    $newAccessToken = $client->getAccessToken();
 
-                session()->put('access_token', $newAccessToken['access_token']);
+                    session()->put('access_token', $newAccessToken['access_token']);
 
-                $client->setAccessToken($newAccessToken['access_token']);
+                    $client->setAccessToken($newAccessToken['access_token']);
 
-                $accessToken = session()->get('access_token');
-            }
+                    $accessToken = session()->get('access_token');
+                }
 
-            // Set up the request parameters
-            $url = 'https://www.googleapis.com/fitness/v1/users/me/dataset:aggregate';
-            $data_source_id = 'derived:com.google.step_count.delta:com.google.android.gms:estimated_steps';
-            $end_time = strtotime('tomorrow');
-            $start_time = strtotime('-1 week', $end_time);
+                // Set up the request parameters
+                $url = 'https://www.googleapis.com/fitness/v1/users/me/dataset:aggregate';
+                $data_source_id = 'derived:com.google.step_count.delta:com.google.android.gms:estimated_steps';
+                $end_time = strtotime('tomorrow');
+                $start_time = strtotime('-1 week', $end_time);
 
-            $data_request = array(
-                'aggregateBy' => array(
-                    array('dataTypeName' => 'com.google.step_count.delta')
-                ),
-                'bucketByTime' => array(
-                    'durationMillis' => 86400000
-                ),
-                'startTimeMillis' => $start_time * 1000,
-                'endTimeMillis' => $end_time * 1000,
-                'dataSourceId' => $data_source_id,
-            );
+                $data_request = array(
+                    'aggregateBy' => array(
+                        array('dataTypeName' => 'com.google.step_count.delta')
+                    ),
+                    'bucketByTime' => array(
+                        'durationMillis' => 86400000
+                    ),
+                    'startTimeMillis' => $start_time * 1000,
+                    'endTimeMillis' => $end_time * 1000,
+                    'dataSourceId' => $data_source_id,
+                );
 
-            $headers = [
-                'Content-Type' => 'application/json',
-                'Authorization' => 'Bearer ' . $accessToken,
-            ];
-
-            $request = new GuzzleRequest('POST', $url, [
-                'Authorization' => 'Bearer ' . $accessToken,
-                'Content-Type' => 'application/json',
-            ], json_encode($data_request));
-            $client = new GuzzleClient();
-            $response = $client->send($request);
-
-            $data = json_decode($response->getBody()->getContents(), true);
-
-            foreach ($data['bucket'] as $bucket) {
-                $startTimeMillis = $bucket['startTimeMillis'];
-                $endTimeMillis = $bucket['endTimeMillis'];
-                $stepCount = $bucket['dataset'][0]['point'][0]['value'][0]['intVal'];
-                $dateTime = date('d-m', $startTimeMillis / 1000);
-                $stepCountData[] = [
-                    'date' => $dateTime,
-                    'stepCount' => $stepCount,
+                $headers = [
+                    'Content-Type' => 'application/json',
+                    'Authorization' => 'Bearer ' . $accessToken,
                 ];
-            }
 
-            session(['stepCountData' => $stepCountData]);
+                $request = new GuzzleRequest('POST', $url, [
+                    'Authorization' => 'Bearer ' . $accessToken,
+                    'Content-Type' => 'application/json',
+                ], json_encode($data_request));
+                $client = new GuzzleClient();
+                $response = $client->send($request);
+
+                $data = json_decode($response->getBody()->getContents(), true);
+
+                foreach ($data['bucket'] as $bucket) {
+                    $startTimeMillis = $bucket['startTimeMillis'];
+                    $endTimeMillis = $bucket['endTimeMillis'];
+                    $stepCount = $bucket['dataset'][0]['point'][0]['value'][0]['intVal'];
+                    $dateTime = date('d-m', $startTimeMillis / 1000);
+                    $stepCountData[] = [
+                        'date' => $dateTime,
+                        'stepCount' => $stepCount,
+                    ];
+                }
+
+                session(['stepCountData' => $stepCountData]);
+            }
         }
+
 
         $user = User::find(auth()->id());
         $friends = $user->friends;
