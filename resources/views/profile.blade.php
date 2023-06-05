@@ -101,27 +101,20 @@
                 <h3 class="h3 profile__subtitle">History</h3>
 
                 <div class="profile__history">
-                    <div class="profile__history-tile">
-                        <div class="tile__icon">
-                            <i class="icon-weight"></i>
-                        </div>
-                        <div class="tile__text-wrapper">
-                            <p class="tile__title">40 diamonds</p>
-                            <span class="tile__subtitle">Workout</span>
-                            <span class="tile__footer">Mar 25 2023</span>
-                        </div>
-                    </div>
 
-                    <div class="profile__history-tile">
-                        <div class="tile__icon">
-                            <i class="icon-weight"></i>
+                    @foreach($trainings as $training)
+                        <div class="profile__history-tile">
+                            <div class="tile__icon">
+                                <i class="icon-weight"></i>
+                            </div>
+                            <div class="tile__text-wrapper">
+                                <p class="tile__title">{{$training->gained_diamonds}} diamonds</p>
+                                <span class="tile__subtitle">Workout</span>
+                                <span class="tile__footer">{{$training->created_at->format('d M Y')}}</span>
+                            </div>
                         </div>
-                        <div class="tile__text-wrapper">
-                            <p class="tile__title">40 diamonds</p>
-                            <span class="tile__subtitle">Workout</span>
-                            <span class="tile__footer">Mar 25 2023</span>
-                        </div>
-                    </div>
+                    @endforeach
+
                 </div>
             </div>
         </div>
