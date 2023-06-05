@@ -60,6 +60,9 @@
     padding-top: 15px;
     padding-bottom: $small-spacing;
 
+    overflow: auto;
+    max-height: 500px;
+
     &--show {
         display: block;
     }
