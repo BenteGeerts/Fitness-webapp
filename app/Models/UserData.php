@@ -19,4 +19,9 @@ class UserData extends Model
     {
         return $this->hasOne(UserGoal::class, "id", "goal");
     }
+
+    public function gender()
+    {
+        return $this->hasOne(Gender::class);
+    }
 }
