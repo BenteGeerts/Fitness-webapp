@@ -15,8 +15,6 @@ class FriendsController extends Controller
             return $friend->achievement->total_diamonds;
         });
 
-
-
         $worldLeaderboard = Achievement::with('user')
             ->take(10)
             ->orderBy('total_diamonds', 'desc')
