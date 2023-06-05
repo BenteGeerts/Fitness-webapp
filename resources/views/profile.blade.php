@@ -102,7 +102,7 @@
 
                 <div class="profile__history">
 
-                    @foreach($trainings as $training)
+                    @forelse($trainings as $training)
                         <div class="profile__history-tile">
                             <div class="tile__icon">
                                 <i class="icon-weight"></i>
@@ -113,7 +113,9 @@
                                 <span class="tile__footer">{{$training->created_at->format('d M Y')}}</span>
                             </div>
                         </div>
-                    @endforeach
+                    @empty
+                        <span>No training done yet!</span>
+                    @endforelse
 
                 </div>
             </div>
