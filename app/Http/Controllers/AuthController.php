@@ -99,7 +99,6 @@ class AuthController extends Controller
     public function googleRedirect()
     {
         $user = Socialite::driver("google")->user();
-        $refreshToken = $user->refreshToken;
         session()->put('access_token', $user->token);
         $email = User::where('email', '=', $user->email)->first();
 
@@ -109,6 +108,8 @@ class AuthController extends Controller
             return redirect()->route("home");
         }
         if (empty($email)) {
+            $refreshToken = $user->refreshToken;
+
             if (is_null($user->avatar)) {
                 $fileName = time() . '.png';
                 $filePath = "storage/images/" . $fileName;
