@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Achievement;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use App\Models\UserData;
@@ -94,6 +95,11 @@ class Setup extends Component
 
         $userData->level_id = $this->getLevel();
         $userData->save();
+
+        //setup achievement
+        $achievement = new Achievement();
+        $achievement->user_id = auth()->id();
+        $achievement->save();
 
         if (!is_null(session('showModal')) && !session('showModal')) {
             session()->forget('showModal');
