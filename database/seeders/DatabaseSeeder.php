@@ -28,5 +28,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ProgramSeeder::class);
         $this->call(TrainingProgramSeeder::class);
         $this->call(GenderSeeder::class);
+        $this->call(AnimalSeeder::class);
     }
 }
