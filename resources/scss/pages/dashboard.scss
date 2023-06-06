@@ -302,6 +302,11 @@
 
     padding: 20px;
     z-index: 9999;
+    width: 90%;
+
+    @include media-breakpoint-up(lg) {
+        width: unset;
+    }
 }
 
 .dashboard__modal-text {
