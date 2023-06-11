@@ -102,8 +102,7 @@ class AuthController extends Controller
         session()->put('access_token', $user->token);
         $email = User::where('email', '=', $user->email)->first();
 
-
-        if (!empty($email)) {
+        if (!empty($email) && empty($email->password)) {
             Auth::login($email);
             return redirect()->route("home");
         }
@@ -155,7 +154,7 @@ class AuthController extends Controller
         $user = Socialite::driver("microsoft")->user();
         $email = User::where('email', '=', $user->email)->first();
 
-        if (!empty($email)) {
+        if (!empty($email) && empty($email->password)) {
             Auth::login($email);
             return redirect()->route("home");
         }
