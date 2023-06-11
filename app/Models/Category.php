@@ -11,6 +11,6 @@ class Category extends Model
 
     public function exercise()
     {
-        return $this->belongsTo(Exercise::class);
+        return $this->hasOne(Exercise::class);
     }
 }
