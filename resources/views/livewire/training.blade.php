@@ -171,7 +171,7 @@
                             </div>
                         </div>
                     @empty
-                        <p class="training__message">You did not training that day</p>
+                        <p class="training__message">You did not train that day</p>
                     @endforelse
                 </div>
             </div>
