@@ -14,7 +14,7 @@ class CheckVisitsGoal extends Command
      *
      * @var string
      */
-    protected $signature = 'check:visits-goal';
+    protected $signature = 'visits-goal:check';
 
     /**
      * The console command description.
