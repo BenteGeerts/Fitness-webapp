@@ -61,6 +61,3 @@ Route::middleware(['auth'])->group(function () {
     Route::get("/settings", [SettingsController::class, "settings"])->name("settings");
 });
 Route::get("/logout", [AuthController::class, "logOut"])->name("logout");
-Route::get('/cron/schedule', function () {
-    Artisan::call('check:visits-goal');
-});
