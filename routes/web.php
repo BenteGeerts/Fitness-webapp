@@ -52,6 +52,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get("/new-training", [TrainingController::class, "newTraining"])->name("training.new");
     Route::get("/add-exercise", [ExerciseController::class, "addExercise"])->name("training.add");
     Route::get("/exercise/{slug}", [ExerciseController::class, "detail"])->name("exercise.detail");
+    Route::get("exercises" , [ExerciseController::class, "showAll"])->name("exercises");
     Route::get("/training/{slug}/play", [TrainingController::class, "play"])->name("training.play");
 
     Route::get("/shop", [ShopController::class, "shop"])->name("shop");
