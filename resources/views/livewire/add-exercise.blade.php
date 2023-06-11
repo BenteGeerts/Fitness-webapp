@@ -34,7 +34,7 @@
                                                     </div>
 
                                                     <div class="program__text-container">
-                                                        <a href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
+                                                        <a class="program__link" href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
                                                             <p class="program__title program__item-title">{{$exercise->name}}</p>
                                                         </a>
                                                         <div class="program__icons">
@@ -75,7 +75,7 @@
                                                     </div>
 
                                                     <div class="program__text-container">
-                                                        <a href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
+                                                        <a class="program__link" href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
                                                             <p class="program__title program__item-title">{{$exercise->name}}</p>
                                                         </a>
                                                         <div class="program__icons">
@@ -116,7 +116,7 @@
                                                     </div>
 
                                                     <div class="program__text-container">
-                                                        <a href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
+                                                        <a class="program__link" href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
                                                             <p class="program__title program__item-title">{{$exercise->name}}</p>
                                                         </a>
                                                         <div class="program__icons">
@@ -157,7 +157,7 @@
                                                     </div>
 
                                                     <div class="program__text-container">
-                                                        <a href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
+                                                        <a class="program__link" href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
                                                             <p class="program__title program__item-title">{{$exercise->name}}</p>
                                                         </a>
                                                         <div class="program__icons">
@@ -198,7 +198,7 @@
                                                     </div>
 
                                                     <div class="program__text-container">
-                                                        <a href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
+                                                        <a class="program__link" href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
                                                             <p class="program__title program__item-title">{{$exercise->name}}</p>
                                                         </a>
                                                         <div class="program__icons">
@@ -239,7 +239,7 @@
                                                     </div>
 
                                                     <div class="program__text-container">
-                                                        <a href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
+                                                        <a class="program__link" href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
                                                             <p class="program__title program__item-title">{{$exercise->name}}</p>
                                                         </a>
                                                         <div class="program__icons">
@@ -281,7 +281,7 @@
                                                     </div>
 
                                                     <div class="program__text-container">
-                                                        <a href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
+                                                        <a class="program__link" href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
                                                             <p class="program__title program__item-title">{{$exercise->name}}</p>
                                                         </a>
                                                         <div class="program__icons">
@@ -323,7 +323,7 @@
                                                     </div>
 
                                                     <div class="program__text-container">
-                                                        <a href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
+                                                        <a class="program__link" href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
                                                             <p class="program__title program__item-title">{{$exercise->name}}</p>
                                                         </a>
                                                         <div class="program__icons">
