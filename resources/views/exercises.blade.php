@@ -26,14 +26,12 @@
                                                 <div class="program__item">
                                                     <div class="program__item-label">
                                                         <div class="program__drawing-container">
-                                                            <img class="program__drawing"
-                                                                 src="/images/drawing__running.svg"
+                                                            <img class="program__drawing" src="/images/drawing__running.svg"
                                                                  alt="">
                                                         </div>
 
                                                         <div class="program__text-container">
-                                                            <a class="program__link"
-                                                               href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
+                                                            <a class="program__link" href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
                                                                 <p class="program__title program__item-title">{{$exercise->name}}</p>
                                                             </a>
                                                             <div class="program__icons">
@@ -65,14 +63,12 @@
                                                 <div class="program__item">
                                                     <div class="program__item-label">
                                                         <div class="program__drawing-container">
-                                                            <img class="program__drawing"
-                                                                 src="/images/drawing__running.svg"
+                                                            <img class="program__drawing" src="/images/drawing__running.svg"
                                                                  alt="">
                                                         </div>
 
                                                         <div class="program__text-container">
-                                                            <a class="program__link"
-                                                               href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
+                                                            <a class="program__link" href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
                                                                 <p class="program__title program__item-title">{{$exercise->name}}</p>
                                                             </a>
                                                             <div class="program__icons">
@@ -104,14 +100,12 @@
                                                 <div class="program__item">
                                                     <div class="program__item-label">
                                                         <div class="program__drawing-container">
-                                                            <img class="program__drawing"
-                                                                 src="/images/drawing__running.svg"
+                                                            <img class="program__drawing" src="/images/drawing__running.svg"
                                                                  alt="">
                                                         </div>
 
                                                         <div class="program__text-container">
-                                                            <a class="program__link"
-                                                               href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
+                                                            <a class="program__link" href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
                                                                 <p class="program__title program__item-title">{{$exercise->name}}</p>
                                                             </a>
                                                             <div class="program__icons">
@@ -143,14 +137,12 @@
                                                 <div class="program__item">
                                                     <div class="program__item-label">
                                                         <div class="program__drawing-container">
-                                                            <img class="program__drawing"
-                                                                 src="/images/drawing__running.svg"
+                                                            <img class="program__drawing" src="/images/drawing__running.svg"
                                                                  alt="">
                                                         </div>
 
                                                         <div class="program__text-container">
-                                                            <a class="program__link"
-                                                               href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
+                                                            <a class="program__link" href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
                                                                 <p class="program__title program__item-title">{{$exercise->name}}</p>
                                                             </a>
                                                             <div class="program__icons">
@@ -182,14 +174,12 @@
                                                 <div class="program__item">
                                                     <div class="program__item-label">
                                                         <div class="program__drawing-container">
-                                                            <img class="program__drawing"
-                                                                 src="/images/drawing__running.svg"
+                                                            <img class="program__drawing" src="/images/drawing__running.svg"
                                                                  alt="">
                                                         </div>
 
                                                         <div class="program__text-container">
-                                                            <a class="program__link"
-                                                               href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
+                                                            <a class="program__link" href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
                                                                 <p class="program__title program__item-title">{{$exercise->name}}</p>
                                                             </a>
                                                             <div class="program__icons">
@@ -221,14 +211,12 @@
                                                 <div class="program__item">
                                                     <div class="program__item-label">
                                                         <div class="program__drawing-container">
-                                                            <img class="program__drawing"
-                                                                 src="/images/drawing__running.svg"
+                                                            <img class="program__drawing" src="/images/drawing__running.svg"
                                                                  alt="">
                                                         </div>
 
                                                         <div class="program__text-container">
-                                                            <a class="program__link"
-                                                               href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
+                                                            <a class="program__link" href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
                                                                 <p class="program__title program__item-title">{{$exercise->name}}</p>
                                                             </a>
                                                             <div class="program__icons">
@@ -261,14 +249,12 @@
                                                 <div class="program__item">
                                                     <div class="program__item-label">
                                                         <div class="program__drawing-container">
-                                                            <img class="program__drawing"
-                                                                 src="/images/drawing__running.svg"
+                                                            <img class="program__drawing" src="/images/drawing__running.svg"
                                                                  alt="">
                                                         </div>
 
                                                         <div class="program__text-container">
-                                                            <a class="program__link"
-                                                               href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
+                                                            <a class="program__link" href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
                                                                 <p class="program__title program__item-title">{{$exercise->name}}</p>
                                                             </a>
                                                             <div class="program__icons">
@@ -301,14 +287,12 @@
                                                 <div class="program__item">
                                                     <div class="program__item-label">
                                                         <div class="program__drawing-container">
-                                                            <img class="program__drawing"
-                                                                 src="/images/drawing__running.svg"
+                                                            <img class="program__drawing" src="/images/drawing__running.svg"
                                                                  alt="">
                                                         </div>
 
                                                         <div class="program__text-container">
-                                                            <a class="program__link" class="program__link"
-                                                               href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
+                                                            <a class="program__link" class="program__link" href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
                                                                 <p class="program__title program__item-title">{{$exercise->name}}</p>
                                                             </a>
                                                             <div class="program__icons">
