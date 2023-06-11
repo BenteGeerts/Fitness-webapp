@@ -26,11 +26,11 @@ class Training extends Component
 
     public function mount()
     {
-        $this->allPrograms = TrainingProgram::whereIn('level_id', [1, 2, 3])->orWhere('user_id', auth()->id())->get();
+        $this->allPrograms = TrainingProgram::whereIn('level_id', [1, 2, 3])->orWhere('user_id', auth()->id())->with('level')->get();
         $userData = UserData::where('user_id', Auth::id())->first();
         $this->recommendedPrograms = TrainingProgram::where("level_id", "=", $userData->level_id)->orWhere([
             ['level_id', 4],
-            ['user_id', auth()->id()]])->get();
+            ['user_id', auth()->id()]])->with('level')->get();
     }
 
     public function render()

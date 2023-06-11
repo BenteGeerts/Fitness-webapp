@@ -109,7 +109,7 @@ class DashboardController extends Controller
         $userData = UserData::where('user_id', Auth::id())->first();
         $recommendedPrograms = TrainingProgram::where("level_id", "=", $userData->level_id)->orWhere([
             ['level_id', 4],
-            ['user_id', auth()->id()]])->get();
+            ['user_id', auth()->id()]])->with('level')->get();
 
         $streakLength = StreakTrait::retreiveLength(auth()->id());
         $diamonds = DiamondTrait::getDiamonds();

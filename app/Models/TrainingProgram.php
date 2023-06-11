@@ -30,7 +30,7 @@ class TrainingProgram extends Model
 
     public function level()
     {
-        return $this->hasOne(Level::class);
+        return $this->belongsTo(Level::class);
     }
 
     public function trainingHistories()

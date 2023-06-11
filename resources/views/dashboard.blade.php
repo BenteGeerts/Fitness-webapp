@@ -164,8 +164,8 @@
                                                         class="program__title">{{$program->name}}</p></a>
                                                 <div class="program__icons">
                                                     <div class="program__icon-wrapper">
-                                                        <i class="icon-alarm program__icon"></i>
-                                                        <p class="program__icon-text">60 min</p>
+                                                        <i class="icon-indicator program__icon"></i>
+                                                        <p class="program__icon-text">{{$program->level->level}}</p>
                                                     </div>
                                                     <div class="program__icon-wrapper">
                                                         <i class="icon-diamond program__icon"></i>

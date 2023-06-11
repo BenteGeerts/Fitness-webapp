@@ -8,9 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Level extends Model
 {
     use HasFactory;
+    protected $table = "training_levels";
 
     public function trainingPrograms()
     {
-        return $this->belongsTo(TrainingProgram::class);
+        return $this->hasOne(TrainingProgram::class);
     }
 }
