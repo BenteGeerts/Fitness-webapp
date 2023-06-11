@@ -1,9 +1,14 @@
 <div>
-    <a wire:click="showExtra" class="nav__link{{ request()->routeIs('shop', 'settings') ? ' nav__link--active' : '' }}"><i
+    <a wire:click="showExtra" class="nav__link{{ request()->routeIs('shop', 'settings', 'exercises') ? ' nav__link--active' : '' }}"><i
             class="icon-more nav__item"></i></a>
 
     @if($showExtra)
         <div class="nav__extra-wrapper">
+            <a class="nav__extra" href="{{route('exercises')}}">
+                <i class="icon-weight nav__item"></i>
+                <span class="nav__extra-text">Exercises</span>
+            </a>
+
             <a class="nav__extra" href="{{route('shop')}}">
                 <i class="icon-shop nav__item"></i>
                 <span class="nav__extra-text">Shop</span>
