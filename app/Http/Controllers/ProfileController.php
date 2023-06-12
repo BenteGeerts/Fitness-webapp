@@ -24,6 +24,8 @@ class ProfileController extends Controller
     public function show($username)
     {
         $user = User::where('username', '=', $username)->first();
-        return view("profile-variant")->with("user", $user);
+        $userAchievement = $user->achievement;
+        $trainings = TrainingProgramsHistory::where("user_id", $user->id)->get();
+        return view("profile-variant", ['user' => $user, 'userAchievement' => $userAchievement, 'trainings' => $trainings]);
     }
 }

@@ -8,16 +8,16 @@
                 </div>
 
                 <div class="profile__wrapper">
-                       <div class="profile__img-wrapper">
-                           <img class="profile__img" src="{{$user->avatar}}" alt="">
-                       </div>
+                    <div class="profile__img-wrapper">
+                        <img class="profile__img" src="{{$user->avatar}}" alt="">
+                    </div>
 
-                       <div class="profile__name-wrapper">
-                           <p class="profile__name">{{$user->name}}</p>
-                           <span class="profile__friends">{{count($user->friends)}} friends</span>
-                       </div>
+                    <div class="profile__name-wrapper">
+                        <p class="profile__name">{{$user->name}}</p>
+                        <span class="profile__friends">{{count($user->friends)}} friends</span>
+                    </div>
 
-                        <livewire:add-friend :user="$user"/>
+                    <livewire:add-friend :user="$user"/>
                 </div>
 
                 <h2 class="h3">Statistics</h2>
@@ -26,7 +26,7 @@
                         <i class="icon-fire profile__statistics-icon"></i>
 
                         <div class="profile__statistics-text">
-                            <b>100</b>
+                            <b>{{$userAchievement->streak_length}}</b>
                             <span>day streak</span>
                         </div>
                     </div>
@@ -34,7 +34,7 @@
                         <i class="icon-diamond profile__statistics-icon"></i>
 
                         <div class="profile__statistics-text">
-                            <b>2680</b>
+                            <b>{{$userAchievement->total_diamonds}}</b>
                             <span>diamonds</span>
                         </div>
                     </div>
@@ -51,81 +51,26 @@
                 <h2 class="h3">Achievements</h2>
                 <h3 class="h3 profile__subtitle">Badges</h3>
 
-                <div class="profile__badges">
-                    <div class="profile__badge">
-                        <img src="/images/badgeOne.png" alt="">
-                        <i class="icon-lock profile__badge-lock"></i>
-                    </div>
-
-                    <div class="profile__badge">
-                        <img src="/images/badgeTwo.png" alt="">
-                        <i class="icon-lock profile__badge-lock"></i>
-                    </div>
-
-                    <div class="profile__badge">
-                        <img src="/images/badgeThree.png" alt="">
-                        <i class="icon-lock profile__badge-lock"></i>
-                    </div>
-
-                    <div class="profile__badge">
-                        <img src="/images/badgeFour.png" alt="">
-                        <i class="icon-lock profile__badge-lock"></i>
-                    </div>
-
-                    <div class="profile__badge profile__badge--locked">
-                        <img src="/images/badgeFour.png" alt="">
-                        <i class="icon-lock profile__badge-lock"></i>
-                    </div>
-
-                    <div class="profile__badge profile__badge--locked">
-                        <img src="/images/badgeFour.png" alt="">
-                        <i class="icon-lock profile__badge-lock"></i>
-                    </div>
-
-                    <div class="profile__badge profile__badge--locked">
-                        <img src="/images/badgeFour.png" alt="">
-                        <i class="icon-lock profile__badge-lock"></i>
-                    </div>
-                </div>
-
-                <h3 class="h3 profile__subtitle">Challenges</h3>
-
-                <div class="profile__challenges">
-                    <div class="profile__challenge">
-                        <img class="profile__challenge-badge" src="/images/badgeOne.png" alt="">
-                        <p class="profile__challenge-title">Lorem ipsum</p>
-                    </div>
-
-                    <div class="profile__challenge">
-                        <img class="profile__challenge-badge" src="/images/badgeOne.png" alt="">
-                        <p class="profile__challenge-title">Lorem ipsum</p>
-                    </div>
-                </div>
+                <livewire:profile-variant-achievements :user="$user"
+                                                       currentDiamonds="{{$userAchievement->total_diamonds}}"/>
 
                 <h3 class="h3 profile__subtitle">History</h3>
 
                 <div class="profile__history">
-                    <div class="profile__history-tile">
-                        <div class="tile__icon">
-                            <i class="icon-weight"></i>
+                    @forelse($trainings as $training)
+                        <div class="profile__history-tile">
+                            <div class="tile__icon">
+                                <i class="icon-weight"></i>
+                            </div>
+                            <div class="tile__text-wrapper">
+                                <p class="tile__title">{{$training->gained_diamonds}} diamonds</p>
+                                <span class="tile__subtitle">Workout</span>
+                                <span class="tile__footer">{{$training->created_at->format('d M Y')}}</span>
+                            </div>
                         </div>
-                        <div class="tile__text-wrapper">
-                            <p class="tile__title">40 diamonds</p>
-                            <span class="tile__subtitle">Workout</span>
-                            <span class="tile__footer">Mar 25 2023</span>
-                        </div>
-                    </div>
-
-                    <div class="profile__history-tile">
-                        <div class="tile__icon">
-                            <i class="icon-weight"></i>
-                        </div>
-                        <div class="tile__text-wrapper">
-                            <p class="tile__title">40 diamonds</p>
-                            <span class="tile__subtitle">Workout</span>
-                            <span class="tile__footer">Mar 25 2023</span>
-                        </div>
-                    </div>
+                    @empty
+                        <span>No training done yet!</span>
+                    @endforelse
                 </div>
             </div>
         </div>
