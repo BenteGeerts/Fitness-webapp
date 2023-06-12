@@ -38,7 +38,8 @@
     'landingpage',
     'password.request',
     'password.reset',
-    'setup'
+    'setup',
+    'setup.edit'
 ]))
     @include("navbar")
 @endunless
