@@ -60,7 +60,7 @@
                         <i class="icon-pets dashboard__tile-background dashboard__tile-background--light-blue"></i>
                         <div class="dashboard__tile-content">
                             <i class="icon-pets dashboard__tile-icon"></i>
-                            <p class="dashboard__tile-text">Lifted 50 raccoons</p>
+                            <p class="dashboard__tile-text">Lifted {{$animalComparison}}</p>
                         </div>
                     </div>
                     <div class="dashboard__tile-arrow dashboard__tile-arrow--light-blue">
@@ -116,7 +116,7 @@
 
     @if($animalsModal)
         <div class="dashboard__modal dashboard__modal--centered">
-            <p>You lifted <b>{{$diamonds}}</b> during your last training. <br>That's impressive! Keep up the good work!</p>
+            <p>You lifted <b>{{$animalComparison}}</b> during your last training. <br>That's impressive! Keep up the good work!</p>
             <button wire:click="toggleAnimalsModal" class="button dashboard__modal-button">Oke</button>
         </div>
     @endif

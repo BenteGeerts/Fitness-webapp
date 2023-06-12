@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\TrainingProgram;
 use App\Models\User;
 use App\Models\UserData;
+use App\Traits\AnimalTrait;
 use App\Traits\DiamondTrait;
 use App\Traits\StreakTrait;
 use App\Traits\TrainingTrait;
@@ -115,6 +116,8 @@ class DashboardController extends Controller
         $diamonds = DiamondTrait::getDiamonds();
         $lastLiftedWeight = TrainingTrait::getLastTrainingWeight();
 
+        $animalComparison = AnimalTrait::animalCompareWeight($lastLiftedWeight);
+
 
         return view("dashboard",
             [
@@ -123,6 +126,7 @@ class DashboardController extends Controller
                 'streakLength' => $streakLength,
                 'diamonds' => $diamonds,
                 'lastLiftedWeight' => $lastLiftedWeight,
+                'animalComparison' => $animalComparison,
             ]);
     }
 

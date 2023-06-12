@@ -9,6 +9,7 @@ class DashboardTiles extends Component
     public $streakLength;
     public $diamonds;
     public $lastLiftedWeight;
+    public $animalComparison;
 
     public $streakModal = false;
     public $diamondsModal = false;
