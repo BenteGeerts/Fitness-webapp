@@ -82,7 +82,7 @@ class ProfileAchievements extends Component
 
     public function checkFriend()
     {
-        $friends = Friend::where('user_id', auth()->id())->first();
+        $friends = Friend::where('user_id', auth()->id())->get();
 
         if (isset($friends) && count($friends) >= 1) {
             $this->fourthModalConditionChecked = true;
