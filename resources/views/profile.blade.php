@@ -47,56 +47,7 @@
                 <h2 class="h3">Achievements</h2>
                 <h3 class="h3 profile__subtitle">Badges</h3>
 
-                <div class="profile__badges">
-                    <div class="profile__badge">
-                        <img src="/images/badgeOne.png" alt="">
-                        <i class="icon-lock profile__badge-lock"></i>
-                    </div>
-
-                    <div class="profile__badge">
-                        <img src="/images/badgeTwo.png" alt="">
-                        <i class="icon-lock profile__badge-lock"></i>
-                    </div>
-
-                    <div class="profile__badge">
-                        <img src="/images/badgeThree.png" alt="">
-                        <i class="icon-lock profile__badge-lock"></i>
-                    </div>
-
-                    <div class="profile__badge">
-                        <img src="/images/badgeFour.png" alt="">
-                        <i class="icon-lock profile__badge-lock"></i>
-                    </div>
-
-                    <div class="profile__badge profile__badge--locked">
-                        <img src="/images/badgeFour.png" alt="">
-                        <i class="icon-lock profile__badge-lock"></i>
-                    </div>
-
-                    <div class="profile__badge profile__badge--locked">
-                        <img src="/images/badgeFour.png" alt="">
-                        <i class="icon-lock profile__badge-lock"></i>
-                    </div>
-
-                    <div class="profile__badge profile__badge--locked">
-                        <img src="/images/badgeFour.png" alt="">
-                        <i class="icon-lock profile__badge-lock"></i>
-                    </div>
-                </div>
-
-                <h3 class="h3 profile__subtitle">Challenges</h3>
-
-                <div class="profile__challenges">
-                    <div class="profile__challenge">
-                        <img class="profile__challenge-badge" src="/images/badgeOne.png" alt="">
-                        <p class="profile__challenge-title">Lorem ipsum</p>
-                    </div>
-
-                    <div class="profile__challenge">
-                        <img class="profile__challenge-badge" src="/images/badgeOne.png" alt="">
-                        <p class="profile__challenge-title">Lorem ipsum</p>
-                    </div>
-                </div>
+                <livewire:profile-achievements currentDiamonds="{{$totalDiamonds}}"/>
 
                 <h3 class="h3 profile__subtitle">History</h3>
 
