@@ -35,11 +35,11 @@
                         </div>
                     </div>
                     <div class="profile__statistics-tile">
-                        <i class="icon-medal profile__statistics-icon"></i>
+                        <i class="icon-weight profile__statistics-icon"></i>
 
                         <div class="profile__statistics-text">
-                            <b>1</b>
-                            <span>Top 3 finishes</span>
+                            <b>{{count($trainings)}}</b>
+                            <span>trainings</span>
                         </div>
                     </div>
                 </div>
