@@ -14,6 +14,10 @@ trait AnimalTrait
         $comparisonResult = "";
 
         $borderWeight = 1000;
+        if(!isset($lastLiftedWeight) || $lastLiftedWeight == 0)
+        {
+            return "air";
+        }
         if ($lastLiftedWeight < $borderWeight) {
             foreach ($animals as $animal) {
                 if ($lastLiftedWeight >= $animal->weight) {
