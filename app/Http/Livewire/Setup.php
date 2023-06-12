@@ -64,16 +64,16 @@ class Setup extends Component
 
         switch ($this->gender) {
             case "male":
-                $userData->gender = 1;
+                $userData->gender_id = 1;
                 break;
             case "female":
-                $userData->gender = 2;
+                $userData->gender_id = 2;
                 break;
             case "x":
-                $userData->gender = 3;
+                $userData->gender_id = 3;
                 break;
             case "other":
-                $userData->gender = 4;
+                $userData->gender_id = 4;
                 break;
             default:
                 break;
@@ -81,13 +81,13 @@ class Setup extends Component
 
         switch ($this->goal) {
             case "lose weight":
-                $userData->goal = 1;
+                $userData->goal_id = 1;
                 break;
             case "gain weight":
-                $userData->goal = 2;
+                $userData->goal_id = 2;
                 break;
             case "gain muscle":
-                $userData->goal = 3;
+                $userData->goal_id = 3;
                 break;
             default:
                 break;
