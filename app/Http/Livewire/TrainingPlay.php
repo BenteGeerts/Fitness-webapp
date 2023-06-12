@@ -90,6 +90,7 @@ class TrainingPlay extends Component
     public function save()
     {
         $totalDiamonds = 0;
+        $totalWeight = 0;
         foreach ($this->existingSets as $exerciseId => $exerciseSets) {
             foreach ($exerciseSets as $index => $set) {
                 if (isset($set['reps']) && isset($set['weight'])) {
@@ -104,6 +105,7 @@ class TrainingPlay extends Component
                         'updated_at' => now(),
                     ];
                     $totalDiamonds += $diamonds;
+                    $totalWeight += $set['weight'] * $set['reps'];
                 }
             }
         }
@@ -120,7 +122,7 @@ class TrainingPlay extends Component
 
             $achievement = Achievement::where('user_id', auth()->id())->first();
             DiamondTrait::setDiamonds($achievement, $totalDiamonds);
-
+            TrainingTrait::setLastTrainingWeight($achievement, $totalWeight);
             StreakTrait::checkStreak(auth()->id());
 
         }

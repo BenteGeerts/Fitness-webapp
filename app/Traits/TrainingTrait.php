@@ -2,6 +2,7 @@
 
 namespace App\Traits;
 
+use App\Models\Achievement;
 use App\Models\Exercise;
 use App\Models\ExerciseHistory;
 use App\Models\UserData;
@@ -19,25 +20,23 @@ trait TrainingTrait
         return round(($baseDiamonds * $userData->age * $reps * $weight * ($userData->height) / 100) / 1000);
     }
 
+    public static function setLastTrainingWeight($achievement, $weight)
+    {
+        if (isset($weight) && $weight > 0) {
+            $achievement->total_weight = $weight;
+            $achievement->update();
+        }
+    }
+
     public static function getLastTrainingWeight()
     {
+        $achievement = Achievement::where('user_id', auth()->id())->first();
 
-        $history = ExerciseHistory::where('user_id', auth()->id())->latest()->first();
-
-        if (isset($history)) {
-            $timestamp = $history->created_at;
-
-            $weights = ExerciseHistory::where('user_id', auth()->id())->where('created_at', $timestamp)->get();
-
-            $totalWeight = 0;
-            foreach ($weights as $weight) {
-                $totalWeight += $weight->weight * $weight->reps;
-            }
-
-            return $totalWeight;
+        if(isset($achievement))
+        {
+            return $achievement->total_weight;
         }
-        if (!isset($history)) {
-            return 0;
-        }
+
+        return 0;
     }
 }

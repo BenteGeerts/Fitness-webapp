@@ -17,7 +17,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users');
             $table->integer('streak_length')->default(0);
-            $table->integer("total_diamonds")->default(0);
+            $table->integer('total_diamonds')->default(0);
+            $table->integer('total_weight')->default(0);
+            $table->string('lifted_animals')->nullable();
             $table->timestamps();
         });
     }
