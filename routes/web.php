@@ -47,6 +47,7 @@ Route::middleware('guest')->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get("/dashboard", [DashboardController::class, "Fit"])->name("home");
     Route::get("/setup", [SetupController::class, "setup"])->name("setup");
+    Route::get("/setup/edit", [SetupController::class, "edit"])->name("setup.edit");
     Route::get("/training", [TrainingController::class, "training"])->name("training");
     Route::get("/training/{slug}", [TrainingController::class, "detail"])->name("training.detail");
     Route::get("/new-training", [TrainingController::class, "newTraining"])->name("training.new");
