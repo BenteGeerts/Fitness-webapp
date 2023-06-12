@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class UserData extends Model
 {
     use HasFactory;
+    protected $fillable = ['gender_id', 'goal_id'];
     protected $table = "users_data";
 
     public function user()
@@ -15,13 +16,13 @@ class UserData extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function userGoals()
+    public function goal()
     {
-        return $this->hasOne(UserGoal::class, "id", "goal");
+        return $this->belongsTo(UserGoal::class);
     }
 
     public function gender()
     {
-        return $this->hasOne(Gender::class);
+        return $this->belongsTo(Gender::class);
     }
 }

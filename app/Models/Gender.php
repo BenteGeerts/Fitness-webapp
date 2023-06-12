@@ -9,8 +9,11 @@ class Gender extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['gender'];
+    protected $table = 'gender';
+
     public function userData()
     {
-        return $this->belongsTo(UserData::class);
+        return $this->hasOne(UserData::class);
     }
 }

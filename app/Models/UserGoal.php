@@ -8,9 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class UserGoal extends Model
 {
     use HasFactory;
+    protected $table = 'users_goal';
+    protected $fillable = ['goal'];
 
     public function user()
     {
-        return $this->belongsTo(User::class, "id", "goal");
+        return $this->hasOne(User::class);
     }
 }
