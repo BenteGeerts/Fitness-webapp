@@ -3,7 +3,6 @@ import "./chart";
 import "./flatpickr";
 import "./friends";
 import "./register";
-import "./setup";
 
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js')
