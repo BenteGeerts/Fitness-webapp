@@ -1,7 +1,8 @@
 const staticCacheName = 'site-static-v1';
-const dynamicCache = 'site-dynamic-v1';
+const dynamicCacheName = 'site-dynamic-v1';
 const assets = [
     '/',
+    '/offline',
     'https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap',
 ];
 
@@ -23,7 +24,7 @@ self.addEventListener('activate', evt => {
     evt.waitUntil(
         caches.keys().then(keys => {
             return Promise.all(keys
-                .filter(key => key !== staticCacheName)
+                .filter(key => key !== staticCacheName && key !== dynamicCacheName)
                 .map(key => caches.delete(key))
             )
         })
@@ -36,11 +37,11 @@ self.addEventListener('fetch', evt => {
     evt.respondWith(
         caches.match(evt.request).then(cacheRes => {
             return cacheRes || fetch(evt.request).then(fetchRes => {
-                return caches.open(dynamicCache).then(cache => {
+                return caches.open(dynamicCacheName).then(cache => {
                     cache.put(evt.request.url, fetchRes.clone())
                     return fetchRes;
                 })
             });
-        })
+        }).catch(() => caches.match('/offline'))
     );
 })
