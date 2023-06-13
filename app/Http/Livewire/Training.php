@@ -76,6 +76,7 @@ class Training extends Component
 
     public function getReps()
     {
+        $this->reps = 0;
         $exercises = $this->exercises;
 
         if (isset($exercises)) {
@@ -99,6 +100,7 @@ class Training extends Component
 
     public function getWeight()
     {
+        $this->weight = 0;
         if (isset($this->exercises)) {
             foreach ($this->exercises as $exercise) {
                 $weights = $exercise->weights;
@@ -120,6 +122,7 @@ class Training extends Component
 
     public function getDiamonds()
     {
+        $this->diamonds = 0;
         if (isset($this->exercises)) {
             foreach ($this->exercises as $exercise) {
                $this->diamonds += $exercise->exercise->diamonds;
