@@ -1,7 +1,6 @@
-const staticCacheName = 'site-static';
+const staticCacheName = 'site-static-v1';
 const assets = [
     '/',
-    '/login',
     'https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap',
 ];
 
@@ -20,6 +19,14 @@ self.addEventListener('install', evt => {
 //active event
 self.addEventListener('activate', evt => {
     //console.log('service worker has been activated');
+    evt.waitUntil(
+        caches.keys().then(keys => {
+            return Promise.all(keys
+                .filter(key => key !== staticCacheName)
+                .map(key => caches.delete(key))
+            )
+        })
+    )
 })
 
 //fetch event
