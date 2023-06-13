@@ -27,6 +27,7 @@ use App\Http\Controllers\SettingsController;
 */
 
 Route::get("/", [PageController::class, "landingpage"])->name("landingpage");
+Route::get("/offline", [PageController::class, "offline"])->name("offline");
 Route::middleware('guest')->group(function () {
     Route::get("/login", [AuthController::class, "login"])->name("login");
     Route::post("/login", [AuthController::class, "signIn"])->name("signIn");

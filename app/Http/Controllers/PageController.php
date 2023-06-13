@@ -10,4 +10,9 @@ class PageController extends Controller
     {
         return view("landingpage");
     }
+
+    public function offline()
+    {
+        return view("offline");
+    }
 }

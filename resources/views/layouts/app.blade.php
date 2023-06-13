@@ -39,7 +39,8 @@
     'password.request',
     'password.reset',
     'setup',
-    'setup.edit'
+    'setup.edit',
+    'offline',
 ]))
     @include("navbar")
 @endunless

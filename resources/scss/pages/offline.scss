@@ -1,0 +1,22 @@
+.offline {
+    height: 100vh;
+    width: calc(100vw - 10%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    @include media-breakpoint-up(lg) {
+        width: 100vw;
+    }
+}
+
+.offline__text {
+    font-size: 1.25rem;
+    font-weight: 500;
+
+    @include media-breakpoint-up(lg) {
+        font-size: 1.5rem;
+    }
+}
