@@ -22,6 +22,7 @@
     font-size: 1.5rem;
     position: absolute;
     left: 0;
+    cursor: pointer;
 
     @include media-breakpoint-up(lg) {
         left: 20px;
