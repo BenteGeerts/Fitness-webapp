@@ -131,13 +131,17 @@
                 <p class="settings__notifications-text">I like to receive email push notifications</p>
             </div>
 
+            <h3 class="h3 settings__title">Setup</h3>
+            <div class="settings__setup">
+                <a href="{{route('setup.edit')}}" class="button">Edit setup values</a>
+            </div>
             <h3 class="h3 settings__title">Danger zone</h3>
             <div class="settings__danger">
                 <button wire:click="deleteAccount" class="button button--tertiary">Delete account</button>
             </div>
 
             <div class="settings__save">
-                <button wire:click="save" class="button">Save changes</button>
+                <a wire:click="save" class="button">Save changes</a>
             </div>
         </div>
     </div>

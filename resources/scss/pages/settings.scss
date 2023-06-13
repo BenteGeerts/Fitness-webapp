@@ -152,8 +152,12 @@ input:checked + .settings__toggle-slider:before {
     padding-left: $small-spacing;
 }
 
+.settings__setup {
+    padding-bottom: 15px;
+    padding-top: 10px;
+}
+
 .settings__danger {
-    padding-top: 20px;
     padding-bottom: 250px;
 
     @include media-breakpoint-up(lg) {
