@@ -6,6 +6,17 @@ const assets = [
     'https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap',
 ];
 
+//cache size limit function
+const limitCacheSize = (name, size) => {
+    caches.open(name).then(cache => {
+        cache.keys().then(keys => {
+            if(keys.length > size) {
+                cache.delete(keys[0]).then(limitCacheSize(name, size))
+            }
+        })
+    })
+};
+
 //install service worker
 self.addEventListener('install', evt => {
         //console.log('service worker has been installed');
@@ -39,9 +50,14 @@ self.addEventListener('fetch', evt => {
             return cacheRes || fetch(evt.request).then(fetchRes => {
                 return caches.open(dynamicCacheName).then(cache => {
                     cache.put(evt.request.url, fetchRes.clone())
+                    limitCacheSize(dynamicCacheName, 30);
                     return fetchRes;
                 })
             });
-        }).catch(() => caches.match('/offline'))
+        }).catch(() => {
+            if (!evt.request.url.includes('.png') || !evt.request.url.includes('.jpg') || !evt.request.url.includes('.svg')) {
+                return caches.match('/offline')
+            }
+        })
     );
 })
