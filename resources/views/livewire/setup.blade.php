@@ -14,12 +14,12 @@
                         </div>
 
                         <div class="setup__input-wrapper">
-                            <div class="setup__number-picker" data-number-picker="1">
-                                <button class="setup__number-button" data-number-decrement>-</button>
+                            <div class="setup__number-picker">
+                                <button wire:click="decrement('weight')" class="setup__number-button">-</button>
                                 <input wire:model="weight" class="setup__number-input" name="weight" id="weight"
                                        type="number" value="30"
-                                       min="30" max="250" data-number-input="1">
-                                <button class="setup__number-button" data-number-increment>+</button>
+                                       min="30" max="250">
+                                <button wire:click="increment('weight')" class="setup__number-button">+</button>
                             </div>
                             <label for="weight">KG</label>
                         </div>
@@ -50,12 +50,12 @@
                         </div>
 
                         <div class="setup__input-wrapper">
-                            <div class="setup__number-picker" data-number-picker="2">
-                                <button class="setup__number-button" data-number-decrement>-</button>
+                            <div class="setup__number-picker">
+                                <button wire:click="decrement('height')" class="setup__number-button">-</button>
                                 <input wire:model="height" class="setup__number-input" name="height" id="height"
                                        type="number" value="50"
-                                       min="50" max="250" data-number-input="2">
-                                <button class="setup__number-button" data-number-increment>+</button>
+                                       min="50" max="250">
+                                <button wire:click="increment('height')" class="setup__number-button">+</button>
                             </div>
                             <label for="height">CM</label>
                         </div>
@@ -86,12 +86,12 @@
                         </div>
 
                         <div class="setup__input-wrapper">
-                            <div class="setup__number-picker" data-number-picker="3">
-                                <button class="setup__number-button" data-number-decrement>-</button>
+                            <div class="setup__number-picker">
+                                <button wire:click="decrement('age')" class="setup__number-button">-</button>
                                 <input wire:model="age" class="setup__number-input" name="age" id="age" type="number"
                                        value="20" min="10"
-                                       max="110" data-number-input="3">
-                                <button class="setup__number-button" data-number-increment>+</button>
+                                       max="110">
+                                <button wire:click="increment('age')" class="setup__number-button">+</button>
                             </div>
                             <label for="age">y/o</label>
                         </div>
@@ -303,12 +303,12 @@
                         </div>
 
                         <div class="setup__input-wrapper">
-                            <div class="setup__number-picker" data-number-picker="4">
-                                <button class="setup__number-button" data-number-decrement>-</button>
+                            <div class="setup__number-picker">
+                                <button wire:click="decrement('visits')" class="setup__number-button">-</button>
                                 <input wire:model="visits" class="setup__number-input" name="visits" id="visits"
                                        type="number" value="3" min="1"
-                                       max="7" data-number-input="4">
-                                <button class="setup__number-button" data-number-increment>+</button>
+                                       max="7">
+                                <button wire:click="increment('visits')" class="setup__number-button">+</button>
                             </div>
                             <label for="visits">visits per week</label>
                         </div>
