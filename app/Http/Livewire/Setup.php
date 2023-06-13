@@ -28,6 +28,16 @@ class Setup extends Component
         $this->emit('inputfield');
     }
 
+    public function decrement($variable)
+    {
+        $this->$variable--;
+    }
+
+    public function increment($variable)
+    {
+        $this->$variable++;
+    }
+
     public function previous()
     {
         if ($this->currentPage == 1) {

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Achievement;
+use App\Models\User;
 use App\Models\UserData;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -34,6 +35,16 @@ class SetupEdit extends Component
         $this->emit('inputfield');
     }
 
+    public function decrement($variable)
+    {
+        $this->$variable--;
+    }
+
+    public function increment($variable)
+    {
+        $this->$variable++;
+    }
+
     public function previous()
     {
         if ($this->currentPage == 1) {
@@ -61,25 +72,24 @@ class SetupEdit extends Component
 
     public function finish()
     {
-        $userData = new UserData();
-        $userData->user_id = Auth::id();
-        $userData->weight = $this->weight;
-        $userData->height = $this->height;
+        $userData = UserData::where('user_id', auth()->id())->first();
+        $userData->weight = $this->height;
+        $userData->height = $this->weight;
         $userData->age = $this->age;
         $userData->min_visits = $this->visits;
 
         switch ($this->gender) {
             case "male":
-                $userData->gender = 1;
+                $userData->gender_id = 1;
                 break;
             case "female":
-                $userData->gender = 2;
+                $userData->gender_id = 2;
                 break;
             case "x":
-                $userData->gender = 3;
+                $userData->gender_id = 3;
                 break;
             case "other":
-                $userData->gender = 4;
+                $userData->gender_id = 4;
                 break;
             default:
                 break;
@@ -87,16 +97,19 @@ class SetupEdit extends Component
 
         switch ($this->goal) {
             case "lose weight":
-                $userData->goal = 1;
+                $userData->goal_id = 1;
                 break;
             case "gain weight":
-                $userData->goal = 2;
+                $userData->goal_id = 2;
                 break;
             case "gain muscle":
-                $userData->goal = 3;
+                $userData->goal_id = 3;
                 break;
             default:
                 break;
         }
+
+        $userData->update();
+        return redirect()->route('settings');
     }
 }
