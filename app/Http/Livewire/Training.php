@@ -46,18 +46,10 @@ class Training extends Component
     public function showExercises()
     {
         if (isset($this->dateInput)) {
-            $this->exercises = ExerciseHistory::select('exercise_id', DB::raw('GROUP_CONCAT(reps) as reps'), DB::raw('GROUP_CONCAT(weight) as weights'))
-                ->whereDate('created_at', 'like', '%' . date($this->dateInput) . '%')
+            $this->exercises = ExerciseHistory::whereDate('created_at', 'like', '%' . date($this->dateInput) . '%')
                 ->where('user_id', '=', auth()->id())
-                ->groupBy('exercise_id')
                 ->get();
-        }
-
-        //TODO rewrite this-> makes to much requests
-        foreach ($this->exercises as $exercise) {
-            $exercise->sets = explode(',', $exercise->sets);
-            $exercise->reps = explode(',', $exercise->reps);
-            $exercise->weights = explode(',', $exercise->weights);
+            $this->exercises = $this->exercises->groupBy('exercise_id')->collect();
         }
     }
 
@@ -81,15 +73,9 @@ class Training extends Component
 
         if (isset($exercises)) {
             foreach ($exercises as $exercise) {
-                $reps = $exercise->reps;
-                if (is_array($reps)) {
-                    foreach ($reps as $rep) {
-                        $this->reps += $rep;
-                    }
-                }
-                if (!is_array($reps)) {
-                    $this->reps += $exercise->reps;
-                }
+               foreach($exercise as $set){
+                   $this->reps += $set->reps;
+               }
             }
 
             return $this->reps;
@@ -103,15 +89,9 @@ class Training extends Component
         $this->weight = 0;
         if (isset($this->exercises)) {
             foreach ($this->exercises as $exercise) {
-                $weights = $exercise->weights;
-                if (is_array($weights)) {
-                    foreach ($weights as $weight) {
-                        $this->weight += $weight;
-                    }
-                }
-                if (!is_array($weights)) {
-                    $this->weight += $exercise->weights;
-                }
+              foreach($exercise as $set){
+                  $this->weight += $set->weight * $set->reps;
+              }
             }
 
             return $this->weight;
@@ -125,10 +105,27 @@ class Training extends Component
         $this->diamonds = 0;
         if (isset($this->exercises)) {
             foreach ($this->exercises as $exercise) {
-               $this->diamonds += $exercise->exercise->diamonds;
+               foreach($exercise as $set){
+                   $this->diamonds += $set->gained_diamonds;
+               }
             }
 
             return $this->diamonds;
+        }
+
+        return '0';
+    }
+
+    public function getTotalDiamonds($exerciseGroup)
+    {
+        $totalDiamonds = 0;
+
+        if(isset($exerciseGroup)) {
+            foreach($exerciseGroup as $exercise){
+                $totalDiamonds += $exercise->gained_diamonds;
+            }
+
+            return $totalDiamonds;
         }
 
         return '0';

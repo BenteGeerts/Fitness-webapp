@@ -151,23 +151,23 @@
                                 <div class="training__history-heading">
                                     <div class="training__history-diamonds">
                                         <i class="icon-diamond training__history-icon"></i>
-                                        <span>10</span>
+                                        <span>{{$this->getTotalDiamonds($exercise)}}</span>
                                     </div>
-                                    <span class="training__history-name">{{$exercise->exercise->name}}</span>
-                                    <span class="training__history-sets">{{count($exercise->reps)}} Sets</span>
+                                    <span class="training__history-name">{{$exercise[0]->exercise->name}}</span>
+                                    <span class="training__history-sets">{{count($exercise)}} Sets</span>
                                 </div>
                                 <div class="training__history-row">
                                     <p>Set</p>
                                     <p>Reps</p>
                                     <p>Weight</p>
                                 </div>
-                                @for ($i = 0; $i < count($exercise->reps); $i++)
+                                @foreach ($exercise as $index => $set)
                                     <div class="training__history-row">
-                                        <p>{{ $i + 1 }}</p>
-                                        <p>{{ $exercise->reps[$i] }}</p>
-                                        <p>{{ $exercise->weights[$i] }} KG</p>
+                                        <p>{{ $index + 1 }}</p>
+                                        <p>{{ $set->reps }}</p>
+                                        <p>{{ $set->weight }} KG</p>
                                     </div>
-                                @endfor
+                                @endforeach
                             </div>
                         </div>
                     @empty
