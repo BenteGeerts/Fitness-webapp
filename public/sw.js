@@ -1,8 +1,8 @@
 const staticCacheName = 'site-static';
 const assets = [
     '/',
-    '/css/style.css',
     '/login',
+    'https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap',
 ];
 
 //install service worker
@@ -25,4 +25,9 @@ self.addEventListener('activate', evt => {
 //fetch event
 self.addEventListener('fetch', evt => {
     //console.log('fetch event', evt);
+    evt.respondWith(
+        caches.match(evt.request).then(cacheRes => {
+            return cacheRes || fetch(evt.request);
+        })
+    );
 })
