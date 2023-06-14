@@ -68,4 +68,9 @@ class User extends Authenticatable
         return $this->hasMany(TrainingHistory::class);
     }
 
+    public function powerUps()
+    {
+        return $this->hasMany(PowerUp::class);
+    }
+
 }
