@@ -11,7 +11,7 @@
                 <h3 class="h3 shop__heading">Power-Ups</h3>
 
 
-               <livewire:shop/>
+               <livewire:shop-payment/>
 
 
                 <div class="shop__more">
