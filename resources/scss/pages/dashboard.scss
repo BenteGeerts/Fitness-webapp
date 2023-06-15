@@ -234,6 +234,7 @@
 
 .dashboard__tile-text {
     font-weight: 500;
+    font-size: 1.125rem;
 
     @include media-breakpoint-up(lg) {
         position: absolute;
@@ -305,6 +306,7 @@
     transform: translate(-50%, -50%);
     background-color: $color-4;
     border-radius: $border-radius;
+    font-size: 1.125rem;
 
     padding: 20px;
     z-index: 9999;
