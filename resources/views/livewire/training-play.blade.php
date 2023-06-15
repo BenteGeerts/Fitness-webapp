@@ -40,7 +40,13 @@
         </div>
 
         <div class="training__buttons training__buttons--no-spacing">
-            <button wire:click="previousExercise" class="button button--secondary">Back</button>
+            @if(!$currentIndex == 0)
+                <button wire:click="previousExercise" class="button button--secondary">Back</button>
+            @endif
+
+            @if($currentIndex == 0)
+                <a href="{{route('training')}}" class="button button--secondary">Stop</a>
+            @endif
 
             @if($currentIndex != count($exercises) - 1)
                 <button wire:click="nextExercise" class="button">Next</button>
