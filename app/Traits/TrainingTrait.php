@@ -9,14 +9,16 @@ use App\Models\UserData;
 
 trait TrainingTrait
 {
-    public static function calculateDiamonds($exerciseId, $reps, $weight)
+    public static function calculateDiamonds($exerciseId, $reps, $weight, $doublePoints)
     {
         $exercise = Exercise::find($exerciseId)->first();
         $baseDiamonds = $exercise->diamonds;
 
         $userData = UserData::where('user_id', auth()->id())->first();
 
-
+        if ($doublePoints) {
+            return round(($baseDiamonds * $userData->age * $reps * $weight * ($userData->height) / 100) / 1000) * 2;
+        }
         return round(($baseDiamonds * $userData->age * $reps * $weight * ($userData->height) / 100) / 1000);
     }
 
@@ -32,8 +34,7 @@ trait TrainingTrait
     {
         $achievement = Achievement::where('user_id', auth()->id())->first();
 
-        if(isset($achievement))
-        {
+        if (isset($achievement)) {
             return $achievement->total_weight;
         }
 

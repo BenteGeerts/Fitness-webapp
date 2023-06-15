@@ -3,6 +3,8 @@
 namespace App\Traits;
 
 use App\Models\Achievement;
+use App\Models\Shop;
+use Carbon\Carbon;
 
 trait DiamondTrait
 {
@@ -29,5 +31,19 @@ trait DiamondTrait
         if (!isset($achievement)) {
             return 0;
         }
+    }
+
+    public static function checkForDoublePointsPowerUp() : bool
+    {
+        $diamondsShopItems = Shop::where('user_id', auth()->id())->where('powerup_id', 2)->get();
+
+        foreach ($diamondsShopItems as $item) {
+            if (Carbon::parse($item->created_at)->diffInHours(Carbon::now()) < 24) {
+                return true;
+            }
+            return false;
+        }
+
+        return false;
     }
 }

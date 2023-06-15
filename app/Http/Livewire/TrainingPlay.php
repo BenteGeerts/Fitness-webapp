@@ -91,10 +91,11 @@ class TrainingPlay extends Component
     {
         $totalDiamonds = 0;
         $totalWeight = 0;
+        $hasDoublePointsPowerUp = DiamondTrait::checkForDoublePointsPowerUp();
         foreach ($this->existingSets as $exerciseId => $exerciseSets) {
             foreach ($exerciseSets as $index => $set) {
                 if (isset($set['reps']) && isset($set['weight'])) {
-                    $diamonds = TrainingTrait::calculateDiamonds($exerciseId, $set['reps'], $set['weight']);
+                    $diamonds = TrainingTrait::calculateDiamonds($exerciseId, $set['reps'], $set['weight'], $hasDoublePointsPowerUp);
                     $histories[] = [
                         'user_id' => auth()->id(),
                         'reps' => $set['reps'],
