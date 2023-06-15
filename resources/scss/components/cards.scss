@@ -63,6 +63,7 @@
 
 .program__title {
     font-weight: 600;
+    text-decoration: underline;
 
     @include media-breakpoint-up(lg) {
         font-size: 1.25rem;
