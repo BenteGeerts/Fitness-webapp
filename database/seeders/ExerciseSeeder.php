@@ -21,7 +21,7 @@ class ExerciseSeeder extends Seeder
             "icon_id" => 1,
             "image_url" => (asset("storage/exercises/Arnold-Press.gif")),
             "video_url" => "https://www.youtube.com/embed/6Z15_WdXmVw",
-            "diamonds" => 5,
+            "diamonds" => 4,
             "category_id" => 5,
         ]);
 
@@ -31,7 +31,7 @@ class ExerciseSeeder extends Seeder
             "icon_id" => 1,
             "image_url" => (asset("storage/exercises/barbell-uprightrow.gif")),
             "video_url" => "https://www.youtube.com/embed/jaAV-rD45I0",
-            "diamonds" => 5,
+            "diamonds" => 3,
             "category_id" => 5,
         ]);
 
@@ -61,7 +61,7 @@ class ExerciseSeeder extends Seeder
             "icon_id" => 1,
             "image_url" => (asset("storage/exercises/Rear-Delt-Machine-Flys.gif")),
             "video_url" => "https://www.youtube.com/embed/6yMdhi2DVao",
-            "diamonds" => 5,
+            "diamonds" => 3,
             "category_id" => 5,
         ]);
 
@@ -71,7 +71,7 @@ class ExerciseSeeder extends Seeder
             "icon_id" => 1,
             "image_url" => (asset("storage/exercises/Dumbbell-Shoulder-Press.gif")),
             "video_url" => "https://www.youtube.com/embed/qEwKCR5JCog",
-            "diamonds" => 5,
+            "diamonds" => 4,
             "category_id" => 5,
         ]);
 
@@ -91,7 +91,7 @@ class ExerciseSeeder extends Seeder
             "icon_id" => 1,
             "image_url" => (asset("storage/exercises/Lever-Shoulder-Press.gif")),
             "video_url" => "https://www.youtube.com/embed/Wqq43dKW1TU",
-            "diamonds" => 5,
+            "diamonds" => 4,
             "category_id" => 5,
         ]);
 
@@ -101,7 +101,7 @@ class ExerciseSeeder extends Seeder
             "icon_id" => 1,
             "image_url" => (asset("storage/exercises/Barbell-Bent-Over-Row.gif")),
             "video_url" => "https://www.youtube.com/embed/9efgcAjQe7E",
-            "diamonds" => 5,
+            "diamonds" => 3,
             "category_id" => 2,
         ]);
 
@@ -121,7 +121,7 @@ class ExerciseSeeder extends Seeder
             "icon_id" => 1,
             "image_url" => (asset("storage/exercises/Dumbbell-Row.gif")),
             "video_url" => "https://www.youtube.com/embed/pYcpY20QaE8",
-            "diamonds" => 5,
+            "diamonds" => 3,
             "category_id" => 2,
         ]);
 
@@ -151,7 +151,7 @@ class ExerciseSeeder extends Seeder
             "icon_id" => 1,
             "image_url" => (asset("storage/exercises/Seated-Row-Machine.gif")),
             "video_url" => "https://www.youtube.com/embed/8MKGArS7w7c",
-            "diamonds" => 5,
+            "diamonds" => 4,
             "category_id" => 2,
         ]);
 
@@ -161,7 +161,7 @@ class ExerciseSeeder extends Seeder
             "icon_id" => 1,
             "image_url" => (asset("storage/exercises/Rope-Straight-Arm-Pulldown.gif")),
             "video_url" => "https://www.youtube.com/embed/AjCCGN2tU3Q",
-            "diamonds" => 5,
+            "diamonds" => 3,
             "category_id" => 2,
         ]);
 
@@ -181,7 +181,7 @@ class ExerciseSeeder extends Seeder
             "icon_id" => 1,
             "image_url" => (asset("storage/exercises/Cable-Crossover.gif")),
             "video_url" => "https://www.youtube.com/embed/WEM9FCIPlxQ",
-            "diamonds" => 5,
+            "diamonds" => 4,
             "category_id" => 1,
         ]);
 
@@ -191,7 +191,7 @@ class ExerciseSeeder extends Seeder
             "icon_id" => 1,
             "image_url" => (asset("storage/exercises/Dumbbell-Fly.gif")),
             "video_url" => "https://www.youtube.com/embed/eozdVDA78K0",
-            "diamonds" => 5,
+            "diamonds" => 4,
             "category_id" => 1,
         ]);
 
@@ -201,7 +201,7 @@ class ExerciseSeeder extends Seeder
             "icon_id" => 1,
             "image_url" => (asset("storage/exercises/Incline-Dumbbell-Press.gif")),
             "video_url" => "https://www.youtube.com/embed/8iPEnn-ltC8",
-            "diamonds" => 5,
+            "diamonds" => 4,
             "category_id" => 1,
         ]);
 
@@ -211,7 +211,7 @@ class ExerciseSeeder extends Seeder
             "icon_id" => 1,
             "image_url" => (asset("storage/exercises/V-bar Pushdown.gif")),
             "video_url" => "https://www.youtube.com/embed/YibQv-Yiie0",
-            "diamonds" => 5,
+            "diamonds" => 3,
             "category_id" => 4,
         ]);
 
@@ -221,7 +221,7 @@ class ExerciseSeeder extends Seeder
             "icon_id" => 1,
             "image_url" => (asset("storage/exercises/Barbell-Curl.gif")),
             "video_url" => "https://www.youtube.com/embed/LY1V6UbRHFM",
-            "diamonds" => 5,
+            "diamonds" => 4,
             "category_id" => 4,
         ]);
 
@@ -251,7 +251,7 @@ class ExerciseSeeder extends Seeder
             "icon_id" => 1,
             "image_url" => (asset("storage/exercises/Hammer-Curl.gif")),
             "video_url" => "https://www.youtube.com/embed/zC3nLlEvin4",
-            "diamonds" => 5,
+            "diamonds" => 4,
             "category_id" => 4,
         ]);
 
@@ -261,7 +261,7 @@ class ExerciseSeeder extends Seeder
             "icon_id" => 1,
             "image_url" => (asset("storage/exercises/Crunch.gif")),
             "video_url" => "https://www.youtube.com/embed/NGRKFMKhF8s",
-            "diamonds" => 5,
+            "diamonds" => 3,
             "category_id" => 6,
         ]);
 
@@ -271,7 +271,7 @@ class ExerciseSeeder extends Seeder
             "icon_id" => 1,
             "image_url" => (asset("storage/exercises/Lying-Leg-Raise.gif")),
             "video_url" => "https://www.youtube.com/embed/Wp4BlxcFTkE",
-            "diamonds" => 5,
+            "diamonds" => 4,
             "category_id" => 6,
         ]);
 
@@ -321,7 +321,7 @@ class ExerciseSeeder extends Seeder
             "icon_id" => 1,
             "image_url" => (asset("storage/exercises/HIP-ABDUCTION-MACHINE.gif")),
             "video_url" => "https://www.youtube.com/embed/2b97cvyH9sE",
-            "diamonds" => 5,
+            "diamonds" => 3,
             "category_id" => 3,
         ]);
 
@@ -331,7 +331,7 @@ class ExerciseSeeder extends Seeder
             "icon_id" => 1,
             "image_url" => (asset("storage/exercises/HIP-ADDUCTION-MACHINE.gif")),
             "video_url" => "https://www.youtube.com/embed/GmRSV_n2E_0",
-            "diamonds" => 5,
+            "diamonds" => 3,
             "category_id" => 3,
         ]);
 

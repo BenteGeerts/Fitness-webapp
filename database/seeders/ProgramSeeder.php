@@ -18,42 +18,42 @@ class ProgramSeeder extends Seeder
         DB::table("training_programs")->insert([
             "name" => "Push",
             "slug" => "push",
-            "total_diamonds" => 100,
+            "total_diamonds" => 25,
             "level_id" => 2
         ]);
 
         DB::table("training_programs")->insert([
             "name" => "Pull",
             "slug" => "pull",
-            "total_diamonds" => 100,
+            "total_diamonds" => 27,
             "level_id" => 2
         ]);
 
         DB::table("training_programs")->insert([
             "name" => "Legs",
             "slug" => "legs",
-            "total_diamonds" => 100,
+            "total_diamonds" => 26,
             "level_id" => 2
         ]);
 
         DB::table("training_programs")->insert([
             "name" => "Full body",
             "slug" => "fullbody",
-            "total_diamonds" => 100,
+            "total_diamonds" => 24,
             "level_id" => 1
         ]);
 
         DB::table("training_programs")->insert([
             "name" => "Upper body",
             "slug" => "upperbody",
-            "total_diamonds" => 100,
+            "total_diamonds" => 27,
             "level_id" => 1
         ]);
 
         DB::table("training_programs")->insert([
             "name" => "Lower body",
             "slug" => "lowerbody",
-            "total_diamonds" => 100,
+            "total_diamonds" => 26,
             "level_id" => 1
         ]);
     }
