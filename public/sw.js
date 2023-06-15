@@ -1,5 +1,4 @@
 const staticCacheName = 'site-static-v1';
-const dynamicCacheName = 'site-dynamic-v1';
 const assets = [
     '/',
     '/offline',
@@ -22,7 +21,6 @@ self.addEventListener('install', evt => {
         //console.log('service worker has been installed');
         evt.waitUntil(
             caches.open(staticCacheName).then(cache => {
-                console.log('caching assets');
                 cache.addAll(assets);
             })
         );
@@ -31,11 +29,10 @@ self.addEventListener('install', evt => {
 
 //active event
 self.addEventListener('activate', evt => {
-    //console.log('service worker has been activated');
     evt.waitUntil(
         caches.keys().then(keys => {
             return Promise.all(keys
-                .filter(key => key !== staticCacheName && key !== dynamicCacheName)
+                .filter(key => key !== staticCacheName)
                 .map(key => caches.delete(key))
             )
         })
@@ -44,20 +41,5 @@ self.addEventListener('activate', evt => {
 
 //fetch event
 self.addEventListener('fetch', evt => {
-    //console.log('fetch event', evt);
-    evt.respondWith(
-        caches.match(evt.request).then(cacheRes => {
-            return cacheRes || fetch(evt.request).then(fetchRes => {
-                return caches.open(dynamicCacheName).then(cache => {
-                    cache.put(evt.request.url, fetchRes.clone())
-                    limitCacheSize(dynamicCacheName, 30);
-                    return fetchRes;
-                })
-            });
-        }).catch(() => {
-            if (!evt.request.url.includes('.png') || !evt.request.url.includes('.jpg') || !evt.request.url.includes('.svg')) {
-                return caches.match('/offline')
-            }
-        })
-    );
+
 })
