@@ -64,7 +64,6 @@
 
             <div class="new-training__buttons">
                 <a href="{{route('training.add')}}" class="button">Add more</a>
-                <a href="" class="button">Random</a>
             </div>
 
             <div class="new-training__buttons new-training__buttons--under">
