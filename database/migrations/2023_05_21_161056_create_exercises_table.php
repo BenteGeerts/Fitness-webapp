@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer("icon_id");
             $table->string("image_url");
             $table->string("video_url");
-            $table->string("common_mistakes")->nullable();
+            $table->text("common_mistakes")->nullable();
             $table->integer("diamonds");
             $table->foreignId("category_id")->references('id')->on("categories");
             $table->timestamps();
