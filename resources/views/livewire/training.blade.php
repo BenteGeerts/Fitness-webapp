@@ -130,7 +130,7 @@
                             <i class="icon-weight training__stats-icon"></i>
                         </div>
                         <div>
-                            <p>Lifted<br>{{$this->getWeight()}}kg</p>
+                            <b>{{$this->getWeight()}}kg</b><br>Lifted</p>
                         </div>
                     </div>
 
@@ -139,7 +139,7 @@
                             <i class="icon-360 training__stats-icon"></i>
                         </div>
                         <div>
-                            <p>Reps <br>{{$this->getReps()}}</p>
+                            <p><b>{{$this->getReps()}}</b><br>Reps</p>
                         </div>
                     </div>
                 </div>
