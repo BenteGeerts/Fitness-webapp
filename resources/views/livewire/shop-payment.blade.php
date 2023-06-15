@@ -28,6 +28,11 @@
                 {{ session('successPowerUpOne') }}
             </div>
         @endif
+        @if (session()->has('errorOne'))
+            <div class="error">
+                {{ session('errorOne') }}
+            </div>
+        @endif
     </div>
     <div class="col-md-12 col-lg-6">
         <div class="shop__item shop__item--bottom">
@@ -56,6 +61,11 @@
         @if (session()->has('successPowerUpTwo'))
             <div class="error error--green">
                 {{ session('successPowerUpTwo') }}
+            </div>
+        @endif
+        @if (session()->has('errorTwo'))
+            <div class="error">
+                {{ session('errorTwo') }}
             </div>
         @endif
     </div>
