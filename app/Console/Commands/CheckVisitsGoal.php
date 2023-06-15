@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Models\Achievement;
+use App\Models\Shop;
 use App\Models\TrainingProgramsHistory;
 use App\Models\User;
 use Illuminate\Console\Command;
@@ -32,7 +33,11 @@ class CheckVisitsGoal extends Command
     public function handle()
     {
         $weekAgo = Carbon::now()->subWeek()->toDateString();
-        $users = User::whereDate('created_at', '<', $weekAgo)->get();
+        $users = User::where('created_at', '<', $weekAgo)
+            ->orWhere('created_at', '>', Carbon::now())
+            ->get();
+
+        $streakTokens = Shop::whereBetween('created_at', [$weekAgo, now()])->where('powerup_id', 1)->count();
 
         if(isset($users) && count($users) > 0) {
             foreach ($users as $user) {
@@ -44,8 +49,7 @@ class CheckVisitsGoal extends Command
                     ->whereBetween('created_at', [now()->subWeek(), now()])
                     ->count();
 
-
-                if (!$visitsCount >= $minimumVisitsGoal) {
+                if ($visitsCount + $streakTokens < $minimumVisitsGoal) {
                     $achievement = Achievement::where('user_id', $user->id)->first();
                     $achievement->streak_length = 0;
                     $achievement->update();
