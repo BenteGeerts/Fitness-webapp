@@ -18,11 +18,9 @@
 
                         <h3 class="h3 exercise__title">Common mistakes</h3>
                         <ol>
-                            <li>Going too heavy</li>
-                            <li>Flaring elbows out at 90° angles</li>
-                            <li>Bending wrists backwards</li>
-                            <li>Not keeping the feet grounded</li>
-                            <li>Pressing with a thumbless grip</li>
+                            @foreach (explode("\n", $exercise->common_mistakes) as $mistake)
+                               <li>{{str_replace('\n', '', e($mistake))}}</li>
+                            @endforeach
                         </ol>
                     </div>
 
