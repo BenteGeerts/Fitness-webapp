@@ -5,6 +5,8 @@
 .settings__title {
     padding-top: 10px;
     padding-bottom: 10px;
+
+    font-size: 1.5rem;
 }
 
 .settings__file {
@@ -15,9 +17,9 @@
 
 .settings__file-label {
     padding-right: $medium-spacing;
-
+    font-size: 1.125rem;
     @include media-breakpoint-up(lg) {
-        font-size: 1.125rem;
+        font-size: 1.25rem;
     }
 }
 
@@ -150,6 +152,7 @@ input:checked + .settings__toggle-slider:before {
 
 .settings__notifications-text {
     padding-left: $small-spacing;
+    font-size: 1.125rem;
 }
 
 .settings__setup {
