@@ -218,7 +218,6 @@
 .dashboard__chart-wrapper {
     position: relative;
     margin-top: 25px;
-    margin-bottom: 25px;
 }
 
 .dashboard__chart {
@@ -252,6 +251,7 @@
     padding: 20px 10px;
 
     margin-bottom: 20px;
+    margin-top: 25px;
 
     @include media-breakpoint-up(lg) {
         margin-bottom: unset;
