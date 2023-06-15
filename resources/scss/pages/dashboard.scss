@@ -278,15 +278,19 @@
 }
 
 .dashboard__steps-wrapper {
+    display: none;
     position: absolute;
     top: 20px;
     left: 20px;
 
-    display: flex;
     flex-direction: row;
     align-items: center;
 
     font-weight: 700;
+
+    @include media-breakpoint-up(lg) {
+        display: flex;
+    }
 }
 
 .dashboard__steps-icon {
