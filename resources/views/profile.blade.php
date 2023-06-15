@@ -16,7 +16,7 @@
                 <livewire:profile-image avatar="{{$user->avatar}}" name="{{$user->name}}"
                                         friends="{{count($user->friends)}}"/>
 
-                <h2 class="h3">Statistics</h2>
+                <h2 class="h3 profile__title">Statistics</h2>
                 <div class="profile__statistics">
                     <div class="profile__statistics-tile">
                         <i class="icon-fire profile__statistics-icon"></i>
@@ -44,7 +44,7 @@
                     </div>
                 </div>
 
-                <h2 class="h3">Achievements</h2>
+                <h2 class="h3 profile__title">Achievements</h2>
                 <h3 class="h3 profile__subtitle">Badges</h3>
 
                 <livewire:profile-achievements currentDiamonds="{{$totalDiamonds}}"/>

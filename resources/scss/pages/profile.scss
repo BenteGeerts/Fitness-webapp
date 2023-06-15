@@ -20,10 +20,15 @@
     }
 }
 
+.profile__title {
+    font-size: 1.5rem;
+}
+
 .profile__subtitle {
     text-decoration: underline;
     padding-bottom: 20px;
     padding-top: 10px;
+    font-size: 1.25rem;
 
     @include media-breakpoint-up(lg) {
         padding-top: 20px;
@@ -138,9 +143,9 @@
 }
 
 .profile__badge {
-    width: 50px;
-    height: 50px;
-    min-width: 50px;
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
 
     margin-right: 15px;
 
@@ -211,14 +216,11 @@
 }
 
 .profile__challenge-title {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     font-weight: 500;
     padding-left: 10px;
     padding-right: 10px;
 
-    @include media-breakpoint-up(lg) {
-        font-size: 1.25rem;
-    }
 }
 
 .profile__history {
