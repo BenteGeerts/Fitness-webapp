@@ -22,21 +22,21 @@
                     <hr class="divider__line">
                 </div>
 
-                <a class="button button--icon button--big button--secondary signup__button" href="">
+                <a class="button button--icon button--big button--secondary signup__button" href="{{Route("googleLogin")}}">
                     <img class="button__img" src="/images/googleIcon.png" alt="google icon">
                     Sign Up with Google
                 </a>
-                <a class="button button--icon button--big button--secondary signup__button" href="">
+                <a class="button button--icon button--big button--secondary signup__button" href="{{Route("microsoftLogin")}}">
                     <img class="button__img" src="/images/microsoftIcon.png" alt="microsoft icon">
                     Sign Up with Microsoft
                 </a>
                 <div class="signup__buttons">
-                    <a class="button button--secondary button--icon signup__button--hidden"
+                    <a class="button button--secondary button--icon signup__button signup__button--hidden"
                        href="{{Route("googleLogin")}}">
                         <img class="button__img" src="/images/googleIcon.png" alt="">
                         Google
                     </a>
-                    <a class="button button--secondary button--icon signup__button--hidden"
+                    <a class="button button--secondary button--icon signup__button signup__button--hidden"
                        href="{{Route("microsoftLogin")}}">
                         <img class="button__img" src="/images/microsoftIcon.png" alt="">
                         Microsoft
