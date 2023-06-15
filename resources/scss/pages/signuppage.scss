@@ -24,14 +24,17 @@
 
 .signup__buttons {
     width: 100%;
-    display: flex;
+    display: none;
     justify-content: space-evenly;
     flex-direction: row;
+
+    @include media-breakpoint-up(lg) {
+        display: flex;
+    }
 }
 
 .signup__button {
     margin-bottom: 20px;
-    display: flex;
 
     @include media-breakpoint-up(lg) {
         display: none;
