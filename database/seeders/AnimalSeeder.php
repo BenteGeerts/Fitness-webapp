@@ -16,7 +16,7 @@ class AnimalSeeder extends Seeder
     public function run()
     {
         DB::table("animals")->insert([
-            "name" => "African elephant",
+            "name" => "Elephant",
             "weight" => 4900
         ]);
 
