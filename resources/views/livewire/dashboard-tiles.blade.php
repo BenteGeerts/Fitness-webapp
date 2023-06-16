@@ -60,7 +60,7 @@
                         <i class="icon-pets dashboard__tile-background dashboard__tile-background--light-blue"></i>
                         <div class="dashboard__tile-content">
                             <i class="icon-pets dashboard__tile-icon"></i>
-                            <p class="dashboard__tile-text">Lifted {{$animalComparison}}</p>
+                            <p class="dashboard__tile-text">Lifted {{substr($animalComparison, 0, strpos($animalComparison, ',') + 1) . '...'}}</p>
                         </div>
                     </div>
                     <div class="dashboard__tile-arrow dashboard__tile-arrow--light-blue">
