@@ -23,7 +23,12 @@ trait AnimalTrait
                 if ($lastLiftedWeight >= $animal->weight) {
 
                     $animalCount = floor($lastLiftedWeight / $animal->weight);
-                    $comparisonResult .= $animalCount . " " . $animal->name . ", ";
+                    if($animalCount > 1){
+                        $comparisonResult .= $animalCount . " " . $animal->name . "s, ";
+                    }
+                    else {
+                        $comparisonResult .= $animalCount . " " . $animal->name . ", ";
+                    }
                     $lastLiftedWeight %= $animal->weight;
                 }
             }
