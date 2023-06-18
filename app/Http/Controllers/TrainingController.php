@@ -35,7 +35,7 @@ class TrainingController extends Controller
     public function detail($slug)
     {
         $training = TrainingProgram::where("slug", $slug)->first();
-        
+
         if(!isset($training)) {
             return redirect()->route('training');
         }

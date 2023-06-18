@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Exercise;
 use App\Models\TrainingProgram;
 use App\Models\TrainingProgramHasWeight;
+use App\Models\TrainingProgramsHistory;
 use Livewire\Component;
 
 class TrainingDetail extends Component
@@ -14,6 +15,8 @@ class TrainingDetail extends Component
     public $sets = [];
     public $existingSets = [];
     public $decoded;
+
+    public $showModal = false;
 
     public function mount(TrainingProgram $training)
     {
@@ -101,6 +104,25 @@ class TrainingDetail extends Component
             }
         }
 
+        return redirect()->route('training');
+    }
+
+    public function toggleModal()
+    {
+        $this->showModal = !$this->showModal;
+        $this->emit('addBodyClass', ['no-scroll', 'overlay']);
+    }
+
+    public function delete()
+    {
+        $idArray = $this->exercises->pluck('id')->toArray();
+
+        $this->training->exercises()->detach($idArray);
+
+        TrainingProgramHasWeight::where('training_program_id', $this->training->id)->delete();
+        TrainingProgramsHistory::where('training_program_id', $this->training->id)->delete();
+
+        $this->training->delete();
         return redirect()->route('training');
     }
 }
