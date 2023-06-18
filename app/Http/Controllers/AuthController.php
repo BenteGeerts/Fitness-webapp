@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Traits\AuthTrait;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -15,6 +16,7 @@ use Illuminate\Validation\Rules;
 
 class AuthController extends Controller
 {
+    use AuthTrait;
     public function signUp()
     {
         return view("register");
@@ -108,28 +110,20 @@ class AuthController extends Controller
         }
         if (empty($email)) {
             $refreshToken = $user->refreshToken;
+            $userAvatar = $user->avatar;
 
-            if (is_null($user->avatar)) {
-                $fileName = time() . '.png';
-                $filePath = "storage/images/" . $fileName;
-                Avatar::create($user->name)->setDimension(200, 200)->save($filePath);
-                $user->avatar = asset($filePath);
+            if (is_null($userAvatar)) {
+                $userAvatar = AuthTrait::createAvatar($user->name);
             }
 
-            $i = 0;
-            $username = strtolower(str_replace(' ', '', $user->name));
-            while(User::where('username', $username)->exists())
-            {
-                $i++;
-                $username = $username .  $i;
-            }
+            $username = AuthTrait::setUserName($user->name);
 
             $user = User::create(
                 [
                     "name" => $user->name,
                     "username" => $username,
                     "email" => $user->email,
-                    "avatar" => $user->avatar,
+                    "avatar" => $userAvatar,
                     "refresh_token" => $refreshToken,
                 ]
             );
@@ -159,28 +153,20 @@ class AuthController extends Controller
             return redirect()->route("home");
         }
         if (empty($email)) {
+            $userAvatar = $user->avatar;
 
-            if (is_null($user->avatar)) {
-                $fileName = time() . '.png';
-                $filePath = "storage/images/" . $fileName;
-                Avatar::create($user->name)->setDimension(200, 200)->save($filePath);
-                $user->avatar = asset($filePath);
+            if (is_null($userAvatar)) {
+                $userAvatar = AuthTrait::createAvatar($user->name);
             }
 
-            $i = 0;
-            $username = strtolower(str_replace(' ', '', $user->name));
-            while(User::where('username', $username)->exists())
-            {
-                $i++;
-                $username = $username .  $i;
-            }
+            $username = AuthTrait::setUserName($user->name);
 
             $user = User::create(
                 [
                     "name" => $user->name,
                     "username" => $username,
                     "email" => $user->email,
-                    "avatar" => $user->avatar
+                    "avatar" => $userAvatar
                 ]
             );
             Auth::login($user);
