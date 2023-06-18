@@ -18,7 +18,6 @@ trait AnimalTrait
         {
             return "air";
         }
-        if ($lastLiftedWeight < $largestAnimal->weight) {
             foreach ($animals as $animal) {
                 if ($lastLiftedWeight >= $animal->weight) {
 
@@ -34,16 +33,6 @@ trait AnimalTrait
             }
 
             $comparisonResult = rtrim($comparisonResult, ", ");
-        } else {
-            $animalCount = ceil($lastLiftedWeight / $largestAnimal->weight);
-
-            if($animalCount > 1) {
-                $comparisonResult = $animalCount . " " . $largestAnimal->name . 's';
-            }
-            else {
-                $comparisonResult = $animalCount . " " . $largestAnimal->name;
-            }
-        }
 
         return $comparisonResult;
     }
