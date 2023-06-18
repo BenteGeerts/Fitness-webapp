@@ -13,12 +13,12 @@ trait AnimalTrait
 
         $comparisonResult = "";
 
-        $borderWeight = 1000;
+        $largestAnimal = $animals->first();
         if(!isset($lastLiftedWeight) || $lastLiftedWeight == 0)
         {
             return "air";
         }
-        if ($lastLiftedWeight < $borderWeight) {
+        if ($lastLiftedWeight < $largestAnimal->weight) {
             foreach ($animals as $animal) {
                 if ($lastLiftedWeight >= $animal->weight) {
 
@@ -35,8 +35,14 @@ trait AnimalTrait
 
             $comparisonResult = rtrim($comparisonResult, ", ");
         } else {
-            $largestAnimal = $animals->first();
-            $comparisonResult = "1 " . $largestAnimal->name;
+            $animalCount = ceil($lastLiftedWeight / $largestAnimal->weight);
+
+            if($animalCount > 1) {
+                $comparisonResult = $animalCount . " " . $largestAnimal->name . 's';
+            }
+            else {
+                $comparisonResult = $animalCount . " " . $largestAnimal->name;
+            }
         }
 
         return $comparisonResult;
