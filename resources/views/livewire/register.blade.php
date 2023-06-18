@@ -1,13 +1,13 @@
 <form class="form" method="post" action="{{Route("register")}}">
     @csrf
     <div class="form__names">
-        <div class="form__field form__field--small">
+        <div wire:ignore class="form__field form__field--small">
             <label class="form__label" for="firstname">First name</label>
             <input class="form__input-field" name="firstname" id="firstname" type="text"
                    value="{{ old('firstname') }}">
         </div>
 
-        <div class="form__field form__field--small">
+        <div wire:ignore class="form__field form__field--small">
             <label class="form__label" for="lastname">Last name</label>
             <input class="form__input-field" name="lastname" id="lastname" type="text"
                    value="{{ old('lastname') }}">
