@@ -31,8 +31,13 @@
 
 .program__drawing {
     width: 75px;
+    height: 60px;
     padding: 10px;
     max-width: unset;
+
+    &--big {
+        height: unset;
+    }
 }
 
 
