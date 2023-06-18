@@ -63,7 +63,7 @@
             @endif
 
             <div class="new-training__buttons">
-                <a href="{{route('training.add')}}" class="button">Add more</a>
+                <a wire:click="setName" class="button">Add more</a>
             </div>
 
             <div class="new-training__buttons new-training__buttons--under">

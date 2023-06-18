@@ -19,6 +19,9 @@ class NewTraining extends Component
     public function mount($exercises)
     {
         $this->exercises = $exercises;
+        if(session('trainingName')) {
+            $this->trainingName = session('trainingName');
+        }
     }
 
     public function render()
@@ -46,13 +49,21 @@ class NewTraining extends Component
 
 
         session()->forget('selectedExercises');
+        session()->forget('trainingName');
         return redirect()->route("training");
     }
 
     public function cancel()
     {
         session()->forget('selectedExercises');
+        session()->forget('trainingName');
         return redirect()->route('training');
+    }
+
+    public function setName()
+    {
+        session(['trainingName' => $this->trainingName]);
+        return redirect()->route('training.add');
     }
 
 }
