@@ -59,7 +59,7 @@
                             <div class="col-md-6 col-lg-4">
                                 <div class="program">
                                     <div class="program__drawing-container">
-                                        <img class="program__drawing" src="/images/drawing__running.svg" alt="">
+                                        <img class="program__drawing" src="/images/drawing__workingout.svg" alt="">
                                     </div>
 
                                     <div class="program__text-container">
