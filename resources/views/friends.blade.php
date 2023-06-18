@@ -22,9 +22,9 @@
                     <div class="row">
                         <div class="col-md-12 col-lg-6">
                             <div class="friends__ranking friends__ranking--show" data-ranking="friends">
-                                @foreach($friends as $index => $friend)
-                                    @if($index ==  0 || $index == 1 || $index == 2)
-                                            @if($index == 0)
+                                @foreach($friends as $friend)
+                                    @if($loop->index ==  0 || $loop->index == 1 || $loop->index == 2)
+                                            @if($loop->index == 0)
                                             <div class="friends__ranking-leaderboard">
                                                 <div class="friends__ranking-card">
                                                     <div class="friends__ranking-number">1</div>
@@ -41,7 +41,7 @@
                                                 @endif
                                             @endif
 
-                                            @if($index == 1)
+                                            @if($loop->index == 1)
                                                 <div class="friends__ranking-card">
                                                     <div class="friends__ranking-number">2</div>
                                                     <img class="friends__ranking-medal" src="/images/secondplace.png"
@@ -57,7 +57,7 @@
                                                 @endif
                                             @endif
 
-                                            @if($index == 2)
+                                            @if($loop->index == 2)
                                                 <div class="friends__ranking-card">
                                                     <div class="friends__ranking-number">3</div>
                                                     <img class="friends__ranking-medal" src="/images/thirdplace.png"
@@ -74,7 +74,7 @@
                                             @endif
                                     @endif
 
-                                    @if($index > 2)
+                                    @if($loop->index > 2)
                                         <div class="friends__ranking-card">
                                             <div class="friends__ranking-number">4</div>
                                             <p class="friends__ranking-name">{{$friend->name}}</p>
@@ -90,9 +90,9 @@
 
                         <div class="col-md-12 col-lg-6">
                             <div class="friends__ranking" data-ranking="world">
-                                @foreach($worldLeaderboard as $index => $person)
-                                    @if($index ==  0 || $index == 1 || $index == 2)
-                                            @if($index == 0)
+                                @foreach($worldLeaderboard as $person)
+                                    @if($loop->index ==  0 || $loop->index == 1 || $loop->index == 2)
+                                            @if($loop->index == 0)
                                             <div class="friends__ranking-leaderboard">
                                                 <div class="friends__ranking-card">
                                                     <div class="friends__ranking-number">1</div>
@@ -109,7 +109,7 @@
                                                 @endif
                                             @endif
 
-                                            @if($index == 1)
+                                            @if($loop->index == 1)
                                                 <div class="friends__ranking-card">
                                                     <div class="friends__ranking-number">2</div>
                                                     <img class="friends__ranking-medal" src="/images/secondplace.png"
@@ -125,7 +125,7 @@
                                                 @endif
                                             @endif
 
-                                            @if($index == 2)
+                                            @if($loop->index == 2)
                                                 <div class="friends__ranking-card">
                                                     <div class="friends__ranking-number">3</div>
                                                     <img class="friends__ranking-medal" src="/images/thirdplace.png"
@@ -142,7 +142,7 @@
                                             @endif
                                     @endif
 
-                                    @if($index > 2)
+                                    @if($loop->index > 2)
                                         <div class="friends__ranking-card">
                                             <div class="friends__ranking-number">{{$index + 1}}</div>
                                             <p class="friends__ranking-name">{{$person->user->name}}</p>
