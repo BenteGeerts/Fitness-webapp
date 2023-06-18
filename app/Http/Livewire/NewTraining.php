@@ -19,7 +19,7 @@ class NewTraining extends Component
     public function mount($exercises)
     {
         $this->exercises = $exercises;
-        if(session('trainingName')) {
+        if (session('trainingName')) {
             $this->trainingName = session('trainingName');
         }
     }
@@ -35,22 +35,27 @@ class NewTraining extends Component
             'trainingName' => 'required',
         ]);
 
-        $training = new TrainingProgram();
-        $training->name = $this->trainingName;
-        $training->slug = strtolower(str_replace(' ', '', $this->trainingName));
-        $training->level_id = 4;
-        $training->total_diamonds = $this->diamonds;
-        $training->user_id = auth()->id();
-        $training->save();
+        if (isset($this->exercises) && count($this->exercises) > 0) {
+            $training = new TrainingProgram();
+            $training->name = $this->trainingName;
+            $training->slug = strtolower(str_replace(' ', '', $this->trainingName));
+            $training->level_id = 4;
+            $training->total_diamonds = $this->diamonds;
+            $training->user_id = auth()->id();
+            $training->save();
 
-        $idArray = $this->exercises->pluck('id')->toArray();
+            $idArray = $this->exercises->pluck('id')->toArray();
 
-        $training->exercises()->attach($idArray);
+            $training->exercises()->attach($idArray);
 
 
-        session()->forget('selectedExercises');
-        session()->forget('trainingName');
-        return redirect()->route("training");
+            session()->forget('selectedExercises');
+            session()->forget('trainingName');
+            return redirect()->route("training");
+        }
+        else {
+            $this->addError('noExercises', 'Oops, you did not pick any exercises!');
+        }
     }
 
     public function cancel()

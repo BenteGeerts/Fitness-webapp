@@ -60,6 +60,11 @@
 
             @else
                 <p>No exercises yet</p>
+                @if ($errors->has('noExercises'))
+                    <div class="error">
+                        {{ $errors->first('noExercises') }}
+                    </div>
+                @endif
             @endif
 
             <div class="new-training__buttons">
