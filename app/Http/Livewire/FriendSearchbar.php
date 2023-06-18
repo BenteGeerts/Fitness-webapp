@@ -20,7 +20,7 @@ class FriendSearchbar extends Component
     {
         if (strlen($this->searchTerm) >= 3) {
             $this->showResults = true;
-            $this->searchResults = User::where('name', 'like', '%' . $this->searchTerm . '%')->where('id', '!=', auth()->id())->get();
+            $this->searchResults = User::where('name', 'like', '%' . $this->searchTerm . '%')->where('id', '!=', auth()->id())->limit(5)->get();
             return true;
         }
 
