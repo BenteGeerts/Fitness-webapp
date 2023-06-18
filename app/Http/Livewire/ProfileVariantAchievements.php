@@ -26,11 +26,15 @@ class ProfileVariantAchievements extends Component
     public $currentDiamonds = 0;
     public $currentFriends = 0;
 
+    public $friends;
+    public $trainings;
+
     public function mount()
     {
         $this->userId = $this->user->id;
         $this->getTrainings();
         $this->getFriends();
+        $this->friends = Friend::where('user_id', $this->userId)->get();
     }
 
     public function render()
@@ -59,19 +63,15 @@ class ProfileVariantAchievements extends Component
 
     public function checkHundredTrainings()
     {
-        $history = TrainingProgramsHistory::where('user_id', $this->userId)->get();
-
-        if (isset($history) && count($history) >= 100) {
+        if (isset($this->trainings) && count($this->trainings) >= 100) {
             $this->secondModalConditionChecked = true;
         }
     }
 
     public function getTrainings()
     {
-        $history = TrainingProgramsHistory::where('user_id', $this->userId)->get();
-
-        if (isset($history)) {
-            $this->currentTrainings = count($history);
+        if (isset($this->trainings)) {
+            $this->currentTrainings = count($this->trainings);
         }
     }
 
@@ -86,19 +86,15 @@ class ProfileVariantAchievements extends Component
 
     public function checkFriend()
     {
-        $friends = Friend::where('user_id', $this->userId)->get();
-
-        if (isset($friends) && count($friends) >= 1) {
+        if (isset($this->friends) && count($this->friends) >= 1) {
             $this->fourthModalConditionChecked = true;
         }
     }
 
     public function getFriends()
     {
-        $friends = Friend::where('user_id', $this->userId)->get();
-
-        if (isset($friends)) {
-            $this->currentFriends = count($friends);
+        if (isset($this->friends)) {
+            $this->currentFriends = count($this->friends);
         }
     }
 }

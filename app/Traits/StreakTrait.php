@@ -34,10 +34,8 @@ trait StreakTrait
         }
     }
 
-    public static function retreiveLength($userId)
+    public static function retreiveLength($achievement)
     {
-        $achievement = Achievement::where('user_id', $userId)->first();
-
         if (isset($achievement)) {
             return $achievement->streak_length;
         } else {

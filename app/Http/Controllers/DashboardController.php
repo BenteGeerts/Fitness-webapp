@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Achievement;
 use App\Models\TrainingProgram;
 use App\Models\User;
 use App\Models\UserData;
@@ -28,7 +29,7 @@ class DashboardController extends Controller
 
         FitTrait::makeRequest();
 
-        $user = User::find(auth()->id());
+        $user = auth()->user();
         $friends = $user->friends;
 
         $userData = $user->userData;
@@ -36,9 +37,11 @@ class DashboardController extends Controller
             ['level_id', 4],
             ['user_id', auth()->id()]])->with('level')->get();
 
-        $streakLength = StreakTrait::retreiveLength(auth()->id());
+
+        $achievement = Achievement::where('user_id', auth()->id())->first();
+        $streakLength = StreakTrait::retreiveLength($achievement);
         $diamonds = DiamondTrait::getDiamonds();
-        $lastLiftedWeight = TrainingTrait::getLastTrainingWeight();
+        $lastLiftedWeight = TrainingTrait::getLastTrainingWeight($achievement);
         $animalComparison = AnimalTrait::animalCompareWeight($lastLiftedWeight);
 
 

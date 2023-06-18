@@ -52,7 +52,8 @@
                 <h3 class="h3 profile__subtitle">Badges</h3>
 
                 <livewire:profile-variant-achievements :user="$user"
-                                                       currentDiamonds="{{$userAchievement->total_diamonds}}"/>
+                                                       currentDiamonds="{{$userAchievement->total_diamonds}}"
+                                                           :trainings="$trainings"/>
 
                 <h3 class="h3 profile__subtitle">History</h3>
 

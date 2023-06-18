@@ -47,7 +47,8 @@
                 <h2 class="h3 profile__title">Achievements</h2>
                 <h3 class="h3 profile__subtitle">Badges</h3>
 
-                <livewire:profile-achievements currentDiamonds="{{$totalDiamonds}}"/>
+                <livewire:profile-achievements currentDiamonds="{{$totalDiamonds}}" :user="$user"
+                                               streakLength="{{$streakLength}}" :trainings="$trainings"/>
 
                 <h3 class="h3 profile__subtitle">History</h3>
 

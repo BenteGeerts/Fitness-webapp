@@ -30,10 +30,8 @@ trait TrainingTrait
         }
     }
 
-    public static function getLastTrainingWeight()
+    public static function getLastTrainingWeight($achievement)
     {
-        $achievement = Achievement::where('user_id', auth()->id())->first();
-
         if (isset($achievement)) {
             return $achievement->total_weight;
         }

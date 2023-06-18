@@ -47,7 +47,7 @@ class Training extends Component
     {
         if (isset($this->dateInput)) {
             $this->exercises = ExerciseHistory::whereDate('created_at', 'like', '%' . date($this->dateInput) . '%')
-                ->where('user_id', '=', auth()->id())
+                ->where('user_id', '=', auth()->id())->with('exercise')
                 ->get();
             $this->exercises = $this->exercises->groupBy('exercise_id')->collect();
         }
