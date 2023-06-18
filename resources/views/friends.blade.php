@@ -144,7 +144,7 @@
 
                                     @if($loop->index > 2)
                                         <div class="friends__ranking-card">
-                                            <div class="friends__ranking-number">{{$index + 1}}</div>
+                                            <div class="friends__ranking-number">{{$loop->index + 1}}</div>
                                             <p class="friends__ranking-name">{{$person->user->name}}</p>
                                             <div>
                                                 <i class="icon-diamond"></i>
