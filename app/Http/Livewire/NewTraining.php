@@ -36,9 +36,17 @@ class NewTraining extends Component
         ]);
 
         if (isset($this->exercises) && count($this->exercises) > 0) {
+            $slug = strtolower(str_replace(' ', '', $this->trainingName));
+
             $training = new TrainingProgram();
             $training->name = $this->trainingName;
-            $training->slug = strtolower(str_replace(' ', '', $this->trainingName));
+
+            $i = 0;
+            while(TrainingProgram::where('slug',$slug)->exists()) {
+                $i++;
+                $slug = $slug . $i;
+            }
+            $training->slug = $slug;
             $training->level_id = 4;
             $training->total_diamonds = $this->diamonds;
             $training->user_id = auth()->id();
@@ -47,7 +55,6 @@ class NewTraining extends Component
             $idArray = $this->exercises->pluck('id')->toArray();
 
             $training->exercises()->attach($idArray);
-
 
             session()->forget('selectedExercises');
             session()->forget('trainingName');
