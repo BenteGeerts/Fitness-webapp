@@ -21,7 +21,7 @@ class AnimalSeeder extends Seeder
         ]);
 
         DB::table("animals")->insert([
-            "name" => "White rhino",
+            "name" => "Rhino",
             "weight" => 2000
         ]);
 
@@ -46,7 +46,7 @@ class AnimalSeeder extends Seeder
         ]);
 
         DB::table("animals")->insert([
-            "name" => "Green sea turtle",
+            "name" => "Sea turtle",
             "weight" => 160
         ]);
 
