@@ -11,7 +11,10 @@ class FriendsController extends Controller
     public function friends()
     {
         $user = auth()->user();
-        $friends = $user->friends()->with('achievement')->get()->sortByDesc('total_diamonds');
+        $friends = $user->friends()->join('achievements', 'achievements.user_id', '=', 'friends.friend_id')
+            ->with('achievement')
+            ->orderByDesc('achievements.total_diamonds')
+            ->get();
 
 
         $worldLeaderboard = Achievement::with('user')
