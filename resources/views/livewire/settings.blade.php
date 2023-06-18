@@ -78,59 +78,6 @@
                 @enderror
             </div>
 
-            <h3 class="h3 settings__title">Language</h3>
-
-            <div>
-                <button class="settings__language-button settings__language-button--selected" value="dutch">
-                    <img src="/images/nederlands.png" alt="">
-                    <span class="settings__language-text">Nederlands</span>
-                </button>
-
-                <button class="settings__language-button" value="english">
-                    <img src="/images/english.png" alt="">
-                    <span class="settings__language-text">English</span>
-                </button>
-            </div>
-
-            <h3 class="h3 settings__title">Appearance</h3>
-
-            <div class="settings__appearance">
-                <button class="settings__appearance-button settings__appearance-button--selected">
-                    <i class="icon-sun settings__appearance-icon"></i>
-                    <span class="settings__appearance-text">Light mode</span>
-                </button>
-
-                <button class="settings__appearance-button">
-                    <i class="icon-moon settings__appearance-icon"></i>
-                    <span class="settings__appearance-text">Dark mode</span>
-                </button>
-
-                <button class="settings__appearance-button">
-                    <i class="icon-auto settings__appearance-icon"></i>
-                    <span class="settings__appearance-text">System preference</span>
-                </button>
-            </div>
-
-            <h3 class="h3 settings__title">Notifications</h3>
-
-            <div class="settings__notifications">
-                <label class="settings__toggle">
-                    <input class="settings__toggle-input" type="checkbox">
-                    <span class="settings__toggle-slider"></span>
-                </label>
-
-                <p class="settings__notifications-text">I like to receive email warnings</p>
-            </div>
-
-            <div class="settings__notifications">
-                <label class="settings__toggle">
-                    <input class="settings__toggle-input" type="checkbox">
-                    <span class="settings__toggle-slider"></span>
-                </label>
-
-                <p class="settings__notifications-text">I like to receive email push notifications</p>
-            </div>
-
             <h3 class="h3 settings__title">Setup</h3>
             <div class="settings__setup">
                 <a href="{{route('setup.edit')}}" class="button">Edit setup values</a>
