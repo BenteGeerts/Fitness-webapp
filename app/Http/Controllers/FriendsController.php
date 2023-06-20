@@ -24,6 +24,6 @@ class FriendsController extends Controller
             ->orderBy('total_diamonds', 'desc')
             ->get();
 
-        return view("friends", ['friends' => $friends, 'worldLeaderboard' => $worldLeaderboard]);
+        return view("friends", ['friends' => $friends, 'worldLeaderboard' => $worldLeaderboard, 'user' => $user]);
     }
 }

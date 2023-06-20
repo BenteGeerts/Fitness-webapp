@@ -15,11 +15,12 @@ class Friends extends Component
     public $worldLeaderboard;
     public $amountToLoad = 8;
     public $friends;
+    public $user;
 
 
     public function render()
     {
-        $this->friends = auth()->user()->friends()
+        $this->friends = $this->user->friends()
             ->limit($this->amountToLoad)
             ->get();
         return view('livewire.friends');
@@ -29,7 +30,7 @@ class Friends extends Component
     {
         if (strlen($this->searchTerm) >= 3) {
             $this->showResults = true;
-            $this->searchResults = User::where('name', 'like', '%' . $this->searchTerm . '%')->where('id', '!=', auth()->id())->limit(5)->get();
+            $this->searchResults = User::where('name', 'like', '%' . $this->searchTerm . '%')->where('id', '!=', $this->user->id)->limit(5)->get();
             return true;
         }
 
