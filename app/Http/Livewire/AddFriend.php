@@ -15,7 +15,7 @@ class AddFriend extends Component
     {
         $this->friend = $user;
 
-        $this->friendAdded = Friend::where('friend_id', $this->friend->id)->exists();
+        $this->friendAdded = Friend::where('friend_id', $this->friend->id)->where('user_id', auth()->id())->exists();
     }
 
     public function render()
@@ -26,7 +26,7 @@ class AddFriend extends Component
     public function addFriend()
     {
         if ($this->friendAdded) {
-            Friend::where('friend_id', $this->friend->id)->delete();
+            Friend::where('friend_id', $this->friend->id)->where('user_id', auth()->id())->delete();
         } else {
             Friend::create([
                 'user_id' => auth()->id(),
