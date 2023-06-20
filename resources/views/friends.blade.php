@@ -26,7 +26,7 @@
                                     @if($loop->index ==  0 || $loop->index == 1 || $loop->index == 2)
                                             @if($loop->index == 0)
                                             <div class="friends__ranking-leaderboard">
-                                                <div class="friends__ranking-card">
+                                                <a class="friends__ranking-card" href="{{route('profile.show', ['username' => $friend->username])}}">
                                                     <div class="friends__ranking-number">1</div>
                                                     <img class="friends__ranking-medal" src="/images/firstplace.png"
                                                          alt="first place medal">
@@ -35,14 +35,14 @@
                                                         <i class="icon-diamond"></i>
                                                         <span>{{$friend->achievement->total_diamonds}}</span>
                                                     </div>
-                                                </div>
+                                                </a>
                                                 @if(count($friends) == 1)
                                             </div>
                                                 @endif
                                             @endif
 
                                             @if($loop->index == 1)
-                                                <div class="friends__ranking-card">
+                                                <a class="friends__ranking-card" href="{{route('profile.show', ['username' => $friend->username])}}">
                                                     <div class="friends__ranking-number">2</div>
                                                     <img class="friends__ranking-medal" src="/images/secondplace.png"
                                                          alt="second place medal">
@@ -51,14 +51,14 @@
                                                         <i class="icon-diamond"></i>
                                                         <span>{{$friend->achievement->total_diamonds}}</span>
                                                     </div>
-                                                </div>
+                                                </a>
                                                 @if(count($friends) == 2)
                                                     </div>
                                                 @endif
                                             @endif
 
                                             @if($loop->index == 2)
-                                                <div class="friends__ranking-card">
+                                                <a class="friends__ranking-card" href="{{route('profile.show', ['username' => $friend->username])}}">
                                                     <div class="friends__ranking-number">3</div>
                                                     <img class="friends__ranking-medal" src="/images/thirdplace.png"
                                                          alt="third place medal">
@@ -67,7 +67,7 @@
                                                         <i class="icon-diamond"></i>
                                                         <span>{{$friend->achievement->total_diamonds}}</span>
                                                     </div>
-                                                </div>
+                                                </a>
                                                 @if(count($friends) >= 3)
                                                     </div>
                                                 @endif
@@ -75,14 +75,14 @@
                                     @endif
 
                                     @if($loop->index > 2)
-                                        <div class="friends__ranking-card">
+                                        <a class="friends__ranking-card" href="{{route('profile.show', ['username' => $friend->username])}}">
                                             <div class="friends__ranking-number">4</div>
                                             <p class="friends__ranking-name">{{$friend->name}}</p>
                                             <div>
                                                 <i class="icon-diamond"></i>
                                                 <span>{{$friend->achievement->total_diamonds}}</span>
                                             </div>
-                                        </div>
+                                        </a>
                                     @endif
                                 @endforeach
                             </div>
@@ -94,7 +94,7 @@
                                     @if($loop->index ==  0 || $loop->index == 1 || $loop->index == 2)
                                             @if($loop->index == 0)
                                             <div class="friends__ranking-leaderboard">
-                                                <div class="friends__ranking-card">
+                                                <a class="friends__ranking-card" href="{{route('profile.show', ['username' => $person->user->username])}}">
                                                     <div class="friends__ranking-number">1</div>
                                                     <img class="friends__ranking-medal" src="/images/firstplace.png"
                                                          alt="">
@@ -103,14 +103,14 @@
                                                         <i class="icon-diamond"></i>
                                                         <span>{{$person->total_diamonds}}</span>
                                                     </div>
-                                                </div>
+                                                </a>
                                                 @if(count($worldLeaderboard) == 1)
                                                     </div>
                                                 @endif
                                             @endif
 
                                             @if($loop->index == 1)
-                                                <div class="friends__ranking-card">
+                                                <a class="friends__ranking-card" href="{{route('profile.show', ['username' => $person->user->username])}}">
                                                     <div class="friends__ranking-number">2</div>
                                                     <img class="friends__ranking-medal" src="/images/secondplace.png"
                                                          alt="">
@@ -119,14 +119,14 @@
                                                         <i class="icon-diamond"></i>
                                                         <span>{{$person->total_diamonds}}</span>
                                                     </div>
-                                                </div>
+                                                </a>
                                                 @if(count($worldLeaderboard) == 2)
                                                     </div>
                                                 @endif
                                             @endif
 
                                             @if($loop->index == 2)
-                                                <div class="friends__ranking-card">
+                                                <a class="friends__ranking-card" href="{{route('profile.show', ['username' => $person->user->username])}}">
                                                     <div class="friends__ranking-number">3</div>
                                                     <img class="friends__ranking-medal" src="/images/thirdplace.png"
                                                          alt="">
@@ -135,7 +135,7 @@
                                                         <i class="icon-diamond"></i>
                                                         <span>{{$person->total_diamonds}}</span>
                                                     </div>
-                                                </div>
+                                                </a>
                                                 @if(count($worldLeaderboard) >= 3)
                                                     </div>
                                                 @endif
@@ -143,14 +143,14 @@
                                     @endif
 
                                     @if($loop->index > 2)
-                                        <div class="friends__ranking-card">
+                                        <a class="friends__ranking-card" href="{{route('profile.show', ['username' => $person->user->username])}}">
                                             <div class="friends__ranking-number">{{$loop->index + 1}}</div>
                                             <p class="friends__ranking-name">{{$person->user->name}}</p>
                                             <div>
                                                 <i class="icon-diamond"></i>
                                                 <span>{{$person->total_diamonds}}</span>
                                             </div>
-                                        </div>
+                                        </a>
                                     @endif
                                 @endforeach
                             </div>
