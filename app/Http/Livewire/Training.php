@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\ExerciseHistory;
 use App\Models\TrainingProgram;
 use App\Models\UserData;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
@@ -31,6 +32,7 @@ class Training extends Component
         $this->recommendedPrograms = TrainingProgram::where("level_id", "=", $userData->level_id)->orWhere([
             ['level_id', 4],
             ['user_id', auth()->id()]])->with('level')->get();
+        $this->dateInput = Carbon::today()->toDateString();
     }
 
     public function render()
@@ -64,6 +66,7 @@ class Training extends Component
     {
         $this->showTraining = false;
         $this->showHistory = true;
+        $this->showExercises();
     }
 
     public function getReps()
