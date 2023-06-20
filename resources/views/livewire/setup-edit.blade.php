@@ -16,7 +16,7 @@
                         <div class="setup__input-wrapper">
                             <div class="setup__number-picker">
                                 <button wire:click="decrement('weight')" class="setup__number-button">-</button>
-                                <input wire:model="weight" class="setup__number-input" name="weight" id="weight"
+                                <input wire:keydown.enter="next" wire:model="weight" class="setup__number-input" name="weight" id="weight"
                                        type="number" value="30"
                                        min="30" max="250">
                                 <button wire:click="increment('weight')" class="setup__number-button">+</button>
@@ -52,7 +52,7 @@
                         <div class="setup__input-wrapper">
                             <div class="setup__number-picker">
                                 <button wire:click="decrement('height')" class="setup__number-button">-</button>
-                                <input wire:model="height" class="setup__number-input" name="height" id="height"
+                                <input wire:keydown.enter="next" wire:model="height" class="setup__number-input" name="height" id="height"
                                        type="number" value="50"
                                        min="50" max="250">
                                 <button wire:click="increment('height')"  class="setup__number-button">+</button>
@@ -305,7 +305,7 @@
                         <div class="setup__input-wrapper">
                             <div class="setup__number-picker">
                                 <button wire:click="decrement('visits')" class="setup__number-button">-</button>
-                                <input wire:model="visits" class="setup__number-input" name="visits" id="visits"
+                                <input wire:keydown.enter="next" wire:model="visits" class="setup__number-input" name="visits" id="visits"
                                        type="number" min="1"
                                        max="7">
                                 <button wire:click="increment('visits')" class="setup__number-button">+</button>
