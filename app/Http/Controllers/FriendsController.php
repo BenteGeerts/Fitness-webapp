@@ -16,7 +16,7 @@ class FriendsController extends Controller
             ->get();
 
         $friends->push($user);
-        $friendsLeaderboard = $friends->sortByDesc('achievement.total_diamonds');
+        $friends = $friends->sortByDesc('achievement.total_diamonds');
 
 
         $worldLeaderboard = Achievement::with('user')
