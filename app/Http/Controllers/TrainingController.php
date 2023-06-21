@@ -19,12 +19,10 @@ class TrainingController extends Controller
         $diamonds = 0;
         $exercises = session('selectedExercises');
 
-        if(!empty($exercises))
-        {
+        if (!empty($exercises)) {
             $exercises = Exercise::whereIn("name", $exercises)->get();
 
-            foreach($exercises as $exercise)
-            {
+            foreach ($exercises as $exercise) {
                 $diamonds += $exercise->diamonds;
             }
         }
@@ -36,12 +34,11 @@ class TrainingController extends Controller
     {
         $training = TrainingProgram::where("slug", $slug)->first();
 
-        if(!isset($training)) {
+        if (!isset($training)) {
             return redirect()->route('training');
         }
 
-        if($training->user_id != null && auth()->id() != $training->user_id)
-        {
+        if ($training->user_id != null && auth()->id() != $training->user_id) {
             return redirect()->route('training');
         }
 

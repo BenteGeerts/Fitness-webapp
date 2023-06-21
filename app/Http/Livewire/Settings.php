@@ -99,8 +99,7 @@ class Settings extends Component
             if (Hash::check($this->currentPassword, $user->password)) {
                 $user->password = $this->newPassword;
                 $user->update();
-            }
-            else {
+            } else {
                 $this->addError('password', 'Failed to update your password');
             }
         }

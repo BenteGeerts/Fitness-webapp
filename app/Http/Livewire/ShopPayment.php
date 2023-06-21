@@ -56,7 +56,7 @@ class ShopPayment extends Component
 
     public function streakFreeze()
     {
-        if(auth()->user()->achievement->total_diamonds > 9999) {
+        if (auth()->user()->achievement->total_diamonds > 9999) {
             if (isset($this->streakShopItems) && count($this->streakShopItems) > 0) {
                 foreach ($this->streakShopItems as $item) {
                     if (Carbon::parse($item->created_at)->diffInHours(Carbon::now()) > 24) {
@@ -69,8 +69,7 @@ class ShopPayment extends Component
                         session()->flash('successPowerUpOne', 'Power-up successfully added!');
                     }
                 }
-            }
-            else {
+            } else {
                 $newShop = new Shop();
                 $newShop->user_id = auth()->id();
                 $newShop->powerup_id = 1;
@@ -79,8 +78,7 @@ class ShopPayment extends Component
                 $this->hideModal('showStreakModal');
                 session()->flash('successPowerUpOne', 'Power-up successfully added!');
             }
-        }
-        else {
+        } else {
             $this->hideModal('showStreakModal');
             session()->flash('errorOne', 'You don\'t have enough diamonds!');
         }
@@ -88,33 +86,31 @@ class ShopPayment extends Component
 
     public function doublePoints()
     {
-       if(auth()->user()->achievement->total_diamonds > 9999) {
-           if (isset($this->diamondsShopItems) && count($this->diamondsShopItems) > 0) {
-               foreach ($this->diamondsShopItems as $item) {
-                   if (Carbon::parse($item->created_at)->diffInHours(Carbon::now()) > 24) {
-                       $newShop = new Shop();
-                       $newShop->user_id = auth()->id();
-                       $newShop->powerup_id = 2;
-                       $newShop->save();
+        if (auth()->user()->achievement->total_diamonds > 9999) {
+            if (isset($this->diamondsShopItems) && count($this->diamondsShopItems) > 0) {
+                foreach ($this->diamondsShopItems as $item) {
+                    if (Carbon::parse($item->created_at)->diffInHours(Carbon::now()) > 24) {
+                        $newShop = new Shop();
+                        $newShop->user_id = auth()->id();
+                        $newShop->powerup_id = 2;
+                        $newShop->save();
 
-                       $this->hideModal('showDoubleDiamondsModal');
-                       session()->flash('successPowerUpTwo', 'Power-up successfully added!');
-                   }
-               }
-           }
-           else {
-               $newShop = new Shop();
-               $newShop->user_id = auth()->id();
-               $newShop->powerup_id = 2;
-               $newShop->save();
+                        $this->hideModal('showDoubleDiamondsModal');
+                        session()->flash('successPowerUpTwo', 'Power-up successfully added!');
+                    }
+                }
+            } else {
+                $newShop = new Shop();
+                $newShop->user_id = auth()->id();
+                $newShop->powerup_id = 2;
+                $newShop->save();
 
-               $this->hideModal('showDoubleDiamondsModal');
-               session()->flash('successPowerUpTwo', 'Power-up successfully added!');
-           }
-       }
-       else {
-           $this->hideModal('showDoubleDiamondsModal');
-           session()->flash('errorTwo', 'You don\'t have enough diamonds!');
-       }
+                $this->hideModal('showDoubleDiamondsModal');
+                session()->flash('successPowerUpTwo', 'Power-up successfully added!');
+            }
+        } else {
+            $this->hideModal('showDoubleDiamondsModal');
+            session()->flash('errorTwo', 'You don\'t have enough diamonds!');
+        }
     }
 }

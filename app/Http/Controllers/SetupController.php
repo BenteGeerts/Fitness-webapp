@@ -24,12 +24,12 @@ class SetupController extends Controller
         $minVisits = $userData->min_visits;
         return view("setup.setup-edit",
             [
-            'weight' => $weight,
-            'height' => $height,
-            'age' => $age,
-            'gender' => $gender,
-            'goal' => $goal,
-            'minVisits' => $minVisits
-        ]);
+                'weight' => $weight,
+                'height' => $height,
+                'age' => $age,
+                'gender' => $gender,
+                'goal' => $goal,
+                'minVisits' => $minVisits
+            ]);
     }
 }

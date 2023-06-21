@@ -42,7 +42,7 @@ class NewTraining extends Component
             $training->name = $this->trainingName;
 
             $i = 0;
-            while(TrainingProgram::where('slug',$slug)->exists()) {
+            while (TrainingProgram::where('slug', $slug)->exists()) {
                 $i++;
                 $slug = $slug . $i;
             }
@@ -59,8 +59,7 @@ class NewTraining extends Component
             session()->forget('selectedExercises');
             session()->forget('trainingName');
             return redirect()->route("training");
-        }
-        else {
+        } else {
             $this->addError('noExercises', 'Oops, you did not pick any exercises!');
         }
     }

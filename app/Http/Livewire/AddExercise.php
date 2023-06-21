@@ -13,8 +13,7 @@ class AddExercise extends Component
 
     public function mount()
     {
-        if(session('selectedExercises'))
-        {
+        if (session('selectedExercises')) {
             $this->selectedExercises = session('selectedExercises');
         }
     }
@@ -28,9 +27,8 @@ class AddExercise extends Component
 
     public function addExercises()
     {
-        if (session('selectedExercises'))
-        {
-            $this->selectedExercises = array_merge($this->selectedExercises,  session('selectedExercises'));
+        if (session('selectedExercises')) {
+            $this->selectedExercises = array_merge($this->selectedExercises, session('selectedExercises'));
         }
         session(['selectedExercises' => $this->selectedExercises]);
         return redirect()->route("training.new");

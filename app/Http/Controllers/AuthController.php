@@ -17,6 +17,7 @@ use Illuminate\Validation\Rules;
 class AuthController extends Controller
 {
     use AuthTrait;
+
     public function signUp()
     {
         return view("register");

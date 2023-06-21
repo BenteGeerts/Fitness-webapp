@@ -76,9 +76,9 @@ class Training extends Component
 
         if (isset($exercises)) {
             foreach ($exercises as $exercise) {
-               foreach($exercise as $set){
-                   $this->reps += $set->reps;
-               }
+                foreach ($exercise as $set) {
+                    $this->reps += $set->reps;
+                }
             }
 
             return $this->reps;
@@ -92,9 +92,9 @@ class Training extends Component
         $this->weight = 0;
         if (isset($this->exercises)) {
             foreach ($this->exercises as $exercise) {
-              foreach($exercise as $set){
-                  $this->weight += $set->weight * $set->reps;
-              }
+                foreach ($exercise as $set) {
+                    $this->weight += $set->weight * $set->reps;
+                }
             }
 
             return $this->weight;
@@ -108,9 +108,9 @@ class Training extends Component
         $this->diamonds = 0;
         if (isset($this->exercises)) {
             foreach ($this->exercises as $exercise) {
-               foreach($exercise as $set){
-                   $this->diamonds += $set->gained_diamonds;
-               }
+                foreach ($exercise as $set) {
+                    $this->diamonds += $set->gained_diamonds;
+                }
             }
 
             return $this->diamonds;
@@ -123,8 +123,8 @@ class Training extends Component
     {
         $totalDiamonds = 0;
 
-        if(isset($exerciseGroup)) {
-            foreach($exerciseGroup as $exercise){
+        if (isset($exerciseGroup)) {
+            foreach ($exerciseGroup as $exercise) {
                 $totalDiamonds += $exercise->gained_diamonds;
             }
 
