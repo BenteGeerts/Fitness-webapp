@@ -7,6 +7,6 @@
         <livewire:nav/>
     </nav>
     <a href="{{route('profile')}}">
-        <img class="page__profile-img" src="{{auth()->user()->avatar}}" alt="">
+        <img class="page__profile-img" src="{{auth()->user()->avatar}}" alt="users profile image">
     </a>
 </div>

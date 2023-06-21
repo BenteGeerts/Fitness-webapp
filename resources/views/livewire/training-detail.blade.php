@@ -21,7 +21,8 @@
                                 <div class="program">
                                     <!-- Program drawing -->
                                     <div class="program__drawing-container">
-                                        <img class="program__drawing" src="/images/drawing__running.svg" alt="">
+                                        <img class="program__drawing" src="/images/drawing__running.svg"
+                                             alt="drawing of a person running">
                                     </div>
                                     <!-- Program text -->
                                     <div class="program__text-container">
@@ -108,7 +109,7 @@
                         <button wire:click="toggleModal" class="button button--secondary">No</button>
                     </div>
                 </div>
-                @endif
+            @endif
         </div>
     </div>
 </section>

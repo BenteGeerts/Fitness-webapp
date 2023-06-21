@@ -1,7 +1,7 @@
 <div>
     <div class="profile__wrapper">
         <div class="profile__img-wrapper">
-            <img class="profile__img" src="{{$avatar}}" alt="">
+            <img class="profile__img" src="{{$avatar}}" alt="users profile image">
             <div wire:loading class="lds-dual-ring profile__loading"></div>
 
             <label class="profile__img-label" for="profileImg">

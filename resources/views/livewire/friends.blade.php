@@ -19,7 +19,7 @@
                 @if($showResults)
                     @forelse($searchResults as $result)
                         <a class="friends__friend" href="{{route('profile.show', ['username' => $result->username])}}">
-                            <img class="friends__friend-img" src="{{$result->avatar}}" alt="">
+                            <img class="friends__friend-img" src="{{$result->avatar}}" alt="users avatar">
                             <p class="friends__friend-name">{{$result->name}}</p>
                         </a>
                     @empty
@@ -120,7 +120,7 @@
                                    href="{{route('profile.show', ['username' => $person->user->username])}}">
                                     <div class="friends__ranking-number">1</div>
                                     <img class="friends__ranking-medal" src="/images/firstplace.png"
-                                         alt="">
+                                         alt="first place medal">
                                     <p class="friends__ranking-name">{{$person->user->name}}</p>
                                     <div>
                                         <i class="icon-diamond"></i>
@@ -137,7 +137,7 @@
                            href="{{route('profile.show', ['username' => $person->user->username])}}">
                             <div class="friends__ranking-number">2</div>
                             <img class="friends__ranking-medal" src="/images/secondplace.png"
-                                 alt="">
+                                 alt="second place medal">
                             <p class="friends__ranking-name">{{$person->user->name}}</p>
                             <div>
                                 <i class="icon-diamond"></i>
@@ -154,7 +154,7 @@
                    href="{{route('profile.show', ['username' => $person->user->username])}}">
                     <div class="friends__ranking-number">3</div>
                     <img class="friends__ranking-medal" src="/images/thirdplace.png"
-                         alt="">
+                         alt="third place medal">
                     <p class="friends__ranking-name">{{$person->user->name}}</p>
                     <div>
                         <i class="icon-diamond"></i>
@@ -192,7 +192,7 @@
 
                     <a class="friends__friend"
                        href="{{route('profile.show', ['username' => $friend->username])}}">
-                        <img class="friends__friend-img" src="{{$friend->avatar}}" alt="">
+                        <img class="friends__friend-img" src="{{$friend->avatar}}" alt="users avatar">
                         <p class="friends__friend-name">{{$friend->name}}</p>
                     </a>
 

@@ -43,7 +43,8 @@
                                 <p class="dashboard__friends-title">My friends</p>
                                 <div class="dashboard__friends-images">
                                     @forelse($friends as $friend)
-                                        <img class="dashboard__friends-img" src="{{$friend->avatar}}" alt="">
+                                        <img class="dashboard__friends-img" src="{{$friend->avatar}}"
+                                             alt="users profile image">
                                     @empty
                                         <span>You don't have frieds yet!</span>
                                     @endforelse
@@ -61,7 +62,7 @@
                             <div class="col-md-6 col-lg-4">
                                 <div class="program">
                                     <div class="program__drawing-container">
-                                        <img class="program__drawing" src="/images/drawing__workingout.svg" alt="">
+                                        <img class="program__drawing" src="/images/drawing__workingout.svg" alt="drawing of a person workingout">
                                     </div>
 
                                     <div class="program__text-container">

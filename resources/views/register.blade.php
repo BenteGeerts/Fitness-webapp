@@ -33,12 +33,12 @@
                 <div class="signup__buttons">
                     <a class="button button--secondary button--icon signup__button signup__button--hidden"
                        href="{{Route("googleLogin")}}">
-                        <img class="button__img" src="/images/googleIcon.png" alt="">
+                        <img class="button__img" src="/images/googleIcon.png" alt="google icon">
                         Google
                     </a>
                     <a class="button button--secondary button--icon signup__button signup__button--hidden"
                        href="{{Route("microsoftLogin")}}">
-                        <img class="button__img" src="/images/microsoftIcon.png" alt="">
+                        <img class="button__img" src="/images/microsoftIcon.png" alt="microsoft icon">
                         Microsoft
                     </a>
                 </div>

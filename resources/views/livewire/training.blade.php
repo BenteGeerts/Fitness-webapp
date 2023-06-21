@@ -24,7 +24,7 @@
                                 <div class="program__drawing-container program__drawing-container--big">
                                     <img class="program__drawing program__drawing--big"
                                          src="/images/drawing__workingout.svg"
-                                         alt="">
+                                         alt="drawing of a person workingout">
                                 </div>
 
                                 <div class="program__text-container program__text-container--big">
@@ -57,7 +57,8 @@
                                     <div class="col-md-12 col-lg-4">
                                         <div class="program">
                                             <div class="program__drawing-container">
-                                                <img class="program__drawing" src="/images/drawing__training.svg" alt="">
+                                                <img class="program__drawing" src="/images/drawing__training.svg"
+                                                     alt="drawing of a person training">
                                             </div>
 
                                             <div class="program__text-container">

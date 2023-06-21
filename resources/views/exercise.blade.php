@@ -13,7 +13,7 @@
                 <div class="row">
                     <div class="col-md-12 col-lg-6">
                         <div class="exercise__img-wrapper">
-                            <img class="exercise__img" src="{{$exercise->image_url}}" alt="">
+                            <img class="exercise__img" src="{{$exercise->image_url}}" alt="exercise image">
                         </div>
 
                         <h3 class="h3 exercise__title">Common mistakes</h3>

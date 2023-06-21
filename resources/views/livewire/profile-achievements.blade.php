@@ -1,22 +1,22 @@
 <div>
     <div class="profile__badges">
         <div class="profile__badge {{!$firstModalConditionChecked ? 'profile__badge--locked' : ''}}">
-            <img src="/images/badgeOne.png" alt="">
+            <img src="/images/badgeOne.png" alt="first challenge badge">
             <i class="icon-lock profile__badge-lock"></i>
         </div>
 
         <div class="profile__badge {{!$secondModalConditionChecked ? 'profile__badge--locked' : ''}}">
-            <img src="/images/badgeTwo.png" alt="">
+            <img src="/images/badgeTwo.png" alt="second challenge badge">
             <i class="icon-lock profile__badge-lock"></i>
         </div>
 
         <div class="profile__badge {{!$thirdModalConditionChecked ? 'profile__badge--locked' : ''}}">
-            <img src="/images/badgeThree.png" alt="">
+            <img src="/images/badgeThree.png" alt="third challenge badge">
             <i class="icon-lock profile__badge-lock"></i>
         </div>
 
         <div class="profile__badge {{!$fourthModalConditionChecked ? 'profile__badge--locked' : ''}}">
-            <img src="/images/badgeFour.png" alt="">
+            <img src="/images/badgeFour.png" alt="fourth challenge badge">
             <i class="icon-lock profile__badge-lock"></i>
         </div>
     </div>
@@ -25,22 +25,22 @@
 
     <div class="profile__challenges">
         <div wire:click="toggleModals('modalOne')" class="profile__challenge">
-            <img class="profile__challenge-badge" src="/images/badgeOne.png" alt="">
+            <img class="profile__challenge-badge" src="/images/badgeOne.png" alt="first challenge badge">
             <p class="profile__challenge-title">Do your first training</p>
         </div>
 
         <div wire:click="toggleModals('modalTwo')" class="profile__challenge">
-            <img class="profile__challenge-badge" src="/images/badgeTwo.png" alt="">
+            <img class="profile__challenge-badge" src="/images/badgeTwo.png" alt="second challenge badge">
             <p class="profile__challenge-title">Do 100 trainings</p>
         </div>
 
         <div wire:click="toggleModals('modalThree')"  class="profile__challenge">
-            <img class="profile__challenge-badge" src="/images/badgeThree.png" alt="">
+            <img class="profile__challenge-badge" src="/images/badgeThree.png" alt="third challenge badge">
             <p class="profile__challenge-title">Earn 10 000 diamonds</p>
         </div>
 
         <div wire:click="toggleModals('modalFour')" class="profile__challenge">
-            <img class="profile__challenge-badge" src="/images/badgeFour.png" alt="">
+            <img class="profile__challenge-badge" src="/images/badgeFour.png" alt="fourth challenge badge">
             <p class="profile__challenge-title">Add your first friend</p>
         </div>
     </div>

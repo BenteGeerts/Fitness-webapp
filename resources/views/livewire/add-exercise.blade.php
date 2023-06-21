@@ -4,7 +4,7 @@
 
             <div class="page__heading">
                 <h1>Training</h1>
-                <img class="page__profile-img" src="/images/profileimg.png" alt="">
+                <img class="page__profile-img" src="/images/profileimg.png" alt="users profile image">
             </div>
 
             <h2 class="h3 add-exercise__title">Create a new program</h2>
@@ -30,7 +30,7 @@
                                                 <label class="program__item-label" for="{{$exercise->name}}">
                                                     <div class="program__drawing-container">
                                                         <img class="program__drawing" src="/images/drawing__running.svg"
-                                                             alt="">
+                                                             alt="drawing of a running person">
                                                     </div>
 
                                                     <div class="program__text-container">
@@ -71,7 +71,7 @@
                                                 <label class="program__item-label" for="{{$exercise->name}}">
                                                     <div class="program__drawing-container">
                                                         <img class="program__drawing" src="/images/drawing__running.svg"
-                                                             alt="">
+                                                             alt="drawing of a running person">
                                                     </div>
 
                                                     <div class="program__text-container">
@@ -112,7 +112,7 @@
                                                 <label class="program__item-label" for="{{$exercise->name}}">
                                                     <div class="program__drawing-container">
                                                         <img class="program__drawing" src="/images/drawing__running.svg"
-                                                             alt="">
+                                                             alt="drawing of a running person">
                                                     </div>
 
                                                     <div class="program__text-container">
@@ -153,7 +153,7 @@
                                                 <label class="program__item-label" for="{{$exercise->name}}">
                                                     <div class="program__drawing-container">
                                                         <img class="program__drawing" src="/images/drawing__running.svg"
-                                                             alt="">
+                                                             alt="drawing of a running person">
                                                     </div>
 
                                                     <div class="program__text-container">
@@ -194,7 +194,7 @@
                                                 <label class="program__item-label" for="{{$exercise->name}}">
                                                     <div class="program__drawing-container">
                                                         <img class="program__drawing" src="/images/drawing__running.svg"
-                                                             alt="">
+                                                             alt="drawing of a running person">
                                                     </div>
 
                                                     <div class="program__text-container">
@@ -235,7 +235,7 @@
                                                 <label class="program__item-label" for="{{$exercise->name}}">
                                                     <div class="program__drawing-container">
                                                         <img class="program__drawing" src="/images/drawing__running.svg"
-                                                             alt="">
+                                                             alt="drawing of a running person">
                                                     </div>
 
                                                     <div class="program__text-container">
@@ -277,7 +277,7 @@
                                                 <label class="program__item-label" for="{{$exercise->name}}">
                                                     <div class="program__drawing-container">
                                                         <img class="program__drawing" src="/images/drawing__running.svg"
-                                                             alt="">
+                                                             alt="drawing of a running person">
                                                     </div>
 
                                                     <div class="program__text-container">
@@ -319,7 +319,7 @@
                                                 <label class="program__item-label" for="{{$exercise->name}}">
                                                     <div class="program__drawing-container">
                                                         <img class="program__drawing" src="/images/drawing__running.svg"
-                                                             alt="">
+                                                             alt="drawing of a running person">
                                                     </div>
 
                                                     <div class="program__text-container">

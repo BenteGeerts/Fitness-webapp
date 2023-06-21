@@ -3,7 +3,7 @@
         <div class="col-md-12 col-lg-10">
             <div class="page__heading">
                 <h1>Training</h1>
-                <img class="page__profile-img" src="/images/profileimg.png" alt="">
+                <img class="page__profile-img" src="/images/profileimg.png" alt="users profile image">
             </div>
 
             <h2 class="h3 new-training__title">Create a new program</h2>
@@ -38,7 +38,7 @@
                             <div class="col-md-12 col-lg-4">
                                 <div class="program">
                                     <div class="program__drawing-container">
-                                        <img class="program__drawing" src="/images/drawing__running.svg" alt="">
+                                        <img class="program__drawing" src="/images/drawing__running.svg" alt="drawing of a person running">
                                     </div>
 
                                     <div class="program__text-container">

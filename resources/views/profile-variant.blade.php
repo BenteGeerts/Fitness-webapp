@@ -9,7 +9,7 @@
 
                 <div class="profile__wrapper">
                     <div class="profile__img-wrapper">
-                        <img class="profile__img" src="{{$user->avatar}}" alt="">
+                        <img class="profile__img" src="{{$user->avatar}}" alt="users profile image">
                     </div>
 
                     <div class="profile__name-wrapper">
