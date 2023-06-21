@@ -17,6 +17,14 @@
     justify-content: space-between;
 
     padding-top: 25px;
+
+    &--mobile-column {
+        flex-direction: column;
+        @include media-breakpoint-up(lg) {
+            flex-direction: row;
+            align-items: center;
+        }
+    }
 }
 
 .dashboard__tile-wrapper {
@@ -254,11 +262,6 @@
     font-size: 1.25rem;
 
     margin-bottom: 20px;
-    margin-top: 25px;
-
-    @include media-breakpoint-up(lg) {
-        margin-bottom: unset;
-    }
 }
 
 .dashboard__friends-title {

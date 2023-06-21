@@ -25,27 +25,29 @@
                                           animalComparison="{{$animalComparison}}"/>
 
                 <div class="row justify-content-between align-items-center">
-                    @if(session('stepCountData') !== null)
-                        <div class="col-md-12 col-lg-6">
-                            <div class="dashboard__chart-wrapper">
-                                <div class="dashboard__steps-wrapper">
-                                    <i class="icon-steps dashboard__steps-icon"></i>
-                                    <p class="dashboard__steps-text" data-current-steps>1000 <br>steps</p>
+                    <div class="dashboard__tile-row dashboard__tile-row--mobile-column">
+                        @if(session('stepCountData') !== null)
+                            <div class="col-md-12 col-lg-6">
+                                <div class="dashboard__chart-wrapper">
+                                    <div class="dashboard__steps-wrapper">
+                                        <i class="icon-steps dashboard__steps-icon"></i>
+                                        <p class="dashboard__steps-text" data-current-steps>1000 <br>steps</p>
+                                    </div>
+                                    <canvas class="dashboard__chart" id="step-chart"></canvas>
                                 </div>
-                                <canvas class="dashboard__chart" id="step-chart"></canvas>
                             </div>
-                        </div>
-                    @endif
+                        @endif
 
-                    <div class="col-md-12 col-lg-3 p-lg-0">
-                        <div class="dashboard__friends">
-                            <p class="dashboard__friends-title">My friends</p>
-                            <div class="dashboard__friends-images">
-                                @forelse($friends as $friend)
-                                    <img class="dashboard__friends-img" src="{{$friend->avatar}}" alt="">
-                                @empty
-                                    <span>You don't have frieds yet!</span>
-                                @endforelse
+                        <div class="col-md-12 col-lg-3 p-lg-0">
+                            <div class="dashboard__friends">
+                                <p class="dashboard__friends-title">My friends</p>
+                                <div class="dashboard__friends-images">
+                                    @forelse($friends as $friend)
+                                        <img class="dashboard__friends-img" src="{{$friend->avatar}}" alt="">
+                                    @empty
+                                        <span>You don't have frieds yet!</span>
+                                    @endforelse
+                                </div>
                             </div>
                         </div>
                     </div>
