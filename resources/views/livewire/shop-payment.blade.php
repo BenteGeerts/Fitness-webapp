@@ -72,7 +72,7 @@
 
     @if($showStreakModal)
         <div class="shop__modal">
-            <span class="shop__modal-text">Do you wanna spend 9999 diamonds for this streak freeze?</span>
+            <span class="shop__modal-text">Do you want to spend 9999 diamonds for this streak freeze?</span>
             <div class="shop__modal-buttons">
                 <button wire:click="streakFreeze" class="button">Yes</button>
                 <button wire:click="hideModal('showStreakModal')" class="button button--tertiary">No</button>
@@ -82,7 +82,7 @@
 
     @if($showDoubleDiamondsModal)
         <div class="shop__modal">
-            <span class="shop__modal-text">Do you wanna spend 9999 diamonds to get double diamonds?</span>
+            <span class="shop__modal-text">Do you want to spend 9999 diamonds to get double diamonds?</span>
             <div class="shop__modal-buttons">
                 <button wire:click="doublePoints" class="button">Yes</button>
                 <button wire:click="hideModal('showDoubleDiamondsModal')" class="button button--tertiary">No</button>
