@@ -55,7 +55,7 @@ class AuthController extends Controller
             $fileName = time() . '.png';
             $filePath = "storage/images/" . $fileName;
 
-            Avatar::create($newUser->name)->setDimension(200, 200)->save($filePath);
+            Avatar::create($newUser->name)->setDimension(200, 200)->save(public_path($filePath));
             $newUser->avatar = asset($filePath);
             $newUser->save();
 

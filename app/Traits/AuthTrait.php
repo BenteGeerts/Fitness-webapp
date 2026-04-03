@@ -11,7 +11,7 @@ Trait AuthTrait
     {
         $fileName = time() . '.png';
         $filePath = "storage/images/" . $fileName;
-        Avatar::create($name)->setDimension(200, 200)->save($filePath);
+        Avatar::create($name)->setDimension(200, 200)->save(public_path($filePath));
         return asset($filePath);
     }
 
