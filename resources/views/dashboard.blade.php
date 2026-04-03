@@ -46,7 +46,7 @@
                                         <img class="dashboard__friends-img" src="{{$friend->avatar}}"
                                              alt="users profile image">
                                     @empty
-                                        <span>You don't have frieds yet!</span>
+                                        <span>You don't have friends yet!</span>
                                     @endforelse
                                 </div>
                             </div>
