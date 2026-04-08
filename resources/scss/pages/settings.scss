@@ -2,11 +2,33 @@
     padding-top: $small-spacing;
 }
 
+.settings__section {
+    background-color: $bg-surface-2;
+    border: 1px solid $border;
+    border-radius: $border-radius;
+    padding: 20px;
+    margin-bottom: 16px;
+}
+
+.settings__section-title {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $text-tertiary;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid $border;
+}
+
 .settings__title {
     padding-top: 10px;
     padding-bottom: 10px;
 
-    font-size: 1.5rem;
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: $text-primary;
+    letter-spacing: -0.02em;
 }
 
 .settings__file {
@@ -17,9 +39,11 @@
 
 .settings__file-label {
     padding-right: $medium-spacing;
-    font-size: 1.125rem;
+    font-size: 1rem;
+    color: $text-primary;
+
     @include media-breakpoint-up(lg) {
-        font-size: 1.25rem;
+        font-size: 1.125rem;
     }
 }
 
@@ -29,16 +53,27 @@
 
 .settings__language-button {
     border-radius: $border-radius;
-    border: none;
+    border: 1.5px solid $border;
+    background-color: $bg-surface-2;
+    color: $text-secondary;
 
     font-weight: 600;
-    font-size: 1.25rem;
+    font-size: 1.0625rem;
 
-    padding: 5px 10px;
+    padding: 8px 14px;
     margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        border-color: $border-strong;
+        color: $text-primary;
+    }
 
     &--selected {
-        background-color: $color-6;
+        background-color: $accent-glow;
+        border-color: $accent;
+        color: $accent;
     }
 
     @include media-breakpoint-up(lg) {
@@ -48,6 +83,7 @@
 
 .settings__language-text {
     padding-left: 15px;
+    color: $text-primary;
 }
 
 .settings__appearance {
@@ -65,14 +101,25 @@
     align-items: center;
 
     border-radius: $border-radius;
-    border: none;
+    border: 1.5px solid $border;
+    background-color: $bg-surface-2;
+    color: $text-secondary;
 
     font-weight: 600;
-    padding: 5px 10px;
+    padding: 8px 14px;
     margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        border-color: $border-strong;
+        color: $text-primary;
+    }
 
     &--selected {
-        background-color: $color-6;
+        background-color: $accent-glow;
+        border-color: $accent;
+        color: $accent;
     }
 
     @include media-breakpoint-up(lg) {
@@ -81,20 +128,21 @@
 }
 
 .settings__appearance-icon {
-    font-size: 1.875rem;
-    padding-right: 15px;
+    font-size: 1.75rem;
+    padding-right: 14px;
 }
 
 .settings__appearance-text {
-    font-size: 1.25rem;
+    font-size: 1.0625rem;
 }
 
-//switch
+// ── Toggle switch ─────────────────────────────
 .settings__toggle {
     position: relative;
     display: inline-block;
     width: 50px;
     height: 27px;
+    flex-shrink: 0;
 }
 
 .settings__toggle-input {
@@ -110,9 +158,9 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
+    background-color: $bg-surface-3;
+    border: 1px solid $border-strong;
+    transition: 0.3s;
     border-radius: 34px;
 
     &:before {
@@ -121,38 +169,38 @@
         height: 19px;
         width: 19px;
         left: 4px;
-        bottom: 4px;
-        background-color: white;
-        -webkit-transition: .4s;
-        transition: .4s;
+        bottom: 3px;
+        background-color: $text-secondary;
+        transition: 0.3s;
         border-radius: 50%;
     }
 }
 
 input:checked + .settings__toggle-slider {
-    background-color: #2196F3;
+    background-color: $accent-glow-strong;
+    border-color: $accent;
 }
 
 input:focus + .settings__toggle-slider {
-    box-shadow: 0 0 1px #2196F3;
+    box-shadow: 0 0 0 3px $accent-glow;
 }
 
 input:checked + .settings__toggle-slider:before {
-    -webkit-transform: translateX(23px);
-    -ms-transform: translateX(23px);
     transform: translateX(23px);
+    background-color: $accent;
 }
 
 .settings__notifications {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding-bottom: 15px;
+    padding-bottom: 16px;
 }
 
 .settings__notifications-text {
     padding-left: $small-spacing;
-    font-size: 1.125rem;
+    font-size: 1rem;
+    color: $text-primary;
 }
 
 .settings__setup {
@@ -181,20 +229,27 @@ input:checked + .settings__toggle-slider:before {
     align-items: center;
     justify-content: center;
 
-    padding-top: $medium-spacing;
-    padding-bottom: $medium-spacing;
+    padding-top: 24px;
+    padding-bottom: 24px;
 
-    background-color: $color-3;
+    background-color: $bg-surface;
+    border-top: 1px solid $border;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 
     @include media-breakpoint-up(lg) {
         position: unset;
         width: unset;
         background-color: unset;
+        border-top: none;
+        padding: $medium-spacing 0;
     }
 }
 
+// ── Settings modal ────────────────────────────
 .settings__modal {
-    background-color: $color-4;
+    background-color: $bg-surface-2;
+    border: 1px solid $border-strong;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -204,16 +259,22 @@ input:checked + .settings__toggle-slider:before {
     flex-direction: column;
     align-items: center;
 
-    padding: 20px;
-    border-radius: $border-radius;
+    padding: 28px;
+    border-radius: 24px;
     z-index: 9999;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
 }
 
 .settings__modal-text {
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-weight: 500;
+    color: $text-secondary;
+    text-align: center;
+    margin-bottom: 4px;
 }
 
 .settings__modal-buttons {
-    padding-top: 15px;
+    padding-top: 16px;
+    display: flex;
+    gap: 12px;
 }

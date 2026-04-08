@@ -5,313 +5,82 @@
             <div class="col-md-12 col-lg-10">
 
                 <div class="page__heading">
-                    <h1>Training</h1>
-                    <img class="page__profile-img" src="/images/profileimg.png" alt="users profile image">
+                    <a class="no-underline" href="{{ url()->previous() }}">
+                        <i class="icon-back page__heading-icon"></i>
+                    </a>
+                    <h1>Exercises</h1>
                 </div>
 
-                <h2 class="h3 add-exercise__title">Create a new program</h2>
+                <h2 class="h3 add-exercise__title">Browse by muscle group</h2>
+
+                @php
+                    $categoryNames = [
+                        1 => 'Chest',
+                        2 => 'Back',
+                        3 => 'Legs',
+                        4 => 'Arms',
+                        5 => 'Shoulders',
+                        6 => 'Core',
+                        7 => 'Full body',
+                        8 => 'Cardio',
+                    ];
+                    $categorySlug = [
+                        1 => 'chest', 2 => 'back', 3 => 'legs', 4 => 'arms',
+                        5 => 'shoulders', 6 => 'core', 7 => 'full-body', 8 => 'cardio',
+                    ];
+                @endphp
 
                 <div class="row">
                     @foreach($exercisesByCategory as $categoryId => $exercises)
-                        @if($categoryId == 1)
-                            <div class="col-md-12 col-lg-4">
-                                <div class="add-exercise__parts" data-exercise-toggle="chest">
-                                    <p class="add-exercise__parts-text">Chest</p>
-                                    <i class="icon-arrow-under add-exercise__parts-icon"></i>
-                                </div>
-                                <div class="add-exercise__exercises" data-exercises="chest">
-                                    <div class="row">
-                                        @foreach($exercises as $exercise)
-                                            <div class="col-12 col-md-6 col-lg-12">
-                                                <div class="program__item">
-                                                    <div class="program__item-label">
-                                                        <div class="program__drawing-container">
-                                                            <img class="program__drawing" src="/images/drawing__running.svg"
-                                                                 alt="drawing of a person running">
-                                                        </div>
+                        <div class="col-md-12 col-lg-4">
+                            <div class="add-exercise__parts"
+                                 data-exercise-toggle="{{ $categorySlug[$categoryId] ?? $categoryId }}">
+                                <p class="add-exercise__parts-text">
+                                    {{ $categoryNames[$categoryId] ?? 'Other' }}
+                                    <span style="color:#52526A; font-size:0.8125rem; margin-left:6px;">
+                                        ({{ count($exercises) }})
+                                    </span>
+                                </p>
+                                <i class="icon-arrow-under add-exercise__parts-icon"></i>
+                            </div>
 
-                                                        <div class="program__text-container">
-                                                            <a class="program__link" href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
-                                                                <p class="program__title program__item-title">{{$exercise->name}}</p>
-                                                            </a>
-                                                            <div class="program__icons">
-                                                                <div class="program__icon-wrapper">
-                                                                    <i class="icon-diamond program__icon"></i>
-                                                                    <p class="program__icon-text">{{$exercise->diamonds}}</p>
-                                                                </div>
+                            <div class="add-exercise__exercises"
+                                 data-exercises="{{ $categorySlug[$categoryId] ?? $categoryId }}">
+                                <div class="row">
+                                    @foreach($exercises as $exercise)
+                                        <div class="col-12 col-md-6 col-lg-12">
+                                            <div class="program__item">
+                                                <div class="program__item-label">
+                                                    <div class="program__drawing-container">
+                                                        <img class="program__drawing"
+                                                             src="/images/drawing__running.svg"
+                                                             alt="{{ $exercise->name }}">
+                                                    </div>
+                                                    <div class="program__text-container">
+                                                        <a class="program__link"
+                                                           href="{{ route('exercise.detail', ['slug' => $exercise->slug]) }}">
+                                                            <p class="program__title program__item-title">
+                                                                {{ $exercise->name }}
+                                                            </p>
+                                                        </a>
+                                                        <div class="program__icons">
+                                                            <div class="program__icon-wrapper">
+                                                                <i class="icon-diamond program__icon"
+                                                                   style="color:#9B6DFF;"></i>
+                                                                <p class="program__icon-text">{{ $exercise->diamonds }}</p>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        @endforeach
-                                    </div>
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
-                        @endif
-
-                        @if($categoryId == 2)
-                            <div class="col-md-12 col-lg-4">
-                                <div class="add-exercise__parts" data-exercise-toggle="back">
-                                    <p class="add-exercise__parts-text">Back</p>
-                                    <i class="icon-arrow-under add-exercise__parts-icon"></i>
-                                </div>
-                                <div class="add-exercise__exercises" data-exercises="back">
-                                    <div class="row">
-                                        @foreach($exercises as $exercise)
-                                            <div class="col-12 col-md-6 col-lg-12">
-                                                <div class="program__item">
-                                                    <div class="program__item-label">
-                                                        <div class="program__drawing-container">
-                                                            <img class="program__drawing" src="/images/drawing__running.svg"
-                                                                 alt="drawing of a person running">
-                                                        </div>
-
-                                                        <div class="program__text-container">
-                                                            <a class="program__link" href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
-                                                                <p class="program__title program__item-title">{{$exercise->name}}</p>
-                                                            </a>
-                                                            <div class="program__icons">
-                                                                <div class="program__icon-wrapper">
-                                                                    <i class="icon-diamond program__icon"></i>
-                                                                    <p class="program__icon-text">{{$exercise->diamonds}}</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            </div>
-                        @endif
-
-                        @if($categoryId == 3)
-                            <div class="col-md-12 col-lg-4">
-                                <div class="add-exercise__parts" data-exercise-toggle="legs">
-                                    <p class="add-exercise__parts-text">Legs</p>
-                                    <i class="icon-arrow-under add-exercise__parts-icon"></i>
-                                </div>
-                                <div class="add-exercise__exercises" data-exercises="legs">
-                                    <div class="row">
-                                        @foreach($exercises as $exercise)
-                                            <div class="col-12 col-md-6 col-lg-12">
-                                                <div class="program__item">
-                                                    <div class="program__item-label">
-                                                        <div class="program__drawing-container">
-                                                            <img class="program__drawing" src="/images/drawing__running.svg"
-                                                                 alt="drawing of a person running">
-                                                        </div>
-
-                                                        <div class="program__text-container">
-                                                            <a class="program__link" href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
-                                                                <p class="program__title program__item-title">{{$exercise->name}}</p>
-                                                            </a>
-                                                            <div class="program__icons">
-                                                                <div class="program__icon-wrapper">
-                                                                    <i class="icon-diamond program__icon"></i>
-                                                                    <p class="program__icon-text">{{$exercise->diamonds}}</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            </div>
-                        @endif
-
-                        @if($categoryId == 4)
-                            <div class="col-md-12 col-lg-4">
-                                <div class="add-exercise__parts" data-exercise-toggle="arms">
-                                    <p class="add-exercise__parts-text">Arms</p>
-                                    <i class="icon-arrow-under add-exercise__parts-icon"></i>
-                                </div>
-                                <div class="add-exercise__exercises" data-exercises="arms">
-                                    <div class="row">
-                                        @foreach($exercises as $exercise)
-                                            <div class="col-12 col-md-6 col-lg-12">
-                                                <div class="program__item">
-                                                    <div class="program__item-label">
-                                                        <div class="program__drawing-container">
-                                                            <img class="program__drawing" src="/images/drawing__running.svg"
-                                                                 alt="drawing of a person running">
-                                                        </div>
-
-                                                        <div class="program__text-container">
-                                                            <a class="program__link" href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
-                                                                <p class="program__title program__item-title">{{$exercise->name}}</p>
-                                                            </a>
-                                                            <div class="program__icons">
-                                                                <div class="program__icon-wrapper">
-                                                                    <i class="icon-diamond program__icon"></i>
-                                                                    <p class="program__icon-text">{{$exercise->diamonds}}</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            </div>
-                        @endif
-
-                        @if($categoryId == 5)
-                            <div class="col-md-12 col-lg-4">
-                                <div class="add-exercise__parts" data-exercise-toggle="shoulders">
-                                    <p class="add-exercise__parts-text">Shoulders</p>
-                                    <i class="icon-arrow-under add-exercise__parts-icon"></i>
-                                </div>
-                                <div class="add-exercise__exercises" data-exercises="shoulders">
-                                    <div class="row">
-                                        @foreach($exercises as $exercise)
-                                            <div class="col-12 col-md-6 col-lg-12">
-                                                <div class="program__item">
-                                                    <div class="program__item-label">
-                                                        <div class="program__drawing-container">
-                                                            <img class="program__drawing" src="/images/drawing__running.svg"
-                                                                 alt="drawing of a person running">
-                                                        </div>
-
-                                                        <div class="program__text-container">
-                                                            <a class="program__link" href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
-                                                                <p class="program__title program__item-title">{{$exercise->name}}</p>
-                                                            </a>
-                                                            <div class="program__icons">
-                                                                <div class="program__icon-wrapper">
-                                                                    <i class="icon-diamond program__icon"></i>
-                                                                    <p class="program__icon-text">{{$exercise->diamonds}}</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            </div>
-                        @endif
-
-                        @if($categoryId == 6)
-                            <div class="col-md-12 col-lg-4">
-                                <div class="add-exercise__parts" data-exercise-toggle="core">
-                                    <p class="add-exercise__parts-text">Core</p>
-                                    <i class="icon-arrow-under add-exercise__parts-icon"></i>
-                                </div>
-                                <div class="add-exercise__exercises" data-exercises="core">
-                                    <div class="row">
-                                        @foreach($exercises as $exercise)
-                                            <div class="col-12 col-md-6 col-lg-12">
-                                                <div class="program__item">
-                                                    <div class="program__item-label">
-                                                        <div class="program__drawing-container">
-                                                            <img class="program__drawing" src="/images/drawing__running.svg"
-                                                                 alt="drawing of a person running">
-                                                        </div>
-
-                                                        <div class="program__text-container">
-                                                            <a class="program__link" href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
-                                                                <p class="program__title program__item-title">{{$exercise->name}}</p>
-                                                            </a>
-                                                            <div class="program__icons">
-                                                                <div class="program__icon-wrapper">
-                                                                    <i class="icon-diamond program__icon"></i>
-                                                                    <p class="program__icon-text">{{$exercise->diamonds}}</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            </div>
-                        @endif
-
-                        @if($categoryId == 7)
-                            <div class="col-md-12 col-lg-4">
-                                <div class="add-exercise__parts" data-exercise-toggle="full-body">
-                                    <p class="add-exercise__parts-text">Full body</p>
-                                    <i class="icon-arrow-under add-exercise__parts-icon"></i>
-                                </div>
-
-                                <div class="add-exercise__exercises" data-exercises="full-body">
-                                    <div class="row">
-                                        @foreach($exercises as $exercise)
-                                            <div class="col-12 col-md-6 col-lg-12">
-                                                <div class="program__item">
-                                                    <div class="program__item-label">
-                                                        <div class="program__drawing-container">
-                                                            <img class="program__drawing" src="/images/drawing__running.svg"
-                                                                 alt="drawing of a person running">
-                                                        </div>
-
-                                                        <div class="program__text-container">
-                                                            <a class="program__link" href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
-                                                                <p class="program__title program__item-title">{{$exercise->name}}</p>
-                                                            </a>
-                                                            <div class="program__icons">
-                                                                <div class="program__icon-wrapper">
-                                                                    <i class="icon-diamond program__icon"></i>
-                                                                    <p class="program__icon-text">{{$exercise->diamonds}}</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            </div>
-                        @endif
-
-                        @if($categoryId == 8)
-                            <div class="col-md-12 col-lg-4">
-                                <div class="add-exercise__parts" data-exercise-toggle="cardio">
-                                    <p class="add-exercise__parts-text">Cardio</p>
-                                    <i class="icon-arrow-under add-exercise__parts-icon"></i>
-                                </div>
-
-                                <div class="add-exercise__exercises" data-exercises="cardio">
-                                    <div class="row">
-                                        @foreach($exercises as $exercise)
-                                            <div class="col-12 col-md-6 col-lg-12">
-                                                <div class="program__item">
-                                                    <div class="program__item-label">
-                                                        <div class="program__drawing-container">
-                                                            <img class="program__drawing" src="/images/drawing__running.svg"
-                                                                 alt="drawing of a person running">
-                                                        </div>
-
-                                                        <div class="program__text-container">
-                                                            <a class="program__link" class="program__link" href="{{route('exercise.detail', ['slug' => $exercise->slug])}}">
-                                                                <p class="program__title program__item-title">{{$exercise->name}}</p>
-                                                            </a>
-                                                            <div class="program__icons">
-                                                                <div class="program__icon-wrapper">
-                                                                    <i class="icon-diamond program__icon"></i>
-                                                                    <p class="program__icon-text">{{$exercise->diamonds}}</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            </div>
-                        @endif
+                        </div>
                     @endforeach
                 </div>
+
             </div>
         </div>
     </section>

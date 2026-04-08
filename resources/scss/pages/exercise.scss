@@ -8,7 +8,10 @@
 }
 
 .exercise__title {
-    text-decoration: underline;
+    font-weight: 700;
+    font-size: 1.375rem;
+    color: $text-primary;
+    letter-spacing: -0.02em;
 }
 
 .exercise__img-wrapper {
@@ -16,8 +19,8 @@
     flex-direction: row;
     justify-content: center;
 
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 24px;
+    padding-bottom: 24px;
 
     @include media-breakpoint-up(lg) {
         justify-content: flex-start;
@@ -30,12 +33,16 @@
     height: 0;
     overflow: hidden;
     max-width: 100%;
+    border-radius: $border-radius;
 }
 
-.embed-container iframe, .embed-container object, .embed-container embed {
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    border-radius: $border-radius;
 }

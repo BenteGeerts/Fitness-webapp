@@ -7,21 +7,37 @@
     flex-direction: row;
     align-items: center;
 
-    padding: 5px 10px;
+    padding: 10px 14px;
     margin-bottom: $small-spacing;
     margin-top: $small-spacing;
-    border: 1px solid rgba(0, 0, 0, 0.3);
-    border-radius: $border-radius;
+    border: 1.5px solid $border;
+    border-radius: 50px;
+    background-color: $bg-surface-2;
+    transition: border-color 0.2s ease;
+
+    &:focus-within {
+        border-color: $accent;
+        box-shadow: 0 0 0 3px $accent-glow;
+    }
 }
 
 .friends__searchbar-icon {
-    font-size: 1.5rem;
+    font-size: 1.375rem;
+    color: $text-secondary;
 }
 
 .friends__searchbar-inputfield {
     border: none;
     background-color: transparent;
-    padding-left: 5px;
+    padding-left: 10px;
+    color: $text-primary;
+    font-family: "Inter", sans-serif;
+    font-size: 1rem;
+    width: 100%;
+
+    &::placeholder {
+        color: $text-tertiary;
+    }
 
     &:focus-visible {
         outline: none;
@@ -33,31 +49,42 @@
     flex-direction: row;
     justify-content: space-around;
     font-weight: 600;
-    font-size: 1.25rem;
+    font-size: 1.0625rem;
     padding-top: 10px;
+    gap: 8px;
 
     @include media-breakpoint-up(lg) {
         padding-bottom: 10px;
-        font-size: 1.5rem;
+        font-size: 1.125rem;
+        justify-content: flex-start;
+        gap: 24px;
     }
 }
 
 .friends__switch-item {
-    color: $color-7;
+    color: $text-tertiary;
     text-decoration: none;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+
     &--active {
-        text-decoration: underline;
+        color: $accent;
+        border-bottom-color: $accent;
+    }
+
+    &:hover {
+        color: $text-primary;
     }
 
     @include media-breakpoint-up(lg) {
-        text-decoration: underline;
-        margin-right: auto;
+        text-decoration: none;
     }
 }
 
 .friends__ranking {
     display: none;
-    padding-top: 15px;
+    padding-top: 16px;
     padding-bottom: $small-spacing;
 
     overflow: auto;
@@ -73,7 +100,7 @@
 }
 
 .friends__ranking-leaderboard {
-    border-bottom: 1px solid $color-7;
+    border-bottom: 1px solid $border;
     margin-bottom: 20px;
 }
 
@@ -86,11 +113,30 @@
 }
 
 .friends__ranking-number {
-    background-color: $color-2;
-    border-radius: $border-radius;
-    color: $color-4;
+    background-color: $bg-surface-3;
+    border: 1px solid $border;
+    border-radius: 12px;
+    color: $text-primary;
     padding: 10px 15px;
     width: fit-content;
+    font-weight: 700;
+    min-width: 44px;
+    text-align: center;
+
+    &--gold   { background-color: rgba(255, 215, 0, 0.15); border-color: rgba(255, 215, 0, 0.3); color: #FFD700; }
+    &--silver { background-color: rgba(192, 192, 192, 0.15); border-color: rgba(192, 192, 192, 0.3); color: #C0C0C0; }
+    &--bronze { background-color: rgba(205, 127, 50, 0.15); border-color: rgba(205, 127, 50, 0.3); color: #CD7F32; }
+}
+
+.friends__diamond-count {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: auto;
+    color: $accent-purple;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    white-space: nowrap;
 }
 
 .friends__ranking-medal {
@@ -101,11 +147,12 @@
 
 .friends__ranking-name {
     font-weight: 600;
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     padding-left: 60px;
+    color: $text-primary;
 
     @include media-breakpoint-up(lg) {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
 }
 
@@ -115,24 +162,32 @@
     align-items: center;
     padding-bottom: 20px;
 
-    color: unset;
-    text-decoration: unset;
+    color: $text-primary;
+    text-decoration: none;
     cursor: pointer;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+        opacity: 0.8;
+    }
 }
 
 .friends__friend-img {
-    height: 50px;
-    width: 50px;
+    height: 48px;
+    width: 48px;
     border-radius: 50%;
+    border: 2px solid $border;
+    object-fit: cover;
 }
 
 .friends__friend-name {
     font-weight: 600;
-    font-size: 1.25rem;
-    padding-left: 60px;
+    font-size: 1.125rem;
+    padding-left: 16px;
+    color: $text-primary;
 
     @include media-breakpoint-up(lg) {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
 }
 
@@ -153,7 +208,8 @@
     justify-content: center;
 
     font-weight: 600;
-    font-size: 20px;
+    font-size: 1.125rem;
+    color: $text-secondary;
 }
 
 .friends__cup-text {

@@ -1,20 +1,52 @@
-$color-1: #4383FD;
-$color-2: #58A6CB;
-$color-3: #A4D2EB;
-$color-4: #FFFFFF;
-$color-5: #FE5666;
-$color-6: #C45225;
-$color-7: #0C0C0C;
-$color-8: #8BD26B;
-$color-9: #F3E6FF;
-$color-10: #B3CB6C;
-$background-color: #F5F7FB;
-$nav: #427D99;
-$nav-active: #28566A;
+// ─────────────────────────────────────────────
+// FORGE — Dark Athletic Design System
+// ─────────────────────────────────────────────
 
-$play-button: #33cc33;
+// Base backgrounds
+$bg-base:        #0D0D14;
+$bg-surface:     #13131E;
+$bg-surface-2:   #191926;
+$bg-surface-3:   #222234;
 
-$border-radius: 10px;
+// Accent palette
+$accent:         #CAFF00;
+$accent-dark:    #A3CC00;
+$accent-glow:    rgba(202, 255, 0, 0.12);
+$accent-glow-strong: rgba(202, 255, 0, 0.22);
+$accent-blue:    #4F8EF7;
+$accent-red:     #FF4757;
+$accent-green:   #39D98A;
+$accent-orange:  #FF8B3D;
+$accent-purple:  #9B6DFF;
 
+// Text
+$text-primary:   #FFFFFF;
+$text-secondary: #8B8BA8;
+$text-tertiary:  #52526A;
+
+// Borders
+$border:         rgba(255, 255, 255, 0.07);
+$border-strong:  rgba(255, 255, 255, 0.14);
+
+// ─────────────────────────────────────────────
+// Legacy variable compat — mapped to new tokens
+// so all existing SCSS keeps working with the new palette
+// ─────────────────────────────────────────────
+$color-1: $accent-blue;
+$color-2: $accent-blue;
+$color-3: $bg-surface-3;
+$color-4: $bg-surface-2;
+$color-5: $accent-red;
+$color-6: $accent;
+$color-7: $text-primary;
+$color-8: $accent-green;
+$color-9: rgba(155, 109, 255, 0.2);
+$color-10: $accent-green;
+$background-color: $bg-base;
+$nav: $bg-surface;
+$nav-active: $accent-glow;
+$play-button: $accent-green;
+
+$border-radius: 16px;
 $small-spacing: 30px;
 $medium-spacing: 50px;

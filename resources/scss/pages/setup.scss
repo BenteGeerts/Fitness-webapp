@@ -1,5 +1,6 @@
 .setup-page {
     display: block;
+    background-color: $bg-base;
 }
 
 .setup__wrapper {
@@ -24,6 +25,12 @@
     position: absolute;
     left: 0;
     cursor: pointer;
+    color: $text-secondary;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: $text-primary;
+    }
 
     @include media-breakpoint-up(lg) {
         left: 20px;
@@ -31,8 +38,11 @@
 }
 
 .setup__nav-page {
-    font-weight: 300;
-    font-size: 0.875rem;
+    font-weight: 400;
+    font-size: 0.8125rem;
+    color: $text-tertiary;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
 }
 
 .setup__heading {
@@ -42,15 +52,19 @@
 }
 
 .setup__heading-title {
-    font-weight: 600;
-    font-size: 1.125rem;
+    font-weight: 700;
+    font-size: 1.25rem;
     text-align: center;
+    color: $text-primary;
+    letter-spacing: -0.015em;
 }
 
 .setup__heading-subtitle {
     font-weight: 400;
-    padding-top: 5px;
+    padding-top: 6px;
     text-align: center;
+    color: $text-secondary;
+    font-size: 0.9375rem;
 }
 
 .setup__footer {
@@ -65,20 +79,25 @@
 .setup__number-picker {
     display: flex;
     align-items: center;
-    padding-left: 20px;
-    padding-right: 20px;
-    border-radius: 10px;
-    background-color: $color-4;
-
-
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: $border-radius;
+    background-color: $bg-surface-3;
+    border: 1.5px solid $border;
 }
 
 .setup__number-button {
-    padding: 5px 10px;
+    padding: 8px 14px;
     font-size: 1.5rem;
     cursor: pointer;
     border: none;
-    background-color: inherit;
+    background-color: transparent;
+    color: $text-primary;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: $accent;
+    }
 }
 
 .setup__number-input {
@@ -86,7 +105,8 @@
     text-align: center;
     font-size: 1.25rem;
     border: none;
-    background-color: inherit;
+    background-color: transparent;
+    color: $text-primary;
 
     -moz-appearance: textfield;
 
@@ -148,6 +168,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    color: $text-primary;
 }
 
 .setup__select {
@@ -157,14 +178,15 @@
     padding-bottom: $small-spacing;
 }
 
+// ── Setup selector cards ──────────────────────
 .select__item {
-    position:relative;
+    position: relative;
     width: 100px;
     height: 100px;
 
     @include media-breakpoint-up(lg) {
-        width:125px;
-        height:125px;
+        width: 125px;
+        height: 125px;
     }
 
     &--big {
@@ -173,67 +195,76 @@
         padding-bottom: $small-spacing;
     }
 }
+
 .select__item-input {
-    display:none;
+    display: none;
 }
+
 .select__item-label {
-    width:100%;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    height:100%;
-    cursor:pointer;
-    border:2px solid #ddd;
-    background:#fff;
-    box-shadow:0px 5px 20px 2px rgba(0,0,0,0.1);
-    text-align:center;
-    transition:all 200ms ease-in-out;
-    border-radius:5px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    cursor: pointer;
+    border: 1.5px solid $border;
+    background: $bg-surface-2;
+    text-align: center;
+    transition: all 200ms ease-in-out;
+    border-radius: $border-radius;
 
     &--big {
-        padding: 10px;
+        padding: 14px;
+    }
+
+    &:hover {
+        border-color: $border-strong;
+        background: $bg-surface-3;
     }
 }
+
 .select__item-icon {
-    margin-top:10px;
-    font-size:2rem;
-    color:#555;
-    transition:all 200ms ease-in-out;
+    margin-top: 10px;
+    font-size: 2rem;
+    color: $text-secondary;
+    transition: all 200ms ease-in-out;
 
     &--big {
         margin-top: unset;
         font-size: unset;
     }
 }
+
 .select__item-title {
-    font-size:1.125rem;
-    color:#555;
-    padding:5px 0px;
-    transition:all 200ms ease-in-out;
+    font-size: 1rem;
+    color: $text-secondary;
+    padding: 5px 0px;
+    transition: all 200ms ease-in-out;
 
     &--big {
-        font-size: 1rem;
+        font-size: 0.9375rem;
         padding: unset;
         text-align: left;
     }
 }
+
 .select__item-label:before {
-    content:"✓";
-    position:absolute;
-    width:18px;
-    height:18px;
-    top:8px;
-    left:8px;
-    background: $color-7;
-    color: $background-color;
-    text-align:center;
-    line-height:18px;
-    font-size:14px;
-    font-weight:600;
-    border-radius:50%;
-    opacity:0;
-    transform:scale(0.5);
-    transition:all 200ms ease-in-out;
+    content: "✓";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 8px;
+    left: 8px;
+    background: $accent;
+    color: $bg-base;
+    text-align: center;
+    line-height: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 200ms ease-in-out;
 }
 
 .select__item-label--big:before {
@@ -242,19 +273,24 @@
 }
 
 .select__item-input:checked + .select__item-label:before {
-    opacity:1;
-    transform:scale(1);
-}
-.select__item-input:checked + .select__item-icon {
-    color: $color-7;
-}
-.select__item-input:checked + .select__item-title{
-    color: $color-7;
-}
-.select__item-input:checked + .select__item-label {
-    border:2px solid $color-7;
+    opacity: 1;
+    transform: scale(1);
 }
 
+.select__item-input:checked + .select__item-icon {
+    color: $accent;
+}
+
+.select__item-input:checked + .select__item-title {
+    color: $text-primary;
+}
+
+.select__item-input:checked + .select__item-label {
+    border-color: $accent;
+    background-color: $accent-glow;
+}
+
+// ── Goal tiles ────────────────────────────────
 .setup__goal-wrapper {
     display: flex;
     flex-direction: column;
@@ -265,11 +301,12 @@
     display: flex;
     flex-direction: column;
     margin-bottom: $medium-spacing;
-    padding: 5px;
+    padding: 8px;
+    border-radius: $border-radius;
 
     &--active {
-        border: 1px solid $color-7;
-        border-radius: $border-radius;
+        border: 1.5px solid $accent;
+        background-color: $accent-glow;
     }
 }
 
@@ -281,10 +318,12 @@
 }
 
 .setup__goal-icon {
-    font-size: 1.875rem;
-    padding-right: 10px;
+    font-size: 1.75rem;
+    padding-right: 12px;
+    color: $text-secondary;
 }
 
 .setup__goal-title {
     font-weight: 600;
+    color: $text-primary;
 }

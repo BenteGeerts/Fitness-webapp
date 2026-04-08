@@ -10,7 +10,7 @@
 .training__switch {
     cursor: pointer;
     font-weight: 600;
-    font-size: 1.25rem;
+    font-size: 1.0625rem;
 
     display: flex;
     flex-direction: row;
@@ -20,17 +20,24 @@
     padding-bottom: $small-spacing;
 
     @include media-breakpoint-up(lg) {
-        font-size: 1.25rem;
+        font-size: 1.125rem;
     }
 }
 
 .training__switch-item {
-    color: $color-7;
+    color: $text-tertiary;
     text-decoration: none;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
 
     &--active {
-        text-decoration: underline;
-        color: $color-7;
+        color: $accent;
+        border-bottom-color: $accent;
+    }
+
+    &:hover {
+        color: $text-primary;
     }
 }
 
@@ -42,6 +49,17 @@
     white-space: nowrap;
 
     padding-top: 10px;
+
+    &::-webkit-scrollbar {
+        height: 3px;
+    }
+    &::-webkit-scrollbar-track {
+        background: $bg-surface-2;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: $border-strong;
+        border-radius: 2px;
+    }
 }
 
 .training__all-programs {
@@ -54,7 +72,7 @@
     justify-content: space-around;
 
     padding-bottom: 10px;
-    padding-top: 100px;
+    padding-top: 80px;
 
     &--small-spacing {
         padding-top: $small-spacing;
@@ -68,7 +86,7 @@
     }
 }
 
-//HISTORY
+// ── History ───────────────────────────────────
 
 .training__diamonds {
     display: flex;
@@ -76,15 +94,16 @@
     align-items: center;
     justify-content: center;
 
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 16px;
+    padding-bottom: 16px;
 
-    font-size: 1.25rem;
-    font-weight: 600;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: $accent-purple;
 }
 
 .training__diamond-icon {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
 }
 
 .training__stats-wrapper {
@@ -103,12 +122,12 @@
     flex-direction: row;
     align-items: flex-start;
 
-    padding: 10px;
+    padding: 12px;
     width: 160px;
 
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: 1px solid $border;
     border-radius: $border-radius;
-    background-color: $color-4;
+    background-color: $bg-surface-2;
 
     @include media-breakpoint-up(lg) {
         margin-left: 10px;
@@ -117,8 +136,9 @@
 }
 
 .training__stats-icon {
-    font-size: 1.5rem;
-    padding-right: 15px;
+    font-size: 1.375rem;
+    padding-right: 12px;
+    color: $text-secondary;
 }
 
 .training__history {
@@ -143,22 +163,25 @@
     flex-direction: row;
     align-items: center;
 
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     font-weight: 600;
+    color: $accent-purple;
 }
 
 .training__history-icon {
-    font-size: 1.5rem;
+    font-size: 1.375rem;
     padding-right: 5px;
 }
 
 .training__history-name {
     font-weight: 600;
-    font-size: 1.25rem;
+    font-size: 1.125rem;
+    color: $text-primary;
 }
 
 .training__history-sets {
-    color: rgba(0, 0, 0, 0.58);
+    color: $text-secondary;
+    font-size: 0.875rem;
 }
 
 .training__history-row {
@@ -171,25 +194,76 @@
 .training__input-wrapper {
     display: flex;
     flex-direction: column;
+    padding: 12px 0;
+}
+
+.training__set-header {
+    display: grid;
+    grid-template-columns: 32px 1fr 1fr 88px;
+    gap: 8px;
     align-items: center;
+    padding: 4px 0 8px;
+    color: $text-tertiary;
+    font-size: 0.6875rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.training__set-row {
+    display: grid;
+    grid-template-columns: 32px 1fr 1fr 88px;
+    gap: 8px;
+    align-items: center;
+    padding: 6px 0;
+    border-bottom: 1px solid $border;
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.training__set-number {
+    color: $text-tertiary;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-align: center;
 }
 
 .training__input {
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 4px;
+    padding-bottom: 4px;
 }
 
 .training__input-field {
-    width: 50px;
+    width: 100%;
+    background-color: $bg-surface-3;
+    border: 1.5px solid $border;
+    border-radius: 8px;
+    color: $text-primary;
+    text-align: center;
+    padding: 8px 6px;
+    font-family: "Inter", sans-serif;
+    font-size: 0.9375rem;
+
+    &:focus {
+        outline: none;
+        border-color: $accent;
+        box-shadow: 0 0 0 2px $accent-glow;
+    }
 }
 
 .training__input-button {
-    margin-left: 15px;
+    margin-left: 0;
+    font-size: 0.8125rem;
+    padding: 6px 10px;
 
     &--under {
         margin-bottom: $small-spacing;
-        margin-top: $small-spacing;
+        margin-top: 16px;
         margin-left: unset;
+        width: 100%;
+        justify-content: center;
     }
 }
 
@@ -216,10 +290,12 @@
 .training__message {
     text-align: center;
     padding-top: $small-spacing;
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-weight: 500;
+    color: $text-secondary;
 }
 
+// ── Modal ─────────────────────────────────────
 .training__modal {
     position: fixed;
     left: 50%;
@@ -230,24 +306,28 @@
     flex-direction: column;
     align-items: center;
 
-    background-color: $color-4;
-    border-radius: $border-radius;
+    background-color: $bg-surface-2;
+    border: 1px solid $border-strong;
+    border-radius: 24px;
 
-    padding: 20px;
+    padding: 28px;
     z-index: 9999;
-
     width: 90%;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
 
     @include media-breakpoint-up(lg) {
         width: unset;
+        min-width: 380px;
     }
 }
 
 .training__modal-text {
-    font-size: 1.125rem;
+    font-size: 1rem;
     padding-bottom: 20px;
+    color: $text-secondary;
+    text-align: center;
 }
 
 .training__modal-button {
-    margin-top: 15px;
+    margin-top: 12px;
 }

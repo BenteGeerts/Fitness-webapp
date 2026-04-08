@@ -5,6 +5,8 @@
 .new-training__title {
     padding-top: 10px;
     padding-bottom: 10px;
+    color: $text-primary;
+    font-weight: 700;
 
     @include media-breakpoint-up(lg) {
         padding-top: 20px;
@@ -17,18 +19,19 @@
     align-items: center;
     justify-content: center;
 
-    font-weight: 600;
+    font-weight: 700;
+    color: $accent-purple;
 
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 24px;
+    padding-bottom: 24px;
 }
 
 .new-training__diamonds-icon {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
 }
 
 .new-training__diamonds-text {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
 }
 
 .new-training__exercises {
@@ -40,13 +43,14 @@
 
 .new-training__exercises-title {
     margin: unset;
+    color: $text-primary;
 }
 
 .new-training__exercises-number {
-    font-size: 1.25rem;
-    color: #00000094;
+    font-size: 1.125rem;
+    color: $text-secondary;
 
-    padding-left: 5px;
+    padding-left: 6px;
 }
 
 .new-training__buttons {
@@ -67,14 +71,20 @@
         left: 0;
         bottom: 40px;
 
-        background-color: $color-3;
+        background-color: $bg-surface;
+        border-top: 1px solid $border;
         border-radius: $border-radius $border-radius 0 0;
-        padding: 50px;
+        padding: 24px;
+
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
 
         @include media-breakpoint-up(lg) {
             position: unset;
             background-color: unset;
+            border-top: none;
             border-radius: unset;
+            padding: $medium-spacing 0;
         }
     }
 }

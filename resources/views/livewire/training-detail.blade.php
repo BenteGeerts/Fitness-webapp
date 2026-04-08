@@ -1,115 +1,153 @@
 <section class="training">
     <div class="row justify-content-center">
         <div class="col-md-12 col-lg-9 col-xl-10">
+
             <div class="page__heading page__heading--space">
                 <div class="page__heading">
-                    <a class="no-underline" href="{{route('training')}}"><i
-                            class="icon-back page__heading-icon"></i></a>
-                    <h1>Training</h1>
+                    <a class="no-underline" href="{{ route('training') }}">
+                        <i class="icon-back page__heading-icon"></i>
+                    </a>
+                    <h1>{{ $training->name }}</h1>
                 </div>
                 @if($training->id > 6)
-                    <a wire:click="toggleModal" class="page__heading-icon"><i class="icon-delete"></i></a>
+                    <a wire:click="toggleModal" class="page__heading-icon" title="Delete program">
+                        <i class="icon-delete"></i>
+                    </a>
                 @endif
             </div>
+
             <div class="training__exercises-wrapper">
                 @forelse ($exercises as $key => $exercise)
                     @if ($key % 3 === 0)
                         <div class="row">
-                            @endif
-                            <div class="col-md-12 col-lg-4">
-                                <!-- Exercise details -->
-                                <div class="program">
-                                    <!-- Program drawing -->
-                                    <div class="program__drawing-container">
-                                        <img class="program__drawing" src="/images/drawing__running.svg"
-                                             alt="drawing of a person running">
-                                    </div>
-                                    <!-- Program text -->
-                                    <div class="program__text-container">
-                                        <a href="{{route('exercise.detail', ['slug' => $exercise->slug])}}"><p
-                                                class="program__title">{{$exercise->name}}</p></a>
-                                        <div class="program__icons">
-                                            <div class="program__icon-wrapper">
-                                                <i class="icon-diamond program__icon"></i>
-                                                <p class="program__icon-text">{{$exercise->diamonds}}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Existing sets -->
-                                <div class="training__input-wrapper">
-                                    @foreach($existingSets[$exercise->id] ?? [] as $index => $set)
-                                        <div class="training__input">
-                                            <input class="training__input-field" type="number" placeholder="Reps"
-                                                   wire:model="existingSets.{{ $exercise->id }}.{{ $index }}.reps">
-                                            <span>X</span>
-                                            <input class="training__input-field" type="number" placeholder="Weight"
-                                                   wire:model="existingSets.{{ $exercise->id }}.{{ $index }}.weight">
-                                            <span>KG</span>
-                                            <button class="button button--tertiary training__input-button"
-                                                    wire:click="removeSet('{{ $exercise->id }}', {{ $index }})">Remove
-                                            </button>
-                                        </div>
-                                    @endforeach
-                                </div>
-                                <!-- New sets -->
-                                <div class="training__input-wrapper">
-                                    @foreach ($sets[$exercise->id] ?? [] as $index => $set)
-                                        <div class="training__input">
-                                            <input class="training__input-field" type="number"
-                                                   wire:model="sets.{{ $exercise->id }}.{{ $index }}.reps"
-                                                   placeholder="Reps">
-                                            <span>X</span>
-                                            <input class="training__input-field" type="number"
-                                                   wire:model="sets.{{ $exercise->id }}.{{ $index }}.weight"
-                                                   placeholder="Weight">
-                                            <span>KG</span>
-                                            <button class="button button--tertiary training__input-button"
-                                                    wire:click="removeSet('{{ $exercise->id }}', {{ $index }})">Remove
-                                            </button>
-                                        </div>
-                                    @endforeach
-                                    <div>
-                                        <button class="button training__input-button training__input-button--under"
-                                                wire:click="addSet('{{ $exercise->id }}')">Add Set
-                                        </button>
+                    @endif
+
+                    <div class="col-md-12 col-lg-4">
+                        <div class="program">
+                            <div class="program__drawing-container">
+                                <img class="program__drawing" src="/images/drawing__running.svg"
+                                     alt="{{ $exercise->name }}">
+                            </div>
+                            <div class="program__text-container">
+                                <a href="{{ route('exercise.detail', ['slug' => $exercise->slug]) }}">
+                                    <p class="program__title">{{ $exercise->name }}</p>
+                                </a>
+                                <div class="program__icons">
+                                    <div class="program__icon-wrapper">
+                                        <i class="icon-diamond program__icon" style="color:#9B6DFF;"></i>
+                                        <p class="program__icon-text">{{ $exercise->diamonds }}</p>
                                     </div>
                                 </div>
                             </div>
-                            @if (($key + 1) % 3 === 0 || $loop->last)
+                        </div>
+
+                        {{-- Set logging --}}
+                        <div class="training__input-wrapper">
+                            @php
+                                $allSets = array_merge(
+                                    array_values($existingSets[$exercise->id] ?? []),
+                                    array_values($sets[$exercise->id] ?? [])
+                                );
+                            @endphp
+
+                            @if(count($allSets) > 0)
+                                <div class="training__set-header">
+                                    <span>#</span>
+                                    <span>Reps</span>
+                                    <span></span>
+                                    <span>Weight</span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            @endif
+
+                            {{-- Existing sets --}}
+                            @foreach($existingSets[$exercise->id] ?? [] as $index => $set)
+                                <div class="training__set-row">
+                                    <span class="training__set-number">{{ $index + 1 }}</span>
+                                    <input class="training__input-field" type="number" placeholder="0"
+                                           wire:model="existingSets.{{ $exercise->id }}.{{ $index }}.reps">
+                                    <span style="color:#52526A; text-align:center;">×</span>
+                                    <input class="training__input-field" type="number" placeholder="0"
+                                           wire:model="existingSets.{{ $exercise->id }}.{{ $index }}.weight">
+                                    <span style="color:#52526A; font-size:0.8125rem;">kg</span>
+                                    <button class="button button--tertiary"
+                                            style="font-size:0.75rem; padding:6px 10px;"
+                                            wire:click="removeSet('{{ $exercise->id }}', {{ $index }})">
+                                        Remove
+                                    </button>
+                                </div>
+                            @endforeach
+
+                            {{-- New sets --}}
+                            @foreach ($sets[$exercise->id] ?? [] as $index => $set)
+                                @php $displayIndex = count($existingSets[$exercise->id] ?? []) + $index; @endphp
+                                <div class="training__set-row">
+                                    <span class="training__set-number">{{ $displayIndex + 1 }}</span>
+                                    <input class="training__input-field" type="number" placeholder="0"
+                                           wire:model="sets.{{ $exercise->id }}.{{ $index }}.reps">
+                                    <span style="color:#52526A; text-align:center;">×</span>
+                                    <input class="training__input-field" type="number" placeholder="0"
+                                           wire:model="sets.{{ $exercise->id }}.{{ $index }}.weight">
+                                    <span style="color:#52526A; font-size:0.8125rem;">kg</span>
+                                    <button class="button button--tertiary"
+                                            style="font-size:0.75rem; padding:6px 10px;"
+                                            wire:click="removeSet('{{ $exercise->id }}', {{ $index }})">
+                                        Remove
+                                    </button>
+                                </div>
+                            @endforeach
+
+                            <div>
+                                <button class="button button--secondary training__input-button training__input-button--under"
+                                        wire:click="addSet('{{ $exercise->id }}')">
+                                    + Add set
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    @if (($key + 1) % 3 === 0 || $loop->last)
                         </div>
                     @endif
                 @empty
-                    <p>No exercises yet</p>
+                    <div style="text-align:center; padding: 40px 0; color:#52526A;">
+                        <i class="icon-weight" style="font-size:3rem; display:block; margin-bottom:12px;"></i>
+                        <p>No exercises in this program yet.</p>
+                    </div>
                 @endforelse
 
-
                 @if(count($exercises) > 0)
-                    <a class="play-button__wrapper" href="{{route('training.play', ['slug' => $training->slug])}}">
-                        <div class="play-button__circle pulse"></div>
-                        <div class="play-button__circle">
-                            <svg class="play-button__symbol" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-                                <polygon points="40,30 65,50 40,70"></polygon>
-                            </svg>
-                        </div>
-                    </a>
+                    <div style="text-align:center; padding-top: 32px; padding-bottom: 16px;">
+                        <a class="play-button__wrapper" href="{{ route('training.play', ['slug' => $training->slug]) }}">
+                            <div class="play-button__circle pulse"></div>
+                            <div class="play-button__circle">
+                                <svg class="play-button__symbol" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                                    <polygon points="40,30 65,50 40,70"></polygon>
+                                </svg>
+                            </div>
+                        </a>
+                        <p style="margin-top: 12px; color:#8B8BA8; font-size:0.875rem;">Start workout</p>
+                    </div>
                 @endif
 
                 <div class="training__buttons training__buttons--small-spacing">
-                    <button wire:click="save" class="button">Save</button>
+                    <button wire:click="save" class="button button--medium">Save changes</button>
                 </div>
             </div>
 
-
             @if($showModal)
+                <div class="modal-backdrop" wire:click="toggleModal"></div>
                 <div class="training__modal">
-                    <span>Are you sure you want to delete this program?</span>
-                    <div class="training__modal-button">
-                        <button wire:click="delete" class="button">Yes</button>
-                        <button wire:click="toggleModal" class="button button--secondary">No</button>
+                    <i class="icon-delete" style="font-size:2rem; color:#FF4757; margin-bottom:12px;"></i>
+                    <span class="training__modal-text">Delete <b>{{ $training->name }}</b>? This cannot be undone.</span>
+                    <div class="training__modal-button" style="display:flex; gap:12px;">
+                        <button wire:click="delete" class="button button--tertiary">Yes, delete</button>
+                        <button wire:click="toggleModal" class="button button--secondary">Cancel</button>
                     </div>
                 </div>
             @endif
+
         </div>
     </div>
 </section>

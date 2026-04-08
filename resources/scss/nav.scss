@@ -1,8 +1,9 @@
 .nav {
-    background-color: $nav;
+    background-color: $bg-surface;
+    border-top: 1px solid $border;
     border-radius: 20px 20px 0 0;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 12px;
+    padding-bottom: 12px;
 
     display: flex;
     flex-direction: row;
@@ -13,30 +14,36 @@
     bottom: 0;
     left: 0;
 
+    // Glass blur effect on mobile
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
     @include media-breakpoint-up(lg) {
         flex-direction: column;
         width: unset;
-        height: 380px;
-        border-radius: 50px;
+        height: auto;
+        border-radius: 24px;
+        border: 1px solid $border;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
 
         top: 50%;
-        left: 10px;
+        left: 16px;
         bottom: unset;
         transform: translateY(-50%);
+        padding: 8px 0;
+        gap: 4px;
     }
 
     &__item {
-        font-size: 1.875rem;
+        font-size: 1.75rem;
         cursor: pointer;
-
-        @include media-breakpoint-up(lg) {
-            padding-left: 24px;
-            padding-right: 24px;
-        }
+        color: $text-secondary;
+        transition: color 0.2s ease;
     }
 
     &__link {
-        color: unset;
+        color: $text-secondary;
         text-decoration: none;
         position: relative;
 
@@ -44,56 +51,50 @@
         flex-direction: row;
         justify-content: center;
 
-        &--active:before {
-            content: "";
-            position: absolute;
-            height: 50px;
-            width: 50px;
-            background-color: $nav-active;
-            border-radius: 50%;
-            z-index: -1;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
+        padding: 8px;
+        border-radius: 14px;
+        transition: color 0.2s ease;
+
+        &:hover {
+            color: $text-primary;
+        }
+
+        &--active {
+            color: $accent;
+
+            &:before {
+                content: "";
+                position: absolute;
+                height: 48px;
+                width: 48px;
+                background-color: $accent-glow-strong;
+                border-radius: 50%;
+                z-index: -1;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
         }
     }
 }
 
 .nav__extra-wrapper {
     position: fixed;
-    width: 100%;
-    background-color: $color-4;
-    left: 0;
-    bottom: 100px;
-    padding: 20px;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    border-radius: 10px;
+    width: calc(100% - 40px);
+    background-color: $bg-surface-2;
+    border: 1px solid $border-strong;
+    left: 20px;
+    bottom: 90px;
+    padding: 12px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
 
-    animation: fade-in;
+    animation: fade-in 0.2s ease;
 
     @include media-breakpoint-up(lg) {
         width: fit-content;
-        left: 100px;
+        left: 90px;
         bottom: -75px;
-    }
-
-    &:before {
-        content: "";
-        position: absolute;
-        bottom: -25px;
-        right: 7%;
-        width: 50px;
-        height: 50px;
-        background-image: url('../images/polygon.svg');
-        background-size: cover;
-
-        @include media-breakpoint-up(lg) {
-            transform: rotate(90deg);
-            top: 80px;
-            left: -25px;
-            right: unset;
-            bottom: unset;
-        }
     }
 }
 
@@ -102,11 +103,20 @@
     flex-direction: row;
     align-items: center;
     text-decoration: none;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 12px;
+    border-radius: 12px;
+    color: $text-primary;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.06);
+        color: $text-primary;
+    }
 }
 
 .nav__extra-text {
-    font-size: 1.25rem;
-    padding-left: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    padding-left: 12px;
+    color: $text-primary;
 }

@@ -8,44 +8,65 @@
     }
 }
 
+.shop__active-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: rgba(57, 217, 138, 0.15);
+    border: 1px solid rgba(57, 217, 138, 0.3);
+    color: $accent-green;
+    border-radius: 50px;
+    padding: 4px 12px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+}
+
 .shop__item {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    padding: 10px;
-    margin-top: 10px;
-    border-top: 1px solid $color-7;
+    align-items: flex-start;
+    padding: 20px;
+    margin-top: 0;
+    margin-bottom: 12px;
+    background-color: $bg-surface-2;
+    border: 1px solid $border;
+    border-radius: $border-radius;
+    transition: border-color 0.2s ease;
 
     @include media-breakpoint-up(lg) {
-        border-bottom: 1px solid $color-7;
+        border-bottom: 1px solid $border;
     }
 
     &--bottom {
-        border-bottom: 1px solid $color-7;
+        border-bottom: 1px solid $border;
     }
 }
 
 .shop__item-icon {
-    font-size: 3.125rem;
-    padding-right: 5px;
+    font-size: 2.875rem;
+    padding-right: 8px;
 
     &--orange {
-        color: $color-6;
+        color: $accent-orange;
     }
 
     &--red {
-        color: $color-5;
+        color: $accent-red;
     }
 }
 
 .shop__item-title {
-    font-size: 1.125rem;
-    font-weight: 600;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: $text-primary;
 }
 
 .shop__item-paragraph {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    color: $text-secondary;
+    font-size: 0.9375rem;
+    line-height: 1.5;
 }
 
 .shop__price-wrapper {
@@ -54,23 +75,32 @@
     align-items: center;
 
     width: fit-content;
-    padding: 5px;
-    font-weight: 600;
+    padding: 8px 14px;
+    font-weight: 700;
     text-decoration: none;
-    color: unset;
+    color: $text-primary;
 
-    border-radius: $border-radius;
-    border: 1px solid #1C1B1F;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 50px;
+    border: 1.5px solid $border-strong;
+    background-color: $bg-surface-2;
+    transition: all 0.2s ease;
+
+    &:hover {
+        border-color: $accent;
+        color: $accent;
+        background-color: $accent-glow;
+    }
 }
 
 .shop__price {
     cursor: pointer;
+    color: $text-primary;
 }
 
 .shop__price-icon {
     font-size: 1.125rem;
-    padding-right: 5px;
+    padding-right: 6px;
+    color: $accent-purple;
 }
 
 .shop__more {
@@ -80,26 +110,31 @@
 
     font-weight: 600;
     padding-top: $small-spacing;
+    color: $text-secondary;
 
     @include media-breakpoint-up(lg) {
-        font-size: 1.25rem;
+        font-size: 1.125rem;
     }
 }
 
+// ── Shop modal ────────────────────────────────
 .shop__modal {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: $color-4;
-    border-radius: $border-radius;
+    background-color: $bg-surface-2;
+    border: 1px solid $border-strong;
+    border-radius: 24px;
 
-    padding: 20px;
+    padding: 28px;
     z-index: 9999;
     width: 90%;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
 
     @include media-breakpoint-up(lg) {
         width: unset;
+        min-width: 380px;
     }
 }
 
@@ -107,13 +142,15 @@
     display: flex;
     flex-direction: column;
 
-    font-size: 1.125rem;
+    font-size: 1rem;
     padding-bottom: 20px;
     text-align: center;
+    color: $text-secondary;
 }
 
 .shop__modal-buttons {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    gap: 12px;
 }
