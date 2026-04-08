@@ -124,7 +124,7 @@
                 <div class="row">
                     @if(count($friends) === 0)
                         <div class="col-12">
-                            <p>You don't have any friends yet. Search for friends above to start competing.</p>
+                            <p class="friends__empty-message">You don't have any friends yet. Search for friends above to start competing.</p>
                         </div>
                     @endif
                     @foreach ($friends as $key => $friend)
