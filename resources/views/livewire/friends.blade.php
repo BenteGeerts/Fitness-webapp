@@ -122,6 +122,11 @@
                 <h3 class="h3 h3--spacing" style="margin-top: 24px;">My friends</h3>
 
                 <div class="row">
+                    @if(count($friends) === 0)
+                        <div class="col-12">
+                            <p>You don't have any friends yet. Search for friends above to start competing.</p>
+                        </div>
+                    @endif
                     @foreach ($friends as $key => $friend)
                         @if ($key % 2 === 0)
                             <div class="col-md-12 col-lg-3">
