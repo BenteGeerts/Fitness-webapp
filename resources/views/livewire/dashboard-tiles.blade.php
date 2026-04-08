@@ -66,7 +66,7 @@
                         <div class="dashboard__tile-content">
                             <span class="dashboard__tile-label">Lifted</span>
                             <i class="icon-pets dashboard__tile-icon" style="color:#4F8EF7;"></i>
-                            <p class="dashboard__tile-text" style="font-size:0.75rem; line-height:1.2;">
+                            <p class="dashboard__tile-text">
                                 {{ strlen($animalComparison) > 20 ? substr($animalComparison, 0, strpos($animalComparison, ',') + 1) . '..' : $animalComparison }}
                             </p>
                         </div>
