@@ -13,6 +13,23 @@
     }
 }
 
+.offline__icon {
+    font-size: 4rem;
+    color: $text-tertiary;
+    margin-bottom: 20px;
+}
+
+.offline__title {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 12px;
+}
+
+.offline__button {
+    margin-top: 28px;
+}
+
 .offline__text {
     font-size: 1.125rem;
     font-weight: 500;

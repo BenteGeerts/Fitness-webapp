@@ -11,7 +11,7 @@
                     <h1>Shop</h1>
                 </div>
 
-                <div style="margin-top:8px; margin-bottom:24px; color:#8B8BA8; font-size:0.9375rem;">
+                <div class="shop__description">
                     Spend your diamonds on power-ups to boost your training.
                 </div>
 

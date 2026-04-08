@@ -2,14 +2,14 @@
     @if($showModal)
         <div class="modal-backdrop"></div>
         <div class="dashboard__modal">
-            <h2 style="font-size:1.25rem; margin-bottom:8px;">Welcome! Set your username</h2>
+            <h2 class="dashboard__modal-title">Welcome! Set your username</h2>
 
             <div class="dashboard__modal-text">
                 <span>Your current username is <b>{{ auth()->user()->username }}</b>.</span>
-                <span style="margin-top:4px;">You can update it below — choose something memorable!</span>
+                <span>You can update it below — choose something memorable!</span>
             </div>
 
-            <div class="form__field" style="width:100%;">
+            <div class="form__field form__field--full">
                 <label class="form__label" for="username">New username</label>
                 <input wire:model="searchTerm" wire:change="changeUsername"
                        class="form__input-field" name="username" id="username" type="text"

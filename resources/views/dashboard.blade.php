@@ -38,7 +38,7 @@
 
                 {{-- Steps chart + Friends --}}
                 <div class="row justify-content-between align-items-start">
-                    <div class="dashboard__tile-row dashboard__tile-row--mobile-column" style="width:100%;">
+                    <div class="dashboard__tile-row dashboard__tile-row--mobile-column dashboard__tile-row--full">
                         @if(session('stepCountData') !== null)
                             <div class="col-md-12 col-lg-6">
                                 <div class="dashboard__chart-wrapper">
@@ -54,7 +54,7 @@
                         <div class="col-md-12 col-lg-3 p-lg-0">
                             <div class="dashboard__friends">
                                 <p class="dashboard__friends-title">
-                                    <i class="icon-friends" style="margin-right:8px; color: #CAFF00;"></i>
+                                    <i class="icon-friends dashboard__friends-title-icon"></i>
                                     Friends
                                 </p>
                                 <div class="dashboard__friends-images">
@@ -62,15 +62,14 @@
                                         <img class="dashboard__friends-img" src="{{ $friend->avatar }}"
                                              alt="{{ $friend->name }}'s avatar">
                                     @empty
-                                        <p style="color: #52526A; font-size: 0.875rem; margin-top: 8px;">
+                                        <p class="dashboard__friends-empty">
                                             No friends yet —
-                                            <a href="{{ route('friends') }}" style="color: #CAFF00;">add some!</a>
+                                            <a href="{{ route('friends') }}" class="dashboard__friends-empty-link">add some!</a>
                                         </p>
                                     @endforelse
                                 </div>
                                 @if(count($friends) > 0)
-                                    <a href="{{ route('friends') }}"
-                                       style="display:inline-block; margin-top:12px; font-size:0.8125rem; color:#CAFF00; font-weight:600;">
+                                    <a href="{{ route('friends') }}" class="dashboard__friends-leaderboard-link">
                                         View leaderboard →
                                     </a>
                                 @endif
@@ -80,7 +79,7 @@
                 </div>
 
                 {{-- Recommended programs --}}
-                <h3 class="h3" style="margin-bottom: 16px;">Recommended programs</h3>
+                <h3 class="h3 dashboard__section-heading">Recommended programs</h3>
                 @foreach ($programs as $key => $program)
                     @if ($key % 3 === 0)
                         <div class="row">
@@ -102,8 +101,7 @@
                                             <p class="program__icon-text">{{ $program->level->level }}</p>
                                         </div>
                                         <div class="program__icon-wrapper">
-                                            <i class="icon-diamond program__icon"
-                                               style="color: #9B6DFF;"></i>
+                                            <i class="icon-diamond program__icon program__icon--purple"></i>
                                             <p class="program__icon-text">{{ $program->total_diamonds }}</p>
                                         </div>
                                     </div>

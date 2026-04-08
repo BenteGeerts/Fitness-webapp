@@ -195,7 +195,11 @@
     display: flex;
     flex-direction: column;
     padding: 12px 0;
+
+    &--full { width: 100%; }
 }
+
+.training__buttons--full { width: 100%; }
 
 .training__set-header {
     display: grid;
@@ -293,6 +297,132 @@
     font-size: 1rem;
     font-weight: 500;
     color: $text-secondary;
+}
+
+.training__set-separator {
+    color: $text-tertiary;
+    text-align: center;
+}
+
+.training__set-unit {
+    color: $text-tertiary;
+    font-size: 0.8125rem;
+}
+
+.training__set-remove {
+    font-size: 0.75rem;
+    padding: 6px 10px;
+}
+
+.training__set-row--subtle {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.training__stats-icon--blue  { color: $accent-blue; }
+.training__stats-icon--green { color: $accent-green; }
+
+.training__stats-label {
+    color: $text-secondary;
+    font-size: 0.8125rem;
+}
+
+.training__section-heading {
+    margin-bottom: 12px;
+    &--top { margin-top: 24px; }
+}
+
+.training__play-area {
+    text-align: center;
+    padding-top: 32px;
+    padding-bottom: 16px;
+}
+
+.training__play-text {
+    margin-top: 12px;
+    color: $text-secondary;
+    font-size: 0.875rem;
+}
+
+.training__calendar-input {
+    background: transparent;
+    border: none;
+    color: $accent;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.training__empty {
+    text-align: center;
+    padding: 40px 0;
+    color: $text-tertiary;
+}
+
+.training__empty--play {
+    text-align: center;
+    color: $text-secondary;
+    padding: 60px 0;
+}
+
+.training__empty-message {
+    margin-bottom: 20px;
+}
+
+.training__empty-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 12px;
+    color: $text-tertiary;
+}
+
+.training__modal-icon {
+    font-size: 2rem;
+    color: $accent-red;
+    margin-bottom: 12px;
+}
+
+.training__modal-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.training__progress {
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.training__progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.training__progress-label {
+    font-size: 0.8125rem;
+    color: $text-secondary;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.training__progress-stop {
+    font-size: 0.8125rem;
+    color: $accent-red;
+    text-decoration: none;
+}
+
+.training__progress-bar {
+    height: 3px;
+    background: $bg-surface-3;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.training__progress-fill {
+    height: 100%;
+    background: $accent;
+    border-radius: 2px;
+    transition: width 0.4s ease;
 }
 
 // ── Modal ─────────────────────────────────────

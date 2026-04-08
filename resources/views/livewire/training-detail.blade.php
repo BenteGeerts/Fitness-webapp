@@ -34,7 +34,7 @@
                                 </a>
                                 <div class="program__icons">
                                     <div class="program__icon-wrapper">
-                                        <i class="icon-diamond program__icon" style="color:#9B6DFF;"></i>
+                                        <i class="icon-diamond program__icon program__icon--purple"></i>
                                         <p class="program__icon-text">{{ $exercise->diamonds }}</p>
                                     </div>
                                 </div>
@@ -67,12 +67,11 @@
                                     <span class="training__set-number">{{ $index + 1 }}</span>
                                     <input class="training__input-field" type="number" placeholder="0"
                                            wire:model="existingSets.{{ $exercise->id }}.{{ $index }}.reps">
-                                    <span style="color:#52526A; text-align:center;">×</span>
+                                    <span class="training__set-separator">×</span>
                                     <input class="training__input-field" type="number" placeholder="0"
                                            wire:model="existingSets.{{ $exercise->id }}.{{ $index }}.weight">
-                                    <span style="color:#52526A; font-size:0.8125rem;">kg</span>
-                                    <button class="button button--tertiary"
-                                            style="font-size:0.75rem; padding:6px 10px;"
+                                    <span class="training__set-unit">kg</span>
+                                    <button class="button button--tertiary training__set-remove"
                                             wire:click="removeSet('{{ $exercise->id }}', {{ $index }})">
                                         Remove
                                     </button>
@@ -86,12 +85,11 @@
                                     <span class="training__set-number">{{ $displayIndex + 1 }}</span>
                                     <input class="training__input-field" type="number" placeholder="0"
                                            wire:model="sets.{{ $exercise->id }}.{{ $index }}.reps">
-                                    <span style="color:#52526A; text-align:center;">×</span>
+                                    <span class="training__set-separator">×</span>
                                     <input class="training__input-field" type="number" placeholder="0"
                                            wire:model="sets.{{ $exercise->id }}.{{ $index }}.weight">
-                                    <span style="color:#52526A; font-size:0.8125rem;">kg</span>
-                                    <button class="button button--tertiary"
-                                            style="font-size:0.75rem; padding:6px 10px;"
+                                    <span class="training__set-unit">kg</span>
+                                    <button class="button button--tertiary training__set-remove"
                                             wire:click="removeSet('{{ $exercise->id }}', {{ $index }})">
                                         Remove
                                     </button>
@@ -111,14 +109,14 @@
                         </div>
                     @endif
                 @empty
-                    <div style="text-align:center; padding: 40px 0; color:#52526A;">
-                        <i class="icon-weight" style="font-size:3rem; display:block; margin-bottom:12px;"></i>
+                    <div class="training__empty">
+                        <i class="icon-weight training__empty-icon"></i>
                         <p>No exercises in this program yet.</p>
                     </div>
                 @endforelse
 
                 @if(count($exercises) > 0)
-                    <div style="text-align:center; padding-top: 32px; padding-bottom: 16px;">
+                    <div class="training__play-area">
                         <a class="play-button__wrapper" href="{{ route('training.play', ['slug' => $training->slug]) }}">
                             <div class="play-button__circle pulse"></div>
                             <div class="play-button__circle">
@@ -127,7 +125,7 @@
                                 </svg>
                             </div>
                         </a>
-                        <p style="margin-top: 12px; color:#8B8BA8; font-size:0.875rem;">Start workout</p>
+                        <p class="training__play-text">Start workout</p>
                     </div>
                 @endif
 
@@ -139,9 +137,9 @@
             @if($showModal)
                 <div class="modal-backdrop" wire:click="toggleModal"></div>
                 <div class="training__modal">
-                    <i class="icon-delete" style="font-size:2rem; color:#FF4757; margin-bottom:12px;"></i>
+                    <i class="icon-delete training__modal-icon"></i>
                     <span class="training__modal-text">Delete <b>{{ $training->name }}</b>? This cannot be undone.</span>
-                    <div class="training__modal-button" style="display:flex; gap:12px;">
+                    <div class="training__modal-actions">
                         <button wire:click="delete" class="button button--tertiary">Yes, delete</button>
                         <button wire:click="toggleModal" class="button button--secondary">Cancel</button>
                     </div>

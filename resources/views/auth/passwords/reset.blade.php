@@ -4,10 +4,10 @@
         <form class="form reset__form" action="{{ route('password.update') }}" method="post">
             @csrf
 
-            <div style="text-align:center; margin-bottom:28px;">
-                <i class="icon-lock" style="font-size:2.5rem; color:#CAFF00; display:block; margin-bottom:12px;"></i>
-                <h1 style="font-size:1.5rem; font-weight:700; letter-spacing:-0.02em;">Set new password</h1>
-                <p style="color:#8B8BA8; margin-top:6px; font-size:0.9375rem;">
+            <div class="reset__header">
+                <i class="icon-lock reset__header-icon"></i>
+                <h1 class="reset__header-title">Set new password</h1>
+                <p class="reset__header-text">
                     Choose a strong password you haven't used before.
                 </p>
             </div>

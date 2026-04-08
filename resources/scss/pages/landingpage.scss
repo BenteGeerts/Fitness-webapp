@@ -120,6 +120,16 @@
     padding-bottom: $small-spacing;
 }
 
+.landingpage__row {
+    min-height: 100vh;
+}
+
+.landingpage__signin-text {
+    text-align: center;
+    color: $text-secondary;
+    font-size: 0.9375rem;
+}
+
 .landingpage__link {
     font-weight: 600;
     text-decoration: none;

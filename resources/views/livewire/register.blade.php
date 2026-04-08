@@ -59,8 +59,8 @@
         <div class="error">{{ $message }}</div>
     @enderror
 
-    <div class="link-wrapper" style="padding-top: 16px; padding-bottom: 8px;">
-        <p style="color: #8B8BA8; font-size: 0.9375rem;">
+    <div class="link-wrapper">
+        <p class="link-wrapper__text">
             Already have an account? <a class="link" href="{{ Route('login') }}">Sign in</a>
         </p>
     </div>

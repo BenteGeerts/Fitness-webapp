@@ -374,6 +374,46 @@
     margin-top: 2px;
 }
 
+.profile__title--spaced    { margin-top: 28px; }
+.profile__title--labelled  { margin-top: 28px; margin-bottom: 14px; }
+.profile__subtitle--history  { margin-top: 24px; }
+.profile__subtitle--spaced   { margin-top: 20px; }
+
+.profile__friend-count {
+    color: $text-secondary;
+    font-size: 0.875rem;
+    margin-top: 4px;
+}
+
+.profile__friend-count-icon {
+    margin-right: 4px;
+}
+
+.profile__modal-badge {
+    width: 64px;
+    margin-bottom: 16px;
+
+    &--locked { filter: grayscale(1) brightness(0.4); }
+}
+
+.profile__modal-hint {
+    color: $text-tertiary;
+    font-size: 0.875rem;
+}
+
+.profile__history-empty {
+    padding: 32px 0;
+    color: $text-tertiary;
+    text-align: center;
+    width: 100%;
+}
+
+.profile__history-empty-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
 // ── Profile modal ─────────────────────────────
 .profile__modal {
     position: fixed;

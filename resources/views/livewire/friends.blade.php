@@ -21,15 +21,15 @@
                 </div>
 
                 @if($showResults)
-                    <div class="col-12" style="margin-bottom: 8px;">
+                    <div class="col-12 friends__search-results">
                         @forelse($searchResults as $result)
                             <a class="friends__friend" href="{{ route('profile.show', ['username' => $result->username]) }}">
                                 <img class="friends__friend-img" src="{{ $result->avatar }}" alt="{{ $result->name }}">
                                 <p class="friends__friend-name">{{ $result->name }}</p>
-                                <span style="color:#8B8BA8; font-size:0.875rem; margin-left:8px;">@{{ $result->username }}</span>
+                                <span class="friends__friend-username">@{{ $result->username }}</span>
                             </a>
                         @empty
-                            <p style="color:#52526A; padding: 12px 0;">No users found for "{{ $searchTerm }}"</p>
+                            <p class="friends__empty-message">No users found for "{{ $searchTerm }}"</p>
                         @endforelse
                     </div>
                 @endif
@@ -37,7 +37,7 @@
 
             {{-- Leaderboard --}}
             @if(count($friendsLeaderboard) > 0)
-                <h2 class="h3" style="margin-bottom: 16px;">Leaderboard</h2>
+                <h2 class="h3 friends__section-heading">Leaderboard</h2>
 
                 <div class="friends__switch">
                     <a class="friends__switch-item friends__switch-item--active" data-toggle-ranking="friends">Friends</a>
@@ -119,7 +119,7 @@
                 </div>
 
                 {{-- My friends --}}
-                <h3 class="h3 h3--spacing" style="margin-top: 24px;">My friends</h3>
+                <h3 class="h3 h3--spacing friends__section-heading--top">My friends</h3>
 
                 <div class="row">
                     @if(count($friends) === 0)
@@ -150,9 +150,9 @@
             @else
                 {{-- Empty state --}}
                 <div class="friends__cup">
-                    <img src="/images/prizecup.png" alt="trophy" style="width:80px; margin-bottom:16px; opacity:0.7;">
-                    <span class="friends__cup-text" style="font-size:1.25rem; color:#FFFFFF;">You're all alone at the top!</span>
-                    <span class="friends__cup-text" style="color:#8B8BA8; margin-top:8px; font-size:0.9375rem;">Search for friends above to start competing</span>
+                    <img src="/images/prizecup.png" alt="trophy" class="friends__cup-img">
+                    <span class="friends__cup-text friends__cup-text--main">You're all alone at the top!</span>
+                    <span class="friends__cup-text friends__cup-text--sub">Search for friends above to start competing</span>
                 </div>
             @endif
 

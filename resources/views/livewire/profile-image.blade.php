@@ -17,8 +17,8 @@
 
         <div class="profile__name-wrapper">
             <p class="profile__name">{{ $name }}</p>
-            <span style="color:#8B8BA8; font-size:0.875rem; margin-top:4px;">
-                <i class="icon-friends" style="margin-right:4px;"></i>
+            <span class="profile__friend-count">
+                <i class="icon-friends profile__friend-count-icon"></i>
                 {{ $friends }} {{ $friends == 1 ? 'friend' : 'friends' }}
             </span>
         </div>

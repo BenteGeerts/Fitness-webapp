@@ -21,6 +21,13 @@
     font-weight: 600;
 }
 
+.shop__description {
+    margin-top: 8px;
+    margin-bottom: 24px;
+    color: $text-secondary;
+    font-size: 0.9375rem;
+}
+
 .shop__item {
     display: flex;
     flex-direction: row;
@@ -40,6 +47,37 @@
     &--bottom {
         border-bottom: 1px solid $border;
     }
+}
+
+.shop__item--streak-active   { border-color: rgba(57, 217, 138, 0.3); }
+.shop__item--diamonds-active { border-color: rgba(155, 109, 255, 0.3); }
+
+.shop__item-wrapper {
+    flex-shrink: 0;
+    margin-right: 16px;
+}
+
+.shop__item-text {
+    flex: 1;
+}
+
+.shop__active-badge--purple {
+    background: rgba(155, 109, 255, 0.15);
+    border-color: rgba(155, 109, 255, 0.3);
+    color: $accent-purple;
+}
+
+.shop__modal-icon {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+
+    &--orange { color: $accent-orange; }
+    &--purple { color: $accent-purple; }
+}
+
+.shop__modal-title {
+    font-size: 1.125rem;
+    margin-bottom: 8px;
 }
 
 .shop__item-icon {

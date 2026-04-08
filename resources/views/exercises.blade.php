@@ -37,7 +37,7 @@
                                  data-exercise-toggle="{{ $categorySlug[$categoryId] ?? $categoryId }}">
                                 <p class="add-exercise__parts-text">
                                     {{ $categoryNames[$categoryId] ?? 'Other' }}
-                                    <span style="color:#52526A; font-size:0.8125rem; margin-left:6px;">
+                                    <span class="add-exercise__count">
                                         ({{ count($exercises) }})
                                     </span>
                                 </p>
@@ -65,8 +65,7 @@
                                                         </a>
                                                         <div class="program__icons">
                                                             <div class="program__icon-wrapper">
-                                                                <i class="icon-diamond program__icon"
-                                                                   style="color:#9B6DFF;"></i>
+                                                                <i class="icon-diamond program__icon program__icon--purple"></i>
                                                                 <p class="program__icon-text">{{ $exercise->diamonds }}</p>
                                                             </div>
                                                         </div>

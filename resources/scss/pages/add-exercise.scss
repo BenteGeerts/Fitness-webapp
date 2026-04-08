@@ -62,6 +62,12 @@
     font-weight: 500;
 }
 
+.add-exercise__count {
+    color: $text-tertiary;
+    font-size: 0.8125rem;
+    margin-left: 6px;
+}
+
 .add-exercise__button {
     display: flex;
     flex-direction: row;

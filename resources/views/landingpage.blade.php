@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <section class="landingpage">
-        <div class="row align-items-center" style="min-height: 100vh;">
+        <div class="row align-items-center landingpage__row">
             <div class="col-md-12 col-lg-6">
                 <div class="hero">
                     <img class="hero__img" src="/images/hero.png" alt="women wearing gym clothes">
@@ -34,7 +34,7 @@
                         </a>
                     </div>
 
-                    <p style="text-align:center; color: var(--text-secondary, #8B8BA8); font-size: 0.9375rem;">
+                    <p class="landingpage__signin-text">
                         Already have an account?
                         <a class="landingpage__link" href="{{ Route('login') }}">Sign in</a>
                     </p>

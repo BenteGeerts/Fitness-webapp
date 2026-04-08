@@ -1,21 +1,21 @@
 <div class="training__exercise">
     @if(isset($exercise))
         {{-- Progress indicator --}}
-        <div style="width:100%; margin-bottom:16px;">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                <span style="font-size:0.8125rem; color:#8B8BA8; font-weight:600; letter-spacing:0.06em; text-transform:uppercase;">
+        <div class="training__progress">
+            <div class="training__progress-header">
+                <span class="training__progress-label">
                     Exercise {{ $currentIndex + 1 }} of {{ count($exercises) }}
                 </span>
-                <a href="{{ route('training') }}" style="font-size:0.8125rem; color:#FF4757;">Stop</a>
+                <a href="{{ route('training') }}" class="training__progress-stop">Stop</a>
             </div>
             {{-- Progress bar --}}
-            <div style="height:3px; background:#222234; border-radius:2px; overflow:hidden;">
-                <div style="height:100%; width:{{ round((($currentIndex + 1) / count($exercises)) * 100) }}%; background:#CAFF00; border-radius:2px; transition:width 0.4s ease;"></div>
+            <div class="training__progress-bar">
+                <div class="training__progress-fill" style="width:{{ round((($currentIndex + 1) / count($exercises)) * 100) }}%;"></div>
             </div>
         </div>
 
         {{-- Exercise card --}}
-        <div class="program" style="width:100%;">
+        <div class="program program--full-width">
             <div class="program__drawing-container">
                 <img class="program__drawing" src="/images/drawing__running.svg" alt="{{ $exercise->name }}">
             </div>
@@ -23,7 +23,7 @@
                 <p class="program__title">{{ $exercise->name }}</p>
                 <div class="program__icons">
                     <div class="program__icon-wrapper">
-                        <i class="icon-diamond program__icon" style="color:#9B6DFF;"></i>
+                        <i class="icon-diamond program__icon program__icon--purple"></i>
                         <p class="program__icon-text">{{ $exercise->diamonds }} pts</p>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
         </div>
 
         {{-- Set logging --}}
-        <div class="training__input-wrapper" style="width:100%;">
+        <div class="training__input-wrapper training__input-wrapper--full">
             <div class="training__set-header">
                 <span>#</span>
                 <span>Reps</span>
@@ -44,7 +44,7 @@
                     <span class="training__set-number">{{ $index + 1 }}</span>
                     <input class="training__input-field" type="number" placeholder="0"
                            wire:model="existingSets.{{ $exercise->id }}.{{ $index }}.reps">
-                    <span style="color:#52526A; text-align:center;">×</span>
+                    <span class="training__set-separator">×</span>
                     <input class="training__input-field" type="number" placeholder="0"
                            wire:model="existingSets.{{ $exercise->id }}.{{ $index }}.weight">
                 </div>
@@ -57,7 +57,7 @@
         </div>
 
         {{-- Navigation --}}
-        <div class="training__buttons training__buttons--no-spacing" style="width:100%;">
+        <div class="training__buttons training__buttons--no-spacing training__buttons--full">
             @if($currentIndex > 0)
                 <button wire:click="previousExercise" class="button button--secondary">← Back</button>
             @endif
@@ -70,9 +70,9 @@
         </div>
 
     @else
-        <div style="text-align:center; color:#8B8BA8; padding: 60px 0;">
-            <i class="icon-weight" style="font-size:3rem; display:block; margin-bottom:16px; color:#52526A;"></i>
-            <p style="margin-bottom:20px;">No exercises in this program.</p>
+        <div class="training__empty--play">
+            <i class="icon-weight training__empty-icon"></i>
+            <p class="training__empty-message">No exercises in this program.</p>
             <a class="button button--secondary" href="{{ route('training.detail', ['slug' => $training->slug]) }}">
                 Go back
             </a>

@@ -10,12 +10,12 @@
             </div>
 
             {{-- Profile section --}}
-            <div class="settings__section" style="margin-top: 24px;">
+            <div class="settings__section settings__section--first">
                 <p class="settings__section-title">Profile</p>
 
-                <div class="settings__file" style="margin-bottom: 20px;">
+                <div class="settings__file">
                     <span class="settings__file-label">Profile photo</span>
-                    <label class="button button--secondary" for="profileImage" style="cursor:pointer;">
+                    <label class="button button--secondary settings__file-button" for="profileImage">
                         Choose image
                     </label>
                     <input wire:model="profileImage"
@@ -24,7 +24,7 @@
                            name="profileImage" id="profileImage" type="file"
                            accept="image/png, image/jpeg"
                            wire:loading.attr="disabled">
-                    <div wire:loading class="lds-dual-ring" style="width:40px; height:40px; margin-left:12px;"></div>
+                    <div wire:loading class="lds-dual-ring settings__spinner"></div>
                 </div>
 
                 @error('profileImage')
@@ -45,7 +45,7 @@
                     <input wire:model="lastName" class="form__input-field" type="text"
                            placeholder="Last name">
                     @if (session()->has('name'))
-                        <div class="error error--green" style="margin-top:8px;">{{ session('name') }}</div>
+                        <div class="error error--green error--top-space">{{ session('name') }}</div>
                     @endif
                 </div>
 
@@ -54,7 +54,7 @@
                     <input wire:model="email" class="form__input-field" type="email"
                            placeholder="Email address">
                     @if (session()->has('email'))
-                        <div class="error error--green" style="margin-top:8px;">{{ session('email') }}</div>
+                        <div class="error error--green error--top-space">{{ session('email') }}</div>
                     @endif
                 </div>
             </div>
@@ -90,16 +90,16 @@
             {{-- Setup section --}}
             <div class="settings__section">
                 <p class="settings__section-title">Fitness profile</p>
-                <p style="color:#8B8BA8; font-size:0.9375rem; margin-bottom:16px;">
+                <p class="settings__section-description">
                     Update your weight, height, age, goal and gym frequency.
                 </p>
                 <a href="{{ route('setup.edit') }}" class="button button--secondary">Edit fitness profile</a>
             </div>
 
             {{-- Danger zone --}}
-            <div class="settings__section" style="border-color: rgba(255,71,87,0.2);">
-                <p class="settings__section-title" style="color: #FF4757; border-bottom-color: rgba(255,71,87,0.2);">Danger zone</p>
-                <p style="color:#8B8BA8; font-size:0.9375rem; margin-bottom:16px;">
+            <div class="settings__section settings__section--danger">
+                <p class="settings__section-title settings__section-title--danger">Danger zone</p>
+                <p class="settings__section-description">
                     Permanently delete your account and all associated data. This cannot be undone.
                 </p>
                 <button wire:click="deleteAccount" class="button button--tertiary">Delete my account</button>
@@ -116,8 +116,8 @@
     @if($showModal)
         <div class="modal-backdrop" wire:click="cancel"></div>
         <div class="settings__modal">
-            <i class="icon-delete" style="font-size:2rem; color:#FF4757; margin-bottom:12px;"></i>
-            <p class="settings__modal-text" style="font-size:1.0625rem; font-weight:600; color:#FFFFFF; margin-bottom:6px;">
+            <i class="icon-delete settings__modal-icon"></i>
+            <p class="settings__modal-text settings__modal-text--title">
                 Delete your account?
             </p>
             <p class="settings__modal-text">

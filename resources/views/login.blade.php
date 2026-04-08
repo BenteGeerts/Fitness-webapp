@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <section class="login">
-        <div class="row align-items-center" style="min-height: 100vh;">
+        <div class="row align-items-center login__row">
             <div class="col-md-12 col-lg-6">
                 <div class="hero hero--hidden">
                     <img class="hero__img" src="/images/hero.png" alt="women wearing gym clothes">
@@ -34,7 +34,7 @@
                             <div class="form__checkbox">
                                 <input class="form__checkbox-button" id="remember" name="remember"
                                        type="checkbox" {{ old('remember') ? 'checked' : '' }}>
-                                <label for="remember" style="font-size: 0.875rem; color: #8B8BA8;">Remember me</label>
+                                <label for="remember" class="form__checkbox-label">Remember me</label>
                             </div>
                             <a class="form__password-button" href="{{ route('password.request') }}">Forgot password?</a>
                         </div>
@@ -46,8 +46,8 @@
 
                     <button class="button button--big" type="submit">Sign in</button>
 
-                    <div class="link-wrapper" style="padding-top: 24px; padding-bottom: 8px;">
-                        <p style="color: #8B8BA8; font-size: 0.9375rem;">
+                    <div class="link-wrapper">
+                        <p class="login__signin-text">
                             Don't have an account? <a class="link" href="{{ Route('signup') }}">Create one</a>
                         </p>
                     </div>
@@ -64,7 +64,7 @@
                     <img class="button__img" src="/images/googleIcon.png" alt="Google">
                     Continue with Google
                 </a>
-                <a class="button button--icon button--big button--secondary signup__button" style="margin-top: 10px;" href="{{ Route('microsoftLogin') }}">
+                <a class="button button--icon button--big button--secondary signup__button signup__button--spaced" href="{{ Route('microsoftLogin') }}">
                     <img class="button__img" src="/images/microsoftIcon.png" alt="Microsoft">
                     Continue with Microsoft
                 </a>

@@ -23,9 +23,8 @@
     flex-direction: column;
     padding-bottom: 16px;
 
-    &--small {
-        width: 45%;
-    }
+    &--small { width: 45%; }
+    &--full  { width: 100%; }
 }
 
 .form__password {
@@ -106,6 +105,21 @@
         background-color: $accent;
         border-color: $accent;
     }
+}
+
+.form__checkbox-label {
+    font-size: 0.875rem;
+    color: $text-secondary;
+}
+
+.link-wrapper {
+    padding-top: 16px;
+    padding-bottom: 8px;
+}
+
+.link-wrapper__text {
+    color: $text-secondary;
+    font-size: 0.9375rem;
 }
 
 .form__password-button {

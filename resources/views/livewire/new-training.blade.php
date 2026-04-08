@@ -9,7 +9,7 @@
                 <h1>New Program</h1>
             </div>
 
-            <div class="col-md-12 col-lg-6" style="margin-top: 20px;">
+            <div class="col-md-12 col-lg-6 new-training__col">
                 <div class="form__field">
                     <label class="form__label" for="trainingName">Program name</label>
                     <input wire:model="trainingName" name="trainingName" id="trainingName"
@@ -48,7 +48,7 @@
                                 <p class="program__title">{{ $exercise->name }}</p>
                                 <div class="program__icons">
                                     <div class="program__icon-wrapper">
-                                        <i class="icon-diamond program__icon" style="color:#9B6DFF;"></i>
+                                        <i class="icon-diamond program__icon program__icon--purple"></i>
                                         <p class="program__icon-text">{{ $exercise->diamonds }}</p>
                                     </div>
                                 </div>
@@ -61,11 +61,11 @@
                 @endforeach
 
             @else
-                <div style="text-align:center; padding: 32px 0; color:#52526A; border: 1px dashed rgba(255,255,255,0.1); border-radius:16px; margin: 16px 0;">
-                    <i class="icon-weight" style="font-size:2.5rem; display:block; margin-bottom:10px;"></i>
-                    <p style="font-size:0.9375rem;">No exercises added yet</p>
+                <div class="new-training__empty">
+                    <i class="icon-weight new-training__empty-icon"></i>
+                    <p class="new-training__empty-text">No exercises added yet</p>
                     @if ($errors->has('noExercises'))
-                        <div class="error" style="margin-top:12px;">{{ $errors->first('noExercises') }}</div>
+                        <div class="error new-training__empty-error">{{ $errors->first('noExercises') }}</div>
                     @endif
                 </div>
             @endif

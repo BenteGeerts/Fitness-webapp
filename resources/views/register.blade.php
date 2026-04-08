@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <section class="signup">
-        <div class="row align-items-center" style="min-height: 100vh;">
+        <div class="row align-items-center login__row">
             <div class="col-md-12 col-lg-6">
                 <div class="hero hero--hidden">
                     <img class="hero__img" src="/images/hero.png" alt="women wearing gym clothes">
@@ -27,7 +27,7 @@
                     <img class="button__img" src="/images/googleIcon.png" alt="Google">
                     Continue with Google
                 </a>
-                <a class="button button--icon button--big button--secondary signup__button" style="margin-top: 10px;" href="{{ Route('microsoftLogin') }}">
+                <a class="button button--icon button--big button--secondary signup__button signup__button--spaced" href="{{ Route('microsoftLogin') }}">
                     <img class="button__img" src="/images/microsoftIcon.png" alt="Microsoft">
                     Continue with Microsoft
                 </a>

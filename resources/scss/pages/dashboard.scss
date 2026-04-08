@@ -18,6 +18,8 @@
     margin-top: 4px;
 }
 
+.dashboard__tile-row--full { width: 100%; }
+
 .dashboard__tile-row {
     display: flex;
     flex-direction: row;
@@ -402,4 +404,57 @@
 
 .dashboard__modal-button {
     margin-top: 12px;
+}
+
+.dashboard__modal-title {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+}
+
+.dashboard__modal-icon {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+
+    &--orange { color: $accent-orange; }
+    &--purple { color: $accent-purple; }
+    &--blue   { color: $accent-blue; }
+}
+
+.dashboard__tile-icon--orange { color: $accent-orange; }
+.dashboard__tile-icon--purple { color: $accent-purple; }
+.dashboard__tile-icon--green  { color: $accent-green; }
+.dashboard__tile-icon--blue   { color: $accent-blue; }
+
+.dashboard__tile-col { cursor: pointer; }
+
+.dashboard__tile-link { text-decoration: none; }
+
+.dashboard__section-heading { margin-bottom: 16px; }
+
+.dashboard__friends-title-icon {
+    margin-right: 8px;
+    color: $accent;
+}
+
+.dashboard__friends-empty {
+    color: $text-tertiary;
+    font-size: 0.875rem;
+    margin-top: 8px;
+}
+
+.dashboard__friends-empty-link {
+    color: $accent;
+    text-decoration: none;
+}
+
+.dashboard__friends-leaderboard-link {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 0.8125rem;
+    color: $accent;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover { color: $accent-dark; }
 }

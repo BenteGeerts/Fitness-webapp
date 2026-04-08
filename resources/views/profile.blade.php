@@ -21,7 +21,7 @@
                                         friends="{{ count($user->friends) }}"/>
 
                 {{-- Stats --}}
-                <h2 class="h3 profile__title" style="margin-top: 28px; margin-bottom: 14px;">Statistics</h2>
+                <h2 class="h3 profile__title profile__title--labelled">Statistics</h2>
                 <div class="profile__statistics">
 
                     <div class="profile__statistics-tile">
@@ -51,14 +51,14 @@
                 </div>
 
                 {{-- Achievements --}}
-                <h2 class="h3 profile__title" style="margin-top: 28px;">Achievements</h2>
+                <h2 class="h3 profile__title profile__title--spaced">Achievements</h2>
                 <h3 class="h3 profile__subtitle">Badges</h3>
 
                 <livewire:profile-achievements currentDiamonds="{{ $totalDiamonds }}" :user="$user"
                                                streakLength="{{ $streakLength }}" :trainings="$trainings"/>
 
                 {{-- Workout history --}}
-                <h3 class="h3 profile__subtitle" style="margin-top: 24px;">History</h3>
+                <h3 class="h3 profile__subtitle profile__subtitle--history">History</h3>
 
                 <div class="profile__history">
                     @forelse($trainings as $training)
@@ -73,8 +73,8 @@
                             </div>
                         </div>
                     @empty
-                        <div style="padding: 32px 0; color: #52526A; text-align:center; width:100%;">
-                            <i class="icon-training" style="font-size:2.5rem; display:block; margin-bottom:10px;"></i>
+                        <div class="profile__history-empty">
+                            <i class="icon-training profile__history-empty-icon"></i>
                             <p>No workouts yet — start your first session!</p>
                         </div>
                     @endforelse

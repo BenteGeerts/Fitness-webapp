@@ -53,6 +53,33 @@
     padding-left: 6px;
 }
 
+.new-training__col {
+    margin-top: 20px;
+}
+
+.new-training__empty {
+    text-align: center;
+    padding: 32px 0;
+    color: $text-tertiary;
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+    border-radius: $border-radius;
+    margin: 16px 0;
+}
+
+.new-training__empty-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.new-training__empty-text {
+    font-size: 0.9375rem;
+}
+
+.new-training__empty-error {
+    margin-top: 12px;
+}
+
 .new-training__buttons {
     display: flex;
     flex-direction: row;
