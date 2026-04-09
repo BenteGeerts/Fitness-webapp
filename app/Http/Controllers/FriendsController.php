@@ -20,8 +20,10 @@ class FriendsController extends Controller
 
 
         $worldLeaderboard = Achievement::with('user')
-            ->take(10)
+            ->selectRaw('user_id, SUM(total_diamonds) as total_diamonds')
+            ->groupBy('user_id')
             ->orderBy('total_diamonds', 'desc')
+            ->take(10)
             ->get();
 
         return view("friends", ['friends' => $friends, 'worldLeaderboard' => $worldLeaderboard, 'user' => $user]);
