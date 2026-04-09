@@ -443,5 +443,483 @@ class ExerciseSeeder extends Seeder
             "diamonds" => 5,
             "category_id" => 7,
         ]);
+
+        // ── CHEST ──────────────────────────────────────────────────────────────
+
+        DB::table("exercises")->insert([
+            "name" => "Push Up",
+            "slug" => "push-up",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/IODxDxX7oi4",
+            "common_mistakes" => "Sagging hips instead of keeping a straight body line\nFlaring elbows out at 90° angles\nNot going to full depth\nFailing to engage the core throughout the movement",
+            "diamonds" => 3,
+            "category_id" => 1,
+        ]);
+
+        DB::table("exercises")->insert([
+            "name" => "Incline Barbell Bench Press",
+            "slug" => "incline-barbell-bench-press",
+            "icon_id" => 1,
+            "image_url" => (asset("storage/exercises/Incline-Barbell-Bench-Press.gif")),
+            "video_url" => "https://www.youtube.com/embed/jPLdzuHckI8",
+            "common_mistakes" => "Setting the bench angle too steep\nBouncing the bar off your chest\nFlaring your elbows excessively\nLifting your butt off the bench",
+            "diamonds" => 5,
+            "category_id" => 1,
+        ]);
+
+        DB::table("exercises")->insert([
+            "name" => "Decline Bench Press",
+            "slug" => "decline-bench-press",
+            "icon_id" => 1,
+            "image_url" => (asset("storage/exercises/Decline-Barbell-Bench-Press.gif")),
+            "video_url" => "https://www.youtube.com/embed/OR8CkNi_R6c",
+            "common_mistakes" => "Using too much weight before mastering the movement\nBouncing the bar off the lower chest\nNot securing your feet properly in the pads\nFlaring elbows out too wide",
+            "diamonds" => 4,
+            "category_id" => 1,
+        ]);
+
+        DB::table("exercises")->insert([
+            "name" => "Pec Deck Machine",
+            "slug" => "pec-deck-machine",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/Z57CtFmRMxA",
+            "common_mistakes" => "Bringing the pads too far back and overstretching the chest\nUsing too much weight and relying on momentum\nNot controlling the eccentric phase\nShrugging the shoulders during the movement",
+            "diamonds" => 3,
+            "category_id" => 1,
+        ]);
+
+        DB::table("exercises")->insert([
+            "name" => "Cable Chest Fly",
+            "slug" => "cable-chest-fly",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/ta1SLNElKes",
+            "common_mistakes" => "Straightening the arms completely and straining the elbows\nLeaning too far forward and turning it into a press\nNot maintaining a slight fixed bend in the elbows\nAllowing the cables to pull your arms too far back",
+            "diamonds" => 4,
+            "category_id" => 1,
+        ]);
+
+        // ── BACK ───────────────────────────────────────────────────────────────
+
+        DB::table("exercises")->insert([
+            "name" => "T-Bar Row",
+            "slug" => "t-bar-row",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/j3dCcx-KwHw",
+            "common_mistakes" => "Rounding the lower back under heavy load\nUsing too much weight and relying on momentum\nPulling with the arms instead of driving the elbows back\nNot maintaining a neutral spine throughout",
+            "diamonds" => 5,
+            "category_id" => 2,
+        ]);
+
+        DB::table("exercises")->insert([
+            "name" => "Face Pull",
+            "slug" => "face-pull",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/V8dZ3pyiCBo",
+            "common_mistakes" => "Using too much weight and losing control\nPulling to the neck instead of the forehead\nNot rotating the wrists externally at the end\nAllowing the elbows to drop below shoulder height",
+            "diamonds" => 3,
+            "category_id" => 2,
+        ]);
+
+        DB::table("exercises")->insert([
+            "name" => "Cable Row",
+            "slug" => "cable-row",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/GZbfZ033f74",
+            "common_mistakes" => "Rounding your back at the end of the pull\nUsing too much momentum by swinging the torso\nNot fully extending the arms on the way out\nPulling with the biceps rather than the back",
+            "diamonds" => 4,
+            "category_id" => 2,
+        ]);
+
+        DB::table("exercises")->insert([
+            "name" => "Back Extension",
+            "slug" => "back-extension",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/ph3pddpKzzw",
+            "common_mistakes" => "Hyperextending the spine at the top of the movement\nRounding the back on the way down\nMoving too fast and using momentum\nPlacing the pad too high on the hips",
+            "diamonds" => 3,
+            "category_id" => 2,
+        ]);
+
+        DB::table("exercises")->insert([
+            "name" => "Chest Supported Row",
+            "slug" => "chest-supported-row",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/bnBzFaVCGaM",
+            "common_mistakes" => "Raising your chest off the pad and using body English\nPulling with your biceps instead of your elbows\nNot squeezing the shoulder blades together at the top\nUsing too wide a grip and losing lat engagement",
+            "diamonds" => 4,
+            "category_id" => 2,
+        ]);
+
+        // ── LEGS ───────────────────────────────────────────────────────────────
+
+        DB::table("exercises")->insert([
+            "name" => "Romanian Deadlift",
+            "slug" => "romanian-deadlift",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/7j-2w9JUjbY",
+            "common_mistakes" => "Rounding the lower back instead of maintaining a neutral spine\nBending the knees too much turning it into a squat\nNot keeping the bar close to the body throughout\nLooking too far upward and straining the neck",
+            "diamonds" => 5,
+            "category_id" => 3,
+        ]);
+
+        DB::table("exercises")->insert([
+            "name" => "Walking Lunges",
+            "slug" => "walking-lunges",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/L8fvypPrzzs",
+            "common_mistakes" => "Front knee caving inward during the lunge\nLeaning too far forward from the hips\nNot taking a large enough step\nAllowing the back knee to slam into the floor",
+            "diamonds" => 4,
+            "category_id" => 3,
+        ]);
+
+        DB::table("exercises")->insert([
+            "name" => "Goblet Squat",
+            "slug" => "goblet-squat",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/MxsFDhcyFyE",
+            "common_mistakes" => "Heels rising off the ground due to poor ankle mobility\nKnees caving inward during the descent\nHolding the weight too far from the chest\nNot squatting to full depth",
+            "diamonds" => 3,
+            "category_id" => 3,
+        ]);
+
+        DB::table("exercises")->insert([
+            "name" => "Standing Calf Raise",
+            "slug" => "standing-calf-raise",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/gwLzBJYoWlI",
+            "common_mistakes" => "Bouncing at the bottom and not getting a full stretch\nNot pausing and squeezing at the top of the movement\nRushing through reps with poor control\nUsing a limited range of motion",
+            "diamonds" => 3,
+            "category_id" => 3,
+        ]);
+
+        DB::table("exercises")->insert([
+            "name" => "Sumo Deadlift",
+            "slug" => "sumo-deadlift",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/OCFNjC_pBTU",
+            "common_mistakes" => "Knees caving inward instead of tracking over the toes\nNot pushing the floor away with your legs\nRounding the lower back at the start of the pull\nBending the arms and turning the lift into a row",
+            "diamonds" => 5,
+            "category_id" => 3,
+        ]);
+
+        DB::table("exercises")->insert([
+            "name" => "Cable Glute Kickback",
+            "slug" => "cable-glute-kickback",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/2s-JmWl0GFM",
+            "common_mistakes" => "Hyperextending and rotating the lower back\nUsing momentum to swing the leg up\nNot squeezing the glute at the top of the movement\nBending the support knee excessively for balance",
+            "diamonds" => 3,
+            "category_id" => 3,
+        ]);
+
+        // ── ARMS ───────────────────────────────────────────────────────────────
+
+        DB::table("exercises")->insert([
+            "name" => "Skull Crushers",
+            "slug" => "skull-crushers",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/d_KZxkY_0cM",
+            "common_mistakes" => "Flaring the elbows outward instead of keeping them vertical\nLowering the bar to the forehead instead of behind the head\nUsing too much weight and losing elbow position\nNot controlling the descent phase",
+            "diamonds" => 4,
+            "category_id" => 4,
+        ]);
+
+        DB::table("exercises")->insert([
+            "name" => "Rope Pushdown",
+            "slug" => "rope-pushdown",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/vB5OHsJ3EME",
+            "common_mistakes" => "Not spreading the rope apart at the bottom of the rep\nLeaning too far forward and turning it into a press\nAllowing the elbows to drift away from the body\nUsing momentum by swinging the upper arms",
+            "diamonds" => 3,
+            "category_id" => 4,
+        ]);
+
+        DB::table("exercises")->insert([
+            "name" => "Overhead Tricep Extension",
+            "slug" => "overhead-tricep-extension",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/YbX7Wd8jQ-Q",
+            "common_mistakes" => "Flaring the elbows outward during the movement\nArching the lower back excessively\nNot controlling the dumbbell on the way down\nUsing a weight too heavy to maintain proper form",
+            "diamonds" => 4,
+            "category_id" => 4,
+        ]);
+
+        DB::table("exercises")->insert([
+            "name" => "Preacher Curl",
+            "slug" => "preacher-curl",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/fIWP-FRFNU0",
+            "common_mistakes" => "Using too much weight and shortening the range of motion\nNot fully extending the arm at the bottom\nSwinging the upper body to assist the curl\nLetting the arms lift off the pad at the top",
+            "diamonds" => 4,
+            "category_id" => 4,
+        ]);
+
+        DB::table("exercises")->insert([
+            "name" => "Cable Bicep Curl",
+            "slug" => "cable-bicep-curl",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/NFzTWp2qpiE",
+            "common_mistakes" => "Allowing elbows to swing forward and backward\nUsing body momentum to initiate the curl\nNot squeezing the bicep at the top of the movement\nGripping the bar too tightly and engaging forearms",
+            "diamonds" => 3,
+            "category_id" => 4,
+        ]);
+
+        DB::table("exercises")->insert([
+            "name" => "Concentration Curl",
+            "slug" => "concentration-curl",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/Jvj2wV0vOYU",
+            "common_mistakes" => "Moving the elbow off the inner thigh during the curl\nUsing a weight so heavy it requires body assistance\nNot supinating the wrist fully at the top\nRushing the eccentric and losing tension",
+            "diamonds" => 4,
+            "category_id" => 4,
+        ]);
+
+        // ── SHOULDERS ──────────────────────────────────────────────────────────
+
+        DB::table("exercises")->insert([
+            "name" => "Cable Lateral Raise",
+            "slug" => "cable-lateral-raise",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/PPF5QTKT5Aw",
+            "common_mistakes" => "Using too much weight and recruiting the traps\nLeaning to the side to gain momentum\nNot controlling the descent and letting the cable snap back\nRaising the arm too high above shoulder level",
+            "diamonds" => 4,
+            "category_id" => 5,
+        ]);
+
+        DB::table("exercises")->insert([
+            "name" => "Dumbbell Shrug",
+            "slug" => "dumbbell-shrug",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/cJRVVxmytaM",
+            "common_mistakes" => "Rolling the shoulders in a circular motion instead of straight up\nUsing momentum by bending the knees\nNot pausing and squeezing the traps at the top\nHolding the dumbbells too far from the body",
+            "diamonds" => 3,
+            "category_id" => 5,
+        ]);
+
+        DB::table("exercises")->insert([
+            "name" => "Barbell Shrug",
+            "slug" => "barbell-shrug",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/sSr7auUb3s4",
+            "common_mistakes" => "Rolling the shoulders forward or backward\nLeaning back and using the lower back\nNot holding the contraction at the top\nUsing an overly wide grip that limits range of motion",
+            "diamonds" => 3,
+            "category_id" => 5,
+        ]);
+
+        DB::table("exercises")->insert([
+            "name" => "Cable Face Pull",
+            "slug" => "cable-face-pull",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/rep-qVOkqgk",
+            "common_mistakes" => "Pulling the rope to the neck instead of the forehead\nFlaring the elbows too high above shoulder level\nUsing too much weight and losing external rotation\nNot keeping the upper arms parallel to the floor",
+            "diamonds" => 3,
+            "category_id" => 5,
+        ]);
+
+        // ── CORE ───────────────────────────────────────────────────────────────
+
+        DB::table("exercises")->insert([
+            "name" => "Russian Twist",
+            "slug" => "russian-twist",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/wkD8rjkodUI",
+            "common_mistakes" => "Rounding the back instead of leaning with a straight spine\nTwisting only the arms and not rotating the torso\nMoving too quickly and losing control\nNot keeping the feet elevated to increase difficulty",
+            "diamonds" => 3,
+            "category_id" => 6,
+        ]);
+
+        DB::table("exercises")->insert([
+            "name" => "Bicycle Crunch",
+            "slug" => "bicycle-crunch",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/9FGilxCbdz8",
+            "common_mistakes" => "Pulling on the neck with the hands\nRushing through the movement without full rotation\nNot fully extending the opposite leg\nLifting the lower back off the floor",
+            "diamonds" => 3,
+            "category_id" => 6,
+        ]);
+
+        DB::table("exercises")->insert([
+            "name" => "Ab Wheel Rollout",
+            "slug" => "ab-wheel-rollout",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/5cG-9bqnJMU",
+            "common_mistakes" => "Letting the lower back sag when rolling out\nRolling too far out before building the necessary core strength\nNot engaging the lats and core throughout the movement\nHolding the breath instead of breathing steadily",
+            "diamonds" => 5,
+            "category_id" => 6,
+        ]);
+
+        DB::table("exercises")->insert([
+            "name" => "Hanging Leg Raise",
+            "slug" => "hanging-leg-raise",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/hdng3Nm1x_E",
+            "common_mistakes" => "Swinging the body to use momentum instead of core strength\nNot controlling the legs on the way down\nBending the knees excessively to make it easier\nFailing to posteriorly tilt the pelvis",
+            "diamonds" => 5,
+            "category_id" => 6,
+        ]);
+
+        DB::table("exercises")->insert([
+            "name" => "Mountain Climber",
+            "slug" => "mountain-climber",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/nmwgirgXLYM",
+            "common_mistakes" => "Raising the hips too high in a pike position\nNot fully engaging the core and allowing it to sag\nBouncing the upper body with each knee drive\nMoving so fast that form breaks down completely",
+            "diamonds" => 3,
+            "category_id" => 6,
+        ]);
+
+        DB::table("exercises")->insert([
+            "name" => "Dead Bug",
+            "slug" => "dead-bug",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/g_BYB0R-4Ws",
+            "common_mistakes" => "Allowing the lower back to arch off the floor\nHolding the breath instead of exhaling on the extension\nMoving the opposite limbs too quickly and losing control\nNot pressing the lower back firmly into the floor",
+            "diamonds" => 4,
+            "category_id" => 6,
+        ]);
+
+        // ── FULL BODY ──────────────────────────────────────────────────────────
+
+        DB::table("exercises")->insert([
+            "name" => "Power Clean",
+            "slug" => "power-clean",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/GG1WaDmE9xU",
+            "common_mistakes" => "Bending the arms too early before full hip extension\nNot generating enough power from the legs and hips\nPulling the bar outward away from the body\nFailing to get under the bar quickly enough",
+            "diamonds" => 5,
+            "category_id" => 7,
+        ]);
+
+        DB::table("exercises")->insert([
+            "name" => "Kettlebell Swing",
+            "slug" => "kettlebell-swing",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/YSxHifyI6s8",
+            "common_mistakes" => "Squatting instead of hinging at the hips\nRounding the lower back at the bottom of the swing\nUsing shoulder strength instead of hip drive\nNot fully extending the hips at the top",
+            "diamonds" => 4,
+            "category_id" => 7,
+        ]);
+
+        DB::table("exercises")->insert([
+            "name" => "Turkish Get Up",
+            "slug" => "turkish-get-up",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/0bWRPC49-KI",
+            "common_mistakes" => "Rushing through the individual steps of the movement\nLosing eye contact with the weight at any point\nNot fully stabilising in each position before moving on\nUsing a weight that is too heavy for your current skill level",
+            "diamonds" => 5,
+            "category_id" => 7,
+        ]);
+
+        DB::table("exercises")->insert([
+            "name" => "Thruster",
+            "slug" => "thruster",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/L219ltL15zk",
+            "common_mistakes" => "Not squatting to full depth before initiating the press\nPressing the bar before reaching full hip extension\nLosing the front rack position during the squat\nAllowing the lower back to round under fatigue",
+            "diamonds" => 5,
+            "category_id" => 7,
+        ]);
+
+        // ── CARDIO ─────────────────────────────────────────────────────────────
+
+        DB::table("exercises")->insert([
+            "name" => "Burpees",
+            "slug" => "burpees",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/818EQLDjDxw",
+            "common_mistakes" => "Sagging the hips during the plank portion\nNot performing a full squat before jumping\nLanding on straight legs and stressing the knees\nOmitting the jump at the top to save energy",
+            "diamonds" => 4,
+            "category_id" => 8,
+        ]);
+
+        DB::table("exercises")->insert([
+            "name" => "Box Jump",
+            "slug" => "box-jump",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/52r_Ul5k03g",
+            "common_mistakes" => "Landing on the toes without absorbing impact through the whole foot\nNot using a powerful arm swing to add momentum\nStepping down carelessly instead of stepping or jumping down safely\nUsing a box that is too high before building proper strength",
+            "diamonds" => 4,
+            "category_id" => 8,
+        ]);
+
+        DB::table("exercises")->insert([
+            "name" => "Jump Rope",
+            "slug" => "jump-rope",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/FJmRQ5iTXKE",
+            "common_mistakes" => "Jumping too high and wasting energy on each rotation\nDriving the rope with the full arm instead of the wrists\nLooking down at the feet instead of straight ahead\nLanding flat-footed and not staying on the balls of the feet",
+            "diamonds" => 3,
+            "category_id" => 8,
+        ]);
+
+        DB::table("exercises")->insert([
+            "name" => "Battle Ropes",
+            "slug" => "battle-ropes",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/AZeEL-y69vw",
+            "common_mistakes" => "Using too much arm swing and not driving from the core\nStanding upright instead of maintaining an athletic stance\nNot keeping the core engaged throughout the exercise\nCreating slack in the rope by standing too far from the anchor",
+            "diamonds" => 4,
+            "category_id" => 8,
+        ]);
+
+        DB::table("exercises")->insert([
+            "name" => "Jumping Jacks",
+            "slug" => "jumping-jacks",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/iSSAk4XCsRA",
+            "common_mistakes" => "Not fully extending the arms overhead on each rep\nLanding with stiff straight legs and not softening the knees\nFailing to engage the core throughout the movement\nMoving too fast and allowing form to deteriorate",
+            "diamonds" => 2,
+            "category_id" => 8,
+        ]);
+
+        DB::table("exercises")->insert([
+            "name" => "Treadmill Sprint",
+            "slug" => "treadmill-sprint",
+            "icon_id" => 1,
+            "image_url" => "",
+            "video_url" => "https://www.youtube.com/embed/cMYnf2HfvVs",
+            "common_mistakes" => "Holding the handrails and reducing the effectiveness of the workout\nLeaning too far back instead of maintaining a slight forward lean\nStarting at maximum speed without a proper warm-up\nNot pumping the arms in sync with the legs",
+            "diamonds" => 3,
+            "category_id" => 8,
+        ]);
     }
 }
