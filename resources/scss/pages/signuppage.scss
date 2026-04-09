@@ -28,29 +28,3 @@
     }
 }
 
-.signup__buttons {
-    width: 100%;
-    display: none;
-    justify-content: space-evenly;
-    flex-direction: row;
-
-    @include media-breakpoint-up(lg) {
-        display: flex;
-    }
-}
-
-.signup__button {
-    margin-bottom: 16px;
-
-    @include media-breakpoint-up(lg) {
-        display: none;
-    }
-
-    &--hidden {
-        display: none;
-
-        @include media-breakpoint-up(lg) {
-            display: block;
-        }
-    }
-}

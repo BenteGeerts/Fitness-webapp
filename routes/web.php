@@ -36,8 +36,6 @@ Route::middleware('guest')->group(function () {
 
     Route::get("/google-login", [AuthController::class, "googleLogin"])->name("googleLogin");
     Route::get("/google-redirect", [AuthController::class, "googleRedirect"]);
-    Route::get("/microsoft-login", [AuthController::class, "microsoftLogin"])->name("microsoftLogin");
-    Route::get("/microsoft-redirect", [AuthController::class, "microsoftRedirect"]);
 
     Route::get("/password/reset/{token}", [ResetPasswordController::class, "showResetForm"])->name("password.reset");
     Route::get("/password/reset", [ForgotPasswordController::class, "showLinkRequestForm"])->name("password.request");

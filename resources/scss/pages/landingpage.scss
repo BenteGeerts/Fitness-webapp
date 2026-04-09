@@ -111,13 +111,8 @@
     font-size: 0.875rem;
 }
 
-.landingpage__buttons {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
-
-    padding-bottom: $small-spacing;
+.landingpage__social-btn {
+    margin-bottom: $small-spacing;
 }
 
 .landingpage__row {

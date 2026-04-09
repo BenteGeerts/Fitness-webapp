@@ -23,16 +23,10 @@
                         <hr class="divider__line">
                     </div>
 
-                    <div class="landingpage__buttons">
-                        <a class="button button--secondary button--icon" href="{{ Route('googleLogin') }}">
-                            <img class="button__img" src="/images/googleIcon.png" alt="Google">
-                            Google
-                        </a>
-                        <a class="button button--secondary button--icon" href="{{ Route('microsoftLogin') }}">
-                            <img class="button__img" src="/images/microsoftIcon.png" alt="Microsoft">
-                            Microsoft
-                        </a>
-                    </div>
+                    <a class="button button--secondary button--icon button--big landingpage__social-btn" href="{{ Route('googleLogin') }}">
+                        <img class="button__img" src="/images/googleIcon.png" alt="Google">
+                        Continue with Google
+                    </a>
 
                     <p class="landingpage__signin-text">
                         Already have an account?

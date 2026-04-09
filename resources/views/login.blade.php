@@ -59,27 +59,10 @@
                     <hr class="divider__line">
                 </div>
 
-                {{-- Mobile: stacked --}}
-                <a class="button button--icon button--big button--secondary signup__button" href="{{ Route('googleLogin') }}">
+                <a class="button button--icon button--big button--secondary" href="{{ Route('googleLogin') }}">
                     <img class="button__img" src="/images/googleIcon.png" alt="Google">
                     Continue with Google
                 </a>
-                <a class="button button--icon button--big button--secondary signup__button signup__button--spaced" href="{{ Route('microsoftLogin') }}">
-                    <img class="button__img" src="/images/microsoftIcon.png" alt="Microsoft">
-                    Continue with Microsoft
-                </a>
-
-                {{-- Desktop: side by side --}}
-                <div class="signup__buttons">
-                    <a class="button button--secondary button--icon signup__button--hidden" href="{{ Route('googleLogin') }}">
-                        <img class="button__img" src="/images/googleIcon.png" alt="Google">
-                        Google
-                    </a>
-                    <a class="button button--secondary button--icon signup__button--hidden" href="{{ Route('microsoftLogin') }}">
-                        <img class="button__img" src="/images/microsoftIcon.png" alt="Microsoft">
-                        Microsoft
-                    </a>
-                </div>
             </div>
         </div>
     </section>

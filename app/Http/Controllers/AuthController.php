@@ -134,48 +134,6 @@ class AuthController extends Controller
         return redirect()->route("setup");
     }
 
-    public function microsoftLogin()
-    {
-        if (empty(Auth::user())) {
-            return Socialite::driver('microsoft')->redirect();
-        }
-        if (!empty(Auth::user())) {
-            return redirect()->route("home");
-        }
-    }
-
-    public function microsoftRedirect()
-    {
-        $user = Socialite::driver("microsoft")->user();
-        $email = User::where('email', '=', $user->email)->first();
-
-        if (!empty($email) && empty($email->password)) {
-            Auth::login($email);
-            return redirect()->route("home");
-        }
-        if (empty($email)) {
-            $userAvatar = $user->avatar;
-
-            if (is_null($userAvatar)) {
-                $userAvatar = AuthTrait::createAvatar($user->name);
-            }
-
-            $username = AuthTrait::setUserName($user->name);
-
-            $user = User::create(
-                [
-                    "name" => $user->name,
-                    "username" => $username,
-                    "email" => $user->email,
-                    "avatar" => $userAvatar
-                ]
-            );
-            Auth::login($user);
-        }
-
-        return redirect()->route("setup");
-    }
-
     public function logOut()
     {
         Auth::logout();
