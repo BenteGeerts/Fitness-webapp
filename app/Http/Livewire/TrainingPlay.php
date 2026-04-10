@@ -25,13 +25,24 @@ class TrainingPlay extends Component
     public $currentIndex = 0;
 
     public $existingSets = [];
-
+    public $prs = [];
 
     public function mount()
     {
         $this->training = TrainingProgram::where("slug", $this->slug)->first();
         $this->exercises = $this->training->exercises;
         $this->loadExistingSets();
+        $this->loadPRs();
+    }
+
+    public function loadPRs()
+    {
+        $this->prs = ExerciseHistory::where('user_id', auth()->id())
+            ->whereIn('exercise_id', $this->exercises->pluck('id'))
+            ->selectRaw('exercise_id, MAX(weight) as max_weight')
+            ->groupBy('exercise_id')
+            ->pluck('max_weight', 'exercise_id')
+            ->toArray();
     }
 
     public function render()

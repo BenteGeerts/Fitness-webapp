@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Exercise;
+use App\Models\ExerciseHistory;
 use App\Models\TrainingProgram;
 use App\Models\TrainingProgramHasWeight;
 use App\Models\TrainingProgramsHistory;
@@ -17,12 +18,24 @@ class TrainingDetail extends Component
     public $decoded;
 
     public $showModal = false;
+    public $prs = [];
 
     public function mount(TrainingProgram $training)
     {
         $this->training = $training;
         $this->exercises = $this->training->exercises;
         $this->loadExistingSets();
+        $this->loadPRs();
+    }
+
+    public function loadPRs()
+    {
+        $this->prs = ExerciseHistory::where('user_id', auth()->id())
+            ->whereIn('exercise_id', $this->exercises->pluck('id'))
+            ->selectRaw('exercise_id, MAX(weight) as max_weight')
+            ->groupBy('exercise_id')
+            ->pluck('max_weight', 'exercise_id')
+            ->toArray();
     }
 
     public function loadExistingSets()

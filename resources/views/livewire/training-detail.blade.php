@@ -37,6 +37,12 @@
                                         <i class="icon-diamond program__icon program__icon--purple"></i>
                                         <p class="program__icon-text">{{ $exercise->diamonds }}</p>
                                     </div>
+                                    @if(isset($prs[$exercise->id]))
+                                        <div class="program__icon-wrapper">
+                                            <i class="icon-weight program__icon program__icon--green"></i>
+                                            <p class="program__icon-text">PR: {{ $prs[$exercise->id] }} kg</p>
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
