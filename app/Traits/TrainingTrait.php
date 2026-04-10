@@ -22,6 +22,30 @@ trait TrainingTrait
         return round(($baseDiamonds * $userData->age * $reps * $weight * ($userData->height) / 100) / 1000);
     }
 
+    public static function calculateCardioTimeDiamonds($exerciseId, $reps, $seconds, $doublePoints)
+    {
+        $exercise = Exercise::find($exerciseId)->first();
+        $baseDiamonds = $exercise->diamonds;
+        $userData = UserData::where('user_id', auth()->id())->first();
+
+        if ($doublePoints) {
+            return round(($baseDiamonds * $userData->age * $reps * $seconds * ($userData->height) / 100) / 1000) * 2;
+        }
+        return round(($baseDiamonds * $userData->age * $reps * $seconds * ($userData->height) / 100) / 1000);
+    }
+
+    public static function calculateCardioDistanceDiamonds($exerciseId, $distance, $doublePoints)
+    {
+        $exercise = Exercise::find($exerciseId)->first();
+        $baseDiamonds = $exercise->diamonds;
+        $userData = UserData::where('user_id', auth()->id())->first();
+
+        if ($doublePoints) {
+            return round(($baseDiamonds * $userData->age * ($distance / 10) * ($userData->height) / 100) / 1000) * 2;
+        }
+        return round(($baseDiamonds * $userData->age * ($distance / 10) * ($userData->height) / 100) / 1000);
+    }
+
     public static function setLastTrainingWeight($achievement, $weight)
     {
         if (isset($weight) && $weight > 0) {

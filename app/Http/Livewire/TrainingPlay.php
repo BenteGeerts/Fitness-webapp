@@ -129,28 +129,32 @@ class TrainingPlay extends Component
             foreach ($exerciseSets as $index => $set) {
                 if ($type === 'cardio_time') {
                     if (!isset($set['reps']) || !isset($set['seconds'])) continue;
+                    $diamonds = TrainingTrait::calculateCardioTimeDiamonds($exerciseId, $set['reps'], $set['seconds'], $hasDoublePointsPowerUp);
                     $histories[] = [
                         'user_id'          => auth()->id(),
                         'exercise_id'      => $exerciseId,
                         'reps'             => $set['reps'],
                         'seconds'          => $set['seconds'],
                         'weight'           => null,
-                        'gained_diamonds'  => 0,
+                        'gained_diamonds'  => $diamonds,
                         'created_at'       => now(),
                         'updated_at'       => now(),
                     ];
+                    $totalDiamonds += $diamonds;
                 } elseif ($type === 'cardio_distance') {
                     if (!isset($set['distance'])) continue;
+                    $diamonds = TrainingTrait::calculateCardioDistanceDiamonds($exerciseId, $set['distance'], $hasDoublePointsPowerUp);
                     $histories[] = [
                         'user_id'          => auth()->id(),
                         'exercise_id'      => $exerciseId,
                         'distance'         => $set['distance'],
                         'reps'             => null,
                         'weight'           => null,
-                        'gained_diamonds'  => 0,
+                        'gained_diamonds'  => $diamonds,
                         'created_at'       => now(),
                         'updated_at'       => now(),
                     ];
+                    $totalDiamonds += $diamonds;
                 } else {
                     if (!isset($set['reps']) || !isset($set['weight'])) continue;
                     $diamonds = TrainingTrait::calculateDiamonds($exerciseId, $set['reps'], $set['weight'], $hasDoublePointsPowerUp);
