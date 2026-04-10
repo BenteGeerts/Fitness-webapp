@@ -7,12 +7,27 @@
                     <a class="no-underline" href="{{ route('training') }}">
                         <i class="icon-back page__heading-icon"></i>
                     </a>
-                    <h1>{{ $training->name }}</h1>
+                    @if($editingName)
+                        <input class="training__name-input" wire:model="editName" wire:keydown.enter="saveName" wire:keydown.escape="$set('editingName', false)" type="text" autofocus>
+                    @else
+                        <h1>{{ $training->name }}</h1>
+                    @endif
                 </div>
-                @if($training->id > 6)
-                    <a wire:click="toggleModal" class="page__heading-icon" title="Delete program">
-                        <i class="icon-delete"></i>
-                    </a>
+                @if($training->user_id === auth()->id())
+                    <div class="page__heading-actions">
+                        @if($editingName)
+                            <a wire:click="saveName" class="page__heading-icon" title="Save name">
+                                <i class="icon-checkmark"></i>
+                            </a>
+                        @else
+                            <a wire:click="startEditingName" class="page__heading-icon" title="Edit name">
+                                <i class="icon-edit"></i>
+                            </a>
+                        @endif
+                        <a wire:click="toggleModal" class="page__heading-icon" title="Delete program">
+                            <i class="icon-delete"></i>
+                        </a>
+                    </div>
                 @endif
             </div>
 

@@ -21,6 +21,23 @@
     }
 }
 
+.page__heading-actions {
+    display: flex;
+    align-items: center;
+}
+
+.training__name-input {
+    background: transparent;
+    border: none;
+    border-bottom: 1.5px solid $accent;
+    color: $text-primary;
+    font-size: 1.5rem;
+    font-weight: 700;
+    outline: none;
+    width: 100%;
+    padding: 2px 0;
+}
+
 .page__heading-settings {
     font-size: 1.75rem;
     text-decoration: none;

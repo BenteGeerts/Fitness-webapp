@@ -18,6 +18,8 @@ class TrainingDetail extends Component
     public $decoded;
 
     public $showModal = false;
+    public $editingName = false;
+    public $editName = '';
     public $prs = [];
 
     public function mount(TrainingProgram $training)
@@ -147,6 +149,19 @@ class TrainingDetail extends Component
         }
 
         return redirect()->route('training');
+    }
+
+    public function startEditingName()
+    {
+        $this->editName = $this->training->name;
+        $this->editingName = true;
+    }
+
+    public function saveName()
+    {
+        $this->training->name = trim($this->editName);
+        $this->training->save();
+        $this->editingName = false;
     }
 
     public function toggleModal()
