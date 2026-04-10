@@ -865,6 +865,7 @@ class ExerciseSeeder extends Seeder
             "common_mistakes" => "Sagging the hips during the plank portion\nNot performing a full squat before jumping\nLanding on straight legs and stressing the knees\nOmitting the jump at the top to save energy",
             "diamonds" => 4,
             "category_id" => 8,
+            "exercise_type" => "cardio_time",
         ]);
 
         DB::table("exercises")->insert([
@@ -876,6 +877,7 @@ class ExerciseSeeder extends Seeder
             "common_mistakes" => "Landing on the toes without absorbing impact through the whole foot\nNot using a powerful arm swing to add momentum\nStepping down carelessly instead of stepping or jumping down safely\nUsing a box that is too high before building proper strength",
             "diamonds" => 4,
             "category_id" => 8,
+            "exercise_type" => "cardio_time",
         ]);
 
         DB::table("exercises")->insert([
@@ -887,6 +889,7 @@ class ExerciseSeeder extends Seeder
             "common_mistakes" => "Jumping too high and wasting energy on each rotation\nDriving the rope with the full arm instead of the wrists\nLooking down at the feet instead of straight ahead\nLanding flat-footed and not staying on the balls of the feet",
             "diamonds" => 3,
             "category_id" => 8,
+            "exercise_type" => "cardio_time",
         ]);
 
         DB::table("exercises")->insert([
@@ -898,6 +901,7 @@ class ExerciseSeeder extends Seeder
             "common_mistakes" => "Using too much arm swing and not driving from the core\nStanding upright instead of maintaining an athletic stance\nNot keeping the core engaged throughout the exercise\nCreating slack in the rope by standing too far from the anchor",
             "diamonds" => 4,
             "category_id" => 8,
+            "exercise_type" => "cardio_time",
         ]);
 
         DB::table("exercises")->insert([
@@ -909,6 +913,7 @@ class ExerciseSeeder extends Seeder
             "common_mistakes" => "Not fully extending the arms overhead on each rep\nLanding with stiff straight legs and not softening the knees\nFailing to engage the core throughout the movement\nMoving too fast and allowing form to deteriorate",
             "diamonds" => 2,
             "category_id" => 8,
+            "exercise_type" => "cardio_time",
         ]);
 
         DB::table("exercises")->insert([
@@ -920,6 +925,7 @@ class ExerciseSeeder extends Seeder
             "common_mistakes" => "Holding the handrails and reducing the effectiveness of the workout\nLeaning too far back instead of maintaining a slight forward lean\nStarting at maximum speed without a proper warm-up\nNot pumping the arms in sync with the legs",
             "diamonds" => 3,
             "category_id" => 8,
+            "exercise_type" => "cardio_distance",
         ]);
     }
 }

@@ -158,18 +158,39 @@
                                         <span class="training__history-sets">{{ count($exercise) }} sets</span>
                                     </div>
 
+                                    @php $exerciseType = $exercise[0]->exercise->exercise_type; @endphp
                                     <div class="training__set-header">
                                         <span>#</span>
-                                        <span>Reps</span>
-                                        <span></span>
-                                        <span>Weight</span>
+                                        @if($exerciseType === 'cardio_distance')
+                                            <span>Distance (m)</span>
+                                            <span></span>
+                                            <span></span>
+                                        @elseif($exerciseType === 'cardio_time')
+                                            <span>Reps</span>
+                                            <span></span>
+                                            <span>Seconds</span>
+                                        @else
+                                            <span>Reps</span>
+                                            <span></span>
+                                            <span>Weight (kg)</span>
+                                        @endif
                                     </div>
                                     @foreach ($exercise as $i => $set)
                                         <div class="training__set-row training__set-row--subtle">
                                             <span class="training__set-number">{{ $i + 1 }}</span>
-                                            <span>{{ $set->reps }}</span>
-                                            <span class="training__set-separator">×</span>
-                                            <span>{{ $set->weight }} kg</span>
+                                            @if($exerciseType === 'cardio_distance')
+                                                <span>{{ $set->distance }}m</span>
+                                                <span></span>
+                                                <span></span>
+                                            @elseif($exerciseType === 'cardio_time')
+                                                <span>{{ $set->reps }}</span>
+                                                <span class="training__set-separator">×</span>
+                                                <span>{{ $set->seconds }}s</span>
+                                            @else
+                                                <span>{{ $set->reps }}</span>
+                                                <span class="training__set-separator">×</span>
+                                                <span>{{ $set->weight }} kg</span>
+                                            @endif
                                         </div>
                                     @endforeach
                                 </div>

@@ -29,7 +29,7 @@
                     @if(isset($prs[$exercise->id]))
                         <div class="program__icon-wrapper">
                             <i class="icon-weight program__icon program__icon--green"></i>
-                            <p class="program__icon-text">PR: {{ $prs[$exercise->id] }} kg</p>
+                            <p class="program__icon-text">PR: {{ $prs[$exercise->id] }}</p>
                         </div>
                     @endif
                 </div>
@@ -40,20 +40,43 @@
         <div class="training__input-wrapper training__input-wrapper--full">
             <div class="training__set-header">
                 <span>#</span>
-                <span>Reps</span>
-                <span></span>
-                <span>Weight (kg)</span>
+                @if($exercise->exercise_type === 'cardio_distance')
+                    <span>Distance (m)</span>
+                    <span></span>
+                    <span></span>
+                @elseif($exercise->exercise_type === 'cardio_time')
+                    <span>Reps</span>
+                    <span></span>
+                    <span>Seconds</span>
+                @else
+                    <span>Reps</span>
+                    <span></span>
+                    <span>Weight (kg)</span>
+                @endif
                 <span></span>
             </div>
 
             @foreach($existingSets[$exercise->id] ?? [] as $index => $set)
                 <div class="training__set-row">
                     <span class="training__set-number">{{ $index + 1 }}</span>
-                    <input class="training__input-field" type="number" placeholder="0"
-                           wire:model="existingSets.{{ $exercise->id }}.{{ $index }}.reps">
-                    <span class="training__set-separator">×</span>
-                    <input class="training__input-field" type="number" placeholder="0"
-                           wire:model="existingSets.{{ $exercise->id }}.{{ $index }}.weight">
+                    @if($exercise->exercise_type === 'cardio_distance')
+                        <input class="training__input-field" type="number" placeholder="0"
+                               wire:model="existingSets.{{ $exercise->id }}.{{ $index }}.distance">
+                        <span></span>
+                        <span></span>
+                    @elseif($exercise->exercise_type === 'cardio_time')
+                        <input class="training__input-field" type="number" placeholder="0"
+                               wire:model="existingSets.{{ $exercise->id }}.{{ $index }}.reps">
+                        <span class="training__set-separator">×</span>
+                        <input class="training__input-field" type="number" placeholder="0"
+                               wire:model="existingSets.{{ $exercise->id }}.{{ $index }}.seconds">
+                    @else
+                        <input class="training__input-field" type="number" placeholder="0"
+                               wire:model="existingSets.{{ $exercise->id }}.{{ $index }}.reps">
+                        <span class="training__set-separator">×</span>
+                        <input class="training__input-field" type="number" placeholder="0"
+                               wire:model="existingSets.{{ $exercise->id }}.{{ $index }}.weight">
+                    @endif
                     <button class="button button--tertiary training__set-remove"
                             wire:click="removeSet('{{ $exercise->id }}', {{ $index }})">
                         <i class="icon-delete"></i>
@@ -62,7 +85,7 @@
             @endforeach
 
             <button class="button button--secondary training__input-button training__input-button--under"
-                    wire:click="addSet('{{ $exercise->id }}')">
+                    wire:click="addSet('{{ $exercise->id }}', '{{ $exercise->exercise_type }}')">
                 + Add set
             </button>
         </div>

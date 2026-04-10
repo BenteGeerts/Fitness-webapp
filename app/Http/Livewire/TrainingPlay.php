@@ -37,11 +37,23 @@ class TrainingPlay extends Component
 
     public function loadPRs()
     {
+        $exerciseTypes = $this->exercises->pluck('exercise_type', 'id');
+
         $this->prs = ExerciseHistory::where('user_id', auth()->id())
             ->whereIn('exercise_id', $this->exercises->pluck('id'))
-            ->selectRaw('exercise_id, MAX(weight) as max_weight')
+            ->selectRaw('exercise_id, MAX(weight) as max_weight, MAX(seconds) as max_seconds, MAX(distance) as max_distance')
             ->groupBy('exercise_id')
-            ->pluck('max_weight', 'exercise_id')
+            ->get()
+            ->mapWithKeys(function ($row) use ($exerciseTypes) {
+                $type = $exerciseTypes[$row->exercise_id] ?? 'strength';
+                $value = match($type) {
+                    'cardio_time'     => $row->max_seconds ? $row->max_seconds . 's' : null,
+                    'cardio_distance' => $row->max_distance ? $row->max_distance . 'm' : null,
+                    default           => $row->max_weight ? $row->max_weight . ' kg' : null,
+                };
+                return [$row->exercise_id => $value];
+            })
+            ->filter()
             ->toArray();
     }
 
@@ -63,9 +75,11 @@ class TrainingPlay extends Component
         foreach ($groupedSets as $exerciseId => $sets) {
             foreach ($sets as $index => $set) {
                 $this->existingSets[$exerciseId][$index] = [
-                    'id' => $set->id,
-                    'reps' => $set->reps,
-                    'weight' => $set->weight,
+                    'id'       => $set->id,
+                    'reps'     => $set->reps,
+                    'weight'   => $set->weight,
+                    'seconds'  => $set->seconds,
+                    'distance' => $set->distance,
                 ];
             }
         }
@@ -85,9 +99,14 @@ class TrainingPlay extends Component
         }
     }
 
-    public function addSet($exerciseId)
+    public function addSet($exerciseId, $exerciseType = 'strength')
     {
-        $this->existingSets[$exerciseId][] = ['weight' => null, 'reps' => null];
+        $set = match($exerciseType) {
+            'cardio_time'     => ['reps' => null, 'seconds' => null],
+            'cardio_distance' => ['distance' => null],
+            default           => ['reps' => null, 'weight' => null],
+        };
+        $this->existingSets[$exerciseId][] = $set;
     }
 
     public function removeSet($exerciseId, $index)
@@ -103,18 +122,46 @@ class TrainingPlay extends Component
         $totalDiamonds = 0;
         $totalWeight = 0;
         $hasDoublePointsPowerUp = DiamondTrait::checkForDoublePointsPowerUp();
+        $exerciseTypes = $this->exercises->pluck('exercise_type', 'id');
+
         foreach ($this->existingSets as $exerciseId => $exerciseSets) {
+            $type = $exerciseTypes[$exerciseId] ?? 'strength';
             foreach ($exerciseSets as $index => $set) {
-                if (isset($set['reps']) && isset($set['weight'])) {
+                if ($type === 'cardio_time') {
+                    if (!isset($set['reps']) || !isset($set['seconds'])) continue;
+                    $histories[] = [
+                        'user_id'          => auth()->id(),
+                        'exercise_id'      => $exerciseId,
+                        'reps'             => $set['reps'],
+                        'seconds'          => $set['seconds'],
+                        'weight'           => null,
+                        'gained_diamonds'  => 0,
+                        'created_at'       => now(),
+                        'updated_at'       => now(),
+                    ];
+                } elseif ($type === 'cardio_distance') {
+                    if (!isset($set['distance'])) continue;
+                    $histories[] = [
+                        'user_id'          => auth()->id(),
+                        'exercise_id'      => $exerciseId,
+                        'distance'         => $set['distance'],
+                        'reps'             => null,
+                        'weight'           => null,
+                        'gained_diamonds'  => 0,
+                        'created_at'       => now(),
+                        'updated_at'       => now(),
+                    ];
+                } else {
+                    if (!isset($set['reps']) || !isset($set['weight'])) continue;
                     $diamonds = TrainingTrait::calculateDiamonds($exerciseId, $set['reps'], $set['weight'], $hasDoublePointsPowerUp);
                     $histories[] = [
-                        'user_id' => auth()->id(),
-                        'reps' => $set['reps'],
-                        'weight' => $set['weight'],
-                        'exercise_id' => $exerciseId,
-                        'gained_diamonds' => $diamonds,
-                        'created_at' => now(),
-                        'updated_at' => now(),
+                        'user_id'          => auth()->id(),
+                        'reps'             => $set['reps'],
+                        'weight'           => $set['weight'],
+                        'exercise_id'      => $exerciseId,
+                        'gained_diamonds'  => $diamonds,
+                        'created_at'       => now(),
+                        'updated_at'       => now(),
                     ];
                     $totalDiamonds += $diamonds;
                     $totalWeight += $set['weight'] * $set['reps'];

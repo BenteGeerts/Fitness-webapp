@@ -17,8 +17,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users');
             $table->foreignId('exercise_id')->references('id')->on('exercises');
-            $table->integer('reps');
-            $table->integer('weight');
+            $table->integer('reps')->nullable();
+            $table->integer('weight')->nullable();
+            $table->integer('seconds')->nullable();
+            $table->integer('distance')->nullable();
             $table->integer('gained_diamonds')->nullable();
             $table->timestamps();
         });

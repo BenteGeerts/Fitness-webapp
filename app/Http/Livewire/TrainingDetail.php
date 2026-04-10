@@ -30,11 +30,23 @@ class TrainingDetail extends Component
 
     public function loadPRs()
     {
+        $exerciseTypes = $this->exercises->pluck('exercise_type', 'id');
+
         $this->prs = ExerciseHistory::where('user_id', auth()->id())
             ->whereIn('exercise_id', $this->exercises->pluck('id'))
-            ->selectRaw('exercise_id, MAX(weight) as max_weight')
+            ->selectRaw('exercise_id, MAX(weight) as max_weight, MAX(seconds) as max_seconds, MAX(distance) as max_distance')
             ->groupBy('exercise_id')
-            ->pluck('max_weight', 'exercise_id')
+            ->get()
+            ->mapWithKeys(function ($row) use ($exerciseTypes) {
+                $type = $exerciseTypes[$row->exercise_id] ?? 'strength';
+                $value = match($type) {
+                    'cardio_time'     => $row->max_seconds ? $row->max_seconds . 's' : null,
+                    'cardio_distance' => $row->max_distance ? $row->max_distance . 'm' : null,
+                    default           => $row->max_weight ? $row->max_weight . ' kg' : null,
+                };
+                return [$row->exercise_id => $value];
+            })
+            ->filter()
             ->toArray();
     }
 
@@ -46,9 +58,11 @@ class TrainingDetail extends Component
         foreach ($groupedSets as $exerciseId => $sets) {
             foreach ($sets as $index => $set) {
                 $this->existingSets[$exerciseId][$index] = [
-                    'id' => $set->id,
-                    'reps' => $set->reps,
-                    'weight' => $set->weight,
+                    'id'       => $set->id,
+                    'reps'     => $set->reps,
+                    'weight'   => $set->weight,
+                    'seconds'  => $set->seconds,
+                    'distance' => $set->distance,
                 ];
             }
         }
@@ -79,9 +93,14 @@ class TrainingDetail extends Component
         }
     }
 
-    public function addSet($exerciseId)
+    public function addSet($exerciseId, $exerciseType = 'strength')
     {
-        $this->sets[$exerciseId][] = ['weight' => null, 'reps' => null];
+        $set = match($exerciseType) {
+            'cardio_time'     => ['reps' => null, 'seconds' => null],
+            'cardio_distance' => ['distance' => null],
+            default           => ['reps' => null, 'weight' => null],
+        };
+        $this->sets[$exerciseId][] = $set;
     }
 
     public function updateSets()
@@ -105,15 +124,25 @@ class TrainingDetail extends Component
 
         foreach ($this->sets as $exerciseId => $exerciseSets) {
             foreach ($exerciseSets as $index => $set) {
-                if (isset($set['reps']) && isset($set['weight'])) {
-                    $weight = new TrainingProgramHasWeight();
-                    $weight->user_id = auth()->id();
+                $weight = new TrainingProgramHasWeight();
+                $weight->user_id = auth()->id();
+                $weight->exercise_id = $exerciseId;
+                $weight->training_program_id = $this->training->id;
+
+                if (isset($set['seconds'])) {
+                    if (!isset($set['reps']) || !isset($set['seconds'])) continue;
+                    $weight->reps = $set['reps'];
+                    $weight->seconds = $set['seconds'];
+                } elseif (isset($set['distance'])) {
+                    if (!isset($set['distance'])) continue;
+                    $weight->distance = $set['distance'];
+                } else {
+                    if (!isset($set['reps']) || !isset($set['weight'])) continue;
                     $weight->reps = $set['reps'];
                     $weight->weight = $set['weight'];
-                    $weight->exercise_id = $exerciseId;
-                    $weight->training_program_id = $this->training->id;
-                    $weight->save();
                 }
+
+                $weight->save();
             }
         }
 
