@@ -57,7 +57,6 @@
                                     <span></span>
                                     <span>Weight</span>
                                     <span></span>
-                                    <span></span>
                                 </div>
                             @endif
 
@@ -70,11 +69,13 @@
                                     <span class="training__set-separator">×</span>
                                     <input class="training__input-field" type="number" placeholder="0"
                                            wire:model="existingSets.{{ $exercise->id }}.{{ $index }}.weight">
-                                    <span class="training__set-unit">kg</span>
-                                    <button class="button button--tertiary training__set-remove"
-                                            wire:click="removeSet('{{ $exercise->id }}', {{ $index }})">
-                                        Remove
-                                    </button>
+                                    <div class="training__set-actions">
+                                        <span class="training__set-unit">kg</span>
+                                        <button class="button button--tertiary training__set-remove"
+                                                wire:click="removeSet('{{ $exercise->id }}', {{ $index }})">
+                                            <i class="icon-delete"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             @endforeach
 
@@ -88,11 +89,13 @@
                                     <span class="training__set-separator">×</span>
                                     <input class="training__input-field" type="number" placeholder="0"
                                            wire:model="sets.{{ $exercise->id }}.{{ $index }}.weight">
-                                    <span class="training__set-unit">kg</span>
-                                    <button class="button button--tertiary training__set-remove"
-                                            wire:click="removeSet('{{ $exercise->id }}', {{ $index }})">
-                                        Remove
-                                    </button>
+                                    <div class="training__set-actions">
+                                        <span class="training__set-unit">kg</span>
+                                        <button class="button button--tertiary training__set-remove"
+                                                wire:click="removeSet('{{ $exercise->id }}', {{ $index }})">
+                                            <i class="icon-delete"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             @endforeach
 

@@ -203,7 +203,7 @@
 
 .training__set-header {
     display: grid;
-    grid-template-columns: 32px 1fr 1fr 88px;
+    grid-template-columns: 32px 1fr auto 1fr auto;
     gap: 8px;
     align-items: center;
     padding: 4px 0 8px;
@@ -216,7 +216,7 @@
 
 .training__set-row {
     display: grid;
-    grid-template-columns: 32px 1fr 1fr 88px;
+    grid-template-columns: 32px 1fr auto 1fr auto;
     gap: 8px;
     align-items: center;
     padding: 6px 0;
@@ -225,6 +225,12 @@
     &:last-child {
         border-bottom: none;
     }
+}
+
+.training__set-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
 .training__set-number {
@@ -310,7 +316,7 @@
 }
 
 .training__set-remove {
-    font-size: 0.75rem;
+    font-size: 1rem;
     padding: 6px 10px;
 }
 
