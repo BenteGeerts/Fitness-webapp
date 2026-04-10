@@ -37,6 +37,7 @@
                 <span>Reps</span>
                 <span></span>
                 <span>Weight (kg)</span>
+                <span></span>
             </div>
 
             @foreach($existingSets[$exercise->id] ?? [] as $index => $set)
@@ -47,6 +48,10 @@
                     <span class="training__set-separator">×</span>
                     <input class="training__input-field" type="number" placeholder="0"
                            wire:model="existingSets.{{ $exercise->id }}.{{ $index }}.weight">
+                    <button class="button button--tertiary training__set-remove"
+                            wire:click="removeSet('{{ $exercise->id }}', {{ $index }})">
+                        <i class="icon-delete"></i>
+                    </button>
                 </div>
             @endforeach
 
